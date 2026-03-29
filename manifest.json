@@ -1,6 +1,6 @@
 {
-  "name": "Sunset Vista DD Dashboard",
-  "short_name": "SV Dashboard",
+  "name": "Sunset Vista",
+  "short_name": "Sunset Vista",
   "start_url": "/sunset-vista-dd-dashboard/Pueblo_3Pack_DD_Dashboard.html",
   "scope": "/sunset-vista-dd-dashboard/",
   "display": "standalone",
