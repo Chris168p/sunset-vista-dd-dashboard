@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunset Vista</title>
+<title>Sunset Vista — Due Diligence Dashboard</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#3B82F6">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Sunset Vista">
+<meta name="apple-mobile-web-app-title" content="SV Dashboard">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -63,12 +63,12 @@
     padding: 0; margin-bottom: 18px;
   }
   .tab-label {
-    display: inline-flex; align-items: center; justify-content: center; color: #858D99; font-family: 'Inter', sans-serif;
+    display: inline-block; color: #858D99; font-family: 'Inter', sans-serif;
     font-size: 12px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1.5px; padding: 14px 24px; cursor: pointer;
+    letter-spacing: 1.5px; padding: 16px 24px 14px; cursor: pointer;
     border-bottom: 3px solid transparent; margin-bottom: -2px;
-    transition: color 0.15s, border-color 0.15s, background 0.2s; white-space: nowrap;
-    min-height: 44px; text-align: center;
+    transition: color 0.15s, border-color 0.15s; white-space: nowrap;
+    min-height: 44px;
   }
   .tab-label:hover { color: #E5E9ED; }
   .tab-content { display: none; }
@@ -84,7 +84,8 @@
   #radio-page9:checked ~ .tab-bar .tab-label[for="radio-page9"],
   #radio-page10:checked ~ .tab-bar .tab-label[for="radio-page10"],
   #radio-page11:checked ~ .tab-bar .tab-label[for="radio-page11"],
-    #radio-page12:checked ~ .tab-bar .tab-label[for="radio-page12"] {
+    #radio-page12:checked ~ .tab-bar .tab-label[for="radio-page12"],
+    #radio-page13:checked ~ .tab-bar .tab-label[for="radio-page13"] {
     color: #3B82F6; border-bottom-color: #3B82F6;
   }
 
@@ -99,8 +100,14 @@
   #radio-page9:checked ~ #tab-page9,
   #radio-page10:checked ~ #tab-page10,
   #radio-page11:checked ~ #tab-page11,
-  #radio-page12:checked ~ #tab-page12 {
+  #radio-page12:checked ~ #tab-page12,
+  #radio-page13:checked ~ #tab-page13 {
     display: block;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
   }
 
   /* HERO ROW */
@@ -248,8 +255,13 @@
   @media (max-width: 768px) {
     body { padding: 8px 6px; }
 
-    /* === HEADER: compact === */
-    .header { flex-direction: row !important; align-items: center !important; gap: 0 !important; margin-bottom: 2px !important; }
+    /* === HEADER: compact single-line layout === */
+    .header {
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 0 !important;
+      margin-bottom: 2px !important;
+    }
     .header-left h1 { font-size: 18px; }
     .header-left .subtitle { display: none; }
     .header-right .brand { display: none; }
@@ -257,13 +269,22 @@
     .header-right .timestamp { font-size: 7px; }
     .accent-bar { margin-bottom: 6px !important; }
 
-    /* === QUICK STATS: 2-col grid === */
-    .quick-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0 !important; padding: 10px 12px !important; margin-bottom: 8px !important; }
-    .stat-item { padding: 4px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    /* === QUICK STATS: tight 2-col grid === */
+    .quick-stats {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 0 !important;
+      padding: 10px 12px !important;
+      margin-bottom: 8px !important;
+    }
+    .stat-item {
+      padding: 4px 0 !important;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
     .stat-label { font-size: 7px !important; letter-spacing: 1px !important; }
     .stat-value { font-size: 15px !important; margin-top: 1px !important; }
 
-    /* === GENERAL === */
+    /* === GENERAL LAYOUT === */
     .hero-row { grid-template-columns: 1fr; gap: 8px; }
     .hero-val { font-size: 32px; }
     .tiles-grid, .tiles-grid-3 { grid-template-columns: 1fr; gap: 10px; }
@@ -273,60 +294,161 @@
     .section { padding: 12px !important; }
 
     /* ===== GLOBAL: ALL TABS MOBILE FIXES ===== */
+
+    /* --- ALL data-tables: stacked card layout --- */
     .data-table { display: block !important; width: 100% !important; }
     .data-table thead { display: none !important; }
     .data-table tbody { display: block !important; }
     .data-table tr {
-      display: block !important; background: rgba(59,130,246,0.04);
-      border: 1px solid rgba(59,130,246,0.10); border-radius: 8px;
-      padding: 10px 12px !important; margin-bottom: 8px !important;
+      display: block !important;
+      background: rgba(59,130,246,0.04);
+      border: 1px solid rgba(59,130,246,0.10);
+      border-radius: 8px;
+      padding: 10px 12px !important;
+      margin-bottom: 8px !important;
     }
     .data-table td {
-      display: block !important; text-align: left !important;
-      padding: 2px 0 !important; border: none !important;
-      white-space: normal !important; font-size: 13px !important; line-height: 1.5 !important;
+      display: block !important;
+      text-align: left !important;
+      padding: 2px 0 !important;
+      border: none !important;
+      white-space: normal !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
     }
     .data-table td b { font-size: 14px !important; }
-    .data-table td.dim { font-size: 12px !important; line-height: 1.5 !important; color: #9CA3AF !important; }
-    .data-table .status-badge { font-size: 10px !important; padding: 3px 8px !important; }
-    .data-table .risk-tag { display: inline-block; margin-bottom: 4px; }
-    .data-table tr[style*="background:rgba(239,68,68"] { border-left: 3px solid #EF4444 !important; }
-    .data-table tr[style*="background:rgba(245,158,11"] { border-left: 3px solid #F59E0B !important; }
-    .data-table tr[style*="background:rgba(59,130,246"] { border-left: 3px solid #3B82F6 !important; background: rgba(59,130,246,0.08) !important; }
-    .data-table td[colspan] { font-size: 12px !important; font-weight: 700 !important; padding: 8px 12px !important; background: rgba(59,130,246,0.12) !important; border-radius: 6px !important; }
-    .data-table td.red, .data-table td.orange { font-size: 12px !important; font-weight: 700 !important; }
+    .data-table td.dim {
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      color: #9CA3AF !important;
+    }
+    .data-table .status-badge {
+      font-size: 10px !important;
+      padding: 3px 8px !important;
+    }
+    .data-table .risk-tag {
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    /* Color-coded row borders */
+    .data-table tr[style*="background:rgba(239,68,68"] {
+      border-left: 3px solid #EF4444 !important;
+    }
+    .data-table tr[style*="background:rgba(245,158,11"] {
+      border-left: 3px solid #F59E0B !important;
+    }
+    .data-table tr[style*="background:rgba(59,130,246"] {
+      border-left: 3px solid #3B82F6 !important;
+      background: rgba(59,130,246,0.08) !important;
+    }
+    .data-table td[colspan] {
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      padding: 8px 12px !important;
+      background: rgba(59,130,246,0.12) !important;
+      border-radius: 6px !important;
+      margin-bottom: 4px !important;
+    }
+    .data-table td.red, .data-table td.orange {
+      font-size: 12px !important;
+      font-weight: 700 !important;
+    }
     .data-table td.green { font-size: 12px !important; }
-    div[style*="grid-template-columns:1fr 1fr"], div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 10px !important; }
-    div[style*="grid-template-columns:repeat(3,1fr)"], div[style*="grid-template-columns:repeat(3, 1fr)"], div[style*="grid-template-columns: repeat(3, 1fr)"], div[style*="grid-template-columns: repeat(3,1fr)"] { grid-template-columns: 1fr !important; gap: 8px !important; }
-    div[style*="grid-template-columns:repeat(5,1fr)"], div[style*="grid-template-columns:repeat(5, 1fr)"], div[style*="grid-template-columns: repeat(5, 1fr)"] { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
-    div[style*="grid-template-columns:repeat(3"] > div[style*="border-radius:10px"], div[style*="grid-template-columns:repeat(5"] > div[style*="border-radius:10px"] { padding: 10px 14px !important; }
-    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:8px"], div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:8px"] { font-size: 9px !important; }
-    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:9px"], div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:9px"] { font-size: 11px !important; }
-    div[style*="grid-template-columns: repeat(3, 1fr)"] a, div[style*="grid-template-columns:repeat(3, 1fr)"] a { font-size: 13px !important; padding: 10px 14px !important; }
-    .section div[style*="font-size: 11px"], .section div[style*="font-size: 10.5px"], .section div[style*="font-size: 10px"], .section div[style*="font-size:11px"], .section div[style*="font-size:10.5px"], .section div[style*="font-size:10px"] { font-size: 13px !important; line-height: 1.6 !important; }
+
+    /* --- ALL inline 2-col grids: stack to 1 column --- */
+    div[style*="grid-template-columns:1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    /* --- ALL inline 3-col grids: stack to 1 column --- */
+    div[style*="grid-template-columns:repeat(3,1fr)"],
+    div[style*="grid-template-columns:repeat(3, 1fr)"],
+    div[style*="grid-template-columns: repeat(3, 1fr)"],
+    div[style*="grid-template-columns: repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+
+    /* --- ALL inline 5-col grids: 2 columns --- */
+    div[style*="grid-template-columns:repeat(5,1fr)"],
+    div[style*="grid-template-columns:repeat(5, 1fr)"],
+    div[style*="grid-template-columns: repeat(5, 1fr)"] {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 8px !important;
+    }
+
+    /* --- ALL inline 8-col grids (hero cards): 2 columns --- */
+    div[style*="grid-template-columns:repeat(8"],
+    div[style*="grid-template-columns: repeat(8"] {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 8px !important;
+    }
+
+    /* --- Inline KPI cards in grids: readable --- */
+    div[style*="grid-template-columns:repeat(3"] > div[style*="border-radius:10px"],
+    div[style*="grid-template-columns:repeat(5"] > div[style*="border-radius:10px"] {
+      padding: 10px 14px !important;
+    }
+    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:8px"],
+    div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:8px"] {
+      font-size: 9px !important;
+    }
+    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:22px"],
+    div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:22px"] {
+      font-size: 22px !important;
+    }
+    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:9px"],
+    div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:9px"] {
+      font-size: 11px !important;
+    }
+
+    /* --- Google Drive link grids: full-width --- */
+    div[style*="grid-template-columns: repeat(3, 1fr)"] a,
+    div[style*="grid-template-columns:repeat(3, 1fr)"] a {
+      font-size: 13px !important;
+      padding: 10px 14px !important;
+    }
+
+    /* --- Sections with small text: upscale --- */
+    .section div[style*="font-size: 11px"],
+    .section div[style*="font-size: 10.5px"],
+    .section div[style*="font-size: 10px"],
+    .section div[style*="font-size:11px"],
+    .section div[style*="font-size:10.5px"],
+    .section div[style*="font-size:10px"] {
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* --- Group labels: readable --- */
     .group-label { font-size: 12px !important; }
+
+    /* --- Risk items: stack nicely --- */
     .risk-item { padding: 12px !important; }
     .risk-title { font-size: 14px !important; }
     .risk-body { font-size: 13px !important; line-height: 1.6 !important; }
+
+    /* --- Progress bars: readable --- */
     .progress-label { font-size: 12px !important; }
-    div[style*="grid-template-columns: 240px 240px 1fr"], div[style*="grid-template-columns:240px 240px 1fr"] { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+    /* --- Hero row on tab-page1 (240px fixed cols) --- */
+    div[style*="grid-template-columns: 240px 240px 1fr"],
+    div[style*="grid-template-columns:240px 240px 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    /* --- Phase cards in tiles-grid-5: 2 columns --- */
+    .phase-card { font-size: 11px !important; }
+
+    /* --- Prop tables (key-value): readable --- */
     .prop-table td { font-size: 12px !important; padding: 3px 6px !important; }
 
-    /* --- Data labels for stacked card rows --- */
-    .data-table td[data-label]::before {
-      content: attr(data-label);
-      display: block;
-      font-size: 9px !important;
-      font-weight: 700;
-      color: #3B82F6;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1px;
-      line-height: 1.2;
-    }
-    /* First col is usually the item name/number, skip its label */
-    .data-table td:first-child::before {
-      display: none;
+    /* --- Quick stats bar: 2-column grid --- */
+    .quick-stats div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr 1fr !important;
     }
 
     /* === UTILITIES TAB MOBILE FIXES === */
@@ -479,7 +601,7 @@
     #tab-page10 .data-table td b {
       font-size: 14px !important;
     }
-    /* Property group header rows */
+    /* Property group header rows: full-width banner */
     #tab-page10 .data-table td[colspan] {
       font-size: 12px !important;
       font-weight: 700 !important;
@@ -494,7 +616,7 @@
       background: rgba(59,130,246,0.10) !important;
       border: 1px solid rgba(59,130,246,0.25) !important;
     }
-    /* Status badges */
+    /* Status badges (BLOCKED, PENDING, IN PROGRESS) */
     #tab-page10 .data-table td.red,
     #tab-page10 .data-table td.orange {
       font-size: 11px !important;
@@ -510,6 +632,7 @@
     #tab-page10 .group-label {
       font-size: 12px !important;
     }
+    /* Subtitle text */
     #tab-page10 > div[style*="font-size:10px"] {
       font-size: 11px !important;
       line-height: 1.5 !important;
@@ -526,6 +649,8 @@
     #tab-page10 .tiles-grid > .section > div[style*="margin-bottom:10px"] {
       margin-bottom: 16px !important;
     }
+
+    /* Ops notes footnotes: readable */
     #tab-page10 .section > div[style*="font-size:9px"] {
       font-size: 11px !important;
       line-height: 1.6 !important;
@@ -541,56 +666,18 @@
       padding: 10px 14px !important;
     }
 
-    /* === TAB BAR: clean scrollable pills === */
+    /* Tab bar: scrollable on mobile */
     .tab-bar {
-      overflow-x: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-      flex-wrap: nowrap !important;
-      gap: 8px !important;
-      padding: 10px 8px 12px !important;
-      margin-bottom: 6px !important;
-      border-bottom: none !important;
-      background: #0A0E1A !important;
-      align-items: center !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      flex-wrap: nowrap;
+      padding-bottom: 4px;
     }
     .tab-bar label {
-      white-space: nowrap !important;
-      flex-shrink: 0 !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-align: center !important;
-      font-size: 11px !important;
-      font-weight: 700 !important;
-      padding: 10px 18px !important;
-      background: rgba(30,41,59,0.8) !important;
-      border-radius: 24px !important;
-      border: 1.5px solid rgba(59,130,246,0.15) !important;
-      border-bottom: 1.5px solid rgba(59,130,246,0.15) !important;
-      color: #64748B !important;
-      letter-spacing: 0.8px !important;
-      text-transform: uppercase !important;
-      line-height: 1 !important;
-      margin-bottom: 0 !important;
-      min-height: auto !important;
-    }
-    /* Active tab pill: bright and obvious */
-    #radio-page1:checked ~ .tab-bar .tab-label[for="radio-page1"],
-    #radio-page2:checked ~ .tab-bar .tab-label[for="radio-page2"],
-    #radio-page3:checked ~ .tab-bar .tab-label[for="radio-page3"],
-    #radio-page4:checked ~ .tab-bar .tab-label[for="radio-page4"],
-    #radio-page5:checked ~ .tab-bar .tab-label[for="radio-page5"],
-    #radio-page6:checked ~ .tab-bar .tab-label[for="radio-page6"],
-    #radio-page7:checked ~ .tab-bar .tab-label[for="radio-page7"],
-    #radio-page8:checked ~ .tab-bar .tab-label[for="radio-page8"],
-    #radio-page9:checked ~ .tab-bar .tab-label[for="radio-page9"],
-    #radio-page10:checked ~ .tab-bar .tab-label[for="radio-page10"],
-    #radio-page11:checked ~ .tab-bar .tab-label[for="radio-page11"],
-    #radio-page12:checked ~ .tab-bar .tab-label[for="radio-page12"] {
-      background: rgba(59,130,246,0.3) !important;
-      color: #FFFFFF !important;
-      border-color: #3B82F6 !important;
-      box-shadow: 0 0 12px rgba(59,130,246,0.3) !important;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-size: 9px;
+      padding: 7px 10px;
     }
   }
 </style>
@@ -636,11 +723,12 @@
   <input type="radio" name="tabs" id="radio-page10" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page11" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page12" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page13" class="tab-radio">
 
   <div class="tab-bar">
     <label class="tab-label" for="radio-page1">Executive Summary</label>
     <label class="tab-label" for="radio-page11">Action Items</label>
-    <label class="tab-label" for="radio-page2">LOI Checklist</label>
+    <label class="tab-label" for="radio-page2">DD Checklist</label>
     <label class="tab-label" for="radio-page4">Red Flags & Risks</label>
     <label class="tab-label" for="radio-page9">Site Visit</label>
     <label class="tab-label" for="radio-page3">Financial Analysis</label>
@@ -649,6 +737,7 @@
     <label class="tab-label" for="radio-page7">POH Analysis</label>
     <label class="tab-label" for="radio-page10">Utilities</label>
     <label class="tab-label" for="radio-page5">Timeline & Team</label>
+    <label class="tab-label" for="radio-page13">Deal Status</label>
     <label class="tab-label" for="radio-page8">Kickoff Meeting</label>
   </div>
 
@@ -812,27 +901,24 @@
     <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px;">DD FILE STORAGE &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Google Drive</a></div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px;">
-        <a href="https://drive.google.com/drive/folders/1ZRhmL3J41luXe5vJocrBtPJ9a4zES8T1" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
           <span style="font-size: 14px;">&#128193;</span> 01 &mdash; Financial <span style="color:#858D99; font-weight:400; font-size:10px;">(A-D)</span></a>
-        <a href="https://drive.google.com/drive/folders/1OtVXnAp_aWmZ3asMiag6G2Ub-QUynTZP" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
           <span style="font-size: 14px;">&#128193;</span> 02 &mdash; Tax &amp; Insurance <span style="color:#858D99; font-weight:400; font-size:10px;">(E,J-K)</span></a>
-        <a href="https://drive.google.com/drive/folders/1bpkgb28JbABRXQizy-kXcnnri0lAaizq" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
           <span style="font-size: 14px;">&#128193;</span> 03 &mdash; Legal &amp; Leases <span style="color:#858D99; font-weight:400; font-size:10px;">(F,S-U,Z-AA)</span></a>
-        <a href="https://drive.google.com/drive/folders/14QeOmIcGFR2ePiklPZ8xUCyHHJmq-m3C" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
           <span style="font-size: 14px;">&#128193;</span> 04 &mdash; Operations <span style="color:#858D99; font-weight:400; font-size:10px;">(G-I,P-R)</span></a>
-        <a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128193;</span> 05 &mdash; Physical and Reports <span style="color:#858D99; font-weight:400; font-size:10px;">(L-O,V)</span></a>
-        <a href="https://drive.google.com/drive/folders/1uMuE5YLK-YFoYFzVf4bd_6e1qB13ha0E" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.30); border-radius: 6px; color: #F9A8D4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #EC4899;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128193;</span> 05 &mdash; Physical &amp; Env <span style="color:#858D99; font-weight:400; font-size:10px;">(L-O,V)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.30); border-radius: 6px; color: #F9A8D4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #EC4899;">
           <span style="font-size: 14px;">&#128193;</span> 06 &mdash; Title &amp; Closing <span style="color:#858D99; font-weight:400; font-size:10px;">(W-X)</span></a>
-        <a href="https://drive.google.com/drive/folders/1PQLcU2sANFWUQnwSStVRuVBQhVy1GldK" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.30); border-radius: 6px; color: #67E8F9; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #06B6D4;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.30); border-radius: 6px; color: #67E8F9; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #06B6D4;">
           <span style="font-size: 14px;">&#128193;</span> 07 &mdash; POH <span style="color:#858D99; font-weight:400; font-size:10px;">(Y)</span></a>
-        <a href="https://drive.google.com/drive/folders/1yQwOYPfrUDlzhV-t7n7V6G7e7RD-ZeKu" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
           <span style="font-size: 14px;">&#128193;</span> 08 &mdash; UW &amp; Analysis</a>
-        
-        <a href="https://drive.google.com/drive/folders/1scgnWxmzQe8JcvkPNA_nuC72hzd_r8Hc" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(244,114,182,0.08); border: 1px solid rgba(244,114,182,0.30); border-radius: 6px; color: #F472B6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F472B6;">
-          <span style="font-size: 14px;">&#128193;</span> 09 &mdash; Videos &amp; Pics</a>
-        <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.30); border-radius: 6px; color: #FDE68A; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #FBBF24;">
-          <span style="font-size: 14px;">&#128193;</span> 10 &mdash; Misc</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.30); border-radius: 6px; color: #FDE68A; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #FBBF24;">
+          <span style="font-size: 14px;">&#128193;</span> 09 &mdash; Misc Files</a>
       </div>
     </div>
 
@@ -852,7 +938,7 @@
           <!-- 01 FINANCIAL (A-D) — Blue #3B82F6 -->
           <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
             <td class="dim">A</td>
-            <td><a href="https://drive.google.com/drive/folders/1E1a_vYX8gC9qhl_wAZBdA8pE2M8wsVCd" target="_blank" style="color:#93B4F8; text-decoration:none;">Rent Rolls (Current)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#93B4F8; text-decoration:none;">Rent Rolls (Current)</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">6</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(59,130,246,0.15); border-radius:3px; color:#93B4F8; font-weight:600;">01 FIN</span></td>
@@ -860,7 +946,7 @@
           </tr>
           <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
             <td class="dim">B</td>
-            <td><a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Profit &amp; Loss Statements</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Profit &amp; Loss Statements</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">6</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(59,130,246,0.15); border-radius:3px; color:#93B4F8; font-weight:600;">01 FIN</span></td>
@@ -868,7 +954,7 @@
           </tr>
           <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
             <td class="dim">C</td>
-            <td><a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Utility Bills</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Utility Bills</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">217</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(59,130,246,0.15); border-radius:3px; color:#93B4F8; font-weight:600;">01 FIN</span></td>
@@ -876,7 +962,7 @@
           </tr>
           <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
             <td class="dim">D</td>
-            <td><a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Bank Statements</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Bank Statements</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">36</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(59,130,246,0.15); border-radius:3px; color:#93B4F8; font-weight:600;">01 FIN</span></td>
@@ -885,7 +971,7 @@
           <!-- 02 TAX & INSURANCE (E, J-K) — Purple #8B5CF6 -->
           <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
             <td class="dim">E</td>
-            <td><a href="https://drive.google.com/drive/folders/1uhhNpBbKhBFESFQEFpoAOxZiNTyaeiL0" target="_blank" style="color:#B794F6; text-decoration:none;">Property Tax Records (2 Years)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#B794F6; text-decoration:none;">Property Tax Records (2 Years)</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">42</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(139,92,246,0.15); border-radius:3px; color:#B794F6; font-weight:600;">02 TAX</span></td>
@@ -894,7 +980,7 @@
           <!-- 03 LEGAL & LEASES (F) — Teal #14B8A6 -->
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
             <td class="dim">F</td>
-            <td><a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT" target="_blank" style="color:#5EEAD4; text-decoration:none;">Executed Leases (Sample 10+)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Executed Leases (Sample 10+)</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">37</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(20,184,166,0.15); border-radius:3px; color:#5EEAD4; font-weight:600;">03 LGL</span></td>
@@ -903,7 +989,7 @@
           <!-- 04 OPERATIONS (G-I) — Orange #F59E0B -->
           <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
             <td class="dim">G</td>
-            <td><a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt" target="_blank" style="color:#FBBF24; text-decoration:none;">Service Contracts</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">Service Contracts</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(245,158,11,0.15); border-radius:3px; color:#FBBF24; font-weight:600;">04 OPS</span></td>
@@ -911,7 +997,7 @@
           </tr>
           <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
             <td class="dim">H</td>
-            <td><a href="https://drive.google.com/drive/folders/1B8JQd0knv7ZPwvzqRbOXlaKB21MTX3jE" target="_blank" style="color:#FBBF24; text-decoration:none;">Contractor &amp; Vendor Lists</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">Contractor &amp; Vendor Lists</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(245,158,11,0.15); border-radius:3px; color:#FBBF24; font-weight:600;">04 OPS</span></td>
@@ -919,7 +1005,7 @@
           </tr>
           <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
             <td class="dim">I</td>
-            <td><a href="https://drive.google.com/drive/folders/163-dj0LrTIrsNCPK-4l81fptVKpCrb03" target="_blank" style="color:#FBBF24; text-decoration:none;">Delinquency Report</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">Delinquency Report</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(245,158,11,0.15); border-radius:3px; color:#FBBF24; font-weight:600;">04 OPS</span></td>
@@ -928,7 +1014,7 @@
           <!-- 02 TAX & INSURANCE (J-K) — Purple #8B5CF6 -->
           <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
             <td class="dim">J</td>
-            <td><a href="https://drive.google.com/drive/folders/1y99i4PWE5iY__-Rgxw5MjnolZETVkwzC" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Loss Runs (5 Years)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Loss Runs (5 Years)</a></td>
             <td><span class="status-badge badge-partial">PARTIAL</span></td>
             <td class="orange">1</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(139,92,246,0.15); border-radius:3px; color:#B794F6; font-weight:600;">02 TAX</span></td>
@@ -936,7 +1022,7 @@
           </tr>
           <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
             <td class="dim">K</td>
-            <td><a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Policies (Current)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Policies (Current)</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">6</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(139,92,246,0.15); border-radius:3px; color:#B794F6; font-weight:600;">02 TAX</span></td>
@@ -945,7 +1031,7 @@
           <!-- 05 PHYSICAL & ENV (L-O) — Green #10B981 -->
           <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
             <td class="dim">L</td>
-            <td><a href="https://drive.google.com/drive/folders/1mwsE8dHIf7iVUx8hNufI4GULnG_TK9_q" target="_blank" style="color:#6EE7B7; text-decoration:none;">ALTA Surveys</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#6EE7B7; text-decoration:none;">ALTA Surveys</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">3</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(16,185,129,0.15); border-radius:3px; color:#6EE7B7; font-weight:600;">05 PHY</span></td>
@@ -953,7 +1039,7 @@
           </tr>
           <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
             <td class="dim">M</td>
-            <td><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y" target="_blank" style="color:#6EE7B7; text-decoration:none;">Phase 1 Environmental Reports</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#6EE7B7; text-decoration:none;">Phase 1 Environmental Reports</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">3</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(16,185,129,0.15); border-radius:3px; color:#6EE7B7; font-weight:600;">05 PHY</span></td>
@@ -961,7 +1047,7 @@
           </tr>
           <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
             <td class="dim">N</td>
-            <td><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd" target="_blank" style="color:#6EE7B7; text-decoration:none;">PCA Reports</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#6EE7B7; text-decoration:none;">PCA Reports</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">3</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(16,185,129,0.15); border-radius:3px; color:#6EE7B7; font-weight:600;">05 PHY</span></td>
@@ -969,7 +1055,7 @@
           </tr>
           <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
             <td class="dim">O</td>
-            <td><a href="https://drive.google.com/drive/folders/14mUkkfQXNFv1qYEnYzLeJG758Y-qNqyo" target="_blank" style="color:#6EE7B7; text-decoration:none;">Site Maps</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#6EE7B7; text-decoration:none;">Site Maps</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">3</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(16,185,129,0.15); border-radius:3px; color:#6EE7B7; font-weight:600;">05 PHY</span></td>
@@ -978,7 +1064,7 @@
           <!-- 04 OPERATIONS (P-R) — Orange #F59E0B -->
           <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
             <td class="dim">P</td>
-            <td><a href="https://drive.google.com/drive/folders/1lNZVZnjmmiRumo4mICg_mmFrT5_brs1V" target="_blank" style="color:#FBBF24; text-decoration:none;">Personal Property Inventory</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">Personal Property Inventory</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">1</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(245,158,11,0.15); border-radius:3px; color:#FBBF24; font-weight:600;">04 OPS</span></td>
@@ -986,7 +1072,7 @@
           </tr>
           <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
             <td class="dim">Q</td>
-            <td><a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG" target="_blank" style="color:#FBBF24; text-decoration:none;">Rent Manager Access / Export</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">Rent Manager Access / Export</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(245,158,11,0.15); border-radius:3px; color:#FBBF24; font-weight:600;">04 OPS</span></td>
@@ -994,7 +1080,7 @@
           </tr>
           <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
             <td class="dim">R</td>
-            <td><a href="https://drive.google.com/drive/folders/1pjXTuKZbqwF8ghAT_FXXUyNP2RiOuk2B" target="_blank" style="color:#FBBF24; text-decoration:none;">MPOP Registration (Active)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">MPOP Registration (Active)</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(245,158,11,0.15); border-radius:3px; color:#FBBF24; font-weight:600;">04 OPS</span></td>
@@ -1003,7 +1089,7 @@
           <!-- 03 LEGAL & LEASES (S-U) — Teal #14B8A6 -->
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
             <td class="dim">S</td>
-            <td><a href="https://drive.google.com/drive/folders/1KllhpE7p4M4ULiX7lbN-izuYf0pbyJuw" target="_blank" style="color:#5EEAD4; text-decoration:none;">OTP Compliance Documents</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">OTP Compliance Documents</a></td>
             <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
             <td class="orange">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(20,184,166,0.15); border-radius:3px; color:#5EEAD4; font-weight:600;">03 LGL</span></td>
@@ -1011,7 +1097,7 @@
           </tr>
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
             <td class="dim">T</td>
-            <td><a href="https://drive.google.com/drive/folders/1j2r0tSBltzQ6wdYMeJLQ7GwZdbmR9ur3" target="_blank" style="color:#5EEAD4; text-decoration:none;">Litigation / Gov't Notices / Code Violations</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Litigation / Gov't Notices / Code Violations</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(20,184,166,0.15); border-radius:3px; color:#5EEAD4; font-weight:600;">03 LGL</span></td>
@@ -1019,7 +1105,7 @@
           </tr>
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
             <td class="dim">U</td>
-            <td><a href="https://drive.google.com/drive/folders/1N8VqGRrr1S2yEkjr7CaDM9Yel-dp00sl" target="_blank" style="color:#5EEAD4; text-decoration:none;">Permits &amp; Licenses</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Permits &amp; Licenses</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(20,184,166,0.15); border-radius:3px; color:#5EEAD4; font-weight:600;">03 LGL</span></td>
@@ -1028,7 +1114,7 @@
           <!-- 05 PHYSICAL & ENV (V) — Green #10B981 -->
           <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
             <td class="dim">V</td>
-            <td><a href="https://drive.google.com/drive/folders/18ZJMRRbWC28q9hFJRkk4rzEEelH0wMul" target="_blank" style="color:#6EE7B7; text-decoration:none;">CapEx Records (3 Years)</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#6EE7B7; text-decoration:none;">CapEx Records (3 Years)</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(16,185,129,0.15); border-radius:3px; color:#6EE7B7; font-weight:600;">05 PHY</span></td>
@@ -1060,7 +1146,7 @@
           <!-- 06 TITLE & CLOSING (W-X) — Pink #EC4899 -->
           <tr style="background:rgba(236,72,153,0.04); border-left: 2px solid rgba(236,72,153,0.40);">
             <td class="dim">W</td>
-            <td><a href="https://drive.google.com/drive/folders/1uMuE5YLK-YFoYFzVf4bd_6e1qB13ha0E" target="_blank" style="color:#F9A8D4; text-decoration:none;">Title Commitments &amp; Exception Documents</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">Title Commitments &amp; Exception Documents</a></td>
             <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
             <td class="orange">2</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(236,72,153,0.15); border-radius:3px; color:#F9A8D4; font-weight:600;">06 TTL</span></td>
@@ -1068,7 +1154,7 @@
           </tr>
           <tr style="background:rgba(236,72,153,0.04); border-left: 2px solid rgba(236,72,153,0.40);">
             <td class="dim">X</td>
-            <td><a href="https://drive.google.com/drive/folders/1uMuE5YLK-YFoYFzVf4bd_6e1qB13ha0E" target="_blank" style="color:#F9A8D4; text-decoration:none;">CMBS Loan Assumption Package</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">CMBS Loan Assumption Package</a></td>
             <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
             <td class="orange">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(236,72,153,0.15); border-radius:3px; color:#F9A8D4; font-weight:600;">06 TTL</span></td>
@@ -1077,7 +1163,7 @@
           <!-- 07 POH (Y) — Cyan #06B6D4 -->
           <tr style="background:rgba(6,182,212,0.04); border-left: 2px solid rgba(6,182,212,0.40);">
             <td class="dim">Y</td>
-            <td><a href="https://drive.google.com/drive/folders/1PQLcU2sANFWUQnwSStVRuVBQhVy1GldK" target="_blank" style="color:#67E8F9; text-decoration:none;">POH Inventory &amp; Title Verification</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#67E8F9; text-decoration:none;">POH Inventory &amp; Title Verification</a></td>
             <td><span class="status-badge badge-partial">PARTIAL</span></td>
             <td class="orange">1</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(6,182,212,0.15); border-radius:3px; color:#67E8F9; font-weight:600;">07 POH</span></td>
@@ -1086,7 +1172,7 @@
           <!-- 03 LEGAL & LEASES (Z-AA) — Teal #14B8A6 -->
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
             <td class="dim">Z</td>
-            <td><a href="https://drive.google.com/drive/folders/1bpkgb28JbABRXQizy-kXcnnri0lAaizq" target="_blank" style="color:#5EEAD4; text-decoration:none;">Zoning &amp; Land Use Confirmation</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Zoning &amp; Land Use Confirmation</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(20,184,166,0.15); border-radius:3px; color:#5EEAD4; font-weight:600;">03 LGL</span></td>
@@ -1094,7 +1180,7 @@
           </tr>
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
             <td class="dim">AA</td>
-            <td><a href="https://drive.google.com/drive/folders/1bpkgb28JbABRXQizy-kXcnnri0lAaizq" target="_blank" style="color:#5EEAD4; text-decoration:none;">Estoppel Certificates</a></td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Estoppel Certificates</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
             <td><span style="font-size:9px; padding:2px 6px; background:rgba(20,184,166,0.15); border-radius:3px; color:#5EEAD4; font-weight:600;">03 LGL</span></td>
@@ -1106,7 +1192,7 @@
 
     <!-- MISC FILES -->
     <div class="group-divider">
-      <div class="group-label">10. Misc &amp; New Documents</div>
+      <div class="group-label">Misc Files &amp; New Documents</div>
       <div class="group-line"></div>
     </div>
 
@@ -1160,7 +1246,7 @@
         </tbody>
       </table>
       <div style="margin-top: 10px;">
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: inline-block; padding: 5px 14px; background: rgba(251,191,36,0.10); border: 1px solid rgba(251,191,36,0.25); border-radius: 4px; color: #FBBF24; font-size: 10px; text-decoration: none; font-weight: 600;">Open Misc in Google Drive &rarr;</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: inline-block; padding: 5px 14px; background: rgba(251,191,36,0.10); border: 1px solid rgba(251,191,36,0.25); border-radius: 4px; color: #FBBF24; font-size: 10px; text-decoration: none; font-weight: 600;">Open Misc Files in Google Drive &rarr;</a>
       </div>
     </div>
 
@@ -2205,27 +2291,24 @@
     <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px;">PUEBLO 3-PACK DD &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Open in Google Drive</a></div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px;">
-        <a href="https://drive.google.com/drive/folders/1ZRhmL3J41luXe5vJocrBtPJ9a4zES8T1" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
           <span style="font-size: 14px;">&#128193;</span> 01 &mdash; Financial <span style="color:#858D99; font-weight:400; font-size:10px;">(A-D)</span></a>
-        <a href="https://drive.google.com/drive/folders/1OtVXnAp_aWmZ3asMiag6G2Ub-QUynTZP" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
           <span style="font-size: 14px;">&#128193;</span> 02 &mdash; Tax &amp; Insurance <span style="color:#858D99; font-weight:400; font-size:10px;">(E,J-K)</span></a>
-        <a href="https://drive.google.com/drive/folders/1bpkgb28JbABRXQizy-kXcnnri0lAaizq" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
           <span style="font-size: 14px;">&#128193;</span> 03 &mdash; Legal &amp; Leases <span style="color:#858D99; font-weight:400; font-size:10px;">(F,S-U,Z-AA)</span></a>
-        <a href="https://drive.google.com/drive/folders/14QeOmIcGFR2ePiklPZ8xUCyHHJmq-m3C" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
           <span style="font-size: 14px;">&#128193;</span> 04 &mdash; Operations <span style="color:#858D99; font-weight:400; font-size:10px;">(G-I,P-R)</span></a>
-        <a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128193;</span> 05 &mdash; Physical and Reports <span style="color:#858D99; font-weight:400; font-size:10px;">(L-O,V)</span></a>
-        <a href="https://drive.google.com/drive/folders/1uMuE5YLK-YFoYFzVf4bd_6e1qB13ha0E" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.30); border-radius: 6px; color: #F9A8D4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #EC4899;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128193;</span> 05 &mdash; Physical &amp; Env <span style="color:#858D99; font-weight:400; font-size:10px;">(L-O,V)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.30); border-radius: 6px; color: #F9A8D4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #EC4899;">
           <span style="font-size: 14px;">&#128193;</span> 06 &mdash; Title &amp; Closing <span style="color:#858D99; font-weight:400; font-size:10px;">(W-X)</span></a>
-        <a href="https://drive.google.com/drive/folders/1PQLcU2sANFWUQnwSStVRuVBQhVy1GldK" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.30); border-radius: 6px; color: #67E8F9; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #06B6D4;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.30); border-radius: 6px; color: #67E8F9; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #06B6D4;">
           <span style="font-size: 14px;">&#128193;</span> 07 &mdash; POH <span style="color:#858D99; font-weight:400; font-size:10px;">(Y)</span></a>
-        <a href="https://drive.google.com/drive/folders/1yQwOYPfrUDlzhV-t7n7V6G7e7RD-ZeKu" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
           <span style="font-size: 14px;">&#128193;</span> 08 &mdash; UW &amp; Analysis</a>
-        
-        <a href="https://drive.google.com/drive/folders/1scgnWxmzQe8JcvkPNA_nuC72hzd_r8Hc" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(244,114,182,0.08); border: 1px solid rgba(244,114,182,0.30); border-radius: 6px; color: #F472B6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F472B6;">
-          <span style="font-size: 14px;">&#128193;</span> 09 &mdash; Videos &amp; Pics</a>
-        <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.30); border-radius: 6px; color: #FDE68A; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #FBBF24;">
-          <span style="font-size: 14px;">&#128193;</span> 10 &mdash; Misc</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.30); border-radius: 6px; color: #FDE68A; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #FBBF24;">
+          <span style="font-size: 14px;">&#128193;</span> 09 &mdash; Misc Files</a>
       </div>
     </div>
 
@@ -2234,12 +2317,6 @@
 
   <!-- ============================= PAGE 6: UW MODEL COMPARISON ============================= -->
   <div class="tab-content" id="tab-page6">
-
-    <div style="margin-bottom: 16px;">
-      <a href="https://1drv.ms/x/c/83aacab46b08e19a/IQB5RuaKMpHETLE9qiY3NtZZAcOyo18UMebQLtnjriO6DEs" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; background: rgba(59,130,246,0.12); border: 1.5px solid rgba(59,130,246,0.4); border-radius: 8px; color: #93B4F8; font-size: 13px; text-decoration: none; font-weight: 700; letter-spacing: 0.5px; border-left: 3px solid #3B82F6;">
-        <span style="font-size: 16px;">&#128196;</span> Open Underwriting Model in Excel
-      </a>
-    </div>
 
     <div class="group-divider">
       <div class="group-label">Underwriting Model — Community Operations Analysis</div>
@@ -3892,51 +3969,48 @@
   <!-- ============================= PAGE 9: SITE VISIT ============================= -->
   <div class="tab-content" id="tab-page9">
 
-<!-- DOCUMENT LINKS -->
-    <div class="group-divider">
-      <div class="group-label">Source Documents &mdash; Google Drive</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128196;</span> Phase 1 Reports (M)</a>
-        <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128196;</span> PCA Reports (N)</a>
-        <a href="https://drive.google.com/drive/folders/1mwsE8dHIf7iVUx8hNufI4GULnG_TK9_q" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128196;</span> ALTA Surveys (L)</a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
-          <span style="font-size: 14px;">&#128196;</span> Rent Rolls (A)</a>
-        <a href="https://drive.google.com/drive/folders/1lNZVZnjmmiRumo4mICg_mmFrT5_brs1V" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
-          <span style="font-size: 14px;">&#128196;</span> Personal Property (P)</a>
-        <a href="https://drive.google.com/drive/folders/18ZJMRRbWC28q9hFJRkk4rzEEelH0wMul" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128196;</span> CapEx Records (V)</a>
-        <a href="https://drive.google.com/drive/folders/1scgnWxmzQe8JcvkPNA_nuC72hzd_r8Hc" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(244,114,182,0.08); border: 1px solid rgba(244,114,182,0.30); border-radius: 6px; color: #F472B6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F472B6;">
-          <span style="font-size: 14px;">&#128247;</span> Videos &amp; Pics</a>
-        <a href="https://drive.google.com/drive/folders/1B8JQd0knv7ZPwvzqRbOXlaKB21MTX3jE" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
-          <span style="font-size: 14px;">&#128221;</span> Contractor &amp; Vendor Lists</a>
+    <!-- QUICK REFERENCE -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+      <div class="section" style="margin-bottom:0; border-left: 3px solid #22C55E; padding-left: 12px;">
+        <div style="font-size: 11px; color: #22C55E; font-weight: 700; margin-bottom: 6px;">VISIT ROUTE</div>
+        <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
+          <b style="color:#E5E9ED;">1. Sunset Vista</b> (206 lots) &mdash; 2&ndash;3 hrs. Most vacant lots, office, pool, farm house.<br>
+          <b style="color:#E5E9ED;">2. Oasis</b> (161 lots) &mdash; 2 hrs. Worst roads, ADA issues, boiler, 4 abandoned homes.<br>
+          <b style="color:#E5E9ED;">3. La Vista</b> (32 lots) &mdash; 45 min. Cleanest. Verify survey encroachments.
+        </div>
+      </div>
+      <div class="section" style="margin-bottom:0; border-left: 3px solid #6366F1; padding-left: 12px;">
+        <div style="font-size: 11px; color: #6366F1; font-weight: 700; margin-bottom: 6px;">ON-SITE CONTACTS</div>
+        <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
+          <b style="color:#E5E9ED;">Kim Pedraza</b> &mdash; Park Manager (OC &amp; SC) &mdash; (719) 564-1352<br>
+          <b style="color:#E5E9ED;">Curtis Maldonado</b> &mdash; Maintenance (LAV) &mdash; (719) 564-1352
+        </div>
+        <div style="font-size: 10px; color: #858D99; margin-top: 8px; line-height: 1.6;">
+          <b style="color:#8B5CF6;">Bring:</b> PCA photos &middot; Lot maps &middot; Survey plats (LAV) &middot; Tape measure &middot; Camera &middot; This dashboard
+        </div>
       </div>
     </div>
 
-  
-
-    <!-- OVERVIEW -->
-    <div class="group-divider">
-      <div class="group-label">Overview</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #22C55E; padding-left: 12px;">
-      <div style="font-size: 11px; color: #C9CDD3; line-height: 1.9;">
-        <b style="color:#22C55E;">Sunset Vista</b> (206 lots) &mdash; Highest vacancy (37 vacant lots). Walk every vacant lot: verify water/sewer/electric hookup status, pad condition, and whether lot is leasable. Inspect office, pool, and farmhouse. Assess road surfaces and ADA access.<br>
-        <b style="color:#22C55E;">Oasis</b> (161 lots) &mdash; Worst roads per PCA ($41K immediate asphalt). ADA failures at 2 buildings ($8.8K). Boiler rated FAIR. 4 abandoned homes to assess for removal vs. rehab. Check pool condition, fire extinguisher tags, and roof ponding.<br>
-        <b style="color:#22C55E;">La Vista</b> (32 lots) &mdash; Cleanest property. Primary focus: verify ALTA survey encroachments (fence 4.3 ft + building 6.5 ft beyond boundary). Photograph with survey plat. Confirm 29 occupied lots match rent roll. Assess tree hazards.<br><br>
-        <b style="color:#8B5CF6;">Bring:</b> PCA photos &middot; Lot maps &middot; Survey plats (LAV) &middot; Tape measure &middot; Camera &middot; This dashboard
+    <!-- PCA BASELINE KPIs — compact 3-card strip -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px;">
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Immediate Repairs</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">$52K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC $44K &middot; SC $9K &middot; LAV $0</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">7-Year Reserves</div>
+        <div style="font-size:22px; font-weight:900; color:#FBBF24;">$169K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">$43/unit/yr avg</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Abandoned Homes</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">9</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">SC: 5 &middot; OC: 4 &middot; LAV: 0</div>
       </div>
     </div>
 
-<!-- INSPECTION CHECKLIST -->
+    <!-- INSPECTION CHECKLIST -->
     <div class="group-divider">
       <div class="group-label">Inspection Checklist</div>
       <div class="group-line"></div>
@@ -4049,28 +4123,128 @@
       </table>
     </div>
 
-    
-<!-- PCA BASELINE KPIs — compact 3-card strip -->
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px;">
-      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Immediate Repairs</div>
-        <div style="font-size:22px; font-weight:900; color:#EF4444;">$52K</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC $44K &middot; SC $9K &middot; LAV $0</div>
+    <!-- PHOTO REVIEW FINDINGS -->
+    <div class="group-divider">
+      <div class="group-label">Photo Review Findings</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:14px;">
+      <div class="section" style="border-left: 4px solid #00E676; padding-left: 12px;">
+        <div style="font-size:11px; font-weight:700; color:#00E676; margin-bottom:8px;">LA VISTA (32 LOTS)</div>
+        <div style="font-size:10px; color:#E5E9ED; margin-bottom:6px;"><b>Condition:</b> <span class="green">Cleanest of three</span></div>
+        <div style="font-size:10px; color:#858D99; line-height:1.5;">
+          <b style="color:#E5E9ED;">Key Issues:</b> ALTA survey encroachments (fence 4.3 ft + building 6.5 ft), tree hazards, 29 occupied lots to verify<br>
+          <b style="color:#E5E9ED;">Priority:</b> Photograph encroachment areas with survey plat
+        </div>
       </div>
-      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">7-Year Reserves</div>
-        <div style="font-size:22px; font-weight:900; color:#FBBF24;">$169K</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">$43/unit/yr avg</div>
+      <div class="section" style="border-left: 4px solid #FBBF24; padding-left: 12px;">
+        <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:8px;">OASIS MCC (161 LOTS)</div>
+        <div style="font-size:10px; color:#E5E9ED; margin-bottom:6px;"><b>Condition:</b> <span class="orange">Most complex, widest variation</span></div>
+        <div style="font-size:10px; color:#858D99; line-height:1.5;">
+          <b style="color:#E5E9ED;">Roads:</b> Asphalt deterioration in nearly every photo, confirms $41K immediate<br>
+          <b style="color:#E5E9ED;">Housing:</b> Two-tier &mdash; newer dark brown/taupe vs aging single-wides &middot; 4 abandoned homes<br>
+          <b style="color:#E5E9ED;">Red Flags:</b> Roads $41K, ADA $8.8K, boiler FAIR, dead tree limbs near power lines, wooden decks without railings<br>
+          <b style="color:#E5E9ED;">Opportunities:</b> Common area refresh, re-stripe parking, tree trimming
+        </div>
       </div>
-      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Abandoned Homes</div>
-        <div style="font-size:22px; font-weight:900; color:#EF4444;">9</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">SC: 5 &middot; OC: 4 &middot; LAV: 0</div>
+      <div class="section" style="border-left: 4px solid #EF4444; padding-left: 12px;">
+        <div style="font-size:11px; font-weight:700; color:#EF4444; margin-bottom:8px;">SUNSET COURTYARD</div>
+        <div style="font-size:10px; color:#E5E9ED; margin-bottom:6px;"><b>Condition:</b> <span class="red">Strongest entrance, most dated stock</span></div>
+        <div style="font-size:10px; color:#858D99; line-height:1.5;">
+          <b style="color:#E5E9ED;">Entrance:</b> Professional &ldquo;Sunset Country Estates&rdquo; signage, mature tree canopy archway<br>
+          <b style="color:#E5E9ED;">Clubhouse:</b> Stucco building, playground, directory sign<br>
+          <b style="color:#EF4444;">CRITICAL:</b> Massive cottonwoods, dead branches over power lines &mdash; arborist assessment required before close, 5-figure budget<br>
+          <b style="color:#E5E9ED;">Red Flags:</b> Tree/power line liability, oldest housing stock, external extension cords
+        </div>
       </div>
     </div>
 
-    
-<!-- THIRD-PARTY REPORT SUMMARY -->
+    <!-- PORTFOLIO PHOTO THEMES STRIP -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-bottom:14px;">
+      <div style="background:#111827; border-radius:12px; padding:12px 14px; border:1px solid rgba(59,130,246,0.08); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Mixed Housing Stock</div>
+        <div style="font-size:16px; font-weight:800; color:#FBBF24;">ALL 3</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">SV/OC/LAV</div>
+      </div>
+      <div style="background:#111827; border-radius:12px; padding:12px 14px; border:1px solid rgba(59,130,246,0.08); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Road Deterioration</div>
+        <div style="font-size:16px; font-weight:800; color:#EF4444;">OC, SC</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">$43.4K immediate</div>
+      </div>
+      <div style="background:#111827; border-radius:12px; padding:12px 14px; border:1px solid rgba(59,130,246,0.08); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Tree Hazards</div>
+        <div style="font-size:16px; font-weight:800; color:#EF4444;">ALL 3</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Power lines &middot; Liability</div>
+      </div>
+      <div style="background:#111827; border-radius:12px; padding:12px 14px; border:1px solid rgba(59,130,246,0.08); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Value-Add Amenities</div>
+        <div style="font-size:16px; font-weight:800; color:#00E676;">OC, SC</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Pavilion &middot; Fire pit</div>
+      </div>
+    </div>
+
+    <!-- ADDITIONAL SITE VISIT ITEMS FROM PHOTO REVIEW -->
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Additional Site Visit Items from Photo Review</div>
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr>
+            <th style="width:30px;">#</th>
+            <th>Item</th>
+            <th style="width:80px;">Property</th>
+            <th style="width:90px;">Priority</th>
+            <th>What to Document</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><span class="risk-tag tag-critical">1</span></td>
+            <td><b>Tree hazards</b> &mdash; Dead branches over power lines, massive cottonwoods</td>
+            <td>ALL</td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">Photo every dead/hazardous tree with property context. Get arborist referral.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><span class="risk-tag tag-critical">2</span></td>
+            <td><b>Abandoned homes</b> &mdash; Locate all 4 at Oasis, assess condition</td>
+            <td>OC</td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">Secured? Hazmat? Removal vs rehab cost per home. Lot numbers.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.04);">
+            <td><span class="risk-tag tag-high">3</span></td>
+            <td><b>Wooden deck railings</b> &mdash; Multiple homes lack code-compliant rails</td>
+            <td>OC</td>
+            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
+            <td class="dim">Structural integrity, railing height/spacing, note lot numbers</td>
+          </tr>
+          <tr>
+            <td class="dim">4</td>
+            <td><b>Common area refresh</b> &mdash; Pavilion, fire pit, blue building</td>
+            <td>OC, SC</td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Roof/posts/electrical at pavilion. Purpose of blue building. Playground safety.</td>
+          </tr>
+          <tr>
+            <td class="dim">5</td>
+            <td><b>Lot clutter &amp; rule enforcement</b> &mdash; Visible violations</td>
+            <td>OC, SC</td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Photograph clutter, non-op vehicles, external cables, mixed fencing</td>
+          </tr>
+          <tr>
+            <td class="dim">6</td>
+            <td><b>Entrance branding</b> &mdash; SC has best entrance, rebrand opportunity</td>
+            <td>ALL</td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Photo all entrances for Day 1 signage swap planning</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- THIRD-PARTY REPORT SUMMARY -->
     <div class="group-divider">
       <div class="group-label">Third-Party Report Summary</div>
       <div class="group-line"></div>
@@ -4091,8 +4265,7 @@
       </div>
     </div>
 
-    
-<!-- COST SUMMARY TABLE -->
+    <!-- COST SUMMARY TABLE -->
     <div class="group-divider">
       <div class="group-label">7-Year Capital Reserve Schedule</div>
       <div class="group-line"></div>
@@ -4141,25 +4314,34 @@
           </tr>
           <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
             <td>TOTAL</td>
-            <td style="text-align:right; color:#EF4444;">$52K</td>
-            <td style="text-align:right;">$169K</td>
+            <td style="text-align:right; color:#EF4444;">$52,471</td>
+            <td style="text-align:right;">$169,106</td>
             <td class="dim">OC: $43.6K immed, $53K rsv · SC: $8.9K immed, $101K rsv · LAV: $0 immed, $15K rsv</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    
-    <!-- ON-SITE CONTACTS -->
+    <!-- DOCUMENT LINKS -->
     <div class="group-divider">
-      <div class="group-label">On-Site Contacts</div>
+      <div class="group-label">Source Documents &mdash; Google Drive</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #6366F1; padding-left: 12px;">
-      <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
-        <b style="color:#E5E9ED;">Kim Pedraza</b> &mdash; Park Manager (OC &amp; SC) &mdash; (719) 564-1352<br>
-        <b style="color:#E5E9ED;">Curtis Maldonado</b> &mdash; Maintenance (LAV) &mdash; (719) 564-1352
+    <div class="section" style="margin-bottom: 14px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128196;</span> Phase 1 Reports (M)</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128196;</span> PCA Reports (N)</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128196;</span> ALTA Surveys (L)</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
+          <span style="font-size: 14px;">&#128196;</span> Rent Rolls (A)</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
+          <span style="font-size: 14px;">&#128196;</span> Personal Property (P)</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128196;</span> CapEx Records (V)</a>
       </div>
     </div>
 
@@ -4556,11 +4738,11 @@
     <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px;">UTILITY BILL SOURCE FILES &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Open in Google Drive</a></div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px;">
-        <a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
           <span style="font-size: 14px;">&#128193;</span> C &mdash; T-12 Utility Bills <span style="color:#858D99; font-weight:400; font-size:10px;">(217 files)</span></a>
-        <a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
           <span style="font-size: 14px;">&#128193;</span> D &mdash; T-12 Bank Statements <span style="color:#858D99; font-weight:400; font-size:10px;">(36 files)</span></a>
-        <a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
           <span style="font-size: 14px;">&#128193;</span> G &mdash; Service Contracts <span style="color:#858D99; font-weight:400; font-size:10px;">(empty)</span></a>
         <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
           <span style="font-size: 14px;">&#128193;</span> H &mdash; Vendor Lists <span style="color:#858D99; font-weight:400; font-size:10px;">(empty)</span></a>
@@ -5789,9 +5971,216 @@
 
   </div>
 
+  <!-- ============================= PAGE 13: DEAL STATUS ============================= -->
+  <div class="tab-content" id="tab-page13">
+
+    <!-- DEAL OVERVIEW KPI STRIP -->
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">PSA Executed</div>
+        <div style="font-size:20px; font-weight:900; color:#00E676;">3/22</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Signed</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Earnest Money</div>
+        <div style="font-size:20px; font-weight:900; color:#00E676;">$350K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Deposited</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Inspection Period</div>
+        <div style="font-size:20px; font-weight:900; color:#FBBF24; animation: pulse 2s infinite;">RUNNING</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Clock is ticking</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
+        <div style="font-size:18px; font-weight:900; color:#EF4444;">No Reply</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Sent 3/27</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">CMBS Assumption</div>
+        <div style="font-size:18px; font-weight:900; color:#FBBF24;">Initiated</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">60-90+ days</div>
+      </div>
+    </div>
+
+    <!-- KEY DATES SECTION -->
+    <div class="group-divider">
+      <div class="group-label">Key Dates Timeline</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr>
+            <th style="width:15%;">Date</th>
+            <th>Event</th>
+            <th style="width:90px;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/20</b></td>
+            <td>PSA Executed</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/22&ndash;23</b></td>
+            <td>PSA Fully Signed (all counterparties)</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/25</b></td>
+            <td>$250K earnest deposited with Fidelity National Title</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/25</b></td>
+            <td>Critical Dates Letter received from Grace Wilson (Fidelity)</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/26</b></td>
+            <td>$100K additional earnest deposited &mdash; $350K total confirmed by Amanda Brower</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/27</b></td>
+            <td>20-item DD request sent to Kris Wessel (broker)</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/27</b></td>
+            <td>PP allocations confirmed &mdash; Matt Molloy &rarr; Seth Weiland (SV $19.5M / OC $16.2M / LAV $2.5M)</td>
+            <td><span class="status-badge badge-received">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b style="color:#EF4444;">3/30</b></td>
+            <td><b>DD request follow-up needed</b> &mdash; No response from Kris in 2+ days</td>
+            <td><span class="status-badge badge-not-received">ACTION</span></td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b style="color:#EF4444;">ASAP</b></td>
+            <td><b>Send 3 draft emails to Keiana</b> &mdash; Tax assessment classification for all properties</td>
+            <td><span class="status-badge badge-not-received">ACTION</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>TBD</b></td>
+            <td>OTP notices &mdash; seller must send per C.R.S. &sect; 38-12-200.1</td>
+            <td><span class="status-badge badge-in-progress">PENDING</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>TBD</b></td>
+            <td>CMBS assumption approval (Midland/PNC loan #030512791, typically 60&ndash;90+ days)</td>
+            <td><span class="status-badge badge-in-progress">PENDING</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- COMMUNICATIONS TRACKER -->
+    <div class="group-divider">
+      <div class="group-label">Communications Tracker</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr>
+            <th style="width:22%;">Thread</th>
+            <th style="width:26%;">Last Action</th>
+            <th style="width:10%;">Date</th>
+            <th style="width:90px;">Status</th>
+            <th>Next Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b>DD Items Request (20 items)</b></td>
+            <td class="dim">Sent to Kris Wessel</td>
+            <td class="dim">3/27</td>
+            <td><span class="status-badge badge-not-received">AWAITING</span></td>
+            <td class="dim">Follow up Mon 3/30 AM</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b>Tax Assessment Drafts</b></td>
+            <td class="dim">3 draft emails to Keiana &mdash; UNSENT</td>
+            <td class="dim">&mdash;</td>
+            <td><span class="status-badge badge-not-received">ACTION</span></td>
+            <td class="dim">Send drafts or update &amp; send</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>PP Allocations / OTP</b></td>
+            <td class="dim">Matt confirmed allocations work</td>
+            <td class="dim">3/27</td>
+            <td><span class="status-badge badge-received">CONFIRMED</span></td>
+            <td class="dim">Verify OTP notices sent by seller</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>CMBS Loan Assumption</b></td>
+            <td class="dim">Keiana sent executed PSA to Midland</td>
+            <td class="dim">3/23</td>
+            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
+            <td class="dim">Check status with Keiana</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>Earnest Money</b></td>
+            <td class="dim">$350K confirmed by Amanda Brower</td>
+            <td class="dim">3/26</td>
+            <td><span class="status-badge badge-received">COMPLETE</span></td>
+            <td class="dim">&mdash;</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>Critical Dates Letter</b></td>
+            <td class="dim">Received from Grace Wilson at Fidelity</td>
+            <td class="dim">3/25</td>
+            <td><span class="status-badge badge-received">COMPLETE</span></td>
+            <td class="dim">Review deadlines</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- DEAL TEAM DIRECTORY -->
+    <div class="group-divider">
+      <div class="group-label">Deal Team Directory</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+      <div class="section">
+        <div style="font-size:11px; font-weight:700; color:#00E676; margin-bottom:10px;">BUYER&rsquo;S TEAM</div>
+        <table class="prop-table" style="width:100%;">
+          <tbody>
+            <tr><td><b>Chris Meriwether</b></td><td class="dim">VP Acquisitions (Point of Contact)</td></tr>
+            <tr><td><b>Matt Molloy / Sophia Gulgulian</b></td><td class="dim">Molloy Law (Buyer&rsquo;s Counsel)</td></tr>
+            <tr><td><b>Tommy Marcheschi</b></td><td class="dim">CFO</td></tr>
+            <tr><td><b>Keiana Manalo</b></td><td class="dim">Asset Management / CMBS</td></tr>
+            <tr><td><b>Mordy Jurkowitz / Henny Heisler</b></td><td class="dim">Princeton Capital</td></tr>
+            <tr><td><b>Jeff Bennett</b></td><td class="dim">Managing Partner</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:10px;">SELLER / COUNTERPARTY</div>
+        <table class="prop-table" style="width:100%;">
+          <tbody>
+            <tr><td><b>Kris Wessel</b></td><td class="dim">Broker</td></tr>
+            <tr><td><b>Ben Braband / Saddleback</b></td><td class="dim">Seller</td></tr>
+            <tr><td><b>Seth Weiland / Ali Renes / Ashley Ravn</b></td><td class="dim">Otten Johnson (Seller&rsquo;s Counsel)</td></tr>
+            <tr><td><b>Amanda Brower / Grace Wilson</b></td><td class="dim">Fidelity National Title (Escrow)</td></tr>
+            <tr><td><b>Midland / PNC</b></td><td class="dim">CMBS Servicer (Loan #030512791)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
   <!-- FOOTER -->
   <div class="footer">
-    CONFIDENTIAL — Studio 168 / Silver Lands Management Group — Sunset Vista Due Diligence Dashboard — Updated March 28, 2026 <br>
+    CONFIDENTIAL — Studio 168 / Silver Lands Management Group — Sunset Vista Due Diligence Dashboard — Updated March 29, 2026 <br>
     Prepared by Chris Meriwether, VP of Acquisitions & Asset Management
   </div>
 
@@ -5809,19 +6198,6 @@ if ('serviceWorker' in navigator) {
       });
   });
 }
-</script>
-<script>
-document.querySelectorAll('table.data-table').forEach(function(table){
-  var headers=[];
-  table.querySelectorAll('thead th').forEach(function(th){headers.push(th.textContent.trim())});
-  if(!headers.length)return;
-  table.querySelectorAll('tbody tr').forEach(function(row){
-    var tds=row.querySelectorAll('td');
-    for(var i=0;i<tds.length;i++){
-      if(i<headers.length&&headers[i])tds[i].setAttribute('data-label',headers[i]);
-    }
-  });
-});
 </script>
 </body>
 </html>
