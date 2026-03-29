@@ -312,6 +312,23 @@
     div[style*="grid-template-columns: 240px 240px 1fr"], div[style*="grid-template-columns:240px 240px 1fr"] { grid-template-columns: 1fr !important; gap: 10px !important; }
     .prop-table td { font-size: 12px !important; padding: 3px 6px !important; }
 
+    /* --- Data labels for stacked card rows --- */
+    .data-table td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 9px !important;
+      font-weight: 700;
+      color: #3B82F6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1px;
+      line-height: 1.2;
+    }
+    /* First col is usually the item name/number, skip its label */
+    .data-table td:first-child::before {
+      display: none;
+    }
+
     /* === UTILITIES TAB MOBILE FIXES === */
 
     /* KPI strip: 2-col grid with full-width last card */
@@ -524,18 +541,49 @@
       padding: 10px 14px !important;
     }
 
-    /* Tab bar: scrollable on mobile */
+    /* === TAB BAR: large scrollable pills === */
     .tab-bar {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      flex-wrap: nowrap;
-      padding-bottom: 4px;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      flex-wrap: nowrap !important;
+      gap: 6px !important;
+      padding: 10px 6px 12px !important;
+      margin-bottom: 6px !important;
+      border-bottom: none !important;
+      background: #0A0E1A !important;
     }
     .tab-bar label {
-      white-space: nowrap;
-      flex-shrink: 0;
-      font-size: 9px;
-      padding: 7px 10px;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      padding: 10px 16px !important;
+      background: rgba(30,41,59,0.8) !important;
+      border-radius: 24px !important;
+      border: 1.5px solid rgba(59,130,246,0.2) !important;
+      border-bottom: none !important;
+      color: #64748B !important;
+      letter-spacing: 0.8px !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Active tab pill: bright and obvious */
+    #radio-page1:checked ~ .tab-bar .tab-label[for="radio-page1"],
+    #radio-page2:checked ~ .tab-bar .tab-label[for="radio-page2"],
+    #radio-page3:checked ~ .tab-bar .tab-label[for="radio-page3"],
+    #radio-page4:checked ~ .tab-bar .tab-label[for="radio-page4"],
+    #radio-page5:checked ~ .tab-bar .tab-label[for="radio-page5"],
+    #radio-page6:checked ~ .tab-bar .tab-label[for="radio-page6"],
+    #radio-page7:checked ~ .tab-bar .tab-label[for="radio-page7"],
+    #radio-page8:checked ~ .tab-bar .tab-label[for="radio-page8"],
+    #radio-page9:checked ~ .tab-bar .tab-label[for="radio-page9"],
+    #radio-page10:checked ~ .tab-bar .tab-label[for="radio-page10"],
+    #radio-page11:checked ~ .tab-bar .tab-label[for="radio-page11"],
+    #radio-page12:checked ~ .tab-bar .tab-label[for="radio-page12"] {
+      background: rgba(59,130,246,0.3) !important;
+      color: #FFFFFF !important;
+      border-color: #3B82F6 !important;
+      box-shadow: 0 0 12px rgba(59,130,246,0.3) !important;
     }
   }
 </style>
@@ -5726,6 +5774,19 @@ if ('serviceWorker' in navigator) {
       });
   });
 }
+</script>
+<script>
+document.querySelectorAll('table.data-table').forEach(function(table){
+  var headers=[];
+  table.querySelectorAll('thead th').forEach(function(th){headers.push(th.textContent.trim())});
+  if(!headers.length)return;
+  table.querySelectorAll('tbody tr').forEach(function(row){
+    var tds=row.querySelectorAll('td');
+    for(var i=0;i<tds.length;i++){
+      if(i<headers.length&&headers[i])tds[i].setAttribute('data-label',headers[i]);
+    }
+  });
+});
 </script>
 </body>
 </html>
