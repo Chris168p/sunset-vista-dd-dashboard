@@ -63,12 +63,12 @@
     padding: 0; margin-bottom: 18px;
   }
   .tab-label {
-    display: inline-block; color: #858D99; font-family: 'Inter', sans-serif;
+    display: inline-flex; align-items: center; justify-content: center; color: #858D99; font-family: 'Inter', sans-serif;
     font-size: 12px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1.5px; padding: 16px 24px 14px; cursor: pointer;
+    letter-spacing: 1.5px; padding: 14px 24px; cursor: pointer;
     border-bottom: 3px solid transparent; margin-bottom: -2px;
-    transition: color 0.15s, border-color 0.15s; white-space: nowrap;
-    min-height: 44px;
+    transition: color 0.15s, border-color 0.15s, background 0.2s; white-space: nowrap;
+    min-height: 44px; text-align: center;
   }
   .tab-label:hover { color: #E5E9ED; }
   .tab-content { display: none; }
@@ -541,32 +541,39 @@
       padding: 10px 14px !important;
     }
 
-    /* === TAB BAR: large scrollable pills === */
+    /* === TAB BAR: clean scrollable pills === */
     .tab-bar {
       overflow-x: auto !important;
       -webkit-overflow-scrolling: touch !important;
       flex-wrap: nowrap !important;
-      gap: 6px !important;
-      padding: 10px 6px 12px !important;
+      gap: 8px !important;
+      padding: 10px 8px 12px !important;
       margin-bottom: 6px !important;
       border-bottom: none !important;
       background: #0A0E1A !important;
+      align-items: center !important;
     }
     .tab-bar label {
       white-space: nowrap !important;
       flex-shrink: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
       font-size: 11px !important;
       font-weight: 700 !important;
-      padding: 10px 16px !important;
+      padding: 10px 18px !important;
       background: rgba(30,41,59,0.8) !important;
       border-radius: 24px !important;
-      border: 1.5px solid rgba(59,130,246,0.2) !important;
-      border-bottom: none !important;
+      border: 1.5px solid rgba(59,130,246,0.15) !important;
+      border-bottom: 1.5px solid rgba(59,130,246,0.15) !important;
       color: #64748B !important;
       letter-spacing: 0.8px !important;
       text-transform: uppercase !important;
+      line-height: 1 !important;
+      margin-bottom: 0 !important;
+      min-height: auto !important;
     }
-
     /* Active tab pill: bright and obvious */
     #radio-page1:checked ~ .tab-bar .tab-label[for="radio-page1"],
     #radio-page2:checked ~ .tab-bar .tab-label[for="radio-page2"],
