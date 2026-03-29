@@ -272,6 +272,46 @@
     .kpi-card { flex: 1 1 45%; }
     .section { padding: 12px !important; }
 
+    /* ===== GLOBAL: ALL TABS MOBILE FIXES ===== */
+    .data-table { display: block !important; width: 100% !important; }
+    .data-table thead { display: none !important; }
+    .data-table tbody { display: block !important; }
+    .data-table tr {
+      display: block !important; background: rgba(59,130,246,0.04);
+      border: 1px solid rgba(59,130,246,0.10); border-radius: 8px;
+      padding: 10px 12px !important; margin-bottom: 8px !important;
+    }
+    .data-table td {
+      display: block !important; text-align: left !important;
+      padding: 2px 0 !important; border: none !important;
+      white-space: normal !important; font-size: 13px !important; line-height: 1.5 !important;
+    }
+    .data-table td b { font-size: 14px !important; }
+    .data-table td.dim { font-size: 12px !important; line-height: 1.5 !important; color: #9CA3AF !important; }
+    .data-table .status-badge { font-size: 10px !important; padding: 3px 8px !important; }
+    .data-table .risk-tag { display: inline-block; margin-bottom: 4px; }
+    .data-table tr[style*="background:rgba(239,68,68"] { border-left: 3px solid #EF4444 !important; }
+    .data-table tr[style*="background:rgba(245,158,11"] { border-left: 3px solid #F59E0B !important; }
+    .data-table tr[style*="background:rgba(59,130,246"] { border-left: 3px solid #3B82F6 !important; background: rgba(59,130,246,0.08) !important; }
+    .data-table td[colspan] { font-size: 12px !important; font-weight: 700 !important; padding: 8px 12px !important; background: rgba(59,130,246,0.12) !important; border-radius: 6px !important; }
+    .data-table td.red, .data-table td.orange { font-size: 12px !important; font-weight: 700 !important; }
+    .data-table td.green { font-size: 12px !important; }
+    div[style*="grid-template-columns:1fr 1fr"], div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 10px !important; }
+    div[style*="grid-template-columns:repeat(3,1fr)"], div[style*="grid-template-columns:repeat(3, 1fr)"], div[style*="grid-template-columns: repeat(3, 1fr)"], div[style*="grid-template-columns: repeat(3,1fr)"] { grid-template-columns: 1fr !important; gap: 8px !important; }
+    div[style*="grid-template-columns:repeat(5,1fr)"], div[style*="grid-template-columns:repeat(5, 1fr)"], div[style*="grid-template-columns: repeat(5, 1fr)"] { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    div[style*="grid-template-columns:repeat(3"] > div[style*="border-radius:10px"], div[style*="grid-template-columns:repeat(5"] > div[style*="border-radius:10px"] { padding: 10px 14px !important; }
+    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:8px"], div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:8px"] { font-size: 9px !important; }
+    div[style*="grid-template-columns:repeat(3"] > div > div[style*="font-size:9px"], div[style*="grid-template-columns:repeat(5"] > div > div[style*="font-size:9px"] { font-size: 11px !important; }
+    div[style*="grid-template-columns: repeat(3, 1fr)"] a, div[style*="grid-template-columns:repeat(3, 1fr)"] a { font-size: 13px !important; padding: 10px 14px !important; }
+    .section div[style*="font-size: 11px"], .section div[style*="font-size: 10.5px"], .section div[style*="font-size: 10px"], .section div[style*="font-size:11px"], .section div[style*="font-size:10.5px"], .section div[style*="font-size:10px"] { font-size: 13px !important; line-height: 1.6 !important; }
+    .group-label { font-size: 12px !important; }
+    .risk-item { padding: 12px !important; }
+    .risk-title { font-size: 14px !important; }
+    .risk-body { font-size: 13px !important; line-height: 1.6 !important; }
+    .progress-label { font-size: 12px !important; }
+    div[style*="grid-template-columns: 240px 240px 1fr"], div[style*="grid-template-columns:240px 240px 1fr"] { grid-template-columns: 1fr !important; gap: 10px !important; }
+    .prop-table td { font-size: 12px !important; padding: 3px 6px !important; }
+
     /* === UTILITIES TAB MOBILE FIXES === */
 
     /* KPI strip: 2-col grid with full-width last card */
@@ -3811,12 +3851,12 @@
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px;">
       <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Immediate Repairs</div>
-        <div style="font-size:22px; font-weight:900; color:#EF4444;">$52,471</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC $43.6K &middot; SC $8.9K &middot; LAV $0</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">$52K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC $44K &middot; SC $9K &middot; LAV $0</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">7-Year Reserves</div>
-        <div style="font-size:22px; font-weight:900; color:#FBBF24;">$169,106</div>
+        <div style="font-size:22px; font-weight:900; color:#FBBF24;">$169K</div>
         <div style="font-size:9px; color:#858D99; margin-top:2px;">$43/unit/yr avg</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
@@ -3840,7 +3880,6 @@
             <th>Inspection Item</th>
             <th style="width:70px;">Property</th>
             <th style="width:70px;">Priority</th>
-            <th style="width:100px;">Owner</th>
             <th>What to Document</th>
           </tr>
         </thead>
@@ -3850,7 +3889,6 @@
             <td><b>Roads &amp; Asphalt</b> &mdash; OC: Good/Poor, $41K immediate. SC: Good/Fair, $2.4K immediate + $77K sealcoat.</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td>Derek / Jose</td>
             <td class="dim">Photograph potholes, alligatoring, cracks. Compare to PCA photos. Standing water, drainage failures, sinkholes.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
@@ -3858,7 +3896,6 @@
             <td><b>ADA Compliance</b> &mdash; OC: zero accessible parking, stairs at office ($2.4K). SC: 2 of 430 spaces, ramp needs handrails ($6.4K).</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td>Sarge</td>
             <td class="dim">Ramp slope/surface, van striping, signage, curb cuts. Compliance liability we inherit at close.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
@@ -3866,7 +3903,6 @@
             <td><b>9 Abandoned Homes</b> &mdash; SC: 5, OC: 4. Safety liability and conversion opportunity.</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td>Jose / Drew</td>
             <td class="dim">Secured? Hazmat risk? Estimate removal vs. rehab cost per home. Verify lot numbers match PCA.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
@@ -3874,7 +3910,6 @@
             <td><b>53 Vacant Lots</b> &mdash; SV: 37, OC: 13, LAV: 3. $34K/mo lost revenue. Are they leasable?</td>
             <td>ALL</td>
             <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td>Drew / Chris</td>
             <td class="dim">Walk every lot. Water/sewer/electric hookup intact? Pad condition? Flag unbuildable lots.</td>
           </tr>
           <tr style="background:rgba(245,158,11,0.04);">
@@ -3882,7 +3917,6 @@
             <td><b>Boiler &amp; HVAC</b> &mdash; OC boiler rated FAIR ($8.5K Y3). SC condensers 10yr age on 15yr EUL ($6.6K Y5&ndash;7).</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
-            <td>Sarge</td>
             <td class="dim">Leaks, corrosion, refrigerant issues. Ask Kim about service calls. Operational?</td>
           </tr>
           <tr style="background:rgba(245,158,11,0.04);">
@@ -3890,7 +3924,6 @@
             <td><b>Pool &amp; Roofs</b> &mdash; SC pool reline $7K (Y5). OC/SC roofs $14K combined (Y6&ndash;7).</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
-            <td>Jose / Sarge</td>
             <td class="dim">Pool surface, pump equipment, permits. Roof ponding, membrane, flashing, interior water stains.</td>
           </tr>
           <tr style="background:rgba(245,158,11,0.04);">
@@ -3898,7 +3931,6 @@
             <td><b>La Vista Encroachments</b> &mdash; Survey flagged fence 4.3 ft and building 6.5 ft beyond property line.</td>
             <td>LAV</td>
             <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
-            <td>Chris / Derek</td>
             <td class="dim">Locate both. Ours or neighbor&rsquo;s? Existing license/easement? Photograph with survey plat. Title counsel needs this.</td>
           </tr>
           <tr style="background:rgba(245,158,11,0.04);">
@@ -3906,7 +3938,6 @@
             <td><b>Fire Safety</b> &mdash; Extinguisher recertification overdue: OC $95, SC $35.</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
-            <td>Sarge</td>
             <td class="dim">All extinguishers present/tagged? Smoke detectors in common buildings? Fire access routes clear?</td>
           </tr>
           <tr>
@@ -3914,7 +3945,6 @@
             <td><b>ACM Condition</b> &mdash; Phase 1 flagged potential asbestos in 1970/1973 building materials. Manage in-place.</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td>Sarge</td>
             <td class="dim">Wallboard, floor finishes, ceiling tiles, roofing. No visible deterioration or disturbance.</td>
           </tr>
           <tr>
@@ -3922,7 +3952,6 @@
             <td><b>Underground Utilities</b> &mdash; No as-built plans. Check for line failure signs.</td>
             <td>ALL</td>
             <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td>Derek</td>
             <td class="dim">Wet spots, sinkholes, sewage odors. Ask Kim/Curtis about recent repairs or backups.</td>
           </tr>
           <tr>
@@ -3930,7 +3959,6 @@
             <td><b>Exterior Walls &amp; Waste</b> &mdash; OC repaint $3K (Y1), no waste enclosures. SC recaulk $2K (Y3).</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td>Jose / Drew</td>
             <td class="dim">Siding moisture/peeling/rot. Dumpster setup, screening, pest issues.</td>
           </tr>
           <tr>
@@ -3938,7 +3966,6 @@
             <td><b>Management Ops</b> &mdash; Talk to Kim about staffing, vendors, collections, turnover.</td>
             <td>OC, SC</td>
             <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td>Paul / Chris</td>
             <td class="dim">Response times, resident complaints, maintenance backlog, lease-up strategy.</td>
           </tr>
           <tr>
@@ -3946,7 +3973,6 @@
             <td><b>Curb Appeal &amp; La Vista General</b> &mdash; Signage, entrances, landscaping, overall feel. LAV: confirm 29 occ lots.</td>
             <td>ALL</td>
             <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td>Drew / Paul</td>
             <td class="dim">Photograph entrances, common areas, worst/best lots. Would you want to live here?</td>
           </tr>
         </tbody>
@@ -4023,8 +4049,8 @@
           </tr>
           <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
             <td>TOTAL</td>
-            <td style="text-align:right; color:#EF4444;">$52,471</td>
-            <td style="text-align:right;">$169,106</td>
+            <td style="text-align:right; color:#EF4444;">$52K</td>
+            <td style="text-align:right;">$169K</td>
             <td class="dim">OC: $43.6K immed, $53K rsv · SC: $8.9K immed, $101K rsv · LAV: $0 immed, $15K rsv</td>
           </tr>
         </tbody>
