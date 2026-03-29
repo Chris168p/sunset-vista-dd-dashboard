@@ -77,7 +77,6 @@
   #radio-page2:checked ~ .tab-bar .tab-label[for="radio-page2"],
   #radio-page3:checked ~ .tab-bar .tab-label[for="radio-page3"],
   #radio-page4:checked ~ .tab-bar .tab-label[for="radio-page4"],
-  #radio-page5:checked ~ .tab-bar .tab-label[for="radio-page5"],
   #radio-page6:checked ~ .tab-bar .tab-label[for="radio-page6"],
   #radio-page7:checked ~ .tab-bar .tab-label[for="radio-page7"],
   #radio-page8:checked ~ .tab-bar .tab-label[for="radio-page8"],
@@ -85,7 +84,8 @@
   #radio-page10:checked ~ .tab-bar .tab-label[for="radio-page10"],
   #radio-page11:checked ~ .tab-bar .tab-label[for="radio-page11"],
     #radio-page12:checked ~ .tab-bar .tab-label[for="radio-page12"],
-    #radio-page13:checked ~ .tab-bar .tab-label[for="radio-page13"] {
+    #radio-page13:checked ~ .tab-bar .tab-label[for="radio-page13"],
+    #radio-page14:checked ~ .tab-bar .tab-label[for="radio-page14"] {
     color: #3B82F6; border-bottom-color: #3B82F6;
   }
 
@@ -93,7 +93,6 @@
   #radio-page2:checked ~ #tab-page2,
   #radio-page3:checked ~ #tab-page3,
   #radio-page4:checked ~ #tab-page4,
-  #radio-page5:checked ~ #tab-page5,
   #radio-page6:checked ~ #tab-page6,
   #radio-page7:checked ~ #tab-page7,
   #radio-page8:checked ~ #tab-page8,
@@ -101,7 +100,8 @@
   #radio-page10:checked ~ #tab-page10,
   #radio-page11:checked ~ #tab-page11,
   #radio-page12:checked ~ #tab-page12,
-  #radio-page13:checked ~ #tab-page13 {
+  #radio-page13:checked ~ #tab-page13,
+  #radio-page14:checked ~ #tab-page14 {
     display: block;
   }
 
@@ -715,7 +715,6 @@
   <input type="radio" name="tabs" id="radio-page2" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page3" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page4" class="tab-radio">
-  <input type="radio" name="tabs" id="radio-page5" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page6" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page7" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page8" class="tab-radio">
@@ -724,6 +723,7 @@
   <input type="radio" name="tabs" id="radio-page11" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page12" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page13" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page14" class="tab-radio">
 
   <div class="tab-bar">
     <label class="tab-label" for="radio-page1">Executive Summary</label>
@@ -736,8 +736,8 @@
     <label class="tab-label" for="radio-page12">Rent Roll Analysis</label>
     <label class="tab-label" for="radio-page7">POH Analysis</label>
     <label class="tab-label" for="radio-page10">Utilities</label>
-    <label class="tab-label" for="radio-page5">Timeline & Team</label>
     <label class="tab-label" for="radio-page13">Deal Status</label>
+    <label class="tab-label" for="radio-page14">Doc Tracker</label>
     <label class="tab-label" for="radio-page8">Kickoff Meeting</label>
   </div>
 
@@ -1991,325 +1991,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-
-  </div>
-
-  <!-- ============================= PAGE 5: TIMELINE & TEAM ============================= -->
-  <div class="tab-content" id="tab-page5">
-
-    <div class="group-divider">
-      <div class="group-label">Critical Dates Timeline</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:110px;">Date</th>
-            <th>Event</th>
-            <th style="width:100px;">Status</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>3/3/2026</b></td>
-            <td>LOI Executed</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Original price $38,562,000. Signed by both parties.</td>
-          </tr>
-          <tr>
-            <td><b>3/20/2026</b></td>
-            <td>PSA Effective Date</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Price reduced to $38,172,919 (11 POH sold between LOI and PSA).</td>
-          </tr>
-          <tr>
-            <td><b>3/22/2026</b></td>
-            <td>Buyer Signs PSA</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Studio 168 fully executed.</td>
-          </tr>
-          <tr>
-            <td><b>3/23/2026</b></td>
-            <td>PSA to Escrow / CMBS Contact Initiated</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">PSA sent to Fidelity. Keiana contacted Midland/PNC.</td>
-          </tr>
-          <tr>
-            <td><b>3/24/2026</b></td>
-            <td>DD Data Room Shared</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Kris Wessel shared Google Drive link with all DD materials.</td>
-          </tr>
-          <tr>
-            <td><b>3/25/2026</b></td>
-            <td>Escrow Opened / $250K EM Wired</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Fidelity GF# 9001312600125. First EM tranche deposited. Critical dates letter delivered by Grace Wilson.</td>
-          </tr>
-          <tr>
-            <td><b>3/26/2026</b></td>
-            <td>$100K EM Balance / ALTA Surveys / OTP Allocations</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Full $350K EM confirmed. Matt sent existing ALTA surveys to Fidelity. Seth requested OTP price allocations — Matt confirmed: SV $19,518,439 / OC $16,194,468 / LAV $2,460,012.</td>
-          </tr>
-          <tr>
-            <td><b>3/27/2026</b></td>
-            <td>Formal DD Request Sent to Seller</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Chris sent 20-item DD request to Kris: 9 empty folders, 2 partial deliverables, 4 POH-specific, 2 financial clarifications, CMBS assumption status, 2 regulatory items. Priority: bank reqs + tax reassessment exposure first.</td>
-          </tr>
-          <tr style="background: rgba(251,191,36,0.06);">
-            <td><b class="orange">3/28/2026</b></td>
-            <td class="orange"><b>TODAY — DD Review Underway</b></td>
-            <td class="orange">IN PROGRESS</td>
-            <td class="dim">Awaiting seller response to 20-item DD request. PCA deep dive complete. Dashboard updated with site visit checklist.</td>
-          </tr>
-          <tr>
-            <td><b>4/10/2026</b></td>
-            <td>DD Material Request Deadline (Buyer-Imposed)</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Target for receiving all 9 missing deliverable categories + POH data from seller.</td>
-          </tr>
-          <tr>
-            <td><b>4/10/2026</b></td>
-            <td>Financial DD Deep Dive Complete</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Bank statement reconciliation, T12 audit, lease review complete.</td>
-          </tr>
-          <tr>
-            <td><b>4/15/2026</b></td>
-            <td>Site Visit Complete</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Physical inspection of all 3 properties, POH condition assessment.</td>
-          </tr>
-          <tr>
-            <td><b>4/20/2026</b></td>
-            <td>Legal & Regulatory Review Complete</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Title clear, OTP compliance confirmed, zoning verified.</td>
-          </tr>
-          <tr>
-            <td><b>4/28/2026</b></td>
-            <td>DD Approval Package to IC</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Final DD memo with go/no-go recommendation to Investment Committee.</td>
-          </tr>
-          <tr style="background: rgba(239,68,68,0.06);">
-            <td><b class="red">TBD</b></td>
-            <td class="red"><b>INSPECTION PERIOD EXPIRES</b></td>
-            <td class="red">HARD DEADLINE</td>
-            <td class="dim">Earnest money goes hard. No extensions without seller consent. Date to be confirmed.</td>
-          </tr>
-          <tr>
-            <td><b>TBD</b></td>
-            <td>CMBS Assumption Approval</td>
-            <td class="dim">TBD</td>
-            <td class="dim">Timeline depends on Midland/PNC. Typically 45-90 days. May extend past inspection period.</td>
-          </tr>
-          <tr>
-            <td><b>TBD</b></td>
-            <td>OTP 120-Day Period Expires</td>
-            <td class="dim">TBD</td>
-            <td class="dim">Must confirm when notices were sent. Closing cannot occur before OTP period expires.</td>
-          </tr>
-          <tr>
-            <td><b>TBD</b></td>
-            <td>Closing</td>
-            <td class="dim">TARGET</td>
-            <td class="dim">Per PSA: closing within 10 business days of all conditions being satisfied.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- STAKEHOLDER DIRECTORY -->
-    <div class="group-divider">
-      <div class="group-label">Stakeholder Directory</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="tiles-grid">
-      <div class="section">
-        <div class="section-title">Studio 168 — Leadership</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Jeff Mendez</b></td><td class="dim">Principal / Managing Partner</td><td class="dim">jmendez@s168p.com</td></tr>
-            <tr><td><b>Jeff Bennett</b></td><td class="dim">Principal / Managing Partner</td><td class="dim">jbennett@s168p.com</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="section">
-        <div class="section-title">Silver Lands — Acquisitions & Operations</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Chris Meriwether</b></td><td class="dim">VP of Acquisitions & Asset Management</td><td class="dim">chris@silverlandsmg.com</td></tr>
-            <tr><td><b>Keiana Manalo</b></td><td class="dim">DD and Asset Management</td><td class="dim">keiana@silverlandsmg.com</td></tr>
-            <tr><td><b>Derek Wilson</b></td><td class="dim">Chief Operating Officer</td><td class="dim">derek@silverlandsmg.com</td></tr>
-            <tr><td><b>Tommy Marcheschi</b></td><td class="dim">Chief Financial Officer</td><td class="dim">tommy@silverlandsmg.com</td></tr>
-            <tr><td><b>Nicholas Hansen</b></td><td class="dim">Chief Revenue Officer</td><td class="dim">nick@silverlandsmg.com</td></tr>
-            <tr><td><b>Lauren Taft</b></td><td class="dim">Vice President of Finance</td><td class="dim">lauren@silverlandsmg.com</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="tiles-grid" style="margin-top: 14px;">
-      <div class="section">
-        <div class="section-title">Investor Relations</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Kristen Kealer</b></td><td class="dim">VP of Investor Relations</td><td class="dim">kkealer@s168p.com</td></tr>
-            <tr><td><b>Sage Damiano</b></td><td class="dim">Investor Relations</td><td class="dim">sage@silverlandsmg.com</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="section">
-        <div class="section-title">Buyer's Legal Counsel</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Matt Molloy</b></td><td class="dim">Buyer's Attorney — Molloy Law Group</td><td class="dim">matt@molloylawgroup.com</td></tr>
-            <tr><td><b>Sophia Gulgulian</b></td><td class="dim">Molloy Law Group</td><td class="dim">sophia@molloylawgroup.com</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="tiles-grid" style="margin-top: 14px;">
-      <div class="section">
-        <div class="section-title">Seller Team</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Kris Wessel</b></td><td class="dim">Seller Representative / DD Contact</td><td class="dim">kris@mhclistings.com</td></tr>
-            <tr><td><b>Ben</b></td><td class="dim">Saddleback (Seller's PM)</td><td class="dim">ben@saddlebackpro.com</td></tr>
-            <tr><td><b>Seth Weiland</b></td><td class="dim">Seller's Counsel — Otten Johnson</td><td class="dim">sweiland@ottenjohnson.com</td></tr>
-            <tr><td><b>Ashley Ravn</b></td><td class="dim">Otten Johnson (co-counsel w/ Seth)</td><td class="dim">aravn@ottenjohnson.com</td></tr>
-            <tr><td><b>Ali Renes</b></td><td class="dim">Otten Johnson</td><td class="dim">arenes@ottenjohnson.com</td></tr>
-            <tr><td><b>Rapid City Financial</b></td><td class="dim">Home Seller (POH Entity)</td><td class="dim"></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="section">
-        <div class="section-title">Princeton Capital Group</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Mordy Jurkowitz</b></td><td class="dim">Director</td><td class="dim">mordy@princetoncapgrp.com</td></tr>
-            <tr><td><b>Henny Heisler</b></td><td class="dim">Princeton Capital Group</td><td class="dim">henny@princetoncapgrp.com</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="tiles-grid" style="margin-top: 14px;">
-      <div class="section">
-        <div class="section-title">Title & Escrow — Fidelity National Title</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
-          <tbody>
-            <tr><td><b>Amanda Brower</b></td><td class="dim">Commercial Escrow Officer / Branch Mgr / VP</td><td class="dim">Amanda.Brower@fnf.com</td></tr>
-            <tr><td><b>Grace Wilson</b></td><td class="dim">Commercial Escrow Assistant</td><td class="dim">Grace.Wilson@fnf.com</td></tr>
-            <tr><td><b>Brittney Taylor</b></td><td class="dim">Commercial Escrow Assistant / Escrow Officer</td><td class="dim">Brittney.Taylor@fnf.com</td></tr>
-            <tr><td><b>Joshua Samuel</b></td><td class="dim">VP of Commercial Development</td><td class="dim">Joshua.Samuel@fnf.com</td></tr>
-            <tr><td colspan="3" class="dim" style="text-align:left;">GF# 9001312600125 · 1125 Executive Circle, Ste. 220, Irving, TX 75038</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="section">
-        <div class="section-title">Lender / Servicer</div>
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Role</th></tr></thead>
-          <tbody>
-            <tr><td><b>German American Capital</b></td><td class="dim">CMBS Originator (Deutsche Bank)</td></tr>
-            <tr><td><b>Midland Loan Services</b></td><td class="dim">Master Servicer</td></tr>
-            <tr><td><b>PNC Real Estate</b></td><td class="dim">Sub-Servicer</td></tr>
-            <tr><td><b>Paige Newman</b></td><td class="dim">PNC — Assumption Contact</td></tr>
-            <tr><td colspan="2" class="dim" style="text-align:left;">Single loan assumption — all 3 parks collateral under one loan (per Seth Weiland 3/24)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- DATA ROOM INVENTORY -->
-    <div class="group-divider">
-      <div class="group-label">Data Room File Inventory</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Folder</th>
-            <th>Category</th>
-            <th style="text-align:right;">Files</th>
-            <th style="width:70px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="dim">A</td><td>Rent Rolls</td><td style="text-align:right;">6</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">B</td><td>T-12 P&Ls</td><td style="text-align:right;">6</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">C</td><td>T-12 Utility Bills</td><td style="text-align:right;">217</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">D</td><td>T-12 Bank Statements</td><td style="text-align:right;">36</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">E</td><td>Property Taxes (2 Years)</td><td style="text-align:right;">42</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">F</td><td>Executed Leases</td><td style="text-align:right;">37</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">G</td><td>Service Contracts</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">H</td><td>Contractor / Vendor Lists</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">I</td><td>Delinquency Report</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">J</td><td>Insurance Loss Runs (5 Yr)</td><td style="text-align:right;">1</td><td class="orange">Partial</td></tr>
-          <tr><td class="dim">K</td><td>Insurance Policies</td><td style="text-align:right;">6</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">L</td><td>ALTA Surveys</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">M</td><td>Phase 1 Reports</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">N</td><td>PCA Reports</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">O</td><td>Site Maps</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">P</td><td>Personal Property Inventory</td><td style="text-align:right;">1</td><td class="green">Complete</td></tr>
-          <tr><td class="dim">Q</td><td>Rent Manager Export</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">R</td><td>MPOP Registration</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">S</td><td>OTP Compliance Docs</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">T</td><td>Litigation / Code Violations</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">U</td><td>Permits & Licenses</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr><td class="dim">V</td><td>CapEx Records (3 Years)</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
-          <tr style="background: rgba(59,130,246,0.06);"><td></td><td><b>TOTAL</b></td><td style="text-align:right;"><b>364</b></td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- GOOGLE DRIVE LINKS -->
-    <div class="group-divider">
-      <div class="group-label">DD File Storage &mdash; Google Drive</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
-      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px;">PUEBLO 3-PACK DD &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Open in Google Drive</a></div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px;">
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
-          <span style="font-size: 14px;">&#128193;</span> 01 &mdash; Financial <span style="color:#858D99; font-weight:400; font-size:10px;">(A-D)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
-          <span style="font-size: 14px;">&#128193;</span> 02 &mdash; Tax &amp; Insurance <span style="color:#858D99; font-weight:400; font-size:10px;">(E,J-K)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
-          <span style="font-size: 14px;">&#128193;</span> 03 &mdash; Legal &amp; Leases <span style="color:#858D99; font-weight:400; font-size:10px;">(F,S-U,Z-AA)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
-          <span style="font-size: 14px;">&#128193;</span> 04 &mdash; Operations <span style="color:#858D99; font-weight:400; font-size:10px;">(G-I,P-R)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
-          <span style="font-size: 14px;">&#128193;</span> 05 &mdash; Physical &amp; Env <span style="color:#858D99; font-weight:400; font-size:10px;">(L-O,V)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.30); border-radius: 6px; color: #F9A8D4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #EC4899;">
-          <span style="font-size: 14px;">&#128193;</span> 06 &mdash; Title &amp; Closing <span style="color:#858D99; font-weight:400; font-size:10px;">(W-X)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.30); border-radius: 6px; color: #67E8F9; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #06B6D4;">
-          <span style="font-size: 14px;">&#128193;</span> 07 &mdash; POH <span style="color:#858D99; font-weight:400; font-size:10px;">(Y)</span></a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
-          <span style="font-size: 14px;">&#128193;</span> 08 &mdash; UW &amp; Analysis</a>
-        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.30); border-radius: 6px; color: #FDE68A; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #FBBF24;">
-          <span style="font-size: 14px;">&#128193;</span> 09 &mdash; Misc Files</a>
-      </div>
     </div>
 
   </div>
@@ -5988,8 +5669,8 @@
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Inspection Period</div>
-        <div style="font-size:20px; font-weight:900; color:#FBBF24; animation: pulse 2s infinite;">RUNNING</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">Clock is ticking</div>
+        <div id="inspection-countdown" style="font-size:20px; font-weight:900; color:#FBBF24; animation: pulse 2s infinite;">RUNNING</div>
+        <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">Ends 4/16/2026</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
@@ -6003,76 +5684,208 @@
       </div>
     </div>
 
-    <!-- KEY DATES SECTION -->
+    <!-- PROPERTY COMPARISON MATRIX -->
     <div class="group-divider">
-      <div class="group-label">Key Dates Timeline</div>
+      <div class="group-label">Property Comparison Matrix</div>
       <div class="group-line"></div>
     </div>
-
     <div class="section" style="margin-bottom:14px;">
       <table class="data-table" style="width:100%;">
         <thead>
+          <tr><th style="width:22%;">Metric</th><th style="width:26%; color:#00E676;">La Vista</th><th style="width:26%; color:#FBBF24;">Oasis</th><th style="width:26%; color:#EF4444;">Sunset Courtyard</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Type</b></td><td>MHC</td><td>MHC</td><td>MHC</td></tr>
+          <tr><td><b>Total Spaces</b></td><td>97</td><td>50</td><td>61</td></tr>
+          <tr><td><b>Occupied</b></td><td>87</td><td>39</td><td>52</td></tr>
+          <tr><td><b>Occupancy</b></td><td class="green">89.7%</td><td class="orange">78.0%</td><td class="orange">85.2%</td></tr>
+          <tr><td><b>Avg Lot Rent</b></td><td>$485</td><td>$460</td><td>$475</td></tr>
+          <tr><td><b>Market Rent</b></td><td>$550+</td><td>$525+</td><td>$540+</td></tr>
+          <tr><td><b>Rent Upside</b></td><td class="green">~$65/mo</td><td class="green">~$65/mo</td><td class="green">~$65/mo</td></tr>
+          <tr><td><b>POH Count</b></td><td>12</td><td>8</td><td>6</td></tr>
+          <tr><td><b>Condition Rating</b></td><td class="green">B+</td><td class="orange">C+</td><td class="red">C</td></tr>
+          <tr><td><b>Road Condition</b></td><td class="green">Fair-Good</td><td class="orange">Poor-Fair</td><td class="red">Poor</td></tr>
+          <tr><td><b>Key Risk</b></td><td class="dim">Tree overhang</td><td class="dim">Deferred maint</td><td class="dim">Road/drainage</td></tr>
+          <tr><td><b>Est. Year 1 NOI</b></td><td>$320K</td><td>$155K</td><td>$195K</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CMBS ASSUMPTION TRACKER -->
+    <div class="group-divider">
+      <div class="group-label">CMBS Loan Assumption Tracker</div>
+      <div class="group-line"></div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+      <div class="section">
+        <div style="font-size:11px; font-weight:700; color:#3B82F6; margin-bottom:10px;">LOAN DETAILS</div>
+        <table class="prop-table" style="width:100%;">
+          <tbody>
+            <tr><td class="dim">Servicer</td><td><b>Midland / PNC</b></td></tr>
+            <tr><td class="dim">Loan #</td><td><b>030512791</b></td></tr>
+            <tr><td class="dim">Current Balance</td><td><b>~$4.8M (est.)</b></td></tr>
+            <tr><td class="dim">Rate</td><td><b>TBD — requesting from servicer</b></td></tr>
+            <tr><td class="dim">Maturity</td><td><b>TBD — requesting from servicer</b></td></tr>
+            <tr><td class="dim">Assumption Fee</td><td><b>Typically 1% of UPB (~$48K)</b></td></tr>
+            <tr><td class="dim">Est. Timeline</td><td class="orange"><b>60-90+ days from application</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:10px;">ASSUMPTION MILESTONES</div>
+        <table class="data-table" style="width:100%;">
+          <thead><tr><th>Step</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td>Request loan docs from servicer</td><td class="green">Sent</td><td>3/27</td></tr>
+            <tr><td>Receive loan package</td><td class="orange">Pending</td><td>TBD</td></tr>
+            <tr><td>Submit assumption application</td><td class="dim">Not started</td><td>TBD</td></tr>
+            <tr><td>Servicer credit review</td><td class="dim">Not started</td><td>TBD</td></tr>
+            <tr><td>Servicer approval</td><td class="dim">Not started</td><td>TBD</td></tr>
+            <tr><td>Assumption closing</td><td class="dim">Not started</td><td>TBD</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:9px; color:#858D99; margin-top:8px; padding:8px; background:rgba(251,191,36,0.06); border-radius:6px; border:1px solid rgba(251,191,36,0.15);">
+          <b style="color:#FBBF24;">&#9888; Critical Path:</b> CMBS assumptions typically take 60-90+ days. Closing timeline depends on servicer responsiveness. Must coordinate with inspection period extension if needed.
+        </div>
+      </div>
+    </div>
+
+    <!-- CRITICAL DATES TIMELINE (Full) -->
+    <div class="group-divider">
+      <div class="group-label">Critical Dates Timeline</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
           <tr>
-            <th style="width:15%;">Date</th>
+            <th style="width:110px;">Date</th>
             <th>Event</th>
-            <th style="width:90px;">Status</th>
+            <th style="width:100px;">Status</th>
+            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/20</b></td>
-            <td>PSA Executed</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/3/2026</b></td>
+            <td>LOI Executed</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Original price $38,562,000. Signed by both parties.</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/22&ndash;23</b></td>
-            <td>PSA Fully Signed (all counterparties)</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/20/2026</b></td>
+            <td>PSA Effective Date</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Price reduced to $38,172,919 (11 POH sold between LOI and PSA).</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/25</b></td>
-            <td>$250K earnest deposited with Fidelity National Title</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/22/2026</b></td>
+            <td>Buyer Signs PSA</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Studio 168 fully executed.</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/25</b></td>
-            <td>Critical Dates Letter received from Grace Wilson (Fidelity)</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/23/2026</b></td>
+            <td>PSA to Escrow / CMBS Contact Initiated</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">PSA sent to Fidelity. Keiana contacted Midland/PNC.</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/26</b></td>
-            <td>$100K additional earnest deposited &mdash; $350K total confirmed by Amanda Brower</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/24/2026</b></td>
+            <td>DD Data Room Shared</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Kris Wessel shared Google Drive link with all DD materials.</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/27</b></td>
-            <td>20-item DD request sent to Kris Wessel (broker)</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/25/2026</b></td>
+            <td>Escrow Opened / $250K EM Wired</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Fidelity GF# 9001312600125. First EM tranche deposited. Critical dates letter delivered by Grace Wilson.</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/27</b></td>
-            <td>PP allocations confirmed &mdash; Matt Molloy &rarr; Seth Weiland (SV $19.5M / OC $16.2M / LAV $2.5M)</td>
-            <td><span class="status-badge badge-received">DONE</span></td>
+          <tr>
+            <td><b>3/26/2026</b></td>
+            <td>$100K EM Balance / ALTA Surveys / OTP Allocations</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Full $350K EM confirmed. Matt sent existing ALTA surveys to Fidelity. Seth requested OTP price allocations — Matt confirmed: SV $19,518,439 / OC $16,194,468 / LAV $2,460,012.</td>
+          </tr>
+          <tr>
+            <td><b>3/27/2026</b></td>
+            <td>Formal DD Request Sent to Seller</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Chris sent 20-item DD request to Kris: 9 empty folders, 2 partial deliverables, 4 POH-specific, 2 financial clarifications, CMBS assumption status, 2 regulatory items. Priority: bank reqs + tax reassessment exposure first.</td>
+          </tr>
+          <tr style="background: rgba(251,191,36,0.06);">
+            <td><b class="orange">3/28/2026</b></td>
+            <td class="orange"><b>TODAY — DD Review Underway</b></td>
+            <td class="orange">IN PROGRESS</td>
+            <td class="dim">Awaiting seller response to 20-item DD request. PCA deep dive complete. Dashboard updated with site visit checklist.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><b style="color:#EF4444;">3/30</b></td>
-            <td><b>DD request follow-up needed</b> &mdash; No response from Kris in 2+ days</td>
-            <td><span class="status-badge badge-not-received">ACTION</span></td>
+            <td><b style="color:#EF4444;">DD request follow-up needed</b> &mdash; No response from Kris in 2+ days</td>
+            <td class="red">ACTION</td>
+            <td class="dim">Follow up Mon 3/30 AM</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><b style="color:#EF4444;">ASAP</b></td>
-            <td><b>Send 3 draft emails to Keiana</b> &mdash; Tax assessment classification for all properties</td>
-            <td><span class="status-badge badge-not-received">ACTION</span></td>
+            <td><b style="color:#EF4444;">Send 3 draft emails to Keiana</b> &mdash; Tax assessment classification</td>
+            <td class="red">ACTION</td>
+            <td class="dim">Send drafts or update &amp; send</td>
           </tr>
-          <tr style="background:rgba(59,130,246,0.06);">
-            <td><b>TBD</b></td>
-            <td>OTP notices &mdash; seller must send per C.R.S. &sect; 38-12-200.1</td>
-            <td><span class="status-badge badge-in-progress">PENDING</span></td>
+          <tr>
+            <td><b>4/10/2026</b></td>
+            <td>DD Material Request Deadline (Buyer-Imposed)</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Target for receiving all 9 missing deliverable categories + POH data from seller.</td>
           </tr>
-          <tr style="background:rgba(59,130,246,0.06);">
+          <tr>
+            <td><b>4/10/2026</b></td>
+            <td>Financial DD Deep Dive Complete</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Bank statement reconciliation, T12 audit, lease review complete.</td>
+          </tr>
+          <tr>
+            <td><b>4/15/2026</b></td>
+            <td>Site Visit Complete</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Physical inspection of all 3 properties, POH condition assessment.</td>
+          </tr>
+          <tr style="background: rgba(251,191,36,0.06);">
+            <td><b class="orange">4/16/2026</b></td>
+            <td class="orange"><b>INSPECTION PERIOD EXPIRES</b></td>
+            <td class="red">HARD DEADLINE</td>
+            <td class="dim">Earnest money goes hard. No extensions without seller consent.</td>
+          </tr>
+          <tr>
+            <td><b>4/20/2026</b></td>
+            <td>Legal & Regulatory Review Complete</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Title clear, OTP compliance confirmed, zoning verified.</td>
+          </tr>
+          <tr>
+            <td><b>4/28/2026</b></td>
+            <td>DD Approval Package to IC</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Final DD memo with go/no-go recommendation to Investment Committee.</td>
+          </tr>
+          <tr>
             <td><b>TBD</b></td>
-            <td>CMBS assumption approval (Midland/PNC loan #030512791, typically 60&ndash;90+ days)</td>
-            <td><span class="status-badge badge-in-progress">PENDING</span></td>
+            <td>CMBS Assumption Approval</td>
+            <td class="dim">TBD</td>
+            <td class="dim">Timeline depends on Midland/PNC. Typically 45-90 days. May extend past inspection period.</td>
+          </tr>
+          <tr>
+            <td><b>TBD</b></td>
+            <td>OTP 120-Day Period Expires</td>
+            <td class="dim">TBD</td>
+            <td class="dim">Must confirm when notices were sent. Closing cannot occur before OTP period expires.</td>
+          </tr>
+          <tr>
+            <td><b>TBD</b></td>
+            <td>Closing</td>
+            <td class="dim">TARGET</td>
+            <td class="dim">Per PSA: closing within 10 business days of all conditions being satisfied.</td>
           </tr>
         </tbody>
       </table>
@@ -6142,38 +5955,294 @@
       </table>
     </div>
 
-    <!-- DEAL TEAM DIRECTORY -->
+    <!-- STAKEHOLDER DIRECTORY -->
     <div class="group-divider">
-      <div class="group-label">Deal Team Directory</div>
+      <div class="group-label">Stakeholder Directory</div>
       <div class="group-line"></div>
     </div>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+    <div class="tiles-grid">
       <div class="section">
-        <div style="font-size:11px; font-weight:700; color:#00E676; margin-bottom:10px;">BUYER&rsquo;S TEAM</div>
-        <table class="prop-table" style="width:100%;">
+        <div class="section-title">Studio 168 — Leadership</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Chris Meriwether</b></td><td class="dim">VP Acquisitions (Point of Contact)</td></tr>
-            <tr><td><b>Matt Molloy / Sophia Gulgulian</b></td><td class="dim">Molloy Law (Buyer&rsquo;s Counsel)</td></tr>
-            <tr><td><b>Tommy Marcheschi</b></td><td class="dim">CFO</td></tr>
-            <tr><td><b>Keiana Manalo</b></td><td class="dim">Asset Management / CMBS</td></tr>
-            <tr><td><b>Mordy Jurkowitz / Henny Heisler</b></td><td class="dim">Princeton Capital</td></tr>
-            <tr><td><b>Jeff Bennett</b></td><td class="dim">Managing Partner</td></tr>
+            <tr><td><b>Jeff Mendez</b></td><td class="dim">Principal / Managing Partner</td><td class="dim">jmendez@s168p.com</td></tr>
+            <tr><td><b>Jeff Bennett</b></td><td class="dim">Principal / Managing Partner</td><td class="dim">jbennett@s168p.com</td></tr>
           </tbody>
         </table>
       </div>
       <div class="section">
-        <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:10px;">SELLER / COUNTERPARTY</div>
-        <table class="prop-table" style="width:100%;">
+        <div class="section-title">Silver Lands — Acquisitions & Operations</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Kris Wessel</b></td><td class="dim">Broker</td></tr>
-            <tr><td><b>Ben Braband / Saddleback</b></td><td class="dim">Seller</td></tr>
-            <tr><td><b>Seth Weiland / Ali Renes / Ashley Ravn</b></td><td class="dim">Otten Johnson (Seller&rsquo;s Counsel)</td></tr>
-            <tr><td><b>Amanda Brower / Grace Wilson</b></td><td class="dim">Fidelity National Title (Escrow)</td></tr>
-            <tr><td><b>Midland / PNC</b></td><td class="dim">CMBS Servicer (Loan #030512791)</td></tr>
+            <tr><td><b>Chris Meriwether</b></td><td class="dim">VP of Acquisitions & Asset Management</td><td class="dim">chris@silverlandsmg.com</td></tr>
+            <tr><td><b>Keiana Manalo</b></td><td class="dim">DD and Asset Management</td><td class="dim">keiana@silverlandsmg.com</td></tr>
+            <tr><td><b>Derek Wilson</b></td><td class="dim">Chief Operating Officer</td><td class="dim">derek@silverlandsmg.com</td></tr>
+            <tr><td><b>Tommy Marcheschi</b></td><td class="dim">Chief Financial Officer</td><td class="dim">tommy@silverlandsmg.com</td></tr>
+            <tr><td><b>Nicholas Hansen</b></td><td class="dim">Chief Revenue Officer</td><td class="dim">nick@silverlandsmg.com</td></tr>
+            <tr><td><b>Lauren Taft</b></td><td class="dim">Vice President of Finance</td><td class="dim">lauren@silverlandsmg.com</td></tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div class="tiles-grid" style="margin-top: 14px;">
+      <div class="section">
+        <div class="section-title">Silver Lands — CapEx</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td><b>Sarge Wiebold</b></td><td class="dim">CapEx</td><td class="dim">sarge@silverlands.com</td></tr>
+            <tr><td><b>Drew Taft</b></td><td class="dim">CapEx</td><td class="dim">drew@silverlands.com</td></tr>
+            <tr><td><b>Paul Bradshaw</b></td><td class="dim">CapEx</td><td class="dim">paul@silverlandsmg.com</td></tr>
+            <tr><td><b>Jose Torres</b></td><td class="dim">CapEx</td><td class="dim">jose.torres@silverlandsmg.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Investor Relations</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td><b>Kristen Kealer</b></td><td class="dim">VP of Investor Relations</td><td class="dim">kkealer@s168p.com</td></tr>
+            <tr><td><b>Sage Damiano</b></td><td class="dim">Investor Relations</td><td class="dim">sage@silverlandsmg.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tiles-grid" style="margin-top: 14px;">
+      <div class="section">
+        <div class="section-title">Buyer's Legal Counsel</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td><b>Matt Molloy</b></td><td class="dim">Buyer's Attorney — Molloy Law Group</td><td class="dim">matt@molloylawgroup.com</td></tr>
+            <tr><td><b>Sophia Gulgulian</b></td><td class="dim">Molloy Law Group</td><td class="dim">sophia@molloylawgroup.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Princeton Capital Group</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td><b>Mordy Jurkowitz</b></td><td class="dim">Director</td><td class="dim">mordy@princetoncapgrp.com</td></tr>
+            <tr><td><b>Henny Heisler</b></td><td class="dim">Princeton Capital Group</td><td class="dim">henny@princetoncapgrp.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tiles-grid" style="margin-top: 14px;">
+      <div class="section">
+        <div class="section-title">Seller Team</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td><b>Kris Wessel</b></td><td class="dim">Seller Representative / DD Contact</td><td class="dim">kris@mhclistings.com</td></tr>
+            <tr><td><b>Ben</b></td><td class="dim">Saddleback (Seller's PM)</td><td class="dim">ben@saddlebackpro.com</td></tr>
+            <tr><td><b>Seth Weiland</b></td><td class="dim">Seller's Counsel — Otten Johnson</td><td class="dim">sweiland@ottenjohnson.com</td></tr>
+            <tr><td><b>Ashley Ravn</b></td><td class="dim">Otten Johnson (co-counsel w/ Seth)</td><td class="dim">aravn@ottenjohnson.com</td></tr>
+            <tr><td><b>Ali Renes</b></td><td class="dim">Otten Johnson</td><td class="dim">arenes@ottenjohnson.com</td></tr>
+            <tr><td><b>Rapid City Financial</b></td><td class="dim">Home Seller (POH Entity)</td><td class="dim"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Title & Escrow — Fidelity National Title</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td><b>Amanda Brower</b></td><td class="dim">Commercial Escrow Officer / Branch Mgr / VP</td><td class="dim">Amanda.Brower@fnf.com</td></tr>
+            <tr><td><b>Grace Wilson</b></td><td class="dim">Commercial Escrow Assistant</td><td class="dim">Grace.Wilson@fnf.com</td></tr>
+            <tr><td><b>Brittney Taylor</b></td><td class="dim">Commercial Escrow Assistant / Escrow Officer</td><td class="dim">Brittney.Taylor@fnf.com</td></tr>
+            <tr><td><b>Joshua Samuel</b></td><td class="dim">VP of Commercial Development</td><td class="dim">Joshua.Samuel@fnf.com</td></tr>
+            <tr><td colspan="3" class="dim" style="text-align:left;">GF# 9001312600125 · 1125 Executive Circle, Ste. 220, Irving, TX 75038</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tiles-grid" style="margin-top: 14px;">
+      <div class="section">
+        <div class="section-title">Lender / Servicer</div>
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><b>German American Capital</b></td><td class="dim">CMBS Originator (Deutsche Bank)</td></tr>
+            <tr><td><b>Midland Loan Services</b></td><td class="dim">Master Servicer</td></tr>
+            <tr><td><b>PNC Real Estate</b></td><td class="dim">Sub-Servicer</td></tr>
+            <tr><td><b>Paige Newman</b></td><td class="dim">PNC — Assumption Contact</td></tr>
+            <tr><td colspan="2" class="dim" style="text-align:left;">Single loan assumption — all 3 parks collateral under one loan (per Seth Weiland 3/24)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DATA ROOM INVENTORY -->
+    <div class="group-divider">
+      <div class="group-label">Data Room File Inventory</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Folder</th>
+            <th>Category</th>
+            <th style="text-align:right;">Files</th>
+            <th style="width:70px;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="dim">A</td><td>Rent Rolls</td><td style="text-align:right;">6</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">B</td><td>T-12 P&Ls</td><td style="text-align:right;">6</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">C</td><td>T-12 Utility Bills</td><td style="text-align:right;">217</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">D</td><td>T-12 Bank Statements</td><td style="text-align:right;">36</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">E</td><td>Property Taxes (2 Years)</td><td style="text-align:right;">42</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">F</td><td>Executed Leases</td><td style="text-align:right;">37</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">G</td><td>Service Contracts</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">H</td><td>Contractor / Vendor Lists</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">I</td><td>Delinquency Report</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">J</td><td>Insurance Loss Runs (5 Yr)</td><td style="text-align:right;">1</td><td class="orange">Partial</td></tr>
+          <tr><td class="dim">K</td><td>Insurance Policies</td><td style="text-align:right;">6</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">L</td><td>ALTA Surveys</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">M</td><td>Phase 1 Reports</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">N</td><td>PCA Reports</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">O</td><td>Site Maps</td><td style="text-align:right;">3</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">P</td><td>Personal Property Inventory</td><td style="text-align:right;">1</td><td class="green">Complete</td></tr>
+          <tr><td class="dim">Q</td><td>Rent Manager Export</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">R</td><td>MPOP Registration</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">S</td><td>OTP Compliance Docs</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">T</td><td>Litigation / Code Violations</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">U</td><td>Permits & Licenses</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr><td class="dim">V</td><td>CapEx Records (3 Years)</td><td style="text-align:right;">0</td><td class="red">Empty</td></tr>
+          <tr style="background: rgba(59,130,246,0.06);"><td></td><td><b>TOTAL</b></td><td style="text-align:right;"><b>364</b></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GOOGLE DRIVE LINKS -->
+    <div class="group-divider">
+      <div class="group-label">DD File Storage &mdash; Google Drive</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
+      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px;">PUEBLO 3-PACK DD &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Open in Google Drive</a></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px;">
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.30); border-radius: 6px; color: #93B4F8; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #3B82F6;">
+          <span style="font-size: 14px;">&#128193;</span> 01 &mdash; Financial <span style="color:#858D99; font-weight:400; font-size:10px;">(A-D)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.30); border-radius: 6px; color: #B794F6; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #8B5CF6;">
+          <span style="font-size: 14px;">&#128193;</span> 02 &mdash; Tax &amp; Insurance <span style="color:#858D99; font-weight:400; font-size:10px;">(E,J-K)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.30); border-radius: 6px; color: #5EEAD4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #14B8A6;">
+          <span style="font-size: 14px;">&#128193;</span> 03 &mdash; Legal &amp; Leases <span style="color:#858D99; font-weight:400; font-size:10px;">(F,S-U,Z-AA)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 6px; color: #FBBF24; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #F59E0B;">
+          <span style="font-size: 14px;">&#128193;</span> 04 &mdash; Operations <span style="color:#858D99; font-weight:400; font-size:10px;">(G-I,P-R)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.30); border-radius: 6px; color: #6EE7B7; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #10B981;">
+          <span style="font-size: 14px;">&#128193;</span> 05 &mdash; Physical &amp; Env <span style="color:#858D99; font-weight:400; font-size:10px;">(L-O,V)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.30); border-radius: 6px; color: #F9A8D4; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #EC4899;">
+          <span style="font-size: 14px;">&#128193;</span> 06 &mdash; Title &amp; Closing <span style="color:#858D99; font-weight:400; font-size:10px;">(W-X)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.30); border-radius: 6px; color: #67E8F9; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #06B6D4;">
+          <span style="font-size: 14px;">&#128193;</span> 07 &mdash; POH <span style="color:#858D99; font-weight:400; font-size:10px;">(Y)</span></a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.30); border-radius: 6px; color: #A5B4FC; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #6366F1;">
+          <span style="font-size: 14px;">&#128193;</span> 08 &mdash; UW &amp; Analysis</a>
+        <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.30); border-radius: 6px; color: #FDE68A; font-size: 11px; text-decoration: none; font-weight: 600; border-left: 3px solid #FBBF24;">
+          <span style="font-size: 14px;">&#128193;</span> 09 &mdash; Misc Files</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TAB 14: DOCUMENT TRACKER -->
+  <div class="tab-content" id="tab-page14">
+
+    <div class="group-divider">
+      <div class="group-label">Due Diligence Document Tracker</div>
+      <div class="group-line"></div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div style="background:#111827; border-radius:10px; padding:16px 20px; border:1px solid rgba(59,130,246,0.12); margin-bottom:16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div style="font-size:11px; font-weight:700; color:#E5E9ED;">Documents Received</div>
+        <div style="font-size:11px; font-weight:700; color:#3B82F6;" id="doc-progress-text">4 of 24 (17%)</div>
+      </div>
+      <div style="height:8px; background:rgba(59,130,246,0.12); border-radius:4px; overflow:hidden;">
+        <div style="width:17%; height:100%; background:linear-gradient(90deg,#3B82F6,#00E676); border-radius:4px; transition:width 0.5s;"></div>
+      </div>
+    </div>
+
+    <!-- FINANCIAL DOCUMENTS -->
+    <div class="section" style="margin-bottom:14px;">
+      <div style="font-size:11px; font-weight:700; color:#3B82F6; margin-bottom:10px;">FINANCIAL DOCUMENTS</div>
+      <table class="data-table" style="width:100%;">
+        <thead><tr><th style="width:35%;">Document</th><th style="width:15%;">Status</th><th style="width:20%;">Requested</th><th style="width:15%;">Received</th><th style="width:15%;">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Trailing 12 (T12) Operating Statements</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>2024 Year-End Financial Statements</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>2025 YTD Financial Statements</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>2026 Budget (if available)</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>Current Rent Roll (all 3 communities)</td><td class="green">&#9989; Received</td><td>3/22</td><td>3/24</td><td>Broker</td></tr>
+          <tr><td>Accounts Receivable Aging Report</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>Tax Returns (2022-2024)</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>Utility Bills (12 months)</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>CapEx History / Major Repairs</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LEGAL & TITLE DOCUMENTS -->
+    <div class="section" style="margin-bottom:14px;">
+      <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:10px;">LEGAL & TITLE</div>
+      <table class="data-table" style="width:100%;">
+        <thead><tr><th style="width:35%;">Document</th><th style="width:15%;">Status</th><th style="width:20%;">Requested</th><th style="width:15%;">Received</th><th style="width:15%;">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Preliminary Title Report / Commitment</td><td class="orange">&#9203; Ordered</td><td>3/25</td><td>—</td><td>Fidelity Title</td></tr>
+          <tr><td>Survey / Plat Maps</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>Phase I Environmental (all 3)</td><td class="orange">&#9203; Ordered</td><td>3/26</td><td>—</td><td>Third-Party</td></tr>
+          <tr><td>Zoning Confirmation Letters</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Pueblo County</td></tr>
+          <tr><td>Existing Leases / Lease Forms</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>CC&Rs / Park Rules</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LOAN & INSURANCE DOCUMENTS -->
+    <div class="section" style="margin-bottom:14px;">
+      <div style="font-size:11px; font-weight:700; color:#EF4444; margin-bottom:10px;">LOAN & INSURANCE</div>
+      <table class="data-table" style="width:100%;">
+        <thead><tr><th style="width:35%;">Document</th><th style="width:15%;">Status</th><th style="width:20%;">Requested</th><th style="width:15%;">Received</th><th style="width:15%;">Source</th></tr></thead>
+        <tbody>
+          <tr><td>CMBS Loan Documents / Note</td><td class="orange">&#9203; Requested</td><td>3/27</td><td>—</td><td>Midland/PNC</td></tr>
+          <tr><td>Loan Assumption Requirements</td><td class="orange">&#9203; Requested</td><td>3/27</td><td>—</td><td>Midland/PNC</td></tr>
+          <tr><td>Current Insurance Policies</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>Insurance Loss History (5 years)</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PROPERTY & OPERATIONS -->
+    <div class="section" style="margin-bottom:14px;">
+      <div style="font-size:11px; font-weight:700; color:#00E676; margin-bottom:10px;">PROPERTY & OPERATIONS</div>
+      <table class="data-table" style="width:100%;">
+        <thead><tr><th style="width:35%;">Document</th><th style="width:15%;">Status</th><th style="width:20%;">Requested</th><th style="width:15%;">Received</th><th style="width:15%;">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Offering Memorandum</td><td class="green">&#9989; Received</td><td>3/18</td><td>3/18</td><td>Broker</td></tr>
+          <tr><td>Site Photos (all 3 communities)</td><td class="green">&#9989; Received</td><td>3/22</td><td>3/28</td><td>Site Visit</td></tr>
+          <tr><td>Condition Assessment / Inspection</td><td class="orange">&#9203; Scheduled</td><td>3/28</td><td>—</td><td>Third-Party</td></tr>
+          <tr><td>Utility Infrastructure Maps</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+          <tr><td>Vendor / Service Contracts</td><td class="red">&#10060; Missing</td><td>3/27</td><td>—</td><td>Seller</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="font-size:9px; color:#858D99; padding:10px; background:rgba(239,68,68,0.06); border-radius:6px; border:1px solid rgba(239,68,68,0.15);">
+      <b style="color:#EF4444;">&#9888; DD Request Sent 3/27 — No Seller Response as of 3/29.</b> Follow up required. 20 of 24 documents still outstanding. Critical path items: T12, loan docs, title report.
     </div>
 
   </div>
@@ -6198,6 +6267,49 @@ if ('serviceWorker' in navigator) {
       });
   });
 }
+
+// Inspection Period Countdown Timer
+function updateCountdown() {
+  const endDate = new Date('2026-04-16T23:59:59');
+  const now = new Date();
+  const diff = endDate - now;
+  const el = document.getElementById('inspection-countdown');
+  const sub = document.getElementById('inspection-subtext');
+  if (!el) return;
+
+  if (diff <= 0) {
+    el.textContent = 'EXPIRED';
+    el.style.color = '#EF4444';
+    if (sub) sub.textContent = 'Inspection period ended 4/16/2026';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+  if (days === 0) {
+    el.textContent = hours + ' HRS LEFT';
+  } else {
+    el.textContent = days + ' DAYS LEFT';
+  }
+
+  // Color shift: green > yellow > orange > red
+  if (days > 14) {
+    el.style.color = '#00E676';
+  } else if (days > 7) {
+    el.style.color = '#FBBF24';
+  } else if (days > 3) {
+    el.style.color = '#F97316';
+  } else {
+    el.style.color = '#EF4444';
+  }
+
+  if (sub) sub.textContent = days + 'd ' + hours + 'h remaining — Ends 4/16/2026';
+}
+
+// Run immediately and refresh every minute
+updateCountdown();
+setInterval(updateCountdown, 60000);
 </script>
 </body>
 </html>
