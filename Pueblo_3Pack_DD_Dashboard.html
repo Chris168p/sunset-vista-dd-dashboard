@@ -293,6 +293,97 @@
       font-size: 20px !important;
     }
 
+    /* ===== SITE VISIT TAB: mobile-first ===== */
+    /* Quick Reference & Third-Party: stack to 1 column */
+    #tab-page9 > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+    /* PCA KPI strip: stack to 1 column */
+    #tab-page9 > div[style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+    #tab-page9 > div[style*="grid-template-columns:repeat(3,1fr)"] > div {
+      padding: 10px 14px !important;
+    }
+    #tab-page9 > div[style*="grid-template-columns:repeat(3,1fr)"] > div > div:first-child {
+      font-size: 9px !important;
+    }
+    #tab-page9 > div[style*="grid-template-columns:repeat(3,1fr)"] > div > div:nth-child(2) {
+      font-size: 26px !important;
+    }
+    #tab-page9 > div[style*="grid-template-columns:repeat(3,1fr)"] > div > div:nth-child(3) {
+      font-size: 11px !important;
+    }
+    /* Inspection checklist table: stacked cards */
+    #tab-page9 .data-table { display: block !important; width: 100% !important; }
+    #tab-page9 .data-table thead { display: none !important; }
+    #tab-page9 .data-table tbody { display: block !important; }
+    #tab-page9 .data-table tr {
+      display: block !important;
+      background: rgba(59,130,246,0.04);
+      border: 1px solid rgba(59,130,246,0.10);
+      border-radius: 8px;
+      padding: 10px 12px !important;
+      margin-bottom: 8px !important;
+    }
+    #tab-page9 .data-table tr[style*="background:rgba(239,68,68"] {
+      border-left: 3px solid #EF4444 !important;
+    }
+    #tab-page9 .data-table tr[style*="background:rgba(245,158,11"] {
+      border-left: 3px solid #F59E0B !important;
+    }
+    #tab-page9 .data-table tr[style*="background:rgba(59,130,246"] {
+      border-left: 3px solid #3B82F6 !important;
+      background: rgba(59,130,246,0.08) !important;
+    }
+    #tab-page9 .data-table td {
+      display: block !important;
+      text-align: left !important;
+      padding: 2px 0 !important;
+      border: none !important;
+      white-space: normal !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+    }
+    #tab-page9 .data-table td b { font-size: 14px !important; }
+    /* Hide the # column number on mobile */
+    #tab-page9 .data-table td:first-child .risk-tag {
+      display: inline-block; margin-bottom: 4px;
+    }
+    /* Status badges: bigger */
+    #tab-page9 .data-table .status-badge {
+      font-size: 10px !important;
+      padding: 3px 8px !important;
+    }
+    /* Dim text readable */
+    #tab-page9 .data-table td.dim {
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      color: #9CA3AF !important;
+    }
+    /* Section info text */
+    #tab-page9 .section div[style*="font-size: 11px"],
+    #tab-page9 .section div[style*="font-size: 10.5px"],
+    #tab-page9 .section div[style*="font-size: 10px"] {
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+    /* Group labels */
+    #tab-page9 .group-label {
+      font-size: 12px !important;
+    }
+    /* Google Drive links: stack vertically */
+    #tab-page9 div[style*="grid-template-columns: repeat(3"] {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+    }
+    #tab-page9 div[style*="grid-template-columns: repeat(3"] a {
+      font-size: 13px !important;
+      padding: 10px 14px !important;
+    }
+
     /* ALL utilities tables: convert to stacked card layout */
     #tab-page10 .data-table {
       display: block !important;
