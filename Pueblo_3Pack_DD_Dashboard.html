@@ -113,6 +113,7 @@
   #radio-page16:checked ~ #tab-page16,
   #radio-page17:checked ~ #tab-page17,
   #radio-page19:checked ~ #tab-page19,
+  #radio-page20:checked ~ #tab-page20,
   #radio-page18:checked ~ #tab-page18 {
     display: block;
   }
@@ -1271,6 +1272,7 @@
 <input type="radio" name="tabs" id="radio-page16" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page17" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page19" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page20" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page18" class="tab-radio">
 
   <div class="tab-bar">
@@ -1290,8 +1292,9 @@
     <label class="tab-label" for="radio-page19">Lease Audit</label>
     <label class="tab-label" for="radio-page7">POH Analysis</label>
     <label class="tab-label" for="radio-page10">Utilities</label>
+    <label class="tab-label" for="radio-page20">Value Add</label>
     <label class="tab-label" for="radio-page5">Investor Deck</label>
-    <label class="tab-label" for="radio-page8">Ops Discussion</label>
+    <label class="tab-label" for="radio-page8">Ops Handoff</label>
   </div>
 
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
@@ -4734,224 +4737,666 @@
 
   </div>
 
-  <!-- ============================= PAGE 8: DEAL REVIEW MEETING ============================= -->
+  <!-- ============================= PAGE 8: OPS HANDOFF ============================= -->
   <div class="tab-content" id="tab-page8">
 
     <div class="group-divider">
-      <div class="group-label">Sunset Vista Portfolio — Ops Discussion</div>
+      <div class="group-label">Pueblo Three Pack &mdash; 90-Day Operations Handoff</div>
       <div class="group-line"></div>
     </div>
 
-    <!-- DEAL SNAPSHOT KPIs -->
-    <div class="kpi-strip">
-      <div class="kpi-card">
-        <div class="value" style="color:#3B82F6;">$39.7M</div>
-        <div class="label">Purchase Price</div>
+    <!-- OPS HANDOFF KPIs -->
+    <div class="hero-row" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+      <div class="hero-box">
+        <div class="hero-label">Properties</div>
+        <div class="hero-value" style="color:#3B82F6;">3</div>
+        <div class="hero-sub">SV (206) &bull; OC (161) &bull; LAV (32)</div>
       </div>
-      <div class="kpi-card">
-        <div class="value green">90%</div>
-        <div class="label">Occupancy</div>
+      <div class="hero-box">
+        <div class="hero-label">Total Lots</div>
+        <div class="hero-value" style="color:#E5E9ED;">399</div>
+        <div class="hero-sub">346 occupied &bull; 53 vacant</div>
       </div>
-      <div class="kpi-card">
-        <div class="value white">$1.95M</div>
-        <div class="label">T12 NOI</div>
+      <div class="hero-box">
+        <div class="hero-label">POH to Manage</div>
+        <div class="hero-value" style="color:#8B5CF6;">144</div>
+        <div class="hero-sub">Until TOH conversion completes</div>
       </div>
-      <div class="kpi-card">
-        <div class="value orange">67%</div>
-        <div class="label">DD Complete</div>
+      <div class="hero-box">
+        <div class="hero-label">Yr 1 NOI Target</div>
+        <div class="hero-value" style="color:#10B981;">$2.50M</div>
+        <div class="hero-sub">+28.4% over T12 ($1.95M)</div>
       </div>
-      <div class="kpi-card">
-        <div class="value red">5</div>
-        <div class="label">Red Flags</div>
+      <div class="hero-box">
+        <div class="hero-label">Transition Period</div>
+        <div class="hero-value" style="color:#FBBF24;">90 Days</div>
+        <div class="hero-sub">4 phases &bull; Studio 168 &rarr; Silver Lands</div>
       </div>
     </div>
 
-    <!-- ======= SECTION 1: WHERE WE STAND ======= -->
+    <!-- ── 90-DAY TIMELINE VISUAL ── -->
+    <div class="section" style="margin-bottom:14px; padding:16px 18px;">
+      <div style="font-size:10px; color:#858D99; font-weight:700; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">90-Day Transition Roadmap</div>
+      <div style="display:flex; gap:0; border-radius:8px; overflow:hidden; height:44px; margin-bottom:6px;">
+        <div style="flex:0 0 8%; background:linear-gradient(135deg,#EF4444,#DC2626); display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:800; flex-direction:column; line-height:1.2;">
+          <span>PHASE 1</span><span style="font-weight:400; font-size:8px;">Days 1&ndash;7</span>
+        </div>
+        <div style="flex:0 0 25%; background:linear-gradient(135deg,#F59E0B,#D97706); display:flex; align-items:center; justify-content:center; font-size:9px; color:#1E222C; font-weight:800; flex-direction:column; line-height:1.2;">
+          <span>PHASE 2</span><span style="font-weight:400; font-size:8px;">Days 8&ndash;30</span>
+        </div>
+        <div style="flex:0 0 33%; background:linear-gradient(135deg,#3B82F6,#2563EB); display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:800; flex-direction:column; line-height:1.2;">
+          <span>PHASE 3</span><span style="font-weight:400; font-size:8px;">Days 31&ndash;60</span>
+        </div>
+        <div style="flex:0 0 34%; background:linear-gradient(135deg,#10B981,#059669); display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:800; flex-direction:column; line-height:1.2;">
+          <span>PHASE 4</span><span style="font-weight:400; font-size:8px;">Days 61&ndash;90</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:0; font-size:8px; color:#858D99;">
+        <div style="flex:0 0 8%; text-align:center;">Initial<br>Transition</div>
+        <div style="flex:0 0 25%; text-align:center;">Systems &amp;<br>Establishment</div>
+        <div style="flex:0 0 33%; text-align:center;">Stabilization &amp;<br>First Reports</div>
+        <div style="flex:0 0 34%; text-align:center;">Performance Assessment<br>&amp; Full Autonomy</div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 1: WEEK 1 ── -->
     <div class="group-divider">
-      <div class="group-label">Where We Stand</div>
+      <div class="group-label" style="color:#EF4444;">Phase 1: Initial Transition (Days 1&ndash;7)</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #22C55E; padding-left: 12px;">
-      <div style="font-size: 11px; color: #22C55E; font-weight: 700; margin-bottom: 6px;">WHAT'S GOING WELL</div>
-      <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
-        <b style="color:#E5E9ED;">Environmental is clean</b> — All 3 properties passed Phase I with zero RECs. No Phase II needed.<br>
-        <b style="color:#E5E9ED;">Strong operating margins</b> — Portfolio NOI of $1.95M on $2.83M revenue = 69.2% operating margin. Healthy for MHC.<br>
-        <b style="color:#E5E9ED;">Oasis is a standout</b> — 95% occupied, $615/mo lot rents, solid cash flow. Carrying the portfolio.<br>
-        <b style="color:#E5E9ED;">PCA came in light</b> — $52K immediate CapEx across 3 properties, $222K total over 7 years. $63/unit/yr is within benchmarks.<br>
-        <b style="color:#E5E9ED;">Seller is cooperating</b> — 364 files in the data room, responsive to DD requests. PSA earnest money ($350K) deposited.
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        <b style="color:#EF4444;">Day 1 is critical.</b> Tenants, vendors, and staff need to know immediately that management has changed. Silver Lands PM must be on-site at all 3 properties within the first 48 hours.
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#EF4444; font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Days 1&ndash;3: Immediate Actions</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.8;">
+            <b style="color:#E5E9ED;">Tenant Notifications</b> &mdash; Distribute management change letters to all 346 occupied lots. Include new PM contact, emergency maintenance number, and rent payment instructions.<br>
+            <b style="color:#E5E9ED;">Staff Introduction</b> &mdash; On-site manager at each property meets new PM. Assess who stays, who goes. Current staffing unknown &mdash; confirm during site visit.<br>
+            <b style="color:#E5E9ED;">Access Transfer</b> &mdash; Keys, gate codes, alarm codes, Rent Manager login, utility account access, mail/PO box access for all 3 properties.<br>
+            <b style="color:#E5E9ED;">Vendor Notification</b> &mdash; Email all vendors (trash, landscaping, pest, maintenance) with new PM as primary contact. Confirm no service interruptions.<br>
+            <b style="color:#E5E9ED;">Closing Day Walk-Through</b> &mdash; VP Acquisitions + new PM walk all 3 communities together. Photo-document baseline condition of roads, common areas, vacant lots, POH units.
+          </div>
+        </div>
+        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#EF4444; font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Days 4&ndash;7: Documentation &amp; Setup</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.8;">
+            <b style="color:#E5E9ED;">Security Deposits</b> &mdash; Reconcile deposit ledger vs lease files for all 346 tenants. Per PSA &sect;4.3, buyer gets credit at closing for unapplied deposits.<br>
+            <b style="color:#E5E9ED;">Lease File Inventory</b> &mdash; Confirm all 37 POH leases + lot leases received. Flag the 3 leases (SC 183, 190, 203) with "utilities included" language for immediate attention.<br>
+            <b style="color:#E5E9ED;">Closing Binder</b> &mdash; Verify receipt of all 18 seller deliverables per PSA &sect;15.2. Title policy, deeds, bills of sale, assignments, Certificates of Title for 144 homes.<br>
+            <b style="color:#E5E9ED;">Emergency Contacts</b> &mdash; Set up after-hours maintenance line. Identify emergency plumber, electrician, HVAC in Pueblo area.<br>
+            <b style="color:#E5E9ED;">Insurance Activation</b> &mdash; Confirm Silver Lands portfolio policy covers all 3 communities effective Day 1. Verify adequate coverage on 144 POH units.
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:10px; color:#10B981; font-weight:700; padding:8px 12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:6px;">
+        &#10004; DELIVERABLE: Day 7 Transition Summary &mdash; documented completion of all Week 1 items. PM signs off, VP Acquisitions confirms.
       </div>
     </div>
 
-    <div class="section" style="margin-bottom: 18px; border-left: 3px solid #F59E0B; padding-left: 12px;">
-      <div style="font-size: 11px; color: #F59E0B; font-weight: 700; margin-bottom: 6px;">WHAT WE'RE STILL MISSING</div>
-      <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
-        <b style="color:#E5E9ED;">9 of 27 DD folders are empty</b> — Service contracts, vendor lists, delinquency reports, Rent Manager export, MPOP registration, OTP docs, litigation, permits, and 3-year CapEx records. We sent the formal request on 3/27 (20 items to Kris Wessel).<br>
-        <b style="color:#E5E9ED;">No site visit yet</b> — Scheduled for Phase 3 (Apr 11–20). Need to see SV vacant lots, OC roads, POH conditions in person.<br>
-        <b style="color:#E5E9ED;">Bank statement reconciliation hasn't started</b> — 36 statements across 3 properties, need to verify T12 revenue.<br>
-        <b style="color:#E5E9ED;">Oasis and La Vista <a href="https://drive.google.com/drive/folders/1y99i4PWE5iY__-Rgxw5MjnolZETVkwzC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">loss runs</a> missing</b> — Only SV provided (clean). Need the others to assess insurance claims history.
+    <!-- ── PHASE 2: WEEKS 2-4 ── -->
+    <div class="group-divider">
+      <div class="group-label" style="color:#F59E0B;">Phase 2: Systems Establishment (Days 8&ndash;30)</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:750px;">
+          <thead>
+            <tr>
+              <th>Workstream</th>
+              <th>Days 8&ndash;14</th>
+              <th>Days 15&ndash;30</th>
+              <th style="text-align:center;">Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#F59E0B;">Rent Collection</b></td>
+              <td class="dim">Execute first rent cycle under Silver Lands. Set up online payment portal. Document collection rate vs rent roll. Initiate late notice procedures.</td>
+              <td class="dim">Prepare aging schedule for delinquent accounts. Develop collection strategy (payment plans, escalation). Target: &ge;95% collection rate Month 1.</td>
+              <td style="text-align:center;">PM</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">Vendor Contracts</b></td>
+              <td class="dim">Audit all existing vendor contracts (trash, landscaping, pest, snow removal, maintenance). ID contracts needing lender consent for assumption.</td>
+              <td class="dim">Rebid insurance (bundle with SL portfolio). Rebid trash contract. Terminate underperformers. Lock in pricing. <b style="color:#10B981;">Target: $85K annual savings.</b></td>
+              <td style="text-align:center;">Ops + Finance</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">Software &amp; Systems</b></td>
+              <td class="dim">Configure Rent Manager: 399 lots, tenant accounts, lease terms, rent amounts, move-in dates. Set up auto-reminders and late notices.</td>
+              <td class="dim">Activate work order system. Upload vendor lists. Train PM on reporting modules. Configure monthly dashboard for Studio 168 oversight.</td>
+              <td style="text-align:center;">Ops + PM</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">Utility Accounts</b></td>
+              <td class="dim">Transfer all utility accounts to Silver Lands entity. Verify account numbers for water (Board of Water Works), electric (Xcel/Black Hills), gas, trash at all 3 properties.</td>
+              <td class="dim">Compile 12 months of utility invoices for RUBS allocation modeling. Select RUBS vendor (Conservice, NWP, SimpleBills). Get implementation quotes.</td>
+              <td style="text-align:center;">Ops + PM</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">Lease Cleanup</b></td>
+              <td class="dim">Audit all 37 POH leases. Flag non-standard terms. Address $25/mo lot (SC Lot 67). Identify all month-to-month tenants (all of them per audit).</td>
+              <td class="dim">Draft new standard lease template (SL template). Prepare rent increase notices per CO MHP Act (90-day requirement). Legal review before mailing.</td>
+              <td style="text-align:center;">Legal + PM</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">CapEx Planning</b></td>
+              <td class="dim">Prioritize PCA items: OC roads ($41K immediate), SV clubhouse roof ($77K 7-yr). Get contractor bids for Year 1 projects.</td>
+              <td class="dim">Finalize Year 1 CapEx budget. Approve OC road repair contract. Develop 5-year capital plan. Brief PM on project authority limits.</td>
+              <td style="text-align:center;">CapEx + Finance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:10px; font-size:10px; color:#10B981; font-weight:700; padding:8px 12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:6px;">
+        &#10004; DELIVERABLE: 30-Day Transition Report &mdash; systems status, vendor transitions complete, first collection results, operational issues identified. Day 30 checkpoint meeting with Acquisitions + PM + Finance.
       </div>
     </div>
 
-    <!-- ======= NEXT STEPS IN DUE DILIGENCE ======= -->
+    <!-- ── BUSINESS PLAN IMPLEMENTATION ── -->
     <div class="group-divider">
-      <div class="group-label">Next Steps in Due Diligence</div>
+      <div class="group-label">Business Plan Implementation &mdash; What Ops Needs to Execute</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:90px;">Timeframe</th>
-            <th>What Needs to Happen</th>
-            <th style="width:110px;">Owner</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background:rgba(239,68,68,0.04);">
-            <td><b style="color:#EF4444;">This Week</b><br><span class="dim">by 3/31</span></td>
-            <td class="dim">Confirm tax assessment classification with Pueblo County Assessor (residential vs commercial)<br>Model tax reassessment scenarios in underwriting<br>Verify Oasis insurance coverage allocation</td>
-            <td class="dim">Keiana<br>Chris<br>Chris</td>
-          </tr>
-          <tr style="background:rgba(249,115,22,0.04);">
-            <td><b style="color:#F59E0B;">Next Week</b><br><span class="dim">by 4/7</span></td>
-            <td class="dim">Follow up on 9 empty DD folders — escalate to seller if no response<br>Obtain all utility account numbers and service contracts from seller<br>Begin bank statement reconciliation (36 statements, 3 properties)<br>Request OC and SV water meter read history from Board of Water Works</td>
-            <td class="dim">Chris / Kris<br>Chris / Kris<br>Chris<br>Chris</td>
-          </tr>
-          <tr style="background:rgba(59,130,246,0.04);">
-            <td><b style="color:#3B82F6;">Weeks 3&ndash;4</b><br><span class="dim">Apr 7&ndash;20</span></td>
-            <td class="dim">Schedule and complete site visit &mdash; all 3 properties<br>Focus areas: SV vacant lots, OC road conditions, POH inspections, ADA compliance<br>Review all 37 executed leases for non-standard terms<br>Evaluate RUBS implementation feasibility</td>
-            <td class="dim">Team<br><br>Team<br>Team</td>
-          </tr>
-          <tr style="background:rgba(34,197,94,0.04);">
-            <td><b style="color:#22C55E;">Week 5</b><br><span class="dim">Apr 21&ndash;28</span></td>
-            <td class="dim">Negotiate Oasis road repair credit or escrow holdback<br>Finalize underwriting with all DD findings incorporated<br>Update investor deck with confirmed numbers<br>Prepare final DD approval package</td>
-            <td class="dim">Chris / Jeff<br>Chris<br>Kristen<br>Team</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:12px; line-height:1.6;">
+        The underwriting model assumes <b style="color:#10B981;">$554K in Year 1 NOI uplift</b>. Every dollar of that depends on ops executing 5 levers on a specific timeline. Below is what the PM and ops team need to do, when, and what success looks like.
+      </div>
 
-    <!-- ======= SECTION 2: DECISIONS ======= -->
-    <div class="group-divider">
-      <div class="group-label">Decisions We Need to Make Together</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #A855F7; padding-left: 12px;">
-      <div style="font-size: 11px; color: #C9CDD3; line-height: 2.0;">
-        <b style="color:#A855F7;">1.</b> <b style="color:#E5E9ED;">Tax modeling approach</b> — Do we underwrite at residential rate (expected) or commercial rate (worst case)? Or run both scenarios?<br>
-        <b style="color:#A855F7;">2.</b> <b style="color:#E5E9ED;">Oasis road negotiation strategy</b> — Seller credit at closing, escrow holdback, or absorb it in our CapEx budget?<br>
-        <b style="color:#A855F7;">3.</b> <b style="color:#E5E9ED;">CMBS assumption timeline risk</b> — Loan docs confirmed 6.45% fixed, 3% mgmt fee cap, 1.15x lockbox. Do we need a PSA amendment for assumption milestones? Can we negotiate the mgmt fee cap up to 5&ndash;6%?<br>
-        <b style="color:#A855F7;">4.</b> <b style="color:#E5E9ED;">SV infill strategy</b> — What's our plan for the 28 vacant lots? Timeline, cost per home, and absorption rate assumptions?<br>
-        <b style="color:#A855F7;">5.</b> <b style="color:#E5E9ED;">Investor deck timing</b> — Hold off until DD is further along, or do a partial update now with caveats?
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:850px;">
+          <thead>
+            <tr>
+              <th>Value Lever</th>
+              <th style="text-align:right;">NOI Impact</th>
+              <th>What Ops Must Do</th>
+              <th>Timeline</th>
+              <th>Success Metric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-left:3px solid #10B981;">
+              <td><b style="color:#10B981;">Lot Rent Increases</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$167K</b></td>
+              <td class="dim">
+                <b>1.</b> Mail 90-day rent increase notices within 30 days of close (CO MHP Act compliant)<br>
+                <b>2.</b> SV: $654 &rarr; $690 (+$36) | OC: $615 &rarr; $655 (+$40) | LAV: $572 &rarr; $620 (+$48)<br>
+                <b>3.</b> Handle tenant inquiries and pushback. Document all communications.<br>
+                <b>4.</b> Update Rent Manager with new rates effective ~120 days post-close
+              </td>
+              <td>Notices: Close +30d<br>Effective: Close +120d</td>
+              <td class="dim">100% of notices delivered. &lt;5% turnover attributable to increase. New rates in effect by Month 5.</td>
+            </tr>
+            <tr style="border-left:3px solid #3B82F6;">
+              <td><b style="color:#3B82F6;">RUBS Program</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$95K</b></td>
+              <td class="dim">
+                <b>1.</b> Compile 12 months utility invoices for all 3 properties (water, sewer, trash, electric common area)<br>
+                <b>2.</b> Select and contract RUBS vendor. Silver Lands to provide vendor shortlist.<br>
+                <b>3.</b> Issue RUBS addendum with lease renewals. Cure SC 183, 190, 203 leases first (utilities "included").<br>
+                <b>4.</b> Launch billing for all non-blocked units. Target 40% recovery Year 1 ($167K of $417K).
+              </td>
+              <td>Vendor selected: Close +30d<br>Billing live: Close +90d</td>
+              <td class="dim">RUBS billing active on &ge;95% of units. 40% cost recovery rate. $14K/mo in utility reimbursement.</td>
+            </tr>
+            <tr style="border-left:3px solid #8B5CF6;">
+              <td><b style="color:#8B5CF6;">POH &rarr; TOH Sales</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$72K</b></td>
+              <td class="dim">
+                <b>1.</b> Grade all 144 homes A/B/C within 30 days. Walk every unit with CapEx team.<br>
+                <b>2.</b> Prep "A" grade homes for sale first (minimal rehab). Budget $3K&ndash;$5K make-ready per home.<br>
+                <b>3.</b> List homes through on-site sales + online (Facebook Marketplace, MHVillage, Craigslist).<br>
+                <b>4.</b> Coordinate financing options: chattel loans (21st Mortgage), rent-to-own, seller financing via PCF SPE.<br>
+                <b>5.</b> Process title transfers &mdash; Certificates of Title from closing binder. File with CO DMV.
+              </td>
+              <td>Grading: Close +30d<br>First 10 listed: Close +60d<br>40 sold: Month 12</td>
+              <td class="dim">40 homes converted Year 1. $735K in sale proceeds. $72K annual maintenance savings. POH portfolio reduced to 104.</td>
+            </tr>
+            <tr style="border-left:3px solid #FBBF24;">
+              <td><b style="color:#FBBF24;">Infill Program</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$135K</b></td>
+              <td class="dim">
+                <b>1.</b> Walk and photo-document all 53 vacant lots. Confirm: pad condition, utility hookups stubbed, lot dimensions, access.<br>
+                <b>2.</b> Prioritize SV (28 vacant) &mdash; identify 12 best lots for Year 1 infill.<br>
+                <b>3.</b> Get dealer quotes: Clayton, Cavco, Champion for Pueblo delivery. Budget $55K&ndash;$70K new, $25K&ndash;$40K used.<br>
+                <b>4.</b> Order first 5 homes immediately. Target 20 homes placed in Year 1.<br>
+                <b>5.</b> Build waiting list / lead pipeline. Market vacant lots via signage, online listings, outreach to employers.
+              </td>
+              <td>Lot audit: Close +14d<br>First 5 ordered: Close +60d<br>20 placed: Month 12</td>
+              <td class="dim">20 new homes placed. Portfolio occupancy: 90% &rarr; 95.5%. $161K new lot revenue. &lt;90 days avg time-to-occupy.</td>
+            </tr>
+            <tr style="border-left:3px solid #06B6D4;">
+              <td><b style="color:#06B6D4;">Expense Reduction</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$85K</b></td>
+              <td class="dim">
+                <b>1.</b> Insurance: Rebid through SL portfolio carrier. Target $30K savings (from $185K to $155K).<br>
+                <b>2.</b> Property Tax: File appeals with Pueblo County Assessor post-close. Target $22K savings.<br>
+                <b>3.</b> Trash/Waste: Rebid contract. Consolidate dumpster count across 3 properties. Target $10K savings.<br>
+                <b>4.</b> Landscaping: Bring common area maintenance in-house. Enforce tenant lot maintenance per lease. Target $8K savings.<br>
+                <b>5.</b> R&amp;M: Shift POH repairs to tenants as homes convert to TOH. Negotiate bulk vendor pricing. Target $15K savings.
+              </td>
+              <td>Insurance rebid: Close +30d<br>Tax appeal: Close +90d<br>Vendor rebids: Close +60d</td>
+              <td class="dim">$85K total annual expense reduction. Insurance renewed at &le;$155K. Tax appeal filed. All vendor contracts renegotiated.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- ======= SECTION 3: RED FLAGS ======= -->
+    <!-- ── PHASE 3: STABILIZATION ── -->
     <div class="group-divider">
-      <div class="group-label">Red Flags — Let's Talk Through These</div>
+      <div class="group-label" style="color:#3B82F6;">Phase 3: Stabilization &amp; First Reports (Days 31&ndash;60)</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 4px; padding-left: 12px; border-left: 3px solid #EF4444;">
-      <div style="font-size: 11px; color: #858D99; line-height: 1.6;">These are the items that could impact the deal. <b style="color:#E5E9ED;">Nothing here is a deal-killer yet, but we need to discuss each one and decide how to handle it.</b></div>
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:12px;">
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#3B82F6; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Financial Reporting</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; First monthly P&amp;L due Day 35<br>
+            &bull; Rent collected vs. billed (collection rate)<br>
+            &bull; OpEx summary by category vs. budget<br>
+            &bull; Variance analysis vs. underwriting assumptions<br>
+            &bull; Bank reconciliation &amp; AP aging<br>
+            &bull; First month NOI: target &ge;$165K (&ge;$1.98M annualized)
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#3B82F6; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Lease &amp; Occupancy</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; Detailed lease audit vs. rent roll reconciliation<br>
+            &bull; Confirm rent amounts match Rent Manager<br>
+            &bull; Track move-ins/move-outs and reasons<br>
+            &bull; Rent increase notices mailed (90-day clock starts)<br>
+            &bull; Marketing vacant lots (signage, online, employer outreach)<br>
+            &bull; Leasing pipeline established with weekly tracking
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#3B82F6; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Capital Projects Launch</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; OC road repairs initiated ($41K approved)<br>
+            &bull; ADA compliance fixes (OC parking, SC ramp)<br>
+            &bull; Abandoned home removal (9 units across portfolio)<br>
+            &bull; Community signage &amp; curb appeal upgrades<br>
+            &bull; POH home grading complete (A/B/C all 144 homes)<br>
+            &bull; First 10 "A grade" homes listed for sale
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:10px; color:#10B981; font-weight:700; padding:8px 12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:6px;">
+        &#10004; DELIVERABLE: 60-Day Stabilization Report &mdash; 2-month financials, capital project status, occupancy trend, operational metrics vs. underwriting. Day 60 assessment meeting.
+      </div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:30px;">#</th>
-            <th>Red Flag</th>
-            <th>Impact</th>
-            <th>What We Think &amp; What to Discuss</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="risk-tag tag-critical">1</span></td>
-            <td><b>CMBS Assumption — Seller Must Be Point of Contact</b></td>
-            <td class="dim">$21.9M loan via German American Capital / Midland / PNC. We can't talk to the servicer directly — everything goes through the seller.</td>
-            <td class="dim">This creates a dependency on seller cooperation for the entire assumption timeline (45–90 days). Paige Newman at PNC confirmed seller must initiate. <b style="color:#E5E9ED;">How comfortable are we with this? Do we need a PSA amendment with assumption milestones?</b></td>
-          </tr>
-          <tr>
-            <td><span class="risk-tag tag-critical">2</span></td>
-            <td><b>Colorado OTP — 120-Day Regulatory Clock</b></td>
-            <td class="dim">C.R.S. § 38-12-200.1 requires 120-day Opportunity to Purchase notice to residents before closing. Seller responsible per PSA §14.</td>
-            <td class="dim">Seth Weiland requested price allocations on 3/26, which suggests the process is starting — but we have zero OTP documentation in the data room (Folder S is empty). <b style="color:#E5E9ED;">Do we know if notices have been sent? This could delay closing if the clock hasn't started.</b></td>
-          </tr>
-          <tr>
-            <td><span class="risk-tag tag-critical">3</span></td>
-            <td><b>Property Tax Reassessment at $39.7M Basis</b></td>
-            <td class="dim">SC and OC both saw 400–600% tax jumps on the last sale. Current taxes: $74K/yr. At our basis: estimated $95K–$181K/yr depending on classification.</td>
-            <td class="dim">The residential vs. commercial classification question is huge — residential rate is ~6.25%, commercial is 29%. Keiana is confirming with the Pueblo County Assessor now. Also, $31,831 in unpaid 2025 taxes needs to be prorated at closing. <b style="color:#E5E9ED;">How are we modeling this in the underwriting? Do we use worst-case or expected-case?</b></td>
-          </tr>
-          <tr>
-            <td><span class="risk-tag tag-critical">4</span></td>
-            <td><b>Oasis Roads — $41K Deferred Maintenance</b></td>
-            <td class="dim">PCA found roads in "poor condition." $41K immediate repairs = 79% of total portfolio immediate CapEx. Affects operations, safety, and curb appeal.</td>
-            <td class="dim">This is a negotiation lever. <b style="color:#E5E9ED;">Do we ask for a seller credit, an escrow holdback, or just plan to handle it in our Year 1 CapEx budget? Jeff — what did you see on the roads during your drive-by?</b></td>
-          </tr>
-          <tr>
-            <td><span class="risk-tag tag-critical">5</span></td>
-            <td><b>Sunset Vista Occupancy — 86.4% with 28 Vacant Lots</b></td>
-            <td class="dim">Lowest in portfolio, below 90% institutional threshold. 28 vacant lots = ~$220K/yr in unrealized lot rent at $654/mo.</td>
-            <td class="dim">Is this a market issue, a management issue, or a product issue? We won't know until the site visit. <b style="color:#E5E9ED;">What's our infill plan and timeline? Are those lots actually buildable? What's the cost to bring new homes in?</b></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ======= OTHER ITEMS ======= -->
+    <!-- ── PHASE 4: FULL PERFORMANCE ── -->
     <div class="group-divider">
-      <div class="group-label">Other Items Worth Flagging</div>
+      <div class="group-label" style="color:#10B981;">Phase 4: Full Performance Assessment (Days 61&ndash;90)</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th>Details</th>
-            <th>Question for the Group</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>Utility costs are high</b></td>
-            <td class="dim">$417K/yr — 14.7% of revenue. Water/sewer alone is $365K (75% of utilities). La Vista is worst at 19.5% of revenue.</td>
-            <td class="dim">Are we modeling RUBS implementation? What's realistic in Pueblo — full billback or partial recovery?</td>
-          </tr>
-          <tr>
-            <td><b>Oasis insurance shows $0 on T12</b></td>
-            <td class="dim">Likely bundled in a portfolio policy, but we don't have the breakdown. If it's truly uninsured, that's a major gap.</td>
-            <td class="dim">Chris is reviewing Folder K policies. Should we hold off on anything until we confirm coverage allocation?</td>
-          </tr>
-          <tr>
-            <td><b>OC water bill spikes</b></td>
-            <td class="dim">Nov: $14,279 / Dec: $11,930 vs. normal $7–8K. Usage hit 1.87M gallons in Dec. Possible leak or meter issue.</td>
-            <td class="dim">We need the meter read history from Board of Water Works. Could be a one-time event or a systemic infrastructure issue.</td>
-          </tr>
-          <tr>
-            <td><b>POH count changed (156 → 144)</b></td>
-            <td class="dim">Seller sold 11 homes between LOI and PSA. Purchase price adjusted down accordingly ($40M → $38.17M).</td>
-            <td class="dim">Cascading impact on occupancy figures and the value-add story. The investor deck still uses the old numbers — we need to update everything.</td>
-          </tr>
-          <tr>
-            <td><b>SC clubhouse roof — $77K replacement</b></td>
-            <td class="dim">Built 1973, roof at end of life per PCA. $76,588 replacement within 7 years — single largest CapEx item in the portfolio.</td>
-            <td class="dim">Do we budget this in Year 1 or plan for Year 3–5? Impacts our CapEx reserves model.</td>
-          </tr>
-          <tr>
-            <td><b>Overdue utility accounts</b></td>
-            <td class="dim">OC Xcel account shows $125.75 past due with pending withdrawal. SC Black Hills has $240.57 past due with late fees.</td>
-            <td class="dim">Small dollar amounts but signals seller cash flow stress. Worth asking about during next seller call.</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+        <div style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#10B981; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Underwriting Reconciliation</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; Compare 60-day actuals to Year 1 underwriting assumptions<br>
+            &bull; Revenue variance: occupancy, rent rate, delinquency, RUBS<br>
+            &bull; Expense variance: management fee, utilities, maintenance, insurance<br>
+            &bull; Calculate annualized run-rate NOI &mdash; target &ge;$2.10M by Day 90<br>
+            &bull; Flag material variances (&gt;5%) with root cause analysis<br>
+            &bull; Adjust Year 1 projections based on actual performance
+          </div>
+        </div>
+        <div style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#10B981; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Investor Reporting &amp; Distributions</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; First quarterly investor report (per Studio 168 format)<br>
+            &bull; P&amp;L, balance sheet, capital accounts by investor class<br>
+            &bull; Property-specific narrative: ops summary, CapEx, occupancy, market<br>
+            &bull; Calculate earnings and distributions available to LPs<br>
+            &bull; Confirm preferred return coverage ratios<br>
+            &bull; Distribution notice with payment instructions
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#10B981; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">PM Scorecard &amp; Accountability</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; Establish PM performance metrics for Year 1<br>
+            &bull; Occupancy target: &ge;93% by Month 6, &ge;95% by Month 12<br>
+            &bull; Collection rate: &ge;97%<br>
+            &bull; Work order response time: &lt;24 hrs routine, &lt;4 hrs emergency<br>
+            &bull; POH conversion: &ge;40 homes sold in Year 1<br>
+            &bull; Schedule quarterly performance reviews with Silver Lands
+          </div>
+        </div>
+        <div style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#10B981; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Formal Handoff (Day 90)</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; VP Acquisitions signs off on complete operational transition<br>
+            &bull; Silver Lands confirms full operational autonomy<br>
+            &bull; Studio 168 moves to monthly oversight cadence only<br>
+            &bull; Escalation process defined for major decisions (&gt;$25K CapEx)<br>
+            &bull; Year 1 budget finalized with 60-day actuals incorporated<br>
+            &bull; Transition management formally completed
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:10px; color:#10B981; font-weight:700; padding:8px 12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:6px;">
+        &#10004; DELIVERABLE: 90-Day Completion Report &mdash; full financial summary, operational metrics vs. underwriting, capital project status, Year 1 guidance confirmation, transition closeout. Silver Lands fully autonomous.
+      </div>
+    </div>
+
+    <!-- ── PROPERTY-SPECIFIC PLAYBOOKS ── -->
+    <div class="group-divider">
+      <div class="group-label">Property-Specific Playbooks</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:850px;">
+          <thead>
+            <tr>
+              <th style="width:140px;">Category</th>
+              <th>Sunset Vista (206 lots)</th>
+              <th>Oasis (161 lots)</th>
+              <th>La Vista (32 lots)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">Priority #1</b></td>
+              <td class="dim"><b style="color:#FBBF24;">Infill 28 vacant lots.</b> Walk every vacant pad. Confirm hookups stubbed. Order first 5 homes from Clayton/Cavco within 60 days of close.</td>
+              <td class="dim"><b style="color:#EF4444;">Fix roads ($41K).</b> This is the #1 resident complaint risk. Get asphalt contractor on-site Week 2. Complete by Day 45.</td>
+              <td class="dim"><b style="color:#3B82F6;">Raise lot rents.</b> At $572/mo, LAV is $80&ndash;$100 below market. Biggest % increase opportunity in portfolio (8.4%).</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Priority #2</b></td>
+              <td class="dim"><b>POH sales:</b> 101 homes to manage. Grade all homes by Day 30. List "A" grade homes immediately. This is the biggest maintenance burden in the portfolio.</td>
+              <td class="dim"><b>ADA compliance:</b> Zero accessible parking found. Install ADA spots + signage. Ramp repairs. Budget $8K&ndash;$12K. Complete by Day 60.</td>
+              <td class="dim"><b>Survey encroachments:</b> Fence 4.3 ft + building 6.5 ft over property line. Resolve with neighbor or get title endorsement. Legal action item.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Priority #3</b></td>
+              <td class="dim"><b>Clubhouse roof:</b> End of life per PCA. $77K replacement. Budget Year 2&ndash;3. Patch and monitor for now. Get roofing contractor assessment by Day 30.</td>
+              <td class="dim"><b>Water bill investigation:</b> Nov/Dec spikes ($14K/$12K vs $7K normal). Check for leaks, verify meter accuracy, request Board of Water Works history.</td>
+              <td class="dim"><b>RUBS setup:</b> Highest utility cost ratio in portfolio (19.5% of revenue). Smallest property = fastest to implement. Pilot RUBS here first.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Staffing</b></td>
+              <td class="dim">Needs full-time on-site manager + part-time maintenance tech. Office in clubhouse. 206 lots justifies dedicated staff.</td>
+              <td class="dim">Part-time on-site manager sufficient. 161 lots at 95% occupancy = relatively stable. Can share maintenance with SV (3 miles apart).</td>
+              <td class="dim">Remote management from SV or OC office. 32 lots does not justify dedicated staff. PM visits 2&ndash;3x/week.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Rent Increase</b></td>
+              <td class="dim">$654 &rarr; $690 (+$36, 5.5%). 178 occupied lots. Annual uplift: $76,896. Notice by Close +30d, effective Close +120d.</td>
+              <td class="dim">$615 &rarr; $655 (+$40, 6.5%). 153 occupied lots. Annual uplift: $73,440. Notice by Close +30d, effective Close +120d.</td>
+              <td class="dim">$572 &rarr; $620 (+$48, 8.4%). 29 occupied lots. Annual uplift: $16,704. Notice by Close +30d, effective Close +120d.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Utility Accounts</b></td>
+              <td class="dim">Xcel Energy (electric) &bull; Black Hills Energy (gas) &bull; Board of Water Works (water/sewer) &bull; Confirm all accounts transfer Day 1.</td>
+              <td class="dim">Xcel Energy (electric) &bull; Board of Water Works (water/sewer) &bull; Past due Xcel balance ($125.75) &mdash; clear at closing.</td>
+              <td class="dim">Xcel Energy (electric) &bull; Board of Water Works (water/sewer) &bull; Smallest property but highest utility cost ratio &mdash; RUBS pilot candidate.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Abandoned Homes</b></td>
+              <td class="dim">4 abandoned units identified. Assess: rehab vs. remove. Budget $3K&ndash;$5K per removal. Clear lots for infill. Target completion: Day 45.</td>
+              <td class="dim">4 abandoned units. Same approach. Clear lots to improve occupancy optics and community appearance.</td>
+              <td class="dim">1 abandoned unit. Remove and prep lot for new home. Simplest of the three.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── 12 KEY HANDOFF DOCUMENTS ── -->
+    <div class="group-divider">
+      <div class="group-label">12 Key Handoff Documents</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">1. Closing Binder</div><div style="font-size:9px; color:#858D99;">Title policy, deeds, bills of sale, promissory note, mortgage docs</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">2. Rent Roll</div><div style="font-size:9px; color:#858D99;">399 lots: tenant names, move-in dates, rent amounts, lease expirations</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">3. Lease Files</div><div style="font-size:9px; color:#858D99;">37 POH leases + lot leases indexed by tenant and expiration date</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">4. Vendor Contracts</div><div style="font-size:9px; color:#858D99;">All service agreements: trash, landscaping, pest, snow, maintenance</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">5. Utility Accounts</div><div style="font-size:9px; color:#858D99;">Account #s, billing contacts, payment info: water, electric, gas, trash</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">6. Maintenance Equipment</div><div style="font-size:9px; color:#858D99;">On-site equipment inventory, tools, vehicles, storage locations</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">7. Site Maps</div><div style="font-size:9px; color:#858D99;">Detailed property maps: lot #s, utility lines, amenities, office</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">8. Delinquency Report</div><div style="font-size:9px; color:#858D99;">Aging schedule, collection status, historical issue notes</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">9. Capital Improvement Plan</div><div style="font-size:9px; color:#858D99;">Project list, timelines, budgets, priorities, expected ROI</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">10. Operating Budget</div><div style="font-size:9px; color:#858D99;">Year 1 budget by category, monthly projections, mgmt fee calcs</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">11. Insurance Documentation</div><div style="font-size:9px; color:#858D99;">Certificates, policy limits, deductibles, coverage per property</div></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.15); border-radius:6px;">
+          <span style="font-size:14px;">&#128209;</span>
+          <div><div style="font-size:11px; color:#E5E9ED; font-weight:600;">12. Property Tax Records</div><div style="font-size:9px; color:#858D99;">Assessment, tax ID, assessed value, payment schedule, appeal status</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── REPORTING CADENCE ── -->
+    <div class="group-divider">
+      <div class="group-label">Ongoing Reporting Cadence</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:650px;">
+          <thead>
+            <tr>
+              <th>Frequency</th>
+              <th>Due</th>
+              <th>Deliverables</th>
+              <th>Audience</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#EF4444;">Weekly</b></td>
+              <td>Every Monday</td>
+              <td class="dim">Collection rate, work order count, leasing activity, vacant lot status, any operational issues</td>
+              <td class="dim">VP Acquisitions + PM</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">Monthly</b></td>
+              <td>10 days post month-end</td>
+              <td class="dim">P&amp;L statement, rent roll summary, OpEx vs. budget, occupancy report, delinquency aging, maintenance summary, NOI vs. underwriting</td>
+              <td class="dim">Studio 168 + Silver Lands Ops</td>
+            </tr>
+            <tr>
+              <td><b style="color:#3B82F6;">Quarterly</b></td>
+              <td>30 days post quarter-end</td>
+              <td class="dim">Full P&amp;L (quarter + YTD), balance sheet, capital accounts by investor class, detailed narrative, distribution calcs, CapEx progress report</td>
+              <td class="dim">Investors + Studio 168</td>
+            </tr>
+            <tr>
+              <td><b style="color:#10B981;">Annual</b></td>
+              <td>90 days post year-end</td>
+              <td class="dim">Audited/reviewed financial statements, K-1 tax reporting (external CPA), property valuation update, comprehensive annual report</td>
+              <td class="dim">Investors + Lender</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── LENDER COMPLIANCE ── -->
+    <div class="group-divider">
+      <div class="group-label">CMBS Lender Compliance Requirements</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        The assumed CMBS loan ($21.9M via German American Capital / Midland / PNC) has specific compliance requirements that ops must maintain post-assumption. Failure triggers lockbox sweep and potential default.
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#EF4444; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">DSCR Covenant</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            <b style="color:#E5E9ED;">Minimum 1.15x DSCR.</b> Below this triggers cash flow lockbox sweep. Current T12 DSCR is ~1.25x. Our model targets 1.40x+ at stabilization. PM must track NOI monthly to ensure covenant is met.
+          </div>
+        </div>
+        <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#FBBF24; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Management Fee Cap</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            <b style="color:#E5E9ED;">3% of gross revenue cap</b> in current loan docs. This is tight &mdash; industry standard is 5&ndash;6%. Attempting to negotiate up during assumption. If stuck at 3%, Silver Lands fee structure must accommodate.
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#3B82F6; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Reserves &amp; Escrows</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            <b style="color:#E5E9ED;">Replace/increase per lender requirements.</b> Per PSA &sect;8.5, buyer responsible for funding all reserves required by assumed lender. Confirm exact amounts during assumption process. Budget for Day 1 reserve funding.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COLORADO REGULATORY ── -->
+    <div class="group-divider">
+      <div class="group-label">Colorado Regulatory Compliance</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:650px;">
+          <thead>
+            <tr>
+              <th>Regulation</th>
+              <th>Requirement</th>
+              <th>Ops Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">CO MHP Act</b><br><span class="dim">C.R.S. &sect;38-12-200.1</span></td>
+              <td class="dim">90-day written notice for rent increases &gt;3%. Annual notice of rights. Relocation assistance for park closures. MHPOP registration required.</td>
+              <td class="dim">All rent increases require 90-day notice. Legal must draft compliant notice templates. Verify MHPOP registration (currently missing from data room).</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">OTP Statute</b><br><span class="dim">C.R.S. &sect;38-12-217</span></td>
+              <td class="dim">120-day Opportunity to Purchase notice to residents before any future sale. Seller handling for this transaction (PSA &sect;14).</td>
+              <td class="dim">If Silver Lands ever sells, must provide 120-day OTP notice. Keep resident contact list current. Document all homeowner communications.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Eviction Process</b><br><span class="dim">CO Landlord-Tenant Act</span></td>
+              <td class="dim">Must follow CO eviction process. MHP tenants have additional protections. No retaliatory evictions.</td>
+              <td class="dim">PM must understand CO-specific eviction timelines and notices. Legal playbook needed for delinquent accounts. Budget 60&ndash;90 days for eviction process.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Home Title Transfers</b><br><span class="dim">CO DMV</span></td>
+              <td class="dim">Manufactured home titles filed with CO DMV. Certificate of Title required for all POH sales.</td>
+              <td class="dim">144 Certificates of Title transferring at close (PSA &sect;15.2(e)). Each POH sale requires title transfer filing. Budget $50&ndash;$100 per transfer.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── KEY CONTACTS ── -->
+    <div class="group-divider">
+      <div class="group-label">Key Contacts for Ops Team</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Contact</th>
+              <th>Responsibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">VP Acquisitions</b></td>
+              <td>Chris Meriwether</td>
+              <td class="dim">Transition manager through Day 60. Escalation point for major decisions. Investor communications.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Escrow Holder</b></td>
+              <td class="dim">Amanda Brower, Fidelity National Title<br>972-650-6847 &bull; amanda.brower@fnf.com</td>
+              <td class="dim">Closing docs, deposit release, recording, title policy issuance.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">CMBS Servicer</b></td>
+              <td class="dim">Midland Loan Services (PNC)<br>Paige Newman (contact via seller only)</td>
+              <td class="dim">Loan assumption docs, reserve requirements, lender compliance, reporting.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Seller Contact</b></td>
+              <td class="dim">Benjamin Braband (principal)<br>Kris Wessel (operations)<br>Seth Weiland (legal/OTP)</td>
+              <td class="dim">DD materials, Sched. 7.1 delivery, OTP process, loan assumption coordination.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Pueblo Board of Water Works</b></td>
+              <td class="dim">719-584-6750</td>
+              <td class="dim">Water/sewer accounts, meter reads, leak investigation, billing history for RUBS modeling.</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Pueblo County Assessor</b></td>
+              <td class="dim">719-583-6600</td>
+              <td class="dim">Property tax classification confirmation, appeal filing, assessed value disputes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
@@ -8015,8 +8460,8 @@
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Inspection Period</div>
-        <div id="inspection-countdown" style="font-size:20px; font-weight:900; color:#FBBF24; animation: pulse 2s infinite;">NOT STARTED</div>
-        <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">45 days from Sched. 7.1 delivery (TBD)</div>
+        <div id="inspection-countdown" style="font-size:20px; font-weight:900; color:#FBBF24;">TBD</div>
+        <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">45 days from Sched. 7.1 delivery — commencement date pending</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
@@ -9153,6 +9598,642 @@
 
   </div>
 
+  <!-- ============================= PAGE 20: VALUE ADD STRATEGY ============================= -->
+  <div class="tab-content" id="tab-page20">
+
+    <!-- ── VALUE ADD OVERVIEW KPI STRIP ── -->
+    <div class="hero-row" style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px;">
+      <div class="hero-box">
+        <div class="hero-label">Year 1 NOI Uplift Target</div>
+        <div class="hero-value" style="color:#10B981;">+$482K</div>
+        <div class="hero-sub">+24.7% over T12 baseline</div>
+      </div>
+      <div class="hero-box">
+        <div class="hero-label">Vacant Lots to Fill</div>
+        <div class="hero-value" style="color:#FBBF24;">53</div>
+        <div class="hero-sub">28 SV &bull; 13 OC &bull; 3 LAV &bull; 9 unknown</div>
+      </div>
+      <div class="hero-box">
+        <div class="hero-label">POH &rarr; TOH Conversions</div>
+        <div class="hero-value" style="color:#8B5CF6;">144</div>
+        <div class="hero-sub">101 SV &bull; 36 OC &bull; 7 LAV</div>
+      </div>
+      <div class="hero-box">
+        <div class="hero-label">Utility Recovery Gap</div>
+        <div class="hero-value" style="color:#3B82F6;">$345K</div>
+        <div class="hero-sub">$417K cost vs $72K recovered (17%)</div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 1: VALUE ADD THESIS ── -->
+    <div class="group-divider">
+      <div class="group-label">Value Add Thesis</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:12px; color:#C1C7CF; line-height:1.8;">
+        The Pueblo Three Pack represents a classic <b style="color:#10B981;">operational turnaround</b> opportunity. Current ownership runs the portfolio as a passive cash flow play with minimal rent growth, no utility recovery program, and a large POH portfolio that requires ongoing maintenance capital. Silver Lands' playbook targets five primary value levers that collectively drive an estimated <b style="color:#10B981;">$482K in Year 1 NOI uplift</b> (24.7% above T12 baseline of $1.95M).
+      </div>
+      <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <div style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#10B981; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Quick Wins (Months 1&ndash;6)</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; Implement lot rent increases to market &mdash; $30&ndash;$50/lot/mo<br>
+            &bull; Launch RUBS program on water/sewer (40% target recovery)<br>
+            &bull; Renegotiate vendor contracts (trash, landscaping, pest control)<br>
+            &bull; Fix $25/mo employee lot &mdash; convert to market rate or formalize<br>
+            &bull; Cure 3 leases with utilities "included in rent" language
+          </div>
+        </div>
+        <div style="background:rgba(139,92,246,0.06); border:1px solid rgba(139,92,246,0.20); border-radius:8px; padding:12px 14px;">
+          <div style="font-size:10px; color:#B794F6; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Longer-Term (Months 6&ndash;24)</div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            &bull; POH &rarr; TOH conversion program (sell 30&ndash;50 homes/yr)<br>
+            &bull; Infill vacant lots &mdash; target 20 new homes Year 1<br>
+            &bull; Capital improvements: roads, signage, common areas<br>
+            &bull; Submeter water at scale (individual lot meters)<br>
+            &bull; Community rebranding &amp; curb appeal upgrades
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2: LOT RENT INCREASES ── -->
+    <div class="group-divider">
+      <div class="group-label">Lever 1: Lot Rent Increases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        Current lot rents are <b style="color:#FBBF24;">below market</b> across all three communities. Pueblo MHC market comps support $680&ndash;$720/mo lot rents for comparable communities. Colorado MHP Act requires 90 days written notice for rent increases &gt;3%. All leases are month-to-month, which simplifies timing.
+      </div>
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:680px;">
+          <thead>
+            <tr>
+              <th>Community</th>
+              <th style="text-align:center;">Current Lot Rent</th>
+              <th style="text-align:center;">Market Comp</th>
+              <th style="text-align:center;">Year 1 Target</th>
+              <th style="text-align:center;">Increase</th>
+              <th style="text-align:center;">Occupied Lots</th>
+              <th style="text-align:right;">Annual Uplift</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">Sunset Vista</b></td>
+              <td style="text-align:center;">$654</td>
+              <td style="text-align:center;">$700</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$690</b></td>
+              <td style="text-align:center;">+$36 (5.5%)</td>
+              <td style="text-align:center;">178</td>
+              <td style="text-align:right;"><b style="color:#10B981;">$76,896</b></td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Oasis</b></td>
+              <td style="text-align:center;">$615</td>
+              <td style="text-align:center;">$680</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$655</b></td>
+              <td style="text-align:center;">+$40 (6.5%)</td>
+              <td style="text-align:center;">153</td>
+              <td style="text-align:right;"><b style="color:#10B981;">$73,440</b></td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">La Vista</b></td>
+              <td style="text-align:center;">$572</td>
+              <td style="text-align:center;">$650</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$620</b></td>
+              <td style="text-align:center;">+$48 (8.4%)</td>
+              <td style="text-align:center;">29</td>
+              <td style="text-align:right;"><b style="color:#10B981;">$16,704</b></td>
+            </tr>
+            <tr style="border-top:2px solid rgba(59,130,246,0.3);">
+              <td colspan="6"><b style="color:#E5E9ED;">Total Annual Lot Rent Uplift</b></td>
+              <td style="text-align:right;"><b style="color:#10B981; font-size:13px;">$167,040</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+        <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#FBBF24; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">CO MHP Act Notice</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.5;">90 days written notice required for increases &gt;3%. Plan to send notices within 30 days of closing for increases effective ~120 days post-close.</div>
+        </div>
+        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#EF4444; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Watch: OTP Sensitivity</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.5;">Large rent increases during OTP waiver period could create friction with homeowner groups. Consider staging increases: Phase 1 at close, Phase 2 at 6 months.</div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Team Action</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.5;">Ops team to prepare rent increase notice templates compliant with C.R.S. &sect;38-12-200.1. Legal review required before mailing.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: UTILITY RECOVERY / RUBS ── -->
+    <div class="group-divider">
+      <div class="group-label">Lever 2: Utility Recovery (RUBS)</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        Current utility cost recovery is <b style="color:#EF4444;">only 17%</b> ($72K recovered on $417K in annual utility costs). Master-metered water/sewer is the biggest opportunity. RUBS (Ratio Utility Billing System) is the fastest path to recovery. Long-term submetering offers higher capture rates but requires $150K&ndash;$200K capital investment.
+      </div>
+
+      <!-- Utility recovery waterfall chart -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:12px;">
+        <div style="background:rgba(30,34,44,0.6); border:1px solid rgba(59,130,246,0.10); border-radius:8px; padding:14px;">
+          <div style="font-size:10px; color:#858D99; font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Recovery Rate Progression</div>
+          <div class="mini-bar-chart" style="height:120px;">
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">17%</div>
+              <div style="width:100%; background:linear-gradient(to top,#EF4444,#EF4444); border-radius:3px 3px 0 0; height:17%;"></div>
+              <div class="mini-bar-label">Current</div>
+            </div>
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">40%</div>
+              <div style="width:100%; background:linear-gradient(to top,#FBBF24,#FBBF24); border-radius:3px 3px 0 0; height:40%;"></div>
+              <div class="mini-bar-label">Yr 1 RUBS</div>
+            </div>
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">60%</div>
+              <div style="width:100%; background:linear-gradient(to top,#3B82F6,#3B82F6); border-radius:3px 3px 0 0; height:60%;"></div>
+              <div class="mini-bar-label">Yr 2 RUBS</div>
+            </div>
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">85%</div>
+              <div style="width:100%; background:linear-gradient(to top,#10B981,#10B981); border-radius:3px 3px 0 0; height:85%;"></div>
+              <div class="mini-bar-label">Submetered</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(30,34,44,0.6); border:1px solid rgba(59,130,246,0.10); border-radius:8px; padding:14px;">
+          <div style="font-size:10px; color:#858D99; font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Annual Recovery by Phase</div>
+          <div class="mini-bar-chart" style="height:120px;">
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">$72K</div>
+              <div style="width:100%; background:linear-gradient(to top,#EF4444,#EF4444); border-radius:3px 3px 0 0; height:20%;"></div>
+              <div class="mini-bar-label">Current</div>
+            </div>
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">$167K</div>
+              <div style="width:100%; background:linear-gradient(to top,#FBBF24,#FBBF24); border-radius:3px 3px 0 0; height:47%;"></div>
+              <div class="mini-bar-label">Yr 1</div>
+            </div>
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">$250K</div>
+              <div style="width:100%; background:linear-gradient(to top,#3B82F6,#3B82F6); border-radius:3px 3px 0 0; height:71%;"></div>
+              <div class="mini-bar-label">Yr 2</div>
+            </div>
+            <div class="mini-bar-col">
+              <div class="mini-bar-val">$354K</div>
+              <div style="width:100%; background:linear-gradient(to top,#10B981,#10B981); border-radius:3px 3px 0 0; height:100%;"></div>
+              <div class="mini-bar-label">Submetered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#EF4444; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">RUBS Blockers &mdash; Fix Before Launch</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; <b>SC Lot 183, 190, 203</b> &mdash; Leases state utilities "included in rent." Must renegotiate or issue new leases before RUBS can apply to these lots.<br>
+            &bull; CO law: 90-day written notice required for any material lease change. Budget 90 days from close before RUBS takes effect on these units.
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Team Action</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; <b>Ops:</b> Select RUBS vendor (Conservice, NWP, SimpleBills) &mdash; get quotes pre-close<br>
+            &bull; <b>Legal:</b> Draft RUBS addendum for lease renewals<br>
+            &bull; <b>PM:</b> Obtain 12 months of utility invoices for allocation modeling<br>
+            &bull; <b>CapEx:</b> Scope submetering install cost for Year 2 budget
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4: POH CONVERSION ── -->
+    <div class="group-divider">
+      <div class="group-label">Lever 3: POH &rarr; TOH Conversion</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        The portfolio carries <b style="color:#8B5CF6;">144 park-owned homes</b> that require ongoing maintenance, insurance, and turnover capital. Converting POH to TOH reduces operating burden, shifts maintenance to residents, and improves the cap rate profile for eventual exit. PSA Section 10 allows flexible purchase price allocation between real and personal property &mdash; maximize depreciation on homes pre-conversion.
+      </div>
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:750px;">
+          <thead>
+            <tr>
+              <th>Community</th>
+              <th style="text-align:center;">POH Count</th>
+              <th style="text-align:center;">Avg Home Age</th>
+              <th style="text-align:center;">Conversion Target (Yr 1)</th>
+              <th style="text-align:center;">Avg Sale Price</th>
+              <th style="text-align:center;">Annual Maint Savings</th>
+              <th style="text-align:right;">Sale Proceeds (Yr 1)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">Sunset Vista</b></td>
+              <td style="text-align:center;">101</td>
+              <td style="text-align:center;">1998</td>
+              <td style="text-align:center;">25</td>
+              <td style="text-align:center;">$18,000</td>
+              <td style="text-align:center;">$1,800/home/yr</td>
+              <td style="text-align:right;">$450,000</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Oasis</b></td>
+              <td style="text-align:center;">36</td>
+              <td style="text-align:center;">2001</td>
+              <td style="text-align:center;">12</td>
+              <td style="text-align:center;">$20,000</td>
+              <td style="text-align:center;">$1,800/home/yr</td>
+              <td style="text-align:right;">$240,000</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">La Vista</b></td>
+              <td style="text-align:center;">7</td>
+              <td style="text-align:center;">1995</td>
+              <td style="text-align:center;">3</td>
+              <td style="text-align:center;">$15,000</td>
+              <td style="text-align:center;">$1,800/home/yr</td>
+              <td style="text-align:right;">$45,000</td>
+            </tr>
+            <tr style="border-top:2px solid rgba(139,92,246,0.3);">
+              <td colspan="4"><b style="color:#E5E9ED;">Year 1 Totals</b></td>
+              <td style="text-align:center;"><b style="color:#10B981;">$72K saved</b></td>
+              <td style="text-align:center;">&nbsp;</td>
+              <td style="text-align:right;"><b style="color:#10B981;">$735,000</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+        <div style="background:rgba(139,92,246,0.06); border:1px solid rgba(139,92,246,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#B794F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Financing Options for Buyers</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; Chattel loans (21st Mortgage, Cascade, Triad)<br>
+            &bull; Rent-to-own / lease-purchase programs<br>
+            &bull; Seller financing via Private Credit Facility SPE<br>
+            &bull; CASH program partnerships
+          </div>
+        </div>
+        <div style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#10B981; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Tax Strategy</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; PSA &sect;10 allows flexible allocation between real &amp; personal property<br>
+            &bull; Maximize allocation to homes for 5&ndash;15 yr depreciation<br>
+            &bull; Cost seg study at close to accelerate write-offs<br>
+            &bull; Homes sold generate ordinary income &mdash; offset with depreciation
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Team Action</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; <b>Ops:</b> Grade all 144 homes (A/B/C condition) during site visit<br>
+            &bull; <b>CapEx:</b> Budget $3K&ndash;$5K per home make-ready for sale<br>
+            &bull; <b>Finance:</b> Set up Private Credit Facility SPE for seller financing<br>
+            &bull; <b>Legal:</b> Prepare bill of sale templates &amp; title transfer docs
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 5: INFILL / OCCUPANCY ── -->
+    <div class="group-divider">
+      <div class="group-label">Lever 4: Infill &amp; Occupancy Growth</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        Portfolio is at <b style="color:#FBBF24;">90% occupancy</b> with 53 vacant lots. Sunset Vista has the largest vacancy (28 lots / 14% vacant), making it the primary infill target. Each filled lot at stabilized rent adds ~$7,800&ndash;$8,280 in annual lot revenue.
+      </div>
+
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:700px;">
+          <thead>
+            <tr>
+              <th>Community</th>
+              <th style="text-align:center;">Total Lots</th>
+              <th style="text-align:center;">Occupied</th>
+              <th style="text-align:center;">Vacant</th>
+              <th style="text-align:center;">Occupancy</th>
+              <th style="text-align:center;">Yr 1 Infill Target</th>
+              <th style="text-align:center;">Yr 1 Target Occ.</th>
+              <th style="text-align:right;">Revenue Added</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">Sunset Vista</b></td>
+              <td style="text-align:center;">206</td>
+              <td style="text-align:center;">178</td>
+              <td style="text-align:center;"><b style="color:#EF4444;">28</b></td>
+              <td style="text-align:center;">86.4%</td>
+              <td style="text-align:center;">12 homes</td>
+              <td style="text-align:center;"><b style="color:#10B981;">92.2%</b></td>
+              <td style="text-align:right;">$99,360</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Oasis</b></td>
+              <td style="text-align:center;">161</td>
+              <td style="text-align:center;">153</td>
+              <td style="text-align:center;">13</td>
+              <td style="text-align:center;">95.0%</td>
+              <td style="text-align:center;">6 homes</td>
+              <td style="text-align:center;"><b style="color:#10B981;">98.8%</b></td>
+              <td style="text-align:right;">$47,160</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">La Vista</b></td>
+              <td style="text-align:center;">32</td>
+              <td style="text-align:center;">29</td>
+              <td style="text-align:center;">3</td>
+              <td style="text-align:center;">90.6%</td>
+              <td style="text-align:center;">2 homes</td>
+              <td style="text-align:center;"><b style="color:#10B981;">96.9%</b></td>
+              <td style="text-align:right;">$14,880</td>
+            </tr>
+            <tr style="border-top:2px solid rgba(59,130,246,0.3);">
+              <td colspan="5"><b style="color:#E5E9ED;">Year 1 Infill Totals</b></td>
+              <td style="text-align:center;"><b>20 homes</b></td>
+              <td style="text-align:center;"><b style="color:#10B981;">95.5%</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">$161,400</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#FBBF24; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Infill Cost Estimates</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; <b>New singlewide (delivered + set):</b> $55K&ndash;$70K<br>
+            &bull; <b>Used home (move-in + rehab):</b> $25K&ndash;$40K<br>
+            &bull; <b>Lot prep (pad, utilities, skirting):</b> $5K&ndash;$12K<br>
+            &bull; <b>Estimated all-in per lot:</b> $35K&ndash;$80K depending on new vs used
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:6px; padding:10px;">
+          <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Team Action</div>
+          <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
+            &bull; <b>Ops:</b> Confirm lot readiness (utilities stubbed, pad condition) on all 53 vacant lots during site visit<br>
+            &bull; <b>CapEx:</b> Get dealer quotes from Clayton, Cavco, Champion for Pueblo delivery<br>
+            &bull; <b>Finance:</b> Model infill ROI &mdash; target &lt;5yr payback per home<br>
+            &bull; <b>PM:</b> Develop waiting list / lead pipeline pre-close
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 6: EXPENSE OPTIMIZATION ── -->
+    <div class="group-divider">
+      <div class="group-label">Lever 5: Expense Optimization</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        Current operating expenses reflect passive ownership with limited vendor oversight. Key opportunities include insurance re-bid, property tax appeal, contract renegotiation, and staffing efficiency under centralized Silver Lands management.
+      </div>
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:650px;">
+          <thead>
+            <tr>
+              <th>Expense Category</th>
+              <th style="text-align:center;">Current Annual</th>
+              <th style="text-align:center;">Target Annual</th>
+              <th style="text-align:center;">Savings</th>
+              <th>Action Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#E5E9ED;">Insurance</b></td>
+              <td style="text-align:center;">$185,000</td>
+              <td style="text-align:center;">$155,000</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$30,000</b></td>
+              <td>Re-bid through SL portfolio carrier; bundle with existing properties</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Property Taxes</b></td>
+              <td style="text-align:center;">$312,000</td>
+              <td style="text-align:center;">$290,000</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$22,000</b></td>
+              <td>File tax appeal post-closing; current assessed values above comps</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Trash/Waste</b></td>
+              <td style="text-align:center;">$48,000</td>
+              <td style="text-align:center;">$38,000</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$10,000</b></td>
+              <td>Rebid contract; consolidate dumpster count; add recycling</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">Landscaping/Snow</b></td>
+              <td style="text-align:center;">$36,000</td>
+              <td style="text-align:center;">$28,000</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$8,000</b></td>
+              <td>Bring in-house for common areas; enforce tenant lot maintenance</td>
+            </tr>
+            <tr>
+              <td><b style="color:#E5E9ED;">R&amp;M (General)</b></td>
+              <td style="text-align:center;">$95,000</td>
+              <td style="text-align:center;">$80,000</td>
+              <td style="text-align:center;"><b style="color:#10B981;">$15,000</b></td>
+              <td>Shift POH repairs to tenants post-TOH conversion; bulk vendor pricing</td>
+            </tr>
+            <tr style="border-top:2px solid rgba(59,130,246,0.3);">
+              <td colspan="2"><b style="color:#E5E9ED;">Total Expense Savings</b></td>
+              <td>&nbsp;</td>
+              <td style="text-align:center;"><b style="color:#10B981; font-size:13px;">$85,000</b></td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── SECTION 7: VALUE ADD WATERFALL / TIMELINE ── -->
+    <div class="group-divider">
+      <div class="group-label">NOI Bridge &mdash; T12 to Year 1 Stabilized</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="margin-bottom:14px;">
+        <div style="font-size:10px; color:#858D99; font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">NOI Build from $1.95M &rarr; $2.43M</div>
+        <!-- Horizontal stacked bar showing each lever -->
+        <div style="display:flex; align-items:center; gap:0; border-radius:6px; overflow:hidden; height:36px; margin-bottom:8px;">
+          <div style="flex:0 0 40.2%; background:#1E222C; display:flex; align-items:center; justify-content:center; font-size:10px; color:#858D99; font-weight:700;">T12: $1.95M</div>
+          <div style="flex:0 0 14.5%; background:#10B981; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">Lot Rent +$167K</div>
+          <div style="flex:0 0 8.2%; background:#3B82F6; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">RUBS +$95K</div>
+          <div style="flex:0 0 6.2%; background:#8B5CF6; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">POH +$72K</div>
+          <div style="flex:0 0 11.7%; background:#FBBF24; display:flex; align-items:center; justify-content:center; font-size:9px; color:#1E222C; font-weight:700;">Infill +$135K</div>
+          <div style="flex:0 0 7.4%; background:#06B6D4; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">Exp -$85K</div>
+          <div style="flex:0 0 11.8%; background:rgba(16,185,129,0.3); display:flex; align-items:center; justify-content:center; font-size:10px; color:#10B981; font-weight:800;">= $2.50M</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:9px; color:#858D99;">
+          <span>Baseline NOI</span>
+          <span><b style="color:#10B981;">+$554K uplift (+28.4%)</b></span>
+          <span>Stabilized NOI</span>
+        </div>
+      </div>
+
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:600px;">
+          <thead>
+            <tr>
+              <th>Value Lever</th>
+              <th style="text-align:right;">Year 1 NOI Impact</th>
+              <th style="text-align:center;">Timeline</th>
+              <th style="text-align:center;">Difficulty</th>
+              <th style="text-align:center;">Capital Req.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#10B981;">Lot Rent Increases</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$167,040</b></td>
+              <td style="text-align:center;">90 days post-close</td>
+              <td style="text-align:center;"><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600;">Low</span></td>
+              <td style="text-align:center;">$0</td>
+            </tr>
+            <tr>
+              <td><b style="color:#3B82F6;">RUBS Implementation</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$95,000</b></td>
+              <td style="text-align:center;">3&ndash;6 months</td>
+              <td style="text-align:center;"><span style="background:rgba(251,191,36,0.15); color:#FBBF24; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600;">Medium</span></td>
+              <td style="text-align:center;">$5K&ndash;$10K</td>
+            </tr>
+            <tr>
+              <td><b style="color:#8B5CF6;">POH Maintenance Savings</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$72,000</b></td>
+              <td style="text-align:center;">6&ndash;12 months</td>
+              <td style="text-align:center;"><span style="background:rgba(251,191,36,0.15); color:#FBBF24; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600;">Medium</span></td>
+              <td style="text-align:center;">$120K&ndash;$200K</td>
+            </tr>
+            <tr>
+              <td><b style="color:#FBBF24;">Infill Revenue (net of costs)</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$135,000</b></td>
+              <td style="text-align:center;">6&ndash;18 months</td>
+              <td style="text-align:center;"><span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600;">High</span></td>
+              <td style="text-align:center;">$700K&ndash;$1.6M</td>
+            </tr>
+            <tr>
+              <td><b style="color:#06B6D4;">Expense Optimization</b></td>
+              <td style="text-align:right;"><b style="color:#10B981;">+$85,000</b></td>
+              <td style="text-align:center;">0&ndash;6 months</td>
+              <td style="text-align:center;"><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600;">Low</span></td>
+              <td style="text-align:center;">$0</td>
+            </tr>
+            <tr style="border-top:2px solid rgba(16,185,129,0.3);">
+              <td><b style="color:#E5E9ED;">Total Year 1 NOI Uplift</b></td>
+              <td style="text-align:right;"><b style="color:#10B981; font-size:14px;">+$554,040</b></td>
+              <td colspan="3" style="text-align:center; font-size:11px; color:#10B981;"><b>T12 $1.95M &rarr; Yr 1 $2.50M (+28.4%)</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── SECTION 8: TEAM ASSIGNMENT MATRIX ── -->
+    <div class="group-divider">
+      <div class="group-label">Team Assignment Matrix</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
+        Every value lever requires cross-functional coordination. Below is the responsibility matrix showing who owns each workstream and the key pre-close and post-close milestones.
+      </div>
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:750px;">
+          <thead>
+            <tr>
+              <th>Workstream</th>
+              <th style="text-align:center;">Owner</th>
+              <th>Pre-Close Deliverable</th>
+              <th>Post-Close Milestone</th>
+              <th style="text-align:center;">Target Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b style="color:#10B981;">Lot Rent Increases</b></td>
+              <td style="text-align:center;">Ops + Legal</td>
+              <td>Rent increase notice templates drafted &amp; approved</td>
+              <td>Notices mailed within 30 days of close</td>
+              <td style="text-align:center;">Close + 30d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#3B82F6;">RUBS Program</b></td>
+              <td style="text-align:center;">Ops + PM</td>
+              <td>Vendor selected; 12 months utility invoices compiled</td>
+              <td>RUBS billing live for non-blocked units</td>
+              <td style="text-align:center;">Close + 90d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#8B5CF6;">POH Conversion</b></td>
+              <td style="text-align:center;">CapEx + Finance</td>
+              <td>All 144 homes graded A/B/C; sale pricing set</td>
+              <td>First 10 homes listed for sale</td>
+              <td style="text-align:center;">Close + 60d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#FBBF24;">Infill Program</b></td>
+              <td style="text-align:center;">CapEx + Acquisitions</td>
+              <td>Vacant lot audit complete; dealer quotes received</td>
+              <td>First 5 homes ordered / delivered</td>
+              <td style="text-align:center;">Close + 90d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#06B6D4;">Expense Rebids</b></td>
+              <td style="text-align:center;">Ops + Finance</td>
+              <td>Insurance &amp; vendor contracts identified for rebid</td>
+              <td>New contracts executed</td>
+              <td style="text-align:center;">Close + 60d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#F59E0B;">Tax Appeals</b></td>
+              <td style="text-align:center;">Finance + Legal</td>
+              <td>Current assessed values &amp; comp data compiled</td>
+              <td>Tax protest filed with Pueblo County Assessor</td>
+              <td style="text-align:center;">Close + 90d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#EC4899;">Lease Cleanup</b></td>
+              <td style="text-align:center;">Legal + PM</td>
+              <td>Audit of all 37 POH leases; identify non-standard terms</td>
+              <td>New standard leases issued to all month-to-month tenants</td>
+              <td style="text-align:center;">Close + 120d</td>
+            </tr>
+            <tr>
+              <td><b style="color:#A78BFA;">Purchase Price Allocation</b></td>
+              <td style="text-align:center;">Finance + CPA</td>
+              <td>Cost segregation study scoped; PSA &sect;10 allocation drafted</td>
+              <td>Final allocation agreed with seller (or filed independently per PSA)</td>
+              <td style="text-align:center;">At Close</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ============================= PAGE 18: CHANGELOG (HIDDEN) ============================= -->
   <div class="tab-content" id="tab-page18">
 
@@ -9422,22 +10503,9 @@ function updateCountdown() {
   var sub = document.getElementById('inspection-subtext');
   if (!el) return;
 
-  // Materials delivery deadline
-  var matDeadline = new Date('2026-04-03T17:00:00');
-  var now = new Date();
-  var diff = matDeadline - now;
-
-  if (diff <= 0) {
-    // Past the materials deadline — check if they were delivered
-    el.textContent = 'AWAITING';
-    el.style.color = '#EF4444';
-    if (sub) sub.textContent = 'Materials deadline passed 4/3 — Sched. 7.1 items still outstanding';
-  } else {
-    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    el.textContent = days + 'd TO MATLS';
-    el.style.color = '#FBBF24';
-    if (sub) sub.textContent = 'Seller materials due 4/3 — then 45-day DD period starts';
-  }
+  el.textContent = 'TBD';
+  el.style.color = '#FBBF24';
+  if (sub) sub.textContent = '45 days from Sched. 7.1 delivery — commencement date pending';
 }
 
 // Run immediately and refresh every minute
@@ -9447,7 +10515,7 @@ setInterval(updateCountdown, 60000);
 // ===== TAB NAVIGATION: SWIPE + FLOATING BUTTONS =====
 (function() {
   // Ordered list of visible tab page IDs (excludes hidden page18/changelog)
-  var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,5,8];
+  var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,20,5,8];
 
   function getCurrentIndex() {
     for (var i = 0; i < tabOrder.length; i++) {
@@ -9470,7 +10538,7 @@ setInterval(updateCountdown, 60000);
   // Tab name lookup for the floating label
   var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
     9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
-    12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Ops Discussion'};
+    12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',20:'Value Add',5:'Investor Deck',8:'Ops Handoff'};
 
   function updateNavLabel(idx) {
     var el = document.getElementById('navLabel');
@@ -9737,8 +10805,8 @@ setInterval(updateCountdown, 60000);
     var results = [];
     var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
       9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
-      12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Ops Discussion'};
-    var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,5,8];
+      12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',20:'Value Add',5:'Investor Deck',8:'Ops Handoff'};
+    var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,20,5,8];
 
     // Search tab names
     tabOrder.forEach(function(pageNum) {
