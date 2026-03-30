@@ -90,7 +90,8 @@
     #radio-page14:checked ~ .tab-bar .tab-label[for="radio-page14"],
     #radio-page15:checked ~ .tab-bar .tab-label[for="radio-page15"],
     #radio-page16:checked ~ .tab-bar .tab-label[for="radio-page16"],
-    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"] {
+    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"],
+    #radio-page19:checked ~ .tab-bar .tab-label[for="radio-page19"] {
     color: #FFFFFF; background: rgba(59,130,246,0.25); border-color: #3B82F6; box-shadow: 0 0 12px rgba(59,130,246,0.25);
   }
 
@@ -110,7 +111,9 @@
   #radio-page14:checked ~ #tab-page14,
   #radio-page15:checked ~ #tab-page15,
   #radio-page16:checked ~ #tab-page16,
-  #radio-page17:checked ~ #tab-page17 {
+  #radio-page17:checked ~ #tab-page17,
+  #radio-page19:checked ~ #tab-page19,
+  #radio-page18:checked ~ #tab-page18 {
     display: block;
   }
 
@@ -280,6 +283,144 @@
 
   /* FOOTER */
   .footer { margin-top: 20px; text-align: center; font-size: 8px; color: #5A6270; letter-spacing: 0.5px; padding-top: 12px; border-top: 1px solid rgba(59,130,246,0.1); }
+
+  /* FLOATING NAV BUTTONS */
+  .float-nav {
+    position: fixed; bottom: 20px; right: 16px; z-index: 10000;
+    display: flex; gap: 6px; opacity: 0.55; transition: opacity 0.2s;
+  }
+  .float-nav:hover, .float-nav:active { opacity: 1; }
+  .float-nav button {
+    width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.35);
+    background: rgba(10,14,26,0.92); color: #93B4F8; font-size: 18px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .float-nav button:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
+  .float-nav .nav-label {
+    position: absolute; top: -22px; left: 50%; transform: translateX(-50%);
+    font-size: 8px; color: #858D99; white-space: nowrap; letter-spacing: 0.5px;
+    opacity: 0; transition: opacity 0.2s; pointer-events: none;
+  }
+  .float-nav:hover .nav-label { opacity: 1; }
+
+  /* ACCESSIBILITY FEATURES */
+  /* Back-to-Top Button */
+  .back-to-top {
+    position: fixed; bottom: 20px; left: 20px; z-index: 9998;
+    width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.35);
+    background: rgba(10,14,26,0.92); color: #93B4F8; font-size: 20px; font-weight: 700;
+    cursor: pointer; display: none; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .back-to-top:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
+  .back-to-top.show { display: flex; }
+
+  /* Tab Position Indicator */
+  .tab-indicator {
+    position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+    font-size: 9px; color: #3B82F6; white-space: nowrap; letter-spacing: 0.5px;
+    opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600;
+  }
+  .float-nav:hover .tab-indicator { opacity: 1; }
+
+  /* Collapse/Expand Controls */
+  .collapse-toggle {
+    display: flex; gap: 12px; margin-bottom: 16px; padding: 10px 0;
+    align-items: center; justify-content: flex-start;
+  }
+  .collapse-toggle button {
+    padding: 6px 14px; font-size: 10px; font-weight: 600; color: #3B82F6;
+    background: rgba(59,130,246,0.10); border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 4px; cursor: pointer; transition: all 0.2s;
+  }
+  .collapse-toggle button:hover {
+    background: rgba(59,130,246,0.20); border-color: rgba(59,130,246,0.40);
+  }
+  .collapse-toggle button:active { transform: scale(0.95); }
+
+  /* Group Divider with Collapsible Indicator */
+  .group-divider { cursor: pointer; user-select: none; }
+  .group-divider .chevron {
+    display: inline-flex; width: 14px; height: 14px; align-items: center; justify-content: center;
+    margin-right: 8px; font-size: 10px; color: #3B82F6; transition: transform 0.2s;
+  }
+  .group-divider.collapsed .chevron { transform: rotate(-90deg); }
+
+  /* Collapsible Content Wrapper */
+  .collapsible-content {
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+    overflow: hidden; max-height: none; opacity: 1;
+  }
+  .collapsible-content.collapsed {
+    max-height: 0; opacity: 0; pointer-events: none;
+  }
+
+  /* Jump-to-Section Dropdown */
+  .section-jump {
+    position: fixed; top: 80px; right: 20px; z-index: 9997;
+    display: none; flex-direction: column;
+  }
+  .section-jump.show { display: flex; }
+  .section-jump-btn {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.35);
+    background: rgba(10,14,26,0.92); color: #93B4F8; font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .section-jump-btn:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
+  .section-jump-dropdown {
+    position: absolute; top: 50px; right: 0; background: rgba(10,14,26,0.95);
+    border: 1px solid rgba(59,130,246,0.25); border-radius: 8px; overflow-y: auto;
+    max-height: 400px; min-width: 200px; backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5); display: none; flex-direction: column;
+  }
+  .section-jump-dropdown.open { display: flex; }
+  .section-jump-item {
+    padding: 10px 16px; font-size: 11px; color: #93B4F8; cursor: pointer;
+    border-bottom: 1px solid rgba(59,130,246,0.10); transition: background 0.15s;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .section-jump-item:last-child { border-bottom: none; }
+  .section-jump-item:hover { background: rgba(59,130,246,0.15); }
+
+  /* Bottom Tab Dock */
+  .bottom-dock {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9996;
+    height: 50px; background: rgba(10,14,26,0.96); border-top: 1px solid rgba(59,130,246,0.15);
+    display: flex; justify-content: space-around; align-items: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .bottom-dock button {
+    width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(59,130,246,0.20);
+    background: rgba(59,130,246,0.08); color: #93B4F8; font-size: 20px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s ease;
+  }
+  .bottom-dock button:hover {
+    background: rgba(59,130,246,0.16); border-color: rgba(59,130,246,0.35);
+  }
+  .bottom-dock button:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
+
+  /* RESPONSIVE ADJUSTMENTS */
+  @media (max-width: 768px) {
+    .back-to-top { width: 36px; height: 36px; font-size: 16px; }
+    .section-jump-btn { width: 36px; height: 36px; font-size: 14px; }
+    .section-jump-dropdown { max-width: calc(100vw - 20px); min-width: 150px; }
+    .bottom-dock { height: 46px; }
+    .bottom-dock button { width: 40px; height: 40px; font-size: 18px; }
+    .collapse-toggle button { padding: 5px 12px; font-size: 9px; }
+    .tab-indicator { font-size: 8px; }
+  }
+
+  /* PRINT: Hide all floating UI */
+  @media print {
+    .back-to-top, .section-jump, .bottom-dock, .collapse-toggle,
+    .group-divider .chevron { display: none !important; }
+  }
 
   /* PRINT */
   @media print {
@@ -799,6 +940,8 @@
 <input type="radio" name="tabs" id="radio-page15" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page16" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page17" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page19" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page18" class="tab-radio">
 
   <div class="tab-bar">
     <label class="tab-label" for="radio-page1">Executive Summary</label>
@@ -814,6 +957,7 @@
     <label class="tab-label" for="radio-page3">Financial Analysis</label>
     <label class="tab-label" for="radio-page15">Debt</label>
     <label class="tab-label" for="radio-page12">Rent Roll Analysis</label>
+    <label class="tab-label" for="radio-page19">Lease Audit</label>
     <label class="tab-label" for="radio-page7">POH Analysis</label>
     <label class="tab-label" for="radio-page10">Utilities</label>
     <label class="tab-label" for="radio-page5">Investor Deck</label>
@@ -860,8 +1004,8 @@
           <tr><td class="dim">T12 Revenue</td><td>$1,462,195</td></tr>
           <tr><td class="dim">T12 NOI</td><td>$956,388</td></tr>
           <tr><td class="dim">Allocated Price</td><td>$19,500,000</td></tr>
-          <tr><td class="dim">Phase 1</td><td class="green">Clean — No RECs</td></tr>
-          <tr><td class="dim">PCA</td><td class="orange">$8,900 immediate</td></tr>
+          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Phase 1</a></td><td class="green">Clean — No RECs</td></tr>
+          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PCA</a></td><td class="orange">$8,900 immediate</td></tr>
         </table>
       </div>
       <div class="section">
@@ -875,8 +1019,8 @@
           <tr><td class="dim">T12 Revenue</td><td>$1,127,106</td></tr>
           <tr><td class="dim">T12 NOI</td><td>$867,362</td></tr>
           <tr><td class="dim">Allocated Price</td><td>$16,200,000</td></tr>
-          <tr><td class="dim">Phase 1</td><td class="green">Clean — No RECs</td></tr>
-          <tr><td class="dim">PCA</td><td class="red">$43,571 immediate</td></tr>
+          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Phase 1</a></td><td class="green">Clean — No RECs</td></tr>
+          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PCA</a></td><td class="red">$43,571 immediate</td></tr>
         </table>
       </div>
       <div class="section">
@@ -890,8 +1034,8 @@
           <tr><td class="dim">T12 Revenue</td><td>$236,965</td></tr>
           <tr><td class="dim">T12 NOI</td><td>$131,227</td></tr>
           <tr><td class="dim">Allocated Price</td><td>$2,472,919</td></tr>
-          <tr><td class="dim">Phase 1</td><td class="green">Clean — No RECs</td></tr>
-          <tr><td class="dim">PCA</td><td class="green">$0 immediate</td></tr>
+          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Phase 1</a></td><td class="green">Clean — No RECs</td></tr>
+          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PCA</a></td><td class="green">$0 immediate</td></tr>
         </table>
       </div>
     </div>
@@ -944,7 +1088,7 @@
 
     <div class="tiles-grid">
       <div class="section">
-        <div class="section-title">Phase 1 Environmental (All 3 Properties)</div>
+        <div class="section-title"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">Phase 1 Environmental</a> (All 3 Properties)</div>
         <div style="text-align:center; padding: 10px 0;">
           <div style="font-size: 36px; font-weight: 900; color: #00E676;">CLEAN</div>
           <div style="font-size: 11px; color: #858D99; margin-top: 6px;">Zero RECs, CRECs, or HRECs identified across portfolio</div>
@@ -953,7 +1097,7 @@
         </div>
       </div>
       <div class="section">
-        <div class="section-title">PCA Capital Requirements</div>
+        <div class="section-title"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PCA</a> Capital Requirements</div>
         <table class="prop-table">
           <tr><td class="dim">Immediate Repairs</td><td class="orange">$52,471</td></tr>
           <tr><td class="dim">7-Year Capital Plan</td><td>$169,106</td></tr>
@@ -1002,6 +1146,11 @@
         <div class="phase-dates">Apr 29 – May 4</div>
         <div class="phase-status status-not-started">NOT STARTED</div>
       </div>
+    </div>
+
+    <!-- CHANGELOG ACCESS (DISCRETE) -->
+    <div style="text-align: right; margin-top: 20px; padding-right: 4px;">
+      <a href="#" onclick="document.getElementById('radio-page18').checked=true; window.scrollTo(0,0); return false;" style="font-size: 10px; color: #4A5568; text-decoration: none; opacity: 0.5; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">changelog</a>
     </div>
 
   </div>
@@ -1227,7 +1376,7 @@
             <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">CapEx Records (3 Years)</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
-            <td class="dim">Historical capital expenditure records — needed to validate PCA findings and assess deferred maintenance.</td>
+            <td class="dim">Historical capital expenditure records — needed to validate <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a> findings and assess deferred maintenance.</td>
           </tr>
         </tbody>
       </table>
@@ -1264,7 +1413,7 @@
             <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">CMBS Loan Assumption Package</a></td>
             <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
             <td class="green">3</td>
-            <td class="dim">$21.9M at 6.45% fixed. Loan docs received 3/28 (Promissory Note, Loan Agreement, Hello Letter). See Debt tab. <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA &amp; LOI &rarr;</a> &middot; <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a></td>
+            <td class="dim">$21.9M at 6.45% fixed. Loan docs received 3/28 (Promissory Note, Loan Agreement, Hello Letter). See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a>. <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA &amp; LOI &rarr;</a> &middot; <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a></td>
           </tr>
           <!-- 07 POH (Y) — Cyan #06B6D4 -->
           <tr style="background:rgba(6,182,212,0.04); border-left: 2px solid rgba(6,182,212,0.40);">
@@ -1344,7 +1493,7 @@
             <td class="dim">6</td>
             <td><a href="https://drive.google.com/file/d/1jjaLrAKcfdvXtaSQzFoL2Dl5yvOADIkd/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">CapEx Summary</a></td>
             <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">7-year capital reserve schedule by property and category from PCA reports.</td>
+            <td class="dim">7-year capital reserve schedule by property and category from <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA reports</a>.</td>
           </tr>
           <tr>
             <td class="dim">7</td>
@@ -1407,7 +1556,7 @@
     </div>
 
     <div class="section" style="margin-bottom: 14px;">
-      <div class="section-title">T12 P&L Summary (Mar 2025 – Feb 2026)</div>
+      <div class="section-title"><a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">T12 P&amp;L Summary</a> (Mar 2025 – Feb 2026)</div>
       <div class="scroll-wrap">
       <table class="data-table">
         <thead>
@@ -1892,7 +2041,7 @@
       <div class="group-line"></div>
     </div>
 
-    <div style="font-size:10px; color:#858D99; margin-bottom:12px; margin-top:-8px;">Source: Seller&rsquo;s Rent Manager fiscal year budgets (Jan&ndash;Dec 2026). Prepared by bbraband 11/23/25. Printed 01/14/26.</div>
+    <div style="font-size:10px; color:#858D99; margin-bottom:12px; margin-top:-8px;">Source: Seller&rsquo;s <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Rent Manager</a> fiscal year budgets (Jan&ndash;Dec 2026). Prepared by bbraband 11/23/25. Printed 01/14/26.</div>
 
     <!-- BUDGET ASSUMPTIONS -->
     <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:14px;">
@@ -2134,7 +2283,7 @@
     </div>
 
     <div class="section" style="margin-bottom:14px;">
-      <div style="font-size:10px; color:#858D99; margin-bottom:10px;">Source: Rent Manager charge breakdown for Jan 2026 current residents. Confirms actual lot rents being charged.</div>
+      <div style="font-size:10px; color:#858D99; margin-bottom:10px;">Source: <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Rent Manager</a> charge breakdown for Jan 2026 current residents. Confirms actual lot rents being charged.</div>
       <div class="scroll-wrap">
       <table class="data-table">
         <thead>
@@ -2458,7 +2607,7 @@
 
     <div class="risk-item risk-high">
       <div class="risk-title">CMBS Loan Assumption — Servicer Communication Barrier</div>
-      <div class="risk-body">$21,914,194 CMBS loan at <b style="color:#FFF;">6.45% fixed</b> through German American Capital / Midland / PNC (Loan #030512791). Per Paige Newman (PNC), <b style="color:#FFF;">seller must be point of contact</b> for assumption process. Loan docs received 3/28 &mdash; key flags: <b style="color:#FBBF24;">3% management fee cap</b> (Silver Lands standard is 5&ndash;6%), <b style="color:#FBBF24;">lockbox trigger at 1.15x DSCR</b>, guarantor replacement required (current: Benjamin Braband). Assumption fee est. 1% of UPB (~$219K). <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a> See Debt tab for full analysis.</div>
+      <div class="risk-body">$21,914,194 CMBS loan at <b style="color:#FFF;">6.45% fixed</b> through German American Capital / Midland / PNC (Loan #030512791). Per Paige Newman (PNC), <b style="color:#FFF;">seller must be point of contact</b> for assumption process. Loan docs received 3/28 &mdash; key flags: <b style="color:#FBBF24;">3% management fee cap</b> (Silver Lands standard is 5&ndash;6%), <b style="color:#FBBF24;">lockbox trigger at 1.15x DSCR</b>, guarantor replacement required (current: Benjamin Braband). Assumption fee est. 1% of UPB (~$219K). <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a> See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a> for full analysis.</div>
       <span class="risk-tag tag-critical">CRITICAL — DEAL TIMELINE RISK</span>
     </div>
 
@@ -2476,7 +2625,7 @@
 
     <div class="risk-item risk-high">
       <div class="risk-title">Oasis Roads/Parking — Critical Deferred Maintenance</div>
-      <div class="risk-body">PCA identifies $41,076 in immediate asphalt repairs at Oasis. Roads are in "poor condition" affecting operations, resident safety, and curb appeal. Represents 79% of portfolio's total immediate CapEx need. Recommend requesting seller credit or escrow holdback at closing.</div>
+      <div class="risk-body"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a> identifies $41,076 in immediate asphalt repairs at Oasis. Roads are in "poor condition" affecting operations, resident safety, and curb appeal. Represents 79% of portfolio's total immediate CapEx need. Recommend requesting seller credit or escrow holdback at closing.</div>
       <span class="risk-tag tag-high">HIGH — PHYSICAL CONDITION</span>
     </div>
 
@@ -2493,19 +2642,19 @@
 
     <div class="risk-item risk-medium">
       <div class="risk-title">9 of 27 Deliverable Categories Empty</div>
-      <div class="risk-body">Service contracts (G), vendor lists (H), delinquency reports (I), Rent Manager export (Q), MPOP registration (R), OTP docs (S), litigation/violations (T), permits/licenses (U), and 3-year CapEx records (V) are all empty. These are standard institutional DD requirements. Formal request to seller's counsel needed immediately.</div>
+      <div class="risk-body"><a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Service contracts</a> (G), <a href="https://drive.google.com/drive/folders/1B8JQd0knv7ZPwvzqRbOXlaKB21MTX3jE?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">vendor lists</a> (H), <a href="https://drive.google.com/drive/folders/163-dj0LrTIrsNCPK-4l81fptVKpCrb03?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">delinquency reports</a> (I), <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Rent Manager export</a> (Q), MPOP registration (R), <a href="https://drive.google.com/drive/folders/1KllhpE7p4M4ULiX7lbN-izuYf0pbyJuw?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">OTP docs</a> (S), <a href="https://drive.google.com/drive/folders/1j2r0tSBltzQ6wdYMeJLQ7GwZdbmR9ur3?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">litigation/violations</a> (T), <a href="https://drive.google.com/drive/folders/1N8VqGRrr1S2yEkjr7CaDM9Yel-dp00sl?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">permits/licenses</a> (U), and 3-year <a href="https://drive.google.com/drive/folders/18ZJMRRbWC28q9hFJRkk4rzEEelH0wMul?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">CapEx records</a> (V) are all empty. These are standard institutional DD requirements. Formal request to seller's counsel needed immediately.</div>
       <span class="risk-tag tag-high">HIGH — DD COMPLETENESS</span>
     </div>
 
     <div class="risk-item risk-medium">
       <div class="risk-title">Oasis Insurance — $0 on T12 P&L</div>
-      <div class="risk-body">Oasis shows zero property insurance expense on its T12. Likely bundled in portfolio-level policy (K folder has portfolio-wide policies), but must be confirmed. If Oasis truly lacks property coverage, this is a major gap. Review insurance policies in detail and request allocation schedule from broker.</div>
+      <div class="risk-body">Oasis shows zero property insurance expense on its T12. Likely bundled in portfolio-level policy (<a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">K folder</a> has portfolio-wide policies), but must be confirmed. If Oasis truly lacks property coverage, this is a major gap. Review <a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">insurance policies</a> in detail and request allocation schedule from broker.</div>
       <span class="risk-tag tag-medium">MEDIUM — VERIFY</span>
     </div>
 
     <div class="risk-item risk-medium">
       <div class="risk-title">Loss Runs Incomplete — Only SC Provided</div>
-      <div class="risk-body">5-year insurance loss runs provided only for Sunset Vista (clean — zero claims). Oasis and La Vista loss run histories are missing. Need complete loss run documentation for all three properties for lender and insurance underwriting.</div>
+      <div class="risk-body">5-year <a href="https://drive.google.com/drive/folders/1y99i4PWE5iY__-Rgxw5MjnolZETVkwzC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">insurance loss runs</a> provided only for Sunset Vista (clean — zero claims). Oasis and La Vista loss run histories are missing. Need complete loss run documentation for all three properties for lender and insurance underwriting.</div>
       <span class="risk-tag tag-medium">MEDIUM — INCOMPLETE</span>
     </div>
 
@@ -2517,7 +2666,7 @@
 
     <div class="risk-item risk-medium">
       <div class="risk-title">SC Roof Replacement — $76,588 (7-Year Planning)</div>
-      <div class="risk-body">Sunset Vista clubhouse built 1973 — roof at end of useful life per PCA. $76,588 replacement within 7 years. Must be included in CapEx reserves and investor pro forma. Recommend third-party roof inspection to refine timeline.</div>
+      <div class="risk-body">Sunset Vista clubhouse built 1973 — roof at end of useful life per <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a>. $76,588 replacement within 7 years. Must be included in CapEx reserves and investor pro forma. Recommend third-party roof inspection to refine timeline.</div>
       <span class="risk-tag tag-medium">MEDIUM — CAPEX PLANNING</span>
     </div>
 
@@ -2529,7 +2678,7 @@
 
     <div class="risk-item risk-high">
       <div class="risk-title">39% of Occupied Units Have $0 Security Deposit</div>
-      <div class="risk-body">135 of 346 occupied units have no security deposit on file (SV: 73 units/43%, OC: 54 units/36%, LAV: 8 units/28%). This creates <b style="color:#FFF;">~$202,500 in unprotected turnover cost exposure</b> at $1,500/turn. Many appear to be long-tenured residents predating a formal deposit policy. Must validate in Rent Manager whether these are genuine missing deposits or data gaps. Recommend deposit collection plan at next rent increase.</div>
+      <div class="risk-body">135 of 346 occupied units have no security deposit on file (SV: 73 units/43%, OC: 54 units/36%, LAV: 8 units/28%). This creates <b style="color:#FFF;">~$202,500 in unprotected turnover cost exposure</b> at $1,500/turn. Many appear to be long-tenured residents predating a formal deposit policy. Must validate in <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Rent Manager</a> whether these are genuine missing deposits or data gaps. Recommend deposit collection plan at next rent increase.</div>
       <span class="risk-tag tag-critical">CRITICAL — FINANCIAL EXPOSURE</span>
     </div>
 
@@ -2541,13 +2690,13 @@
 
     <div class="risk-item risk-medium">
       <div class="risk-title">30 Lots with Unknown/Blank Lot Type Classification</div>
-      <div class="risk-body">Across the portfolio, 30 lots lack a POH/TOH/LTO designation (SV: 21, OC: 7, LAV: 2). This creates uncertainty in the POH vs. lot rent income split for underwriting. Must reconcile with seller's records or Rent Manager data to properly model home income vs. lot rent income.</div>
+      <div class="risk-body">Across the portfolio, 30 lots lack a POH/TOH/LTO designation (SV: 21, OC: 7, LAV: 2). This creates uncertainty in the POH vs. lot rent income split for underwriting. Must reconcile with seller's records or <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Rent Manager</a> data to properly model home income vs. lot rent income.</div>
       <span class="risk-tag tag-medium">MEDIUM — DATA QUALITY</span>
     </div>
 
     <div class="risk-item risk-medium">
       <div class="risk-title">La Vista Survey Encroachments — Fence &amp; Building Beyond Boundary</div>
-      <div class="risk-body">ALTA survey flagged: (1) fence extends up to 4.3 ft beyond boundary, (2) building extends up to 6.5 ft beyond property line. These could create title insurance endorsement issues or neighbor disputes. Must verify during site visit and coordinate with title counsel (Fidelity National) to assess impact on title policy.</div>
+      <div class="risk-body"><a href="https://drive.google.com/drive/folders/1mwsE8dHIf7iVUx8hNufI4GULnG_TK9_q?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">ALTA survey</a> flagged: (1) fence extends up to 4.3 ft beyond boundary, (2) building extends up to 6.5 ft beyond property line. These could create title insurance endorsement issues or neighbor disputes. Must verify during site visit and coordinate with title counsel (Fidelity National) to assess impact on title policy.</div>
       <span class="risk-tag tag-medium">MEDIUM — TITLE / LEGAL</span>
     </div>
 
@@ -2605,14 +2754,14 @@
           </tr>
           <tr>
             <td>5</td>
-            <td>Get Waste Connections service contract — $76,797/yr (2nd largest utility). Need terms, renewal date, cancellation penalties. Blocked on Folder G (service contracts).</td>
+            <td>Get Waste Connections <a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">service contract</a> — $76,797/yr (2nd largest utility). Need terms, renewal date, cancellation penalties. Blocked on Folder G (<a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">service contracts</a>).</td>
             <td>Chris / Kris</td>
             <td class="red">4/3/2026</td>
             <td><span class="risk-tag tag-critical">CRITICAL</span></td>
           </tr>
           <tr>
             <td>6</td>
-            <td>Verify Oasis insurance coverage — review K folder policies for coverage allocation by property</td>
+            <td>Verify Oasis insurance coverage — review <a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">K folder policies</a> for coverage allocation by property</td>
             <td>Chris</td>
             <td class="orange">3/31/2026</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
@@ -2626,7 +2775,7 @@
           </tr>
           <tr>
             <td>8</td>
-            <td>Request missing Mar-26 utility bills from seller — most providers show $0 for Mar-26 across all 3 properties. Needed to complete T12 verification.</td>
+            <td>Request missing Mar-26 <a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">utility bills</a> from seller — most providers show $0 for Mar-26 across all 3 properties. Needed to complete T12 verification.</td>
             <td>Chris / Kris</td>
             <td class="orange">4/3/2026</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
@@ -2647,7 +2796,7 @@
           </tr>
           <tr>
             <td>11</td>
-            <td>Begin bank statement reconciliation against T12 P&L revenue (36 statements across 3 properties)</td>
+            <td>Begin <a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">bank statement</a> reconciliation against <a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">T12 P&amp;L</a> revenue (36 statements across 3 properties)</td>
             <td>Chris</td>
             <td>4/7/2026</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
@@ -2661,7 +2810,7 @@
           </tr>
           <tr>
             <td>13</td>
-            <td>Negotiate Oasis road repair credit or escrow holdback ($41K) based on PCA findings</td>
+            <td>Negotiate Oasis road repair credit or escrow holdback ($41K) based on <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a> findings</td>
             <td>Chris / Jeff</td>
             <td>4/15/2026</td>
             <td><span class="risk-tag tag-medium">MEDIUM</span></td>
@@ -2675,7 +2824,7 @@
           </tr>
           <tr>
             <td>15</td>
-            <td>Review all 37 executed leases for non-standard terms, rent escalation provisions, lease term consistency</td>
+            <td>Review all 37 <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">executed leases</a> for non-standard terms, rent escalation provisions, lease term consistency</td>
             <td>Chris / Legal</td>
             <td>4/10/2026</td>
             <td><span class="risk-tag tag-medium">MEDIUM</span></td>
@@ -2861,7 +3010,7 @@
       </table>
       </div>
       <div style="font-size: 10.5px; color: #858D99; margin-top: 8px; padding-left: 4px;">
-        Note: This comparison shows community operations only. Home rent revenue is analyzed separately on the POH Analysis tab.
+        Note: This comparison shows community operations only. Home rent revenue is analyzed separately on the <a href="#" onclick="document.getElementById('radio-page7').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">POH Analysis tab</a>.
       </div>
     </div>
 
@@ -2962,7 +3111,7 @@
     </div>
 
     <div class="section" style="margin-bottom: 10px; border-left: 3px solid #3B82F6; padding-left: 12px;">
-      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 4px;">SOURCE: SELLER DATA ROOM — FOLDER B (T-12 P&amp;Ls)</div>
+      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 4px;">SOURCE: SELLER DATA ROOM — <a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">FOLDER B (T-12 P&amp;Ls)</a></div>
       <div style="font-size: 11px; color: #858D99; line-height: 1.6;">
         Cash-basis T12 P&amp;Ls covering March 1, 2025 – February 28, 2026. These are the seller's actual operating results. Expenses include all on-site costs but <b style="color:#FBBF24;">manager/maintenance salaries appear under Professional Fees and Maintenance &amp; Repairs, not a separate Payroll line.</b>
       </div>
@@ -3796,7 +3945,7 @@
     <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 4px;">POH REVENUE — SEPARATE FROM LOT RENT</div>
       <div style="font-size: 11px; color: #858D99; line-height: 1.8;">
-        POH home rent (<b style="color:#E5E9ED;">$1,014,024/yr</b>) is a <b style="color:#E5E9ED;">separate revenue stream above lot rent</b> — POH tenants pay both a lot rent and a home rent. The Model tab (Tab 6) shows only community lot rent revenue ($2.9M) because POH home rent is an independent income stream underwritten separately here.
+        POH home rent (<b style="color:#E5E9ED;">$1,014,024/yr</b>) is a <b style="color:#E5E9ED;">separate revenue stream above lot rent</b> — POH tenants pay both a lot rent and a home rent. The <a href="#" onclick="document.getElementById('radio-page6').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Model tab</a> (Tab 6) shows only community lot rent revenue ($2.9M) because POH home rent is an independent income stream underwritten separately here.
       </div>
     </div>
 
@@ -4184,7 +4333,7 @@
         <b style="color:#E5E9ED;">9 of 27 DD folders are empty</b> — Service contracts, vendor lists, delinquency reports, Rent Manager export, MPOP registration, OTP docs, litigation, permits, and 3-year CapEx records. We sent the formal request on 3/27 (20 items to Kris Wessel).<br>
         <b style="color:#E5E9ED;">No site visit yet</b> — Scheduled for Phase 3 (Apr 11–20). Need to see SV vacant lots, OC roads, POH conditions in person.<br>
         <b style="color:#E5E9ED;">Bank statement reconciliation hasn't started</b> — 36 statements across 3 properties, need to verify T12 revenue.<br>
-        <b style="color:#E5E9ED;">Oasis and La Vista loss runs missing</b> — Only SV provided (clean). Need the others to assess insurance claims history.
+        <b style="color:#E5E9ED;">Oasis and La Vista <a href="https://drive.google.com/drive/folders/1y99i4PWE5iY__-Rgxw5MjnolZETVkwzC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">loss runs</a> missing</b> — Only SV provided (clean). Need the others to assess insurance claims history.
       </div>
     </div>
 
@@ -4730,7 +4879,7 @@
       <div class="group-label">Utility Bill Analysis — T12 Apr 2025 – Mar 2026</div>
       <div class="group-line"></div>
     </div>
-    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:-8px;">217 bills analyzed across 5 utility types · Source: Seller data room (Folder C) · All amounts verified against bank statements</div>
+    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:-8px;">217 bills analyzed across 5 utility types · Source: Seller data room (<a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder C</a>) · All amounts verified against <a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">bank statements</a></div>
 
     <!-- PORTFOLIO KPI STRIP -->
     <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
@@ -5105,6 +5254,230 @@
       </table>
     </div>
 
+    <!-- ======= RUBS IMPLEMENTATION FEASIBILITY ======= -->
+    <div class="group-divider">
+      <div class="group-label">RUBS Implementation Feasibility &mdash; Water/Sewer Recovery</div>
+      <div class="group-line"></div>
+    </div>
+
+    <!-- RUBS REVENUE OPPORTUNITY KPIs -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px;">
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(0,230,118,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Water/Sewer T12</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">$365K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">75% of all utilities</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(0,230,118,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Model Target Recovery</div>
+        <div style="font-size:22px; font-weight:900; color:#00E676;">80%</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">W/S + Trash &middot; 12-mo ramp</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(0,230,118,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Yr 1 Recovery Revenue</div>
+        <div style="font-size:22px; font-weight:900; color:#00E676;">$171K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">W/S $109K + Trash $62K</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(0,230,118,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Steady-State Recovery</div>
+        <div style="font-size:22px; font-weight:900; color:#00E676;">$354K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">80% of $442K (W/S+Trash)</div>
+      </div>
+    </div>
+
+    <!-- UNDERWRITING MODEL ASSUMPTIONS -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #8B5CF6; padding-left:12px;">
+      <div style="font-size:11px; color:#8B5CF6; font-weight:700; margin-bottom:6px;">UNDERWRITING MODEL ASSUMPTIONS (Pueblo Trio - CO - Model - FIXED 3.xlsx)</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        The model implements a structured utility reimbursement system with a <b style="color:#E5E9ED;">12-month linear ramp</b> from 0% to target recovery starting Month 1 post-close. Water/Sewer and Trash are targeted at <b style="color:#E5E9ED;">80% recovery</b>; Electric and Gas are at <b style="color:#E5E9ED;">0% recovery</b> (operator-absorbed). All utility expenses grow at <b style="color:#E5E9ED;">4%/yr</b>. Method is per-unit allocation (not sub-metered) &mdash; effectively a RUBS program. Utility reimbursement is a distinct revenue line in the proforma, not bundled into Other Income.
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Model Utility Reimbursement Settings by Property</div>
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Property</th><th style="text-align:right;">W/S $/Unit/Yr</th><th style="text-align:right;">Trash $/Mo</th><th style="text-align:right;">Recovery %</th><th style="text-align:right;">Ramp</th><th style="text-align:right;">Start</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Sunset Vista</b> (169 occ)</td><td style="text-align:right;">$950</td><td style="text-align:right;">$2,400</td><td style="text-align:right;" class="green"><b>80%</b></td><td style="text-align:right;">12 mo</td><td style="text-align:right;">Month 1</td></tr>
+          <tr><td><b>Oasis</b> (148 occ)</td><td style="text-align:right;">$625</td><td style="text-align:right;">$1,500</td><td style="text-align:right;" class="green"><b>80%</b></td><td style="text-align:right;">12 mo</td><td style="text-align:right;">Month 1</td></tr>
+          <tr><td><b>La Vista</b> (29 occ)</td><td style="text-align:right;">$1,050</td><td style="text-align:right;">$600</td><td style="text-align:right;" class="green"><b>80%</b></td><td style="text-align:right;">12 mo</td><td style="text-align:right;">Month 1</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td>Portfolio (346 occ)</td><td style="text-align:right;">Blended</td><td style="text-align:right;">$4,500</td><td style="text-align:right;">80%</td><td style="text-align:right;">12 mo</td><td style="text-align:right;">Month 1</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:9px; color:#858D99; margin-top:6px;">Electric and Gas at 0% recovery &mdash; not billed back. Model assumes per-unit allocation, not sub-metered. Cable/Internet not reimbursed.</div>
+    </div>
+
+    <!-- COLORADO REGULATORY FRAMEWORK -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #FBBF24; padding-left:12px;">
+      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">COLORADO RUBS REGULATORY FRAMEWORK (HB25-1090 + AG Guidance)</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        Colorado HB25-1090 (effective 1/1/2026) established price transparency requirements for residential leases, including utility billing. The CO Attorney General issued enforcement guidance (Nov 2025) confirming RUBS is permitted under four conditions. A legislative fix (HB26-1013) is pending in the 2026 session to formally codify RUBS protections. <b style="color:#FBBF24;">Bottom line: RUBS is legal and enforceable in Colorado MHCs if properly implemented.</b>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Four Conditions for RUBS Compliance (AG Guidance, Nov 2025)</div>
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th style="width:30px;">#</th><th>Condition</th><th>Our Status</th><th>Action Required</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="risk-tag" style="background:rgba(0,230,118,0.15); color:#00E676; padding:2px 6px; border-radius:3px; font-size:9px;">1</span></td>
+            <td><b>No Overbilling</b> &mdash; Aggregate RUBS charges to all tenants cannot exceed total provider bill</td>
+            <td class="green"><b>ACHIEVABLE</b></td>
+            <td class="dim">Monthly reconciliation process. Model targets 80% &mdash; well below 100% ceiling.</td>
+          </tr>
+          <tr>
+            <td><span class="risk-tag" style="background:rgba(0,230,118,0.15); color:#00E676; padding:2px 6px; border-radius:3px; font-size:9px;">2</span></td>
+            <td><b>Limited Admin Fee</b> &mdash; Max $10/mo or 2% (not both) above actual utility cost</td>
+            <td class="orange"><b>PLAN NEEDED</b></td>
+            <td class="dim">Decide admin fee structure. Recommend $10/mo flat (simpler to administer). Must be disclosed in lease.</td>
+          </tr>
+          <tr>
+            <td><span class="risk-tag" style="background:rgba(0,230,118,0.15); color:#00E676; padding:2px 6px; border-radius:3px; font-size:9px;">3</span></td>
+            <td><b>Common Area Exclusion</b> &mdash; Utility costs for common areas/shared facilities excluded from allocation</td>
+            <td class="orange"><b>VERIFY</b></td>
+            <td class="dim">Must separate clubhouse, office, pool pump, and infrastructure utility consumption from resident allocation. SV farm house meter is a separate issue &mdash; confirm if common area.</td>
+          </tr>
+          <tr>
+            <td><span class="risk-tag" style="background:rgba(0,230,118,0.15); color:#00E676; padding:2px 6px; border-radius:3px; font-size:9px;">4</span></td>
+            <td><b>Clear Disclosure</b> &mdash; Allocation method must be disclosed in rental agreement</td>
+            <td class="red"><b>LEASE UPDATE</b></td>
+            <td class="dim">Current leases do NOT contain RUBS disclosure language. New lease addendum or replacement lease required for all residents before billing begins.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MHP-SPECIFIC COLORADO WATER BILLING RULES -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">COLORADO MHP WATER BILLING REQUIREMENTS (Division of Housing)</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        Colorado law imposes specific requirements on MHCs that charge residents for water. Management must provide each resident a <b style="color:#E5E9ED;">monthly water bill</b> showing: (1) amount owed by the resident, (2) total owed by all residents, (3) methodology used to determine each resident&rsquo;s share, and (4) if purchased from a provider, the total amount paid to the provider. Management must give <b style="color:#E5E9ED;">72 hours&rsquo; notice</b> before entering a lot to read meters. Landlords <b style="color:#EF4444;">cannot bill residents for water line leaks</b> that are the park&rsquo;s responsibility.
+      </div>
+    </div>
+
+    <!-- SUB-METERING STATUS -->
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Current Metering &amp; Sub-Metering Status</div>
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Property</th><th>Water Meter</th><th>Sub-Meters</th><th>Current Billing</th><th>RUBS Readiness</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Sunset Vista</b></td>
+            <td class="dim">Master meter (Acct 120187-082154) + Farm house meter (082234)</td>
+            <td class="red"><b>NONE</b></td>
+            <td class="dim">Owner pays all water/sewer ($227K/yr). Not billed to residents.</td>
+            <td class="orange"><b>RUBS ready</b> &mdash; per-unit allocation</td>
+          </tr>
+          <tr>
+            <td><b>Oasis</b></td>
+            <td class="dim">Master meter (Acct 120187-088822)</td>
+            <td class="red"><b>NONE</b></td>
+            <td class="dim">Owner pays all water/sewer ($100K/yr). Not billed to residents.</td>
+            <td class="orange"><b>RUBS ready</b> &mdash; per-unit allocation</td>
+          </tr>
+          <tr>
+            <td><b>La Vista</b></td>
+            <td class="dim">Master meter (Acct 362187-116150)</td>
+            <td class="red"><b>NONE</b></td>
+            <td class="dim">Owner pays all water/sewer ($37K/yr). Not billed to residents.</td>
+            <td class="orange"><b>RUBS ready</b> &mdash; per-unit allocation</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:9px; color:#858D99; margin-top:6px;">No sub-meters detected in lease documents, utility bills, or DD materials. All properties are master-metered through Board of Water Works. RUBS (per-unit allocation) is the most cost-effective initial approach vs. sub-meter installation ($500&ndash;$1,200/lot).</div>
+    </div>
+
+    <!-- LEASE AUDIT: RUBS LANGUAGE -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #EF4444; padding-left:12px;">
+      <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">LEASE AUDIT FINDING: NO RUBS LANGUAGE IN CURRENT LEASES</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        Review of 37 executed leases found <b style="color:#EF4444;">zero RUBS or utility billback provisions</b>. The SC 118 lease (Sunset Vista template) references utility responsibility as: &ldquo;LESSEE shall pay for the utility service as metered for Tenant&rsquo;s actual use&rdquo; and mentions &ldquo;water and sewer service that is not metered individually&rdquo; but <b style="color:#E5E9ED;">does not authorize proportional allocation or billback</b>. Several OCR&rsquo;d leases reference utility charges of <b style="color:#E5E9ED;">$9.50&ndash;$10.50/mo &ldquo;if applicable&rdquo;</b> but this appears to be a nominal fee, not proportional cost recovery. A few SC leases state utilities are &ldquo;included in the rent charges and will not be charged separately.&rdquo; <b style="color:#FBBF24;">New lease language is required before RUBS billing can begin.</b>
+      </div>
+    </div>
+
+    <!-- IMPLEMENTATION ROADMAP -->
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">RUBS Implementation Roadmap &mdash; 90-Day Post-Close</div>
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th style="width:80px;">Timeline</th><th>Action Item</th><th style="width:100px;">Owner</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>Day 1&ndash;15</b></td>
+            <td><b>Lease amendment drafting</b></td>
+            <td class="dim">Legal / Ops</td>
+            <td class="dim">Draft RUBS addendum with: allocation methodology (per-unit or occupancy-based), disclosure of admin fee ($10/mo), common area exclusion, monthly billing format, and dispute resolution. Must comply with HB25-1090 and CO Division of Housing requirements.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>Day 15&ndash;30</b></td>
+            <td><b>Resident notification</b></td>
+            <td class="dim">Property Mgmt</td>
+            <td class="dim">60-day written notice required under Colorado MHP Act before any new charge. Distribute RUBS addendum with clear explanation of methodology and estimated monthly impact per lot ($65&ndash;$110/mo est.).</td>
+          </tr>
+          <tr>
+            <td><b>Day 30&ndash;60</b></td>
+            <td><b>Billing system setup</b></td>
+            <td class="dim">Ops / Rent Mgr</td>
+            <td class="dim">Configure Rent Manager for RUBS billing. Set up provider bill import, per-unit allocation engine, common area deduction, and monthly statement generation. Recommend third-party RUBS software (e.g., SimpleSub, Conservice, or Yardi Breeze).</td>
+          </tr>
+          <tr>
+            <td><b>Day 60&ndash;75</b></td>
+            <td><b>Lease execution period</b></td>
+            <td class="dim">Property Mgmt</td>
+            <td class="dim">Collect signed RUBS addenda from all residents. Track compliance. Non-signers on M2M leases can be given updated lease at renewal.</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>Day 90+</b></td>
+            <td><b>First RUBS billing cycle</b></td>
+            <td class="dim">Ops</td>
+            <td class="dim">Begin proportional water/sewer + trash billing. Reconcile monthly. Expect initial collections pushback &mdash; budget 60% collection rate in Month 1, ramping to 85%+ by Month 6.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RUBS vs SUB-METERING COMPARISON -->
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section" style="border-left:3px solid #00E676; padding-left:12px;">
+        <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">RUBS (RECOMMENDED PHASE 1)</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Cost:</b> $0 capital &mdash; software license only ($3&ndash;$5/unit/mo)<br>
+          <b style="color:#E5E9ED;">Timeline:</b> 90 days post-close (Day 1 billing)<br>
+          <b style="color:#E5E9ED;">Recovery:</b> 60&ndash;80% of water/sewer cost<br>
+          <b style="color:#E5E9ED;">Yr 1 Revenue:</b> $171K (ramped) &rarr; $354K steady-state<br>
+          <b style="color:#E5E9ED;">Pro:</b> No capital required. Fast implementation.<br>
+          <b style="color:#E5E9ED;">Con:</b> Doesn&rsquo;t incentivize conservation. Dispute risk if bills spike.
+        </div>
+      </div>
+      <div class="section" style="border-left:3px solid #3B82F6; padding-left:12px;">
+        <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">SUB-METERING (PHASE 2 &mdash; YEAR 2+)</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Cost:</b> $500&ndash;$1,200/lot &times; 346 = <b>$173K&ndash;$415K</b><br>
+          <b style="color:#E5E9ED;">Timeline:</b> 6&ndash;12 months for full installation<br>
+          <b style="color:#E5E9ED;">Recovery:</b> 85&ndash;95% of water/sewer cost<br>
+          <b style="color:#E5E9ED;">Steady-State Revenue:</b> $310K&ndash;$347K/yr<br>
+          <b style="color:#E5E9ED;">Pro:</b> Usage-based &mdash; incentivizes conservation, reduces disputes.<br>
+          <b style="color:#E5E9ED;">Con:</b> High upfront CapEx. Installation disruption. Meter maintenance.
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #00E676; padding-left:12px;">
+      <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">RUBS FEASIBILITY VERDICT</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        <b style="color:#00E676;">STRONG GO.</b> Water/sewer at $365K/yr with zero current recovery is the single largest NOI improvement opportunity in this deal. The model already assumes 80% RUBS recovery ($171K Yr 1, $354K steady-state) and the regulatory environment supports it. <b style="color:#E5E9ED;">Key risk: lease transition.</b> Current leases include no billback language &mdash; new addenda required for all 346 occupied lots, with Colorado&rsquo;s 60-day notice requirement. Recommend RUBS as Phase 1 (Day 1 post-close) with sub-metering evaluation at Year 2 once operations stabilize. The $10/mo admin fee allowed under HB25-1090 adds ~$41K/yr in additional revenue. <b style="color:#FBBF24;">Ops team should begin lease addendum drafting immediately post-IC approval.</b>
+      </div>
+    </div>
+
     <!-- GOOGLE DRIVE — UTILITY BILLS -->
     <div class="group-divider">
       <div class="group-label">Source Documents &mdash; Google Drive</div>
@@ -5208,7 +5581,7 @@
           </tr>
           <tr>
             <td>4</td>
-            <td>Verify Oasis insurance coverage — review K folder policies for coverage allocation by property (shows $0 on T12)</td>
+            <td>Verify Oasis insurance coverage — review <a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">K folder policies</a> for coverage allocation by property (shows $0 on T12)</td>
             <td class="dim">Insurance</td>
             <td>Chris</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
@@ -5293,7 +5666,7 @@
           </tr>
           <tr>
             <td>13</td>
-            <td>Begin bank statement reconciliation against T12 P&L revenue (36 statements across 3 properties)</td>
+            <td>Begin <a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">bank statement</a> reconciliation against <a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">T12 P&amp;L</a> revenue (36 statements across 3 properties)</td>
             <td class="dim">Financial</td>
             <td>Chris</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
@@ -5385,14 +5758,14 @@
           </tr>
           <tr>
             <td>23</td>
-            <td>Review all 37 executed leases for non-standard terms, rent escalation provisions, lease term consistency</td>
+            <td>Review all 37 <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">executed leases</a> for non-standard terms, rent escalation provisions, lease term consistency</td>
             <td class="dim">Legal</td>
             <td>Chris / Legal</td>
             <td><span class="risk-tag tag-medium">MEDIUM</span></td>
           </tr>
           <tr>
             <td>24</td>
-            <td>Negotiate Oasis road repair credit or escrow holdback ($41K) based on PCA findings and site visit confirmation</td>
+            <td>Negotiate Oasis road repair credit or escrow holdback ($41K) based on <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a> findings and site visit confirmation</td>
             <td class="dim">Negotiation</td>
             <td>Chris / Jeff</td>
             <td><span class="risk-tag tag-medium">MEDIUM</span></td>
@@ -6128,6 +6501,90 @@
       </div>
     </div>
 
+    <!-- ======= FORT CARSON / MILITARY DEMAND ======= -->
+    <div class="group-divider">
+      <div class="group-label">Military &amp; Regional Housing Demand Spillover</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section" style="border-left:3px solid #00E676; padding-left:12px;">
+        <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">FORT CARSON SPILLOVER EFFECT</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          Fort Carson (30,000+ military &amp; civilian personnel) is 45 miles north in Colorado Springs. The base operates at <b style="color:#E5E9ED;">full housing capacity</b> with persistent waitlists, forcing families to seek affordable alternatives. Colorado Springs BAH rates rose 5.4% in 2026 but still lag actual market rents, creating a <b style="color:#E5E9ED;">$336/mo average housing gap</b> for military families. Pueblo&rsquo;s 53% cheaper housing and I-25 connectivity make it a natural relief valve for military-connected households priced out of the Springs market.
+        </div>
+      </div>
+      <div class="section" style="border-left:3px solid #00E676; padding-left:12px;">
+        <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">COLORADO SPRINGS MIGRATION PRESSURE</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          Colorado Springs (pop. 490K+) median home price exceeds $450K &mdash; nearly <b style="color:#E5E9ED;">2x Pueblo&rsquo;s $257K</b>. With PCS moves up 12% in 2026 and Springs rental inventory constrained, Pueblo captures demand overflow. The I-25/US 50B interchange upgrade (currently under construction) will further improve commute connectivity between Pueblo and southern Springs employment centers. This dynamic makes Pueblo an increasingly attractive bedroom community for Springs workers.
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= NATIONAL MHC SECTOR TAILWINDS ======= -->
+    <div class="group-divider">
+      <div class="group-label">National MHC Sector Tailwinds &mdash; 2026</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Indicator</th><th>Data Point</th><th>Implication for Pueblo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>CO MHC Growth</b></td>
+            <td class="green"><b>+12.1% YoY</b></td>
+            <td class="dim">Strong statewide demand momentum &mdash; structural supply-demand imbalance</td>
+          </tr>
+          <tr>
+            <td><b>National MHC Cap Rates</b></td>
+            <td><b>5.9% avg</b> (compressed 40bp)</td>
+            <td class="dim">Cap rate compression validates sector pricing. Our entry at sub-6% is market-appropriate.</td>
+          </tr>
+          <tr>
+            <td><b>Median Price/Space</b></td>
+            <td><b>$45,500/space</b> national median</td>
+            <td class="dim">Our $95,670/lot ($38.2M &divide; 399) includes POH inventory &mdash; land-only basis is lower.</td>
+          </tr>
+          <tr>
+            <td><b>Sales Velocity</b></td>
+            <td class="green"><b>+66% H1 2025 vs H1 2024</b></td>
+            <td class="dim">Institutional appetite strong. Exit liquidity supportive for 5&ndash;7 year hold.</td>
+          </tr>
+          <tr>
+            <td><b>New Supply</b></td>
+            <td class="green"><b>Near zero</b></td>
+            <td class="dim">Zoning/siting barriers prevent new MHC development nationally and in Pueblo. Existing communities have pricing power.</td>
+          </tr>
+          <tr>
+            <td><b>Rent Control Risk</b></td>
+            <td class="orange"><b>~50bp cap rate widening</b></td>
+            <td class="dim">Colorado rent control threat priced in. CO MHP Act already requires 60-day notice + 12-month min between increases &mdash; effectively self-regulated.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======= QUALITY OF LIFE / TOURISM ======= -->
+    <div class="group-divider">
+      <div class="group-label">Quality of Life &amp; Tourism Assets</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #8B5CF6; padding-left:12px;">
+      <div style="font-size:11px; color:#8B5CF6; font-weight:700; margin-bottom:6px;">PUEBLO&rsquo;S LIVABILITY ADVANTAGES</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        <b style="color:#E5E9ED;">Historic Arkansas Riverwalk (HARP)</b> &mdash; 32-acre urban waterfront with 54 outdoor sculptures, boat tours, shops and restaurants. Attracts 500K+ visitors annually and has driven downtown revitalization since 2000. Used by hospitals and employers as a recruitment tool.<br>
+        <b style="color:#E5E9ED;">Outdoor recreation access</b> &mdash; Lake Pueblo State Park (4,600-acre reservoir, 60 mi of trails), San Isabel National Forest, Royal Gorge Bridge (30 min). 300+ days of sunshine per year.<br>
+        <b style="color:#E5E9ED;">Cultural heritage</b> &mdash; Pueblo is a Preserve America Community. 52% Hispanic/Latino population with deep cultural roots. Annual Chile &amp; Frijoles Festival, State Fair, and Riverwalk events. Union Avenue Historic District with Victorian architecture, galleries, and restaurants.<br>
+        <b style="color:#E5E9ED;">Education pipeline</b> &mdash; CSU-Pueblo (regional university), Pueblo Community College, two K-12 districts. Provides workforce training aligned with manufacturing and healthcare sectors.<br>
+        <b style="color:#E5E9ED;">Healthcare infrastructure</b> &mdash; Two major hospital systems (UCHealth Parkview + St. Mary-Corwin) and Colorado Mental Health Institute. Combined 4,500+ healthcare jobs &mdash; recession-resistant employment anchor.
+      </div>
+    </div>
+
     <!-- ======= ECONOMIC DEVELOPMENT ======= -->
     <div class="group-divider">
       <div class="group-label">Economic Development &amp; Upcoming Projects</div>
@@ -6369,7 +6826,7 @@
     <div class="section" style="margin-bottom: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px;">PORTFOLIO RENT ROLL SUMMARY</div>
       <div style="font-size: 11px; color: #858D99; line-height: 1.7;">
-        Combined rent roll analysis across all 3 communities (399 total lots). Data sourced from Rent Manager export dated 3/10/2026. All rents are flat within each community &mdash; no tiered pricing by lot type observed.
+        Combined <a href="https://docs.google.com/spreadsheets/d/1u14URBObt_9CrGOiZ-lQqEBhE1EOArWB/edit?usp=drive_link&amp;ouid=113826806408502291450&amp;rtpof=true&amp;sd=true" target="_blank" style="color:#3B82F6; text-decoration:none;">rent roll</a> analysis across all 3 communities (399 total lots). Data sourced from <a href="https://drive.google.com/drive/folders/1E1a_vYX8gC9qhl_wAZBdA8pE2M8wsVCd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Rent Manager export</a> dated 3/10/2026. All rents are flat within each community &mdash; no tiered pricing by lot type observed.
       </div>
     </div>
 
@@ -7053,9 +7510,9 @@
         <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">Ends 4/16/2026</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
-        <div style="font-size:18px; font-weight:900; color:#FBBF24;">Acknowledged</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">Kris replied 3/29</div>
+        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
+        <div style="font-size:18px; font-weight:900; color:#00E676;">Acknowledged</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Kris replied 3/29 &mdash; shared w/ Ben</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">CMBS Assumption</div>
@@ -7180,7 +7637,7 @@
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
       <table class="data-table">
         <thead>
           <tr>
@@ -7239,23 +7696,29 @@
             <td class="green">COMPLETE</td>
             <td class="dim">Chris sent 20-item DD request to Kris: 9 empty folders, 2 partial deliverables, 4 POH-specific, 2 financial clarifications, CMBS assumption status, 2 regulatory items. Priority: bank reqs + tax reassessment exposure first.</td>
           </tr>
+          <tr>
+            <td><b>3/28/2026</b></td>
+            <td>DD Review Underway</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">PCA deep dive complete. Dashboard updated with site visit checklist. Loan docs received from Midland/PNC.</td>
+          </tr>
+          <tr>
+            <td><b>3/29/2026</b></td>
+            <td>Seller Acknowledges DD Request / Estoppel Clarified</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Kris confirmed receipt, shared with Ben (seller&rsquo;s principal). Kris flagged no estoppel language in PSA &mdash; Chris corrected: estoppel required under Loan Agreement &sect;4.18 (lender covenant), not PSA. Site visit dates requested by Kris (prefers Mon&ndash;Wed).</td>
+          </tr>
           <tr style="background: rgba(251,191,36,0.06);">
-            <td><b class="orange">3/28/2026</b></td>
-            <td class="orange"><b>TODAY — DD Review Underway</b></td>
+            <td><b class="orange">3/30/2026</b></td>
+            <td class="orange"><b>TODAY &mdash; Materials Review &amp; Site Visit Scheduling</b></td>
             <td class="orange">IN PROGRESS</td>
-            <td class="dim">Awaiting seller response to 20-item DD request. PCA deep dive complete. Dashboard updated with site visit checklist.</td>
+            <td class="dim">Review Sunset Vista Materials meeting at 4 PM (Kristen, Jeff B, Jeff M, Sage, Tommy, Chris). Keiana task update received &mdash; titles in progress, inspections calendared. Site visit dates TBD (coordinate with Kris).</td>
           </tr>
-          <tr style="background:rgba(239,68,68,0.06);">
-            <td><b style="color:#EF4444;">3/30</b></td>
-            <td><b style="color:#EF4444;">DD request follow-up needed</b> &mdash; No response from Kris in 2+ days</td>
-            <td class="red">ACTION</td>
-            <td class="dim">Follow up Mon 3/30 AM</td>
-          </tr>
-          <tr style="background:rgba(239,68,68,0.06);">
-            <td><b style="color:#EF4444;">ASAP</b></td>
-            <td><b style="color:#EF4444;">Send 3 draft emails to Keiana</b> &mdash; Tax assessment classification</td>
-            <td class="red">ACTION</td>
-            <td class="dim">Send drafts or update &amp; send</td>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/30/2026</b></td>
+            <td><s>Confirm site visit dates</s> &mdash; <span class="green">CONFIRMED</span></td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Coordinate with Derek and team and reply to Kris.</td>
           </tr>
           <tr>
             <td><b>4/10/2026</b></td>
@@ -7276,10 +7739,10 @@
             <td class="dim">Physical inspection of all 3 properties, POH condition assessment.</td>
           </tr>
           <tr style="background: rgba(251,191,36,0.06);">
-            <td><b class="orange">4/16/2026</b></td>
+            <td><b class="orange">TBD</b></td>
             <td class="orange"><b>INSPECTION PERIOD EXPIRES</b></td>
-            <td class="red">HARD DEADLINE</td>
-            <td class="dim">Earnest money goes hard. No extensions without seller consent.</td>
+            <td class="orange">TBD</td>
+            <td class="dim">Date contingent on delivery of ALL Schedule 7.1 materials. Per PSA Section 7.1, DD period = 45 days from Seller&rsquo;s delivery of the last Schedule 7.1 item. Materials still outstanding.</td>
           </tr>
           <tr>
             <td><b>4/20/2026</b></td>
@@ -7307,9 +7770,9 @@
           </tr>
           <tr>
             <td><b>TBD</b></td>
-            <td>Closing</td>
-            <td class="dim">TARGET</td>
-            <td class="dim">Per PSA: closing within 10 business days of all conditions being satisfied.</td>
+            <td>Closing &mdash; <span style="color:#FBBF24;">Est. 09/03/2026</span></td>
+            <td class="orange">TARGET</td>
+            <td class="dim">Per PSA: closing within 10 business days of all conditions being satisfied. Estimated close 09/03/2026 pending CMBS assumption timeline and OTP period expiration.</td>
           </tr>
         </tbody>
       </table>
@@ -7321,7 +7784,7 @@
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom:14px;">
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
       <table class="data-table" style="width:100%;">
         <thead>
           <tr>
@@ -7333,12 +7796,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr style="background:rgba(239,68,68,0.06);">
+          <tr style="background:rgba(59,130,246,0.06);">
             <td><b>DD Items Request (20 items)</b></td>
-            <td class="dim">Sent to Kris Wessel</td>
-            <td class="dim">3/27</td>
-            <td><span class="status-badge badge-not-received">AWAITING</span></td>
-            <td class="dim">Follow up Mon 3/30 AM</td>
+            <td class="dim">Kris acknowledged 3/29 &mdash; shared with Ben, awaiting seller deliverables</td>
+            <td class="dim">3/29</td>
+            <td><span class="status-badge badge-in-progress">ACKNOWLEDGED</span></td>
+            <td class="dim">Monitor data room for uploads</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>Site Visit Scheduling</b></td>
+            <td class="dim">Site visit confirmed &mdash; coordinated with Derek and team</td>
+            <td class="dim">3/30</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676;">CONFIRMED</span></td>
+            <td class="dim">Reply sent to Kris</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>Materials Review Meeting</b></td>
+            <td class="dim">Kristen scheduled Zoom &mdash; 4 PM today</td>
+            <td class="dim">3/30</td>
+            <td><span class="status-badge badge-in-progress">TODAY</span></td>
+            <td class="dim">Chris rescheduling &mdash; in air at 4 PM, proposed 8 AM Tue</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><b>Tax Assessment Drafts</b></td>
@@ -7348,22 +7825,29 @@
             <td class="dim">Send drafts or update &amp; send</td>
           </tr>
           <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>Estoppel Clarification</b></td>
+            <td class="dim">Chris confirmed: Loan &sect;4.18 covenant, not PSA. Kris acknowledged.</td>
+            <td class="dim">3/29</td>
+            <td><span class="status-badge badge-received">RESOLVED</span></td>
+            <td class="dim">Coordinate timing with CMBS assumption</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
             <td><b>PP Allocations / OTP</b></td>
-            <td class="dim">Matt confirmed allocations work</td>
+            <td class="dim">Matt confirmed allocations work for Buyer</td>
             <td class="dim">3/27</td>
             <td><span class="status-badge badge-received">CONFIRMED</span></td>
             <td class="dim">Verify OTP notices sent by seller</td>
           </tr>
           <tr style="background:rgba(59,130,246,0.06);">
             <td><b>CMBS Loan Assumption</b></td>
-            <td class="dim">Keiana sent executed PSA to Midland</td>
-            <td class="dim">3/23</td>
+            <td class="dim">Loan docs received 3/28. Application not yet submitted by seller.</td>
+            <td class="dim">3/28</td>
             <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
-            <td class="dim">Check status with Keiana</td>
+            <td class="dim">Follow up &mdash; seller must initiate per PNC</td>
           </tr>
           <tr style="background:rgba(0,230,118,0.04);">
             <td><b>Earnest Money</b></td>
-            <td class="dim">$350K confirmed by Amanda Brower</td>
+            <td class="dim">$350K confirmed by Amanda Brower ($250K on 3/25, $100K on 3/26)</td>
             <td class="dim">3/26</td>
             <td><span class="status-badge badge-received">COMPLETE</span></td>
             <td class="dim">&mdash;</td>
@@ -7373,7 +7857,7 @@
             <td class="dim">Received from Grace Wilson at Fidelity</td>
             <td class="dim">3/25</td>
             <td><span class="status-badge badge-received">COMPLETE</span></td>
-            <td class="dim">Review deadlines</td>
+            <td class="dim">&mdash;</td>
           </tr>
         </tbody>
       </table>
@@ -7500,7 +7984,7 @@
             <tr><td><b>Midland Loan Services</b></td><td class="dim">Master Servicer</td></tr>
             <tr><td><b>PNC Real Estate</b></td><td class="dim">Sub-Servicer &mdash; Loan #030512791</td></tr>
             <tr><td><b>Paige Newman</b></td><td class="dim">PNC — Assumption Contact</td></tr>
-            <tr><td colspan="2" class="dim" style="text-align:left;">$21,914,194 at 6.45% fixed &mdash; single loan, all 3 parks as collateral. <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan docs</a> received 3/28. See <b style="color:#3B82F6;">Debt tab</b> for full analysis.</td></tr>
+            <tr><td colspan="2" class="dim" style="text-align:left;">$21,914,194 at 6.45% fixed &mdash; single loan, all 3 parks as collateral. <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan docs</a> received 3/28. See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a> for full analysis.</td></tr>
           </tbody>
         </table>
       </div>
@@ -7617,6 +8101,91 @@
         <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR?usp=drive_link" target="_blank" class="drive-link">
           <span class="link-icon">&#128193;</span><span class="link-label">Misc Files</span><span class="link-arrow">→</span></a>
       </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-top: 4px;">
+        <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128193;</span><span class="link-label">PSA &amp; LOI</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128193;</span><span class="link-label">Loan Docs</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1J_1TslQaaxED_x-t9D52Jj_Ur1J2grO7?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128193;</span><span class="link-label">Investor Decks</span><span class="link-arrow">→</span></a>
+        <a href="https://1drv.ms/x/c/83aacab46b08e19a/IQB5RuaKMpHETLE9qiY3NtZZAcOyo18UMebQLtnjriO6DEs" target="_blank" class="drive-link">
+          <span class="link-icon">&#128202;</span><span class="link-label">Underwriting Model</span><span class="link-arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- KEY DOCUMENTS -->
+    <div class="group-divider">
+      <div class="group-label">Key Documents &mdash; Quick Access</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">#</th>
+            <th>Document</th>
+            <th style="width:80px;">Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim">1</td>
+            <td><a href="https://drive.google.com/file/d/1q9bojXu6OX6l_TIATqZrB3mJ3hui4QyR/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Executive Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">High-level deal overview and key takeaways for the Pueblo Three Pack.</td>
+          </tr>
+          <tr>
+            <td class="dim">2</td>
+            <td><a href="https://drive.google.com/file/d/1zt5GClufpfbmW_Or33G4_G2tQn3sTLtj/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Key Metrics Overview</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Portfolio-level KPIs: occupancy, NOI, cap rate, price per unit, rent levels.</td>
+          </tr>
+          <tr>
+            <td class="dim">3</td>
+            <td><a href="https://drive.google.com/file/d/1SGKur3yqRvbUKV2kpvUhSLWnk0t9e7Uz/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Due Diligence Index</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Master index of all DD documents received, organized by category.</td>
+          </tr>
+          <tr>
+            <td class="dim">4</td>
+            <td><a href="https://drive.google.com/file/d/1-smu-LJuBkbbUlFnrNbGIGb72YHDO4pc/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Due Diligence Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Comprehensive DD findings narrative covering all three properties.</td>
+          </tr>
+          <tr>
+            <td class="dim">5</td>
+            <td><a href="https://drive.google.com/file/d/1zm3EDO1sfbbrt8kNmSwXNFUAG798bEh8/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Red Flags Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Consolidated risk register: CMBS assumption, OTP, tax reassessment, roads, occupancy.</td>
+          </tr>
+          <tr>
+            <td class="dim">6</td>
+            <td><a href="https://drive.google.com/file/d/1jjaLrAKcfdvXtaSQzFoL2Dl5yvOADIkd/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">CapEx Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">7-year capital reserve schedule by property and category from <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA reports</a>.</td>
+          </tr>
+          <tr>
+            <td class="dim">7</td>
+            <td><a href="https://docs.google.com/spreadsheets/d/1u14URBObt_9CrGOiZ-lQqEBhE1EOArWB/edit?usp=drive_link&ouid=113826806408502291450&rtpof=true&sd=true" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Combined Rent Roll</a></td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">XLSX</span></td>
+            <td class="dim">Consolidated rent roll across all three properties.</td>
+          </tr>
+          <tr>
+            <td class="dim">8</td>
+            <td><a href="https://drive.google.com/file/d/1sj1oB6YvUM7Vw_Dc24jjK0Pgb9tkYDva/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Photo Review &amp; Site Visit Prep</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">50-photo review across 3 properties with site visit checklist additions.</td>
+          </tr>
+          <tr>
+            <td class="dim">9</td>
+            <td><a href="https://docs.google.com/spreadsheets/d/1bo0zC_g2XMT0ANoGpqXo_MQwYXvHiu4S/edit?usp=drive_link&ouid=113826806408502291450&rtpof=true&sd=true" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">T12 Utility Bill Analysis</a></td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">XLSX</span></td>
+            <td class="dim">217 bills analyzed across 5 utility types, Apr 2025 &ndash; Mar 2026.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
@@ -7782,13 +8351,454 @@
 
   </div>
 
+  <!-- ============================= PAGE 19: LEASE AUDIT ============================= -->
+  <div class="tab-content" id="tab-page19">
+
+    <div class="group-divider">
+      <div class="group-label">Executed Lease Audit &mdash; 37 Leases Reviewed</div>
+      <div class="group-line"></div>
+    </div>
+    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:-8px;">Source: <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder F &mdash; Executed Leases</a> &middot; 37 PDFs analyzed (17 text-extractable, 20 OCR-processed) &middot; SC = Sunset Country &middot; OC = Oasis &middot; LAV = La Vista</div>
+
+    <!-- AUDIT KPIs -->
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Total Leases</div>
+        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">37</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">SC: 19 &middot; OC: 15 &middot; LAV: 3</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Lease Type</div>
+        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">100%</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">All POH (Park-Owned Home)</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Rent Range</div>
+        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">$555&ndash;$795</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC: $555&ndash;$596 &middot; SC: $635&ndash;$795</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(EF,68,68,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Compliance Gaps</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">5</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Items requiring legal review</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(245,158,11,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Unreadable PDFs</div>
+        <div style="font-size:22px; font-weight:900; color:#FBBF24;">4</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Failed OCR &mdash; manual review needed</div>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE FINDINGS -->
+    <div class="group-divider">
+      <div class="group-label">Critical Compliance Findings</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section" style="border-left:3px solid #EF4444; padding-left:12px;">
+        <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">RED FLAGS</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">1. No RUBS/billback language</b> &mdash; Zero leases authorize utility cost allocation. RUBS implementation requires new addenda for all 346 occupied lots.<br>
+          <b style="color:#E5E9ED;">2. Security deposits not documented</b> &mdash; No security deposit amounts extracted from any lease. Verify with Rent Manager &mdash; CO law requires deposits to be held in escrow.<br>
+          <b style="color:#E5E9ED;">3. Late fee terms unclear</b> &mdash; Leases reference &ldquo;Default Charges&rdquo; after 11:59 PM on the 7th but specific dollar amounts not found. CO law caps late fees at reasonable amounts.<br>
+          <b style="color:#E5E9ED;">4. SC Lot 67 at $25/mo</b> &mdash; Extreme outlier (98% below market). Likely an employee, relative, or legacy arrangement. Must be corrected post-close.<br>
+          <b style="color:#E5E9ED;">5. Multiple leases state utilities &ldquo;included in rent&rdquo;</b> &mdash; SC 183, SC 190, SC 203 explicitly state utilities will not be charged separately. These leases must be replaced before RUBS billing.
+        </div>
+      </div>
+      <div class="section" style="border-left:3px solid #FBBF24; padding-left:12px;">
+        <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">OBSERVATIONS</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Two lease templates detected</b> &mdash; Older OC/SC leases use a shorter form (~5 pages text-extractable). Newer leases (2025&ndash;2026) appear to be 17&ndash;22 page scanned documents with more comprehensive terms.<br>
+          <b style="color:#E5E9ED;">No fixed-term leases found</b> &mdash; All extractable leases appear to be month-to-month or open-ended. No annual term locks. Good for operational flexibility.<br>
+          <b style="color:#E5E9ED;">Pet policy present</b> &mdash; Most leases include a pet addendum. SC 118 shows $25/mo pet rent. Standard across portfolio.<br>
+          <b style="color:#E5E9ED;">Assignment/subletting provisions</b> &mdash; Standard clause requiring landlord consent found in most leases. No unusual restrictions.<br>
+          <b style="color:#E5E9ED;">Utility charge line items</b> &mdash; Several OCR&rsquo;d leases show $9.50&ndash;$10.50 &ldquo;if applicable&rdquo; utility fees. Appears nominal &mdash; not proportional cost recovery. Clarify with seller.
+        </div>
+      </div>
+    </div>
+
+    <!-- LEASE-BY-LEASE DATA TABLE: SUNSET COUNTRY -->
+    <div class="group-divider">
+      <div class="group-label">Sunset Country Estates &mdash; 19 Leases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>SC 1</b></td><td class="dim">Bozeman</td><td style="text-align:right;"><b>$654</b></td><td class="dim">3/14/2026</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 17</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">2/16/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 25</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">8/1/2025</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 33</b></td><td class="dim">Alcala</td><td style="text-align:right;"><b>N/A</b></td><td class="dim">7/31/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Rent not extracted</td></tr>
+          <tr><td><b>SC 38</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">1/31/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 67</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="red"><b>$25</b></td><td class="dim">1/3/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="red"><b>OUTLIER</b> &mdash; 98% below mkt</td></tr>
+          <tr><td><b>SC 70</b></td><td class="dim">Coberly</td><td style="text-align:right;"><b>$654</b></td><td class="dim">1/14/2026</td><td class="dim">M2M</td><td class="dim">Utility charges permitted by law</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 114</b></td><td class="dim">Hernandez</td><td style="text-align:right;"><b>$756</b></td><td class="dim">3/4/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Non-standard rent ($756)</td></tr>
+          <tr><td><b>SC 118</b></td><td class="dim">Muniz</td><td style="text-align:right;"><b>$635</b></td><td class="dim">6/9/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays gas, heat, electric, rubbish. Water/sewer if metered individually; shared W/S allocated.</td><td class="green">Most detailed util clause</td></tr>
+          <tr><td><b>SC 128</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$725</b></td><td class="dim">1/1/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Non-standard rent ($725)</td></tr>
+          <tr><td><b>SC 132</b></td><td class="dim">Tafoya</td><td style="text-align:right;"><b>$635</b></td><td class="dim">7/12/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 145</b></td><td class="dim">Montoya &amp; Cruz</td><td style="text-align:right;"><b>$654</b></td><td class="dim">1/16/2026</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 151</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">9/25/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 175</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">3/9/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 180</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">3/22/2026</td><td class="dim">M2M</td><td class="dim">Utilities referenced in outstanding charges</td><td>&mdash;</td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 183</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">7/24/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 190</b></td><td class="dim">Sandoval</td><td style="text-align:right;"><b>$635</b></td><td class="dim">2/7/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 203</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">10/13/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td colspan="2">SC SUMMARY</td><td style="text-align:right;">$635&ndash;$795</td><td colspan="2">All M2M &middot; All POH</td><td colspan="2">3 RUBS blockers &middot; 1 rent outlier</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- OASIS LEASES -->
+    <div class="group-divider">
+      <div class="group-label">Oasis Mobile Country Club &mdash; 15 Leases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>OC 2</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">6/13/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 21</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">3/13/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 5</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$596</b></td><td class="dim">6/15/2023</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Oldest lease (2023)</td></tr>
+          <tr><td><b>OC 52</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Feb 2026</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr><td><b>OC 53</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">4/24/2025</td><td class="dim">M2M</td><td class="dim">Charges whether or not separately metered; utility charges to lessees permitted by law</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 57</b></td><td class="dim">Hartney</td><td style="text-align:right;"><b>N/A</b></td><td class="dim">9/30/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays for metered utility service</td><td class="orange">Rent not extracted</td></tr>
+          <tr><td><b>OC 61</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr><td><b>OC 69</b></td><td class="dim">Erickson</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Nov 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr><td><b>OC 71</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">5/2/2025</td><td class="dim">M2M</td><td class="dim">$9.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 94</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">7/11/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 116</b></td><td class="dim">Benfatti</td><td style="text-align:right;"><b>$595</b></td><td class="dim">11/22/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays gas, heat, electric; metered utility service</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 121</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">11/8/2025</td><td class="dim">M2M</td><td class="dim">Charges permitted by law</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 138</b></td><td class="dim">Etherton</td><td style="text-align:right;"><b>$595</b></td><td class="dim">1/31/2025</td><td class="dim">M2M</td><td class="dim">$9.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 150</b></td><td class="dim">Esquibel</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">May 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr><td><b>OC 156</b></td><td class="dim">Salazar</td><td style="text-align:right;"><b>$555</b></td><td class="dim">8/1/2023</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Below market &mdash; 2023 rate</td></tr>
+          <tr><td><b>OC 159</b></td><td class="dim">Kramer</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Aug 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td colspan="2">OC SUMMARY</td><td style="text-align:right;">$555&ndash;$596</td><td colspan="2">All M2M &middot; All POH</td><td colspan="2">4 failed OCR &middot; 1 below market</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LA VISTA LEASES -->
+    <div class="group-divider">
+      <div class="group-label">La Vista MHP &mdash; 3 Leases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>LAV 6</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr><td><b>LAV 8</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr><td><b>LAV 21</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td colspan="2">LAV SUMMARY</td><td style="text-align:right;">$572 (per rent roll)</td><td colspan="2">All appear M2M &middot; All POH</td><td colspan="2">3 minimal extraction &mdash; manual review needed</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:9px; color:#858D99; margin-top:6px;">La Vista leases had minimal text extraction. All 3 PDFs returned no readable text via standard extraction or OCR. Rent data sourced from Rent Manager export ($572/lot). Manual review of physical lease documents recommended.</div>
+    </div>
+
+    <!-- RENT DISTRIBUTION ANALYSIS -->
+    <div class="group-divider">
+      <div class="group-label">Rent Distribution Analysis</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Rent Tier</th><th style="text-align:right;">Count</th><th style="text-align:right;">%</th><th>Properties</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);"><td class="red"><b>$25</b></td><td style="text-align:right;">1</td><td style="text-align:right;">3%</td><td>SC 67</td><td class="dim red"><b>Extreme outlier &mdash; verify arrangement with seller</b></td></tr>
+          <tr><td>$555</td><td style="text-align:right;">1</td><td style="text-align:right;">3%</td><td>OC</td><td class="dim">Legacy 2023 rate &mdash; below current OC standard of $595</td></tr>
+          <tr><td>$572</td><td style="text-align:right;">3</td><td style="text-align:right;">9%</td><td>LAV</td><td class="dim">La Vista standard rate (per rent roll)</td></tr>
+          <tr><td>$595&ndash;$596</td><td style="text-align:right;">10</td><td style="text-align:right;">30%</td><td>OC</td><td class="dim">Oasis standard rate. $596 is legacy (OC 5, June 2023).</td></tr>
+          <tr><td>$635</td><td style="text-align:right;">7</td><td style="text-align:right;">21%</td><td>SC</td><td class="dim">SC mid-tier rate (older leases)</td></tr>
+          <tr><td>$654</td><td style="text-align:right;">4</td><td style="text-align:right;">12%</td><td>SC</td><td class="dim">SC standard current rate</td></tr>
+          <tr><td>$725&ndash;$756</td><td style="text-align:right;">2</td><td style="text-align:right;">6%</td><td>SC</td><td class="dim">Above standard &mdash; possibly renovated units or premium lots</td></tr>
+          <tr><td>$795</td><td style="text-align:right;">4</td><td style="text-align:right;">12%</td><td>SC</td><td class="dim">SC top-tier rate &mdash; all 2026 leases. Likely new move-ins at market rate.</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td>TOTAL EXTRACTED</td><td style="text-align:right;">32</td><td style="text-align:right;">&mdash;</td><td>&mdash;</td><td class="dim">5 leases had no rent data extracted (4 OCR failures + 1 minimal)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">RENT ESCALATION ANALYSIS</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        SC shows clear rent progression over time: $635 (mid-2025) &rarr; $654 (late 2025) &rarr; $725&ndash;$756 (select units) &rarr; $795 (2026 new leases). This represents a <b style="color:#00E676;">25% increase from $635 to $795</b> within 8 months. OC rents remain flat at $595, with one legacy lease at $555 (2023). <b style="color:#E5E9ED;">SC is actively pushing rates</b> while OC has not adjusted rents meaningfully. Post-close, the model assumes 5%/yr increases across all properties &mdash; the SC trajectory suggests this is achievable. OC&rsquo;s $595 base has significant room to move toward $654+ in Year 1.
+      </div>
+    </div>
+
+    <!-- ACTION ITEMS -->
+    <div class="group-divider">
+      <div class="group-label">Lease Audit Action Items</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th style="width:30px;">#</th><th>Action</th><th style="width:100px;">Priority</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td>1</td>
+            <td><b>Draft new RUBS lease addendum</b></td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">Must comply with HB25-1090 four conditions + CO Division of Housing water billing requirements. Include allocation methodology, admin fee disclosure, common area exclusion, monthly billing format.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td>2</td>
+            <td><b>Replace &ldquo;utilities included&rdquo; leases</b></td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">SC 183, SC 190, SC 203 explicitly state utilities included in rent. These must be terminated and replaced with new leases before RUBS billing begins. 60-day notice required.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td>3</td>
+            <td><b>Investigate SC Lot 67 ($25/mo)</b></td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">Ask seller/Kris about this arrangement. If employee housing, confirm if it transfers with the sale. If legacy deal, plan correction to market rate ($654+) post-close with proper notice.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><b>Verify security deposits with Rent Manager</b></td>
+            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
+            <td class="dim">No deposits found in lease documents. CO law requires deposits held in escrow. Check Rent Manager for deposit ledger. If no deposits collected, this is a compliance gap the seller must address.</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><b>Manual review of 4 failed OCR leases</b></td>
+            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
+            <td class="dim">OC 52, OC 69, OC 150, OC 159 could not be processed. Request cleaner copies from seller or review physical originals at site visit.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><b>Confirm late fee structure</b></td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Leases reference default charges after the 7th but specific amounts unclear. Clarify with seller and ensure compliance with CO Revised Statutes &sect;38-12-104.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><b>Standardize lease template post-close</b></td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Two different templates in use. Plan to roll all residents onto Silver Lands standard MHC lease at next renewal. Include RUBS addendum, updated pet policy, and standardized terms.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SOURCE DOCUMENTS -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">SOURCE DOCUMENTS</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px;">
+        <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:8px; padding:8px 12px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.30); border-radius:6px; color:#93B4F8; font-size:11px; text-decoration:none; font-weight:600; border-left:3px solid #3B82F6;">
+          <span style="font-size:14px;">&#128193;</span> F &mdash; Executed Leases (37 files)</a>
+        <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:8px; padding:8px 12px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.30); border-radius:6px; color:#B794F6; font-size:11px; text-decoration:none; font-weight:600; border-left:3px solid #8B5CF6;">
+          <span style="font-size:14px;">&#128193;</span> Q &mdash; Rent Manager Access</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================= PAGE 18: CHANGELOG (HIDDEN) ============================= -->
+  <div class="tab-content" id="tab-page18">
+
+    <div class="group-divider">
+      <div class="group-label">Dashboard Changelog</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 10px; padding: 14px 18px;">
+      <div style="font-size: 11px; color: #858D99; line-height: 1.7;">
+        Running log of all edits and updates made to this dashboard. Click <a href="#" onclick="document.getElementById('radio-page1').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none;">Executive Summary</a> to return.
+      </div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:90px;">Date</th>
+            <th style="width:70px;">Version</th>
+            <th>Change</th>
+            <th style="width:80px;">Tab(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- v1.0 — Initial Build -->
+          <tr style="border-left: 2px solid rgba(16,185,129,0.5);">
+            <td class="dim">3/28/2026</td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">v1.0</span></td>
+            <td>Initial dashboard build — 17 tabs covering Executive Summary, Docs, Financial Analysis, Red Flags, Investor Deck, Model, POH Analysis, Kickoff Meeting, Site Visit, Utilities, Action Items, Rent Roll Analysis, Deal Status, Photos, Debt, Forecast, Market.</td>
+            <td class="dim">All</td>
+          </tr>
+          <!-- v1.1 — Mobile & Map Fixes -->
+          <tr style="border-left: 2px solid rgba(59,130,246,0.5);">
+            <td class="dim">3/29/2026</td>
+            <td><span class="status-badge badge-in-progress">v1.1</span></td>
+            <td>Mobile readability: added <code style="color:#93B4F8; background:rgba(59,130,246,0.1); padding:1px 4px; border-radius:3px; font-size:10px;">scroll-wrap</code> to POH Summary by Property (4 tables) and Rent Roll Analysis (6 tables) for horizontal scrolling on mobile.</td>
+            <td class="dim">POH, Rent Roll</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(59,130,246,0.5);">
+            <td class="dim">3/29/2026</td>
+            <td><span class="status-badge badge-in-progress">v1.1</span></td>
+            <td>Removed estimated walk times from Site Visit &ldquo;What to Expect&rdquo; section and map captions.</td>
+            <td class="dim">Site Visit</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(59,130,246,0.5);">
+            <td class="dim">3/29/2026</td>
+            <td><span class="status-badge badge-in-progress">v1.1</span></td>
+            <td>Changed all 7 embedded Google Maps from satellite view (<code style="color:#93B4F8; background:rgba(59,130,246,0.1); padding:1px 4px; border-radius:3px; font-size:10px;">t=k</code>) to standard road view (<code style="color:#93B4F8; background:rgba(59,130,246,0.1); padding:1px 4px; border-radius:3px; font-size:10px;">t=m</code>).</td>
+            <td class="dim">Site Visit</td>
+          </tr>
+          <!-- v1.2 — Email Integration & Timeline -->
+          <tr style="border-left: 2px solid rgba(139,92,246,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(139,92,246,0.15); color:#8B5CF6; border:1px solid rgba(139,92,246,0.3);">v1.2</span></td>
+            <td>Deal Status timeline updated from Gmail: 3/28 row marked COMPLETE, new 3/29 row (Seller Acknowledges DD Request), new 3/30 row (Materials Review &amp; Site Visit Scheduling). DD Request KPI card updated to green. Communications Tracker expanded with 4 new rows (site visit scheduling, materials meeting, estoppel clarification, CMBS status).</td>
+            <td class="dim">Deal Status</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(139,92,246,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(139,92,246,0.15); color:#8B5CF6; border:1px solid rgba(139,92,246,0.3);">v1.2</span></td>
+            <td>Mobile readability: added <code style="color:#93B4F8; background:rgba(59,130,246,0.1); padding:1px 4px; border-radius:3px; font-size:10px;">scroll-wrap</code> to Deal Status timeline and Communications Tracker tables.</td>
+            <td class="dim">Deal Status</td>
+          </tr>
+          <!-- v1.3 — File Links & Drive Integration -->
+          <tr style="border-left: 2px solid rgba(245,158,11,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(245,158,11,0.15); color:#F59E0B; border:1px solid rgba(245,158,11,0.3);">v1.3</span></td>
+            <td>Added Key Documents &amp; File Links section to bottom of Deal Status tab. Includes 9 key document links (Executive Summary, Key Metrics, DD Index, DD Summary, Red Flags, CapEx Summary, Combined Rent Roll, Photo Review, T12 Utility Analysis) plus expanded Drive folder grid (PSA &amp; LOI, Loan Docs, Investor Decks, Underwriting Model).</td>
+            <td class="dim">Deal Status</td>
+          </tr>
+          <!-- v1.4 — Hyperlink Integration -->
+          <tr style="border-left: 2px solid rgba(236,72,153,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(236,72,153,0.15); color:#EC4899; border:1px solid rgba(236,72,153,0.3);">v1.4</span></td>
+            <td><b style="color:#E5E9ED;">Internal tab navigation:</b> Added 5 clickable tab-switch links &mdash; &ldquo;Debt tab&rdquo; (3 instances in Docs, Red Flags, Deal Status), &ldquo;POH Analysis tab&rdquo; (Model tab), &ldquo;Model tab&rdquo; (POH Analysis). Clicking jumps directly to the referenced tab.</td>
+            <td class="dim">Docs, Red Flags, Deal Status, Model, POH</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(236,72,153,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(236,72,153,0.15); color:#EC4899; border:1px solid rgba(236,72,153,0.3);">v1.4</span></td>
+            <td><b style="color:#E5E9ED;">Google Drive deep-links:</b> 25+ document references in body text now link directly to their Google Drive folder/file. Covers: PCA, Phase 1, ALTA surveys, loss runs, insurance policies, service contracts, vendor lists, delinquency reports, Rent Manager, OTP docs, litigation, permits, CapEx records, utility bills, bank statements, T12 P&amp;Ls, executed leases, rent rolls, and source citations.</td>
+            <td class="dim">Exec Summary, Docs, Financial, Red Flags, Action Items, Rent Roll, Utilities, POH, Deal Status</td>
+          </tr>
+          <!-- v1.5 — Changelog Tab -->
+          <tr style="border-left: 2px solid rgba(6,182,212,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(6,182,212,0.15); color:#06B6D4; border:1px solid rgba(6,182,212,0.3);">v1.5</span></td>
+            <td>Added hidden Changelog tab (this page). Accessible via discrete link at bottom of Executive Summary. Not visible in main tab bar.</td>
+            <td class="dim">Exec Summary</td>
+          </tr>
+          <!-- v1.5 — Fidelity Email Draft -->
+          <tr style="border-left: 2px solid rgba(6,182,212,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(6,182,212,0.15); color:#06B6D4; border:1px solid rgba(6,182,212,0.3);">v1.5</span></td>
+            <td>Drafted email to Fidelity National Title (Grace Wilson / Amanda Brower) re: inspection period not commenced per PSA Section 7.1 — saved as Gmail draft in Critical Dates Letter thread. (External action, not a dashboard edit.)</td>
+            <td class="dim">N/A</td>
+          </tr>
+          <!-- v1.6 — RUBS + Lease Audit + Market + Timeline Updates -->
+          <tr style="border-left: 2px solid rgba(234,179,8,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(234,179,8,0.15); color:#EAB308; border:1px solid rgba(234,179,8,0.3);">v1.6</span></td>
+            <td><b style="color:#E5E9ED;">RUBS Implementation Feasibility</b> added to Utilities tab: model assumptions ($171K Yr1 recovery, 80% target), Colorado HB25-1090 regulatory framework with AG 4-condition compliance matrix, metering status audit, lease language gap analysis, 90-day implementation roadmap, RUBS vs sub-metering comparison. Pulled data from underwriting model (FIXED 3.xlsx) and 37 executed leases.</td>
+            <td class="dim">Utilities</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(234,179,8,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(234,179,8,0.15); color:#EAB308; border:1px solid rgba(234,179,8,0.3);">v1.6</span></td>
+            <td><b style="color:#E5E9ED;">Lease Audit tab (page19)</b> added — Full audit of 37 executed leases (17 text + 20 OCR). Per-property tables with rent, dates, terms, utility provisions, flags. Rent distribution analysis ($25–$795 range). 7 action items identified. 5 critical compliance gaps: no RUBS language, missing security deposits, late fee terms unclear, $25/mo outlier, utilities-included leases.</td>
+            <td class="dim">New Tab: Lease Audit</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(234,179,8,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(234,179,8,0.15); color:#EAB308; border:1px solid rgba(234,179,8,0.3);">v1.6</span></td>
+            <td><b style="color:#E5E9ED;">Market tab enhanced</b> with 3 new sections: Fort Carson military spillover &amp; Colorado Springs migration pressure, National MHC Sector Tailwinds 2026 (12.1% CO growth, 5.9% cap rates, +66% sales velocity), Quality of Life &amp; Tourism Assets (Riverwalk, outdoor recreation, cultural heritage, education, healthcare).</td>
+            <td class="dim">Market</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(234,179,8,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(234,179,8,0.15); color:#EAB308; border:1px solid rgba(234,179,8,0.3);">v1.6</span></td>
+            <td><b style="color:#E5E9ED;">Critical Dates Timeline updates:</b> Closing date changed to TBD Est. 09/03/2026. Site visit confirmed (coordinate with Derek and team). Keiana draft emails row removed. Inspection period expires changed to TBD (pending Schedule 7.1 delivery).</td>
+            <td class="dim">Deal Status</td>
+          </tr>
+          <!-- v1.7 — Accessibility & Navigation Enhancements -->
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">v1.7</span></td>
+            <td><b style="color:#E5E9ED;">Accessibility overhaul:</b> Keyboard navigation (arrow keys), back-to-top button, tab position indicator (X of 18), collapsible accordion sections on long tabs, jump-to-section dropdown menu, bottom tab dock (Actions, Docs, Site Visit, Deal Status).</td>
+            <td class="dim">All</td>
+          </tr>
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">v1.7</span></td>
+            <td><b style="color:#E5E9ED;">Tab reorder:</b> Reorganized tab sequence to prioritize workflow — Summary → Deal Status → Actions → Docs → Pics → Red Flags → Site Visit → Model → Forecast → Market → Financial → Debt → Rent Roll → Lease Audit → POH → Utilities → Investor Deck → Kickoff.</td>
+            <td class="dim">All</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" style="margin-bottom: 10px; padding: 14px 18px;">
+      <div style="font-size: 10px; color: #4A5568; line-height: 1.6;">
+        Dashboard maintained by Chris Meriwether, VP of Acquisitions. Changes are logged as they occur during the DD process. Version numbers follow semantic convention: major.minor (e.g. v1.4 = first major build, fourth update).
+      </div>
+    </div>
+
+  </div>
+
   <!-- FOOTER -->
   <div class="footer">
-    CONFIDENTIAL — Studio 168 / Silver Lands Management Group — Sunset Vista Due Diligence Dashboard — Updated March 29, 2026 <br>
+    CONFIDENTIAL — Studio 168 / Silver Lands Management Group — Sunset Vista Due Diligence Dashboard — Updated March 30, 2026 <br>
     Prepared by Chris Meriwether, VP of Acquisitions & Asset Management
   </div>
 
 </div>
+
+<!-- FLOATING TAB NAVIGATION — outside .page to avoid overflow clip -->
+<div class="float-nav" id="floatNav">
+  <div class="nav-label" id="navLabel"></div>
+  <div class="tab-indicator" id="tabIndicator"></div>
+  <button onclick="navPrev()" aria-label="Previous tab">&#8249;</button>
+  <button onclick="navNext()" aria-label="Next tab">&#8250;</button>
+</div>
+
+<!-- BACK-TO-TOP BUTTON -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- JUMP-TO-SECTION DROPDOWN -->
+<div class="section-jump" id="sectionJump">
+  <button class="section-jump-btn" onclick="toggleSectionJump()" aria-label="Jump to section">≡</button>
+  <div class="section-jump-dropdown" id="sectionJumpDropdown"></div>
+</div>
+
+<!-- BOTTOM TAB DOCK -->
+<div class="bottom-dock" id="bottomDock">
+  <button onclick="goToTabByPage(1)" aria-label="Go to Summary">📌</button>
+  <button onclick="goToTabByPage(2)" aria-label="Go to Docs">📁</button>
+  <button onclick="goToTabByPage(9)" aria-label="Go to Site Visit">🏠</button>
+  <button onclick="goToTabByPage(13)" aria-label="Go to Deal Status">📊</button>
+</div>
+
 <script>
 // Register service worker for PWA functionality
 if ('serviceWorker' in navigator) {
@@ -7845,6 +8855,279 @@ function updateCountdown() {
 // Run immediately and refresh every minute
 updateCountdown();
 setInterval(updateCountdown, 60000);
+
+// ===== TAB NAVIGATION: SWIPE + FLOATING BUTTONS =====
+(function() {
+  // Ordered list of visible tab page IDs (excludes hidden page18/changelog)
+  var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,5,8];
+
+  function getCurrentIndex() {
+    for (var i = 0; i < tabOrder.length; i++) {
+      var r = document.getElementById('radio-page' + tabOrder[i]);
+      if (r && r.checked) return i;
+    }
+    return 0;
+  }
+
+  function goToTab(idx) {
+    if (idx < 0 || idx >= tabOrder.length) return;
+    var r = document.getElementById('radio-page' + tabOrder[idx]);
+    if (r) {
+      r.checked = true;
+      window.scrollTo(0, 0);
+      updateNavLabel(idx);
+    }
+  }
+
+  // Tab name lookup for the floating label
+  var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
+    9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
+    12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Kickoff'};
+
+  function updateNavLabel(idx) {
+    var el = document.getElementById('navLabel');
+    if (el) el.textContent = tabNames[tabOrder[idx]] || '';
+
+    // Update tab indicator with position and total
+    var indicatorEl = document.getElementById('tabIndicator');
+    if (indicatorEl) {
+      var pos = idx + 1;
+      var total = tabOrder.length;
+      indicatorEl.textContent = pos + ' of ' + total + ' • ' + (tabNames[tabOrder[idx]] || '');
+    }
+  }
+
+  // Expose for button onclick
+  window.navPrev = function() { goToTab(getCurrentIndex() - 1); };
+  window.navNext = function() { goToTab(getCurrentIndex() + 1); };
+
+  // ===== SWIPE DETECTION =====
+  var touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+  var MIN_SWIPE_X = 60;   // min horizontal distance
+  var MAX_SWIPE_Y = 80;   // max vertical distance (reject diagonal)
+  var MAX_SWIPE_MS = 400;  // max duration
+
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    if (e.changedTouches.length !== 1) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    var dt = Date.now() - touchStartTime;
+
+    // Must be fast, horizontal, and not vertical
+    if (dt > MAX_SWIPE_MS) return;
+    if (Math.abs(dx) < MIN_SWIPE_X) return;
+    if (Math.abs(dy) > MAX_SWIPE_Y) return;
+
+    // Don't swipe if user is interacting with scrollable tables
+    var target = e.target;
+    while (target && target !== document.body) {
+      if (target.classList && target.classList.contains('scroll-wrap')) return;
+      if (target.tagName === 'TABLE') return;
+      target = target.parentElement;
+    }
+
+    if (dx < 0) {
+      // Swipe left → next tab
+      navNext();
+    } else {
+      // Swipe right → prev tab
+      navPrev();
+    }
+  }, { passive: true });
+
+  // Set initial label
+  updateNavLabel(getCurrentIndex());
+
+  // Update label when tabs change via click
+  document.querySelectorAll('.tab-radio').forEach(function(r) {
+    r.addEventListener('change', function() {
+      updateNavLabel(getCurrentIndex());
+      updateSectionJump();
+    });
+  });
+
+  // ===== FEATURE 1: KEYBOARD NAVIGATION =====
+  document.addEventListener('keydown', function(e) {
+    // Don't fire if focused on input/textarea
+    var activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      navPrev();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      navNext();
+    }
+  });
+
+  // ===== FEATURE 2: BACK-TO-TOP BUTTON =====
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('backToTop');
+    if (btn) {
+      if (window.scrollY > 300) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    }
+  });
+
+  // ===== FEATURE 4: COLLAPSIBLE SECTIONS =====
+  var collapsibleTabs = [3, 6, 10, 11, 12, 17, 19];  // Financial, Model, Utilities, Actions, Rent Roll, Market, Lease Audit
+
+  function setupCollapsibles() {
+    collapsibleTabs.forEach(function(pageNum) {
+      var tabEl = document.getElementById('tab-page' + pageNum);
+      if (!tabEl) return;
+
+      var dividers = tabEl.querySelectorAll('.group-divider');
+      if (dividers.length < 2) return;  // Only add if multiple sections
+
+      // Add collapse/expand toggle at top
+      var toggleDiv = document.createElement('div');
+      toggleDiv.className = 'collapse-toggle';
+      toggleDiv.innerHTML = '<button onclick="collapseAllSections(' + pageNum + ')">Collapse All</button>' +
+                           '<button onclick="expandAllSections(' + pageNum + ')">Expand All</button>';
+      tabEl.insertBefore(toggleDiv, dividers[0]);
+
+      // Wrap content between dividers
+      dividers.forEach(function(divider, i) {
+        var nextDivider = i < dividers.length - 1 ? dividers[i + 1] : null;
+        var container = document.createElement('div');
+        container.className = 'collapsible-content';
+        container.id = 'collapsible-' + pageNum + '-' + i;
+
+        var current = divider.nextSibling;
+        while (current && current !== nextDivider) {
+          var next = current.nextSibling;
+          container.appendChild(current);
+          current = next;
+        }
+        divider.parentNode.insertBefore(container, divider.nextSibling);
+
+        // Add click handler to divider with chevron
+        var chevron = document.createElement('span');
+        chevron.className = 'chevron';
+        chevron.textContent = '▾';
+        divider.insertBefore(chevron, divider.firstChild);
+
+        divider.dataset.collapsibleId = 'collapsible-' + pageNum + '-' + i;
+        divider.onclick = function(e) {
+          if (e.target === chevron || e.target.parentNode === divider) {
+            toggleCollapsible(this);
+          }
+        };
+      });
+    });
+  }
+
+  function toggleCollapsible(divider) {
+    var id = divider.dataset.collapsibleId;
+    var content = document.getElementById(id);
+    if (content) {
+      content.classList.toggle('collapsed');
+      divider.classList.toggle('collapsed');
+    }
+  }
+
+  window.collapseAllSections = function(pageNum) {
+    var tabEl = document.getElementById('tab-page' + pageNum);
+    if (!tabEl) return;
+    tabEl.querySelectorAll('.collapsible-content').forEach(function(el) {
+      el.classList.add('collapsed');
+    });
+    tabEl.querySelectorAll('.group-divider').forEach(function(el) {
+      el.classList.add('collapsed');
+    });
+  };
+
+  window.expandAllSections = function(pageNum) {
+    var tabEl = document.getElementById('tab-page' + pageNum);
+    if (!tabEl) return;
+    tabEl.querySelectorAll('.collapsible-content').forEach(function(el) {
+      el.classList.remove('collapsed');
+    });
+    tabEl.querySelectorAll('.group-divider').forEach(function(el) {
+      el.classList.remove('collapsed');
+    });
+  };
+
+  // ===== FEATURE 5: JUMP-TO-SECTION DROPDOWN =====
+  function updateSectionJump() {
+    var currentIdx = getCurrentIndex();
+    var currentPage = tabOrder[currentIdx];
+    var sectionJump = document.getElementById('sectionJump');
+    var dropdown = document.getElementById('sectionJumpDropdown');
+
+    if (!collapsibleTabs.includes(currentPage)) {
+      if (sectionJump) sectionJump.style.display = 'none';
+      return;
+    }
+
+    if (sectionJump) sectionJump.style.display = 'flex';
+
+    var tabEl = document.getElementById('tab-page' + currentPage);
+    if (!tabEl || !dropdown) return;
+
+    dropdown.innerHTML = '';
+    var labels = tabEl.querySelectorAll('.group-label');
+    labels.forEach(function(label, i) {
+      var item = document.createElement('div');
+      item.className = 'section-jump-item';
+      item.textContent = label.textContent;
+      item.onclick = function() {
+        label.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        dropdown.classList.remove('open');
+      };
+      dropdown.appendChild(item);
+    });
+  }
+
+  window.toggleSectionJump = function() {
+    var dropdown = document.getElementById('sectionJumpDropdown');
+    if (dropdown) dropdown.classList.toggle('open');
+  };
+
+  // Initialize collapsibles and jump sections on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    setupCollapsibles();
+    updateSectionJump();
+  });
+
+  // Also setup if DOM is already loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setupCollapsibles();
+      updateSectionJump();
+    });
+  } else {
+    setupCollapsibles();
+    updateSectionJump();
+  }
+
+  // ===== FEATURE 6: BOTTOM TAB DOCK =====
+  window.goToTabByPage = function(pageNum) {
+    var idx = tabOrder.indexOf(pageNum);
+    if (idx >= 0) goToTab(idx);
+  };
+
+  // Close section jump dropdown when clicking elsewhere
+  document.addEventListener('click', function(e) {
+    var sectionJump = document.getElementById('sectionJump');
+    if (sectionJump && !sectionJump.contains(e.target)) {
+      var dropdown = document.getElementById('sectionJumpDropdown');
+      if (dropdown) dropdown.classList.remove('open');
+    }
+  });
+})();
 </script>
 </body>
 </html>
