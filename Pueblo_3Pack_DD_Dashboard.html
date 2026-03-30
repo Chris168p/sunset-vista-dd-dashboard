@@ -326,21 +326,6 @@
   }
   .float-nav:hover .tab-indicator { opacity: 1; }
 
-  /* Collapse/Expand Controls */
-  .collapse-toggle {
-    display: flex; gap: 12px; margin-bottom: 16px; padding: 10px 0;
-    align-items: center; justify-content: flex-start;
-  }
-  .collapse-toggle button {
-    padding: 6px 14px; font-size: 10px; font-weight: 600; color: #3B82F6;
-    background: rgba(59,130,246,0.10); border: 1px solid rgba(59,130,246,0.25);
-    border-radius: 4px; cursor: pointer; transition: all 0.2s;
-  }
-  .collapse-toggle button:hover {
-    background: rgba(59,130,246,0.20); border-color: rgba(59,130,246,0.40);
-  }
-  .collapse-toggle button:active { transform: scale(0.95); }
-
   /* Group Divider with Collapsible Indicator */
   .group-divider { cursor: pointer; user-select: none; }
   .group-divider .chevron {
@@ -389,8 +374,8 @@
 
   /* Bottom Tab Dock */
   .bottom-dock {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9996;
-    height: 50px; background: rgba(10,14,26,0.96); border-top: 1px solid rgba(59,130,246,0.15);
+    position: fixed; bottom: 14px; left: 10px; right: 10px; z-index: 9996;
+    height: 52px; background: rgba(10,14,26,0.96); border: 1px solid rgba(59,130,246,0.15); border-radius: 16px;
     display: flex; justify-content: space-around; align-items: center;
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
@@ -412,13 +397,12 @@
     .section-jump-dropdown { max-width: calc(100vw - 20px); min-width: 150px; }
     .bottom-dock { height: 46px; }
     .bottom-dock button { width: 40px; height: 40px; font-size: 18px; }
-    .collapse-toggle button { padding: 5px 12px; font-size: 9px; }
     .tab-indicator { font-size: 8px; }
   }
 
   /* PRINT: Hide all floating UI */
   @media print {
-    .back-to-top, .section-jump, .bottom-dock, .collapse-toggle,
+    .back-to-top, .section-jump, .bottom-dock,
     .group-divider .chevron { display: none !important; }
   }
 
@@ -8989,16 +8973,9 @@ setInterval(updateCountdown, 60000);
       if (!tabEl) return;
 
       var dividers = tabEl.querySelectorAll('.group-divider');
-      if (dividers.length < 2) return;  // Only add if multiple sections
+      if (dividers.length < 2) return;
 
-      // Add collapse/expand toggle at top
-      var toggleDiv = document.createElement('div');
-      toggleDiv.className = 'collapse-toggle';
-      toggleDiv.innerHTML = '<button onclick="collapseAllSections(' + pageNum + ')">Collapse All</button>' +
-                           '<button onclick="expandAllSections(' + pageNum + ')">Expand All</button>';
-      tabEl.insertBefore(toggleDiv, dividers[0]);
-
-      // Wrap content between dividers
+      // Wrap content between dividers in collapsible containers
       dividers.forEach(function(divider, i) {
         var nextDivider = i < dividers.length - 1 ? dividers[i + 1] : null;
         var container = document.createElement('div');
@@ -9013,52 +8990,25 @@ setInterval(updateCountdown, 60000);
         }
         divider.parentNode.insertBefore(container, divider.nextSibling);
 
-        // Add click handler to divider with chevron
+        // Add chevron indicator
         var chevron = document.createElement('span');
         chevron.className = 'chevron';
         chevron.textContent = '▾';
         divider.insertBefore(chevron, divider.firstChild);
 
+        // Tap anywhere on the header to toggle
         divider.dataset.collapsibleId = 'collapsible-' + pageNum + '-' + i;
-        divider.onclick = function(e) {
-          if (e.target === chevron || e.target.parentNode === divider) {
-            toggleCollapsible(this);
+        divider.addEventListener('click', function() {
+          var id = this.dataset.collapsibleId;
+          var content = document.getElementById(id);
+          if (content) {
+            content.classList.toggle('collapsed');
+            this.classList.toggle('collapsed');
           }
-        };
+        });
       });
     });
   }
-
-  function toggleCollapsible(divider) {
-    var id = divider.dataset.collapsibleId;
-    var content = document.getElementById(id);
-    if (content) {
-      content.classList.toggle('collapsed');
-      divider.classList.toggle('collapsed');
-    }
-  }
-
-  window.collapseAllSections = function(pageNum) {
-    var tabEl = document.getElementById('tab-page' + pageNum);
-    if (!tabEl) return;
-    tabEl.querySelectorAll('.collapsible-content').forEach(function(el) {
-      el.classList.add('collapsed');
-    });
-    tabEl.querySelectorAll('.group-divider').forEach(function(el) {
-      el.classList.add('collapsed');
-    });
-  };
-
-  window.expandAllSections = function(pageNum) {
-    var tabEl = document.getElementById('tab-page' + pageNum);
-    if (!tabEl) return;
-    tabEl.querySelectorAll('.collapsible-content').forEach(function(el) {
-      el.classList.remove('collapsed');
-    });
-    tabEl.querySelectorAll('.group-divider').forEach(function(el) {
-      el.classList.remove('collapsed');
-    });
-  };
 
   // ===== FEATURE 5: JUMP-TO-SECTION DROPDOWN =====
   function updateSectionJump() {
