@@ -6389,26 +6389,67 @@
       <div class="group-label">Property Comparison Matrix</div>
       <div class="group-line"></div>
     </div>
-    <div class="section" style="margin-bottom:14px;">
-      <table class="data-table" style="width:100%;">
-        <thead>
-          <tr><th style="width:22%;">Metric</th><th style="width:26%; color:#00E676;">La Vista</th><th style="width:26%; color:#FBBF24;">Oasis</th><th style="width:26%; color:#EF4444;">Sunset Courtyard</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>Type</b></td><td>MHC</td><td>MHC</td><td>MHC</td></tr>
-          <tr><td><b>Total Spaces</b></td><td>97</td><td>50</td><td>61</td></tr>
-          <tr><td><b>Occupied</b></td><td>87</td><td>39</td><td>52</td></tr>
-          <tr><td><b>Occupancy</b></td><td class="green">89.7%</td><td class="orange">78.0%</td><td class="orange">85.2%</td></tr>
-          <tr><td><b>Avg Lot Rent</b></td><td>$485</td><td>$460</td><td>$475</td></tr>
-          <tr><td><b>Market Rent</b></td><td>$550+</td><td>$525+</td><td>$540+</td></tr>
-          <tr><td><b>Rent Upside</b></td><td class="green">~$65/mo</td><td class="green">~$65/mo</td><td class="green">~$65/mo</td></tr>
-          <tr><td><b>POH Count</b></td><td>12</td><td>8</td><td>6</td></tr>
-          <tr><td><b>Condition Rating</b></td><td class="green">B+</td><td class="orange">C+</td><td class="red">C</td></tr>
-          <tr><td><b>Road Condition</b></td><td class="green">Fair-Good</td><td class="orange">Poor-Fair</td><td class="red">Poor</td></tr>
-          <tr><td><b>Key Risk</b></td><td class="dim">Tree overhang</td><td class="dim">Deferred maint</td><td class="dim">Road/drainage</td></tr>
-          <tr><td><b>Est. Year 1 NOI</b></td><td>$320K</td><td>$155K</td><td>$195K</td></tr>
-        </tbody>
-      </table>
+    <div class="prop-matrix" style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px;">
+      <!-- LA VISTA -->
+      <div class="section" style="border-top:3px solid #00E676;">
+        <div style="font-size:13px; font-weight:800; color:#00E676; margin-bottom:10px;">La Vista</div>
+        <table class="prop-table" style="width:100%;">
+          <tbody>
+            <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
+            <tr><td class="dim">Spaces</td><td><b>97</b></td></tr>
+            <tr><td class="dim">Occupied</td><td><b>87</b></td></tr>
+            <tr><td class="dim">Occupancy</td><td><b class="green">89.7%</b></td></tr>
+            <tr><td class="dim">Avg Lot Rent</td><td><b>$485</b></td></tr>
+            <tr><td class="dim">Market Rent</td><td><b>$550+</b></td></tr>
+            <tr><td class="dim">Rent Upside</td><td><b class="green">~$65/mo</b></td></tr>
+            <tr><td class="dim">POH Count</td><td><b>12</b></td></tr>
+            <tr><td class="dim">Condition</td><td><b class="green">B+</b></td></tr>
+            <tr><td class="dim">Roads</td><td><b class="green">Fair-Good</b></td></tr>
+            <tr><td class="dim">Key Risk</td><td class="dim">Tree overhang</td></tr>
+            <tr><td class="dim">Est. Y1 NOI</td><td><b>$320K</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- OASIS -->
+      <div class="section" style="border-top:3px solid #FBBF24;">
+        <div style="font-size:13px; font-weight:800; color:#FBBF24; margin-bottom:10px;">Oasis</div>
+        <table class="prop-table" style="width:100%;">
+          <tbody>
+            <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
+            <tr><td class="dim">Spaces</td><td><b>50</b></td></tr>
+            <tr><td class="dim">Occupied</td><td><b>39</b></td></tr>
+            <tr><td class="dim">Occupancy</td><td><b class="orange">78.0%</b></td></tr>
+            <tr><td class="dim">Avg Lot Rent</td><td><b>$460</b></td></tr>
+            <tr><td class="dim">Market Rent</td><td><b>$525+</b></td></tr>
+            <tr><td class="dim">Rent Upside</td><td><b class="green">~$65/mo</b></td></tr>
+            <tr><td class="dim">POH Count</td><td><b>8</b></td></tr>
+            <tr><td class="dim">Condition</td><td><b class="orange">C+</b></td></tr>
+            <tr><td class="dim">Roads</td><td><b class="orange">Poor-Fair</b></td></tr>
+            <tr><td class="dim">Key Risk</td><td class="dim">Deferred maint</td></tr>
+            <tr><td class="dim">Est. Y1 NOI</td><td><b>$155K</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- SUNSET COURTYARD -->
+      <div class="section" style="border-top:3px solid #EF4444;">
+        <div style="font-size:13px; font-weight:800; color:#EF4444; margin-bottom:10px;">Sunset Courtyard</div>
+        <table class="prop-table" style="width:100%;">
+          <tbody>
+            <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
+            <tr><td class="dim">Spaces</td><td><b>61</b></td></tr>
+            <tr><td class="dim">Occupied</td><td><b>52</b></td></tr>
+            <tr><td class="dim">Occupancy</td><td><b class="orange">85.2%</b></td></tr>
+            <tr><td class="dim">Avg Lot Rent</td><td><b>$475</b></td></tr>
+            <tr><td class="dim">Market Rent</td><td><b>$540+</b></td></tr>
+            <tr><td class="dim">Rent Upside</td><td><b class="green">~$65/mo</b></td></tr>
+            <tr><td class="dim">POH Count</td><td><b>6</b></td></tr>
+            <tr><td class="dim">Condition</td><td><b class="red">C</b></td></tr>
+            <tr><td class="dim">Roads</td><td><b class="red">Poor</b></td></tr>
+            <tr><td class="dim">Key Risk</td><td class="dim">Road/drainage</td></tr>
+            <tr><td class="dim">Est. Y1 NOI</td><td><b>$195K</b></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- CMBS ASSUMPTION TRACKER -->
