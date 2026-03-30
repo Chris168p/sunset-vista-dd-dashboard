@@ -345,7 +345,7 @@
 
   /* Jump-to-Section Dropdown */
   .section-jump {
-    position: fixed; top: 12px; right: 14px; z-index: 10001;
+    position: fixed; top: 68px; right: 14px; z-index: 10001;
     display: none; flex-direction: column; align-items: flex-end;
   }
   .section-jump.show { display: flex; }
@@ -406,7 +406,7 @@
   /* RESPONSIVE ADJUSTMENTS */
   @media (max-width: 768px) {
     .back-to-top { width: 36px; height: 36px; font-size: 16px; }
-    .section-jump { top: 8px; right: 8px; }
+    .section-jump { top: 60px; right: 8px; }
     .section-jump-btn { width: 34px; height: 34px; font-size: 14px; }
     .section-jump-dropdown { max-width: calc(100vw - 24px); min-width: 200px; max-height: 50vh; }
     .bottom-dock { height: 54px; bottom: 10px; left: 8px; right: 8px; border-radius: 16px; }
@@ -596,6 +596,8 @@
     .tiles-grid, .tiles-grid-3 { grid-template-columns: 1fr; gap: 10px; }
     .tiles-grid-5 { grid-template-columns: 1fr 1fr; gap: 10px; }
     .audit-kpi-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    .mini-chart-section + .mini-chart-section,
+    [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     .kpi-strip { flex-wrap: wrap; gap: 6px; }
     .kpi-card { flex: 1 1 45%; }
     .section { padding: 12px !important; }
@@ -1058,38 +1060,150 @@
     }
   }
 
-  /* ===== FEATURE 2: STATUS DOTS ON TAB LABELS ===== */
-  .tab-label {
-    position: relative;
+  /* ===== FEATURE 2: STATUS DOTS ON TAB LABELS (REMOVED) ===== */
+
+  /* ===== DD PROGRESS PIPELINE TRACKER ===== */
+  .dd-pipeline {
+    background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.10);
+    border-radius: 12px; padding: 16px 18px 14px; margin-bottom: 18px;
   }
-  .tab-label::after {
-    content: '';
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+  .dd-pipeline-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+    color: #93B4F8; margin-bottom: 14px;
   }
-  .tab-label.tab-green::after {
-    background-color: #00E676;
-    opacity: 0.7;
+  .dd-pipeline-track {
+    display: flex; align-items: flex-start; gap: 0; position: relative;
+    overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px;
   }
-  .tab-label.tab-orange::after {
-    background-color: #FBBF24;
-    opacity: 0.7;
+  .dd-phase {
+    flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center;
+    position: relative; cursor: pointer; padding: 0 4px;
+    transition: transform 0.15s ease;
   }
-  .tab-label.tab-red::after {
-    background-color: #EF4444;
-    opacity: 0.7;
+  .dd-phase:active { transform: scale(0.96); }
+  .dd-phase-dot {
+    width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 12px; font-weight: 800; z-index: 2;
+    border: 2px solid rgba(59,130,246,0.3); background: #0A0E1A; color: #5A6270;
+    transition: all 0.3s ease;
   }
-  .tab-label:hover.tab-green::after,
-  .tab-label:hover.tab-orange::after,
-  .tab-label:hover.tab-red::after {
-    opacity: 1;
+  .dd-phase.complete .dd-phase-dot {
+    background: #00E676; border-color: #00E676; color: #0A0E1A;
+  }
+  .dd-phase.active .dd-phase-dot {
+    background: #3B82F6; border-color: #3B82F6; color: #fff;
+    box-shadow: 0 0 12px rgba(59,130,246,0.4);
+  }
+  .dd-phase.pending .dd-phase-dot {
+    background: #0A0E1A; border-color: rgba(90,98,112,0.4); color: #5A6270;
+  }
+  .dd-phase-connector {
+    position: absolute; top: 13px; left: calc(50% + 16px); right: calc(-50% + 16px);
+    height: 2px; background: rgba(59,130,246,0.12); z-index: 1;
+  }
+  .dd-phase.complete .dd-phase-connector { background: #00E676; }
+  .dd-phase.active .dd-phase-connector { background: linear-gradient(90deg, #3B82F6, rgba(59,130,246,0.12)); }
+  .dd-phase:last-child .dd-phase-connector { display: none; }
+  .dd-phase-label {
+    font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+    color: #5A6270; margin-top: 6px; text-align: center; line-height: 1.3;
+    max-width: 70px; word-wrap: break-word;
+  }
+  .dd-phase.complete .dd-phase-label { color: #00E676; }
+  .dd-phase.active .dd-phase-label { color: #3B82F6; }
+  .dd-phase-pct {
+    font-size: 7px; color: #858D99; margin-top: 2px; font-weight: 700;
+  }
+  .dd-phase.complete .dd-phase-pct { color: rgba(0,230,118,0.6); }
+  .dd-phase.active .dd-phase-pct { color: rgba(59,130,246,0.7); }
+
+  @media (max-width: 768px) {
+    .dd-pipeline { padding: 12px 10px 10px; }
+    .dd-pipeline-track { gap: 0; }
+    .dd-phase-dot { width: 24px; height: 24px; font-size: 10px; }
+    .dd-phase-connector { top: 11px; left: calc(50% + 14px); right: calc(-50% + 14px); }
+    .dd-phase-label { font-size: 7px; max-width: 56px; }
+  }
+
+  /* ===== MINI CHARTS (INLINE SVG) ===== */
+  .mini-chart-section {
+    background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.10);
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 14px;
+  }
+  .mini-chart-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+    color: #93B4F8; margin-bottom: 12px;
+  }
+  .mini-chart-row {
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .mini-chart-svg {
+    flex-shrink: 0;
+  }
+  .mini-chart-legend {
+    display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 8px; font-size: 11px; color: #B0B8C4;
+  }
+  .legend-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .legend-val {
+    margin-left: auto; font-weight: 700; color: #E5E9ED; font-size: 11px;
+  }
+  .mini-bar-chart {
+    display: flex; align-items: flex-end; gap: 8px; height: 80px; padding-top: 4px;
+  }
+  .mini-bar-col {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .mini-bar {
+    width: 100%; border-radius: 4px 4px 0 0; transition: height 0.8s ease;
+    min-width: 24px;
+  }
+  .mini-bar-label {
+    font-size: 8px; color: #858D99; font-weight: 600; text-align: center;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60px;
+  }
+  .mini-bar-val {
+    font-size: 9px; color: #E5E9ED; font-weight: 700; text-align: center;
+  }
+  @media (max-width: 768px) {
+    .mini-chart-row { flex-direction: column; gap: 10px; align-items: center; }
+    .mini-chart-legend { width: 100%; }
+    .mini-bar { min-width: 18px; }
+  }
+
+  /* ===== SWIPE HINT ANIMATION ===== */
+  .swipe-hint-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,14,26,0.85); z-index: 99999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  }
+  .swipe-hint-overlay.show { opacity: 1; pointer-events: auto; }
+  .swipe-hint-hand {
+    font-size: 48px; animation: swipeHintAnim 1.5s ease-in-out infinite;
+  }
+  .swipe-hint-text {
+    color: #E5E9ED; font-size: 14px; font-weight: 600; margin-top: 12px;
+    text-align: center; line-height: 1.5;
+  }
+  .swipe-hint-sub {
+    color: #858D99; font-size: 11px; margin-top: 6px;
+  }
+  .swipe-hint-dismiss {
+    margin-top: 20px; padding: 10px 28px; border-radius: 50px;
+    background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3);
+    color: #93B4F8; font-size: 12px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .swipe-hint-dismiss:active { background: rgba(59,130,246,0.3); transform: scale(0.95); }
+  @keyframes swipeHintAnim {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-40px); }
   }
 
   /* ===== FEATURE 1: COUNTER ANIMATE CLASS ===== */
@@ -1155,24 +1269,24 @@
 <input type="radio" name="tabs" id="radio-page18" class="tab-radio">
 
   <div class="tab-bar">
-    <label class="tab-label tab-green" for="radio-page1">Executive Summary</label>
-    <label class="tab-label tab-orange" for="radio-page13">Deal Status</label>
-    <label class="tab-label tab-orange" for="radio-page11">Action Items</label>
-    <label class="tab-label tab-orange" for="radio-page2">Docs</label>
-    <label class="tab-label tab-green" for="radio-page14">Pics</label>
-    <label class="tab-label tab-orange" for="radio-page4">Red Flags</label>
-    <label class="tab-label tab-orange" for="radio-page9">Site Visit</label>
-    <label class="tab-label tab-green" for="radio-page6">Model</label>
-    <label class="tab-label tab-green" for="radio-page16">Forecast</label>
-    <label class="tab-label tab-orange" for="radio-page17">Market</label>
-    <label class="tab-label tab-green" for="radio-page3">Financial Analysis</label>
-    <label class="tab-label tab-orange" for="radio-page15">Debt</label>
-    <label class="tab-label tab-green" for="radio-page12">Rent Roll Analysis</label>
-    <label class="tab-label tab-orange" for="radio-page19">Lease Audit</label>
-    <label class="tab-label tab-green" for="radio-page7">POH Analysis</label>
-    <label class="tab-label tab-orange" for="radio-page10">Utilities</label>
-    <label class="tab-label tab-orange" for="radio-page5">Investor Deck</label>
-    <label class="tab-label tab-green" for="radio-page8">Kickoff Meeting</label>
+    <label class="tab-label" for="radio-page1">Executive Summary</label>
+    <label class="tab-label" for="radio-page13">Deal Status</label>
+    <label class="tab-label" for="radio-page11">Action Items</label>
+    <label class="tab-label" for="radio-page2">Docs</label>
+    <label class="tab-label" for="radio-page14">Pics</label>
+    <label class="tab-label" for="radio-page4">Red Flags</label>
+    <label class="tab-label" for="radio-page9">Site Visit</label>
+    <label class="tab-label" for="radio-page6">Model</label>
+    <label class="tab-label" for="radio-page16">Forecast</label>
+    <label class="tab-label" for="radio-page17">Market</label>
+    <label class="tab-label" for="radio-page3">Financial Analysis</label>
+    <label class="tab-label" for="radio-page15">Debt</label>
+    <label class="tab-label" for="radio-page12">Rent Roll Analysis</label>
+    <label class="tab-label" for="radio-page19">Lease Audit</label>
+    <label class="tab-label" for="radio-page7">POH Analysis</label>
+    <label class="tab-label" for="radio-page10">Utilities</label>
+    <label class="tab-label" for="radio-page5">Investor Deck</label>
+    <label class="tab-label" for="radio-page8">Kickoff Meeting</label>
   </div>
 
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
@@ -1193,6 +1307,54 @@
         <div class="takeaway-title">Status Overview</div>
         <div class="takeaway-body">
           <b><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA executed 3/20/2026.</a></b> Earnest money ($350K) fully deposited. Seller's data room contains <b>364 documents</b> across 22 categories. Key items received: rent rolls, T12 P&Ls, 12 months bank statements, 2 years property taxes, 37 executed leases, 217 utility bills, ALTA surveys, Phase 1s, PCAs, site maps, insurance policies, and personal property inventory. <b>Critical gaps:</b> 9 categories remain empty — service contracts, vendor lists, delinquency reports, Rent Manager export, OTP compliance docs, litigation/code violations, permits, and CapEx records. <b>CMBS loan assumption</b> ($21.9M at 6.45% fixed via German American Capital / Midland / PNC) &mdash; loan docs received 3/28. Key flags: 3% management fee cap, lockbox trigger at 1.15x DSCR, guarantor replacement required. Seller must be POC with servicer.
+        </div>
+      </div>
+    </div>
+
+    <!-- DD PROGRESS PIPELINE -->
+    <div class="dd-pipeline">
+      <div class="dd-pipeline-title">Due Diligence Pipeline</div>
+      <div class="dd-pipeline-track">
+        <div class="dd-phase complete" onclick="goToTabByPage(13)" title="Go to Deal Status">
+          <div class="dd-phase-dot">✓</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">PSA & Data Room</div>
+          <div class="dd-phase-pct">100%</div>
+        </div>
+        <div class="dd-phase complete" onclick="goToTabByPage(3)" title="Go to Financial Analysis">
+          <div class="dd-phase-dot">✓</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">Financial Review</div>
+          <div class="dd-phase-pct">90%</div>
+        </div>
+        <div class="dd-phase active" onclick="goToTabByPage(9)" title="Go to Site Visit">
+          <div class="dd-phase-dot">3</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">Site Visit</div>
+          <div class="dd-phase-pct">Not Scheduled</div>
+        </div>
+        <div class="dd-phase active" onclick="goToTabByPage(15)" title="Go to Debt">
+          <div class="dd-phase-dot">4</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">Loan Assumption</div>
+          <div class="dd-phase-pct">In Review</div>
+        </div>
+        <div class="dd-phase pending" onclick="goToTabByPage(19)" title="Go to Lease Audit">
+          <div class="dd-phase-dot">5</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">Legal & Lease</div>
+          <div class="dd-phase-pct">Pending</div>
+        </div>
+        <div class="dd-phase pending" onclick="goToTabByPage(5)" title="Go to Investor Deck">
+          <div class="dd-phase-dot">6</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">Investor Package</div>
+          <div class="dd-phase-pct">Pending</div>
+        </div>
+        <div class="dd-phase pending">
+          <div class="dd-phase-dot">7</div>
+          <div class="dd-phase-label">Close</div>
+          <div class="dd-phase-pct">TBD</div>
         </div>
       </div>
     </div>
@@ -1764,6 +1926,84 @@
     <div class="group-divider">
       <div class="group-label">T12 Operating Performance</div>
       <div class="group-line"></div>
+    </div>
+
+    <!-- VISUAL: NOI & REVENUE CHARTS -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
+      <div class="mini-chart-section">
+        <div class="mini-chart-title">Revenue vs. Expenses by Property</div>
+        <div class="mini-bar-chart" style="height:90px;">
+          <div class="mini-bar-col">
+            <div class="mini-bar-val" style="font-size:8px;">$1.46M</div>
+            <div style="display:flex; flex-direction:column; width:100%; gap:1px;">
+              <div class="mini-bar" style="height:54px; background:#00E676; border-radius:4px 4px 0 0;" title="NOI: $956k"></div>
+              <div class="mini-bar" style="height:26px; background:#EF4444; border-radius:0;" title="OpEx: $506k"></div>
+            </div>
+            <div class="mini-bar-label">SV</div>
+          </div>
+          <div class="mini-bar-col">
+            <div class="mini-bar-val" style="font-size:8px;">$1.13M</div>
+            <div style="display:flex; flex-direction:column; width:100%; gap:1px;">
+              <div class="mini-bar" style="height:58px; background:#00E676; border-radius:4px 4px 0 0;" title="NOI: $867k"></div>
+              <div class="mini-bar" style="height:17px; background:#EF4444; border-radius:0;" title="OpEx: $260k"></div>
+            </div>
+            <div class="mini-bar-label">OC</div>
+          </div>
+          <div class="mini-bar-col">
+            <div class="mini-bar-val" style="font-size:8px;">$237k</div>
+            <div style="display:flex; flex-direction:column; width:100%; gap:1px;">
+              <div class="mini-bar" style="height:32px; background:#00E676; border-radius:4px 4px 0 0;" title="NOI: $131k"></div>
+              <div class="mini-bar" style="height:26px; background:#EF4444; border-radius:0;" title="OpEx: $106k"></div>
+            </div>
+            <div class="mini-bar-label">LAV</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; margin-top:8px; justify-content:center;">
+          <div class="legend-item" style="font-size:9px;"><span class="legend-dot" style="background:#00E676;"></span>NOI</div>
+          <div class="legend-item" style="font-size:9px;"><span class="legend-dot" style="background:#EF4444;"></span>OpEx</div>
+        </div>
+      </div>
+      <div class="mini-chart-section">
+        <div class="mini-chart-title">Operating Margin</div>
+        <div style="display:flex; flex-direction:column; gap:10px; padding-top:4px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span style="font-size:10px; color:#B0B8C4;">Sunset Vista</span>
+              <span style="font-size:10px; font-weight:700; color:#00E676;">65.4%</span>
+            </div>
+            <div style="height:6px; background:rgba(59,130,246,0.08); border-radius:3px; overflow:hidden;">
+              <div style="width:65.4%; height:100%; background:#00E676; border-radius:3px;" class="progress-animate"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span style="font-size:10px; color:#B0B8C4;">Oasis</span>
+              <span style="font-size:10px; font-weight:700; color:#00E676;">77.0%</span>
+            </div>
+            <div style="height:6px; background:rgba(59,130,246,0.08); border-radius:3px; overflow:hidden;">
+              <div style="width:77%; height:100%; background:#00E676; border-radius:3px;" class="progress-animate"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span style="font-size:10px; color:#B0B8C4;">La Vista</span>
+              <span style="font-size:10px; font-weight:700; color:#FBBF24;">55.4%</span>
+            </div>
+            <div style="height:6px; background:rgba(59,130,246,0.08); border-radius:3px; overflow:hidden;">
+              <div style="width:55.4%; height:100%; background:#FBBF24; border-radius:3px;" class="progress-animate"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span style="font-size:10px; color:#B0B8C4; font-weight:700;">Portfolio</span>
+              <span style="font-size:10px; font-weight:700; color:#3B82F6;">69.2%</span>
+            </div>
+            <div style="height:6px; background:rgba(59,130,246,0.08); border-radius:3px; overflow:hidden;">
+              <div style="width:69.2%; height:100%; background:#3B82F6; border-radius:3px;" class="progress-animate"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section" style="margin-bottom: 14px;">
@@ -5090,10 +5330,10 @@
       <div class="group-label">Utility Bill Analysis — T12 Apr 2025 – Mar 2026</div>
       <div class="group-line"></div>
     </div>
-    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:-8px;">217 bills analyzed across 5 utility types · Source: Seller data room (<a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder C</a>) · All amounts verified against <a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">bank statements</a></div>
+    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:4px; line-height:1.6;">217 bills analyzed across 5 utility types · Source: Seller data room (<a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder C</a>)<br>All amounts verified against <a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">bank statements</a></div>
 
     <!-- PORTFOLIO KPI STRIP -->
-    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+    <div class="audit-kpi-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">T12 Total Utilities</div>
         <div style="font-size:22px; font-weight:900; color:#FFFFFF;">$485k</div>
@@ -5118,6 +5358,59 @@
         <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">La Vista (LAV)</div>
         <div style="font-size:22px; font-weight:900; color:#FFFFFF;">$47k</div>
         <div style="font-size:9px; color:#858D99; margin-top:2px;">10% · $4k/mo · 31 lots</div>
+      </div>
+    </div>
+
+    <!-- VISUAL: UTILITY COST CHARTS -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
+      <div class="mini-chart-section">
+        <div class="mini-chart-title">Cost by Utility Type</div>
+        <div class="mini-chart-row">
+          <svg class="mini-chart-svg" width="100" height="100" viewBox="0 0 100 100">
+            <!-- Donut chart: Water 75.1%, Trash 15.8%, Electric 5.2%, Gas 2.9%, Cable 0.9% -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(59,130,246,0.08)" stroke-width="16"/>
+            <!-- Water/Sewer: 75.1% = 188.5 of 251.3 -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#EF4444" stroke-width="16"
+              stroke-dasharray="188.5 62.8" stroke-dashoffset="62.8" transform="rotate(-90 50 50)"/>
+            <!-- Trash: 15.8% = 39.7 -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#FBBF24" stroke-width="16"
+              stroke-dasharray="39.7 211.6" stroke-dashoffset="-125.7" transform="rotate(-90 50 50)"/>
+            <!-- Electric: 5.2% = 13.1 -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#3B82F6" stroke-width="16"
+              stroke-dasharray="13.1 238.2" stroke-dashoffset="-165.4" transform="rotate(-90 50 50)"/>
+            <!-- Gas: 2.9% + Cable: 0.9% = 9.5 -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#6366F1" stroke-width="16"
+              stroke-dasharray="9.5 241.8" stroke-dashoffset="-178.5" transform="rotate(-90 50 50)"/>
+            <text x="50" y="47" text-anchor="middle" fill="#E5E9ED" font-size="14" font-weight="800">$485k</text>
+            <text x="50" y="59" text-anchor="middle" fill="#858D99" font-size="7" font-weight="600">T12 TOTAL</text>
+          </svg>
+          <div class="mini-chart-legend">
+            <div class="legend-item"><span class="legend-dot" style="background:#EF4444;"></span>Water/Sewer<span class="legend-val">$365k</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#FBBF24;"></span>Trash<span class="legend-val">$77k</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#3B82F6;"></span>Electric<span class="legend-val">$25k</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#6366F1;"></span>Gas / Cable<span class="legend-val">$18k</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mini-chart-section">
+        <div class="mini-chart-title">T12 Cost by Property</div>
+        <div class="mini-bar-chart">
+          <div class="mini-bar-col">
+            <div class="mini-bar-val">$297k</div>
+            <div class="mini-bar" style="height:72px; background: linear-gradient(180deg, #3B82F6, #1E40AF);" data-animate-bar="72"></div>
+            <div class="mini-bar-label">Sunset Vista</div>
+          </div>
+          <div class="mini-bar-col">
+            <div class="mini-bar-val">$142k</div>
+            <div class="mini-bar" style="height:35px; background: linear-gradient(180deg, #6366F1, #4338CA);" data-animate-bar="35"></div>
+            <div class="mini-bar-label">Oasis</div>
+          </div>
+          <div class="mini-bar-col">
+            <div class="mini-bar-val">$47k</div>
+            <div class="mini-bar" style="height:11px; background: linear-gradient(180deg, #8B5CF6, #6D28D9);" data-animate-bar="11"></div>
+            <div class="mini-bar-label">La Vista</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -5186,9 +5479,9 @@
 
     <div class="tiles-grid" style="margin-bottom:0;">
       <!-- SUNSET VISTA -->
-      <div class="section">
+      <div class="section scroll-wrap">
         <div class="section-title">Sunset Vista (SC) — $297k/yr · $25k/mo</div>
-        <table class="data-table" style="width:100%;">
+        <table class="data-table" style="width:100%; min-width:420px;">
           <thead><tr><th>Provider</th><th>Service</th><th style="text-align:right;">T12</th><th style="text-align:right;">Monthly Avg</th></tr></thead>
           <tbody>
             <tr><td class="dim">Black Hills Energy</td><td class="dim">Electric (Homes)</td><td style="text-align:right;">$8.7k</td><td style="text-align:right;">$723</td></tr>
@@ -5204,9 +5497,9 @@
       </div>
 
       <!-- OASIS -->
-      <div class="section">
+      <div class="section scroll-wrap">
         <div class="section-title">Oasis (OC) — $142k/yr · $12k/mo</div>
-        <table class="data-table" style="width:100%;">
+        <table class="data-table" style="width:100%; min-width:420px;">
           <thead><tr><th>Provider</th><th>Service</th><th style="text-align:right;">T12</th><th style="text-align:right;">Monthly Avg</th></tr></thead>
           <tbody>
             <tr><td class="dim">Black Hills Energy</td><td class="dim">Electric (Homes)</td><td style="text-align:right;">$1.8k</td><td style="text-align:right;">$161</td></tr>
@@ -5223,9 +5516,9 @@
 
     <div class="tiles-grid" style="margin-top:14px;">
       <!-- LA VISTA -->
-      <div class="section">
+      <div class="section scroll-wrap">
         <div class="section-title">La Vista (LAV) — $47k/yr · $4k/mo</div>
-        <table class="data-table" style="width:100%;">
+        <table class="data-table" style="width:100%; min-width:420px;">
           <thead><tr><th>Provider</th><th>Service</th><th style="text-align:right;">T12</th><th style="text-align:right;">Monthly Avg</th></tr></thead>
           <tbody>
             <tr><td class="dim">Black Hills Energy</td><td class="dim">Electric (Combined)</td><td style="text-align:right;">$993</td><td style="text-align:right;">$99</td></tr>
@@ -5239,9 +5532,9 @@
       </div>
 
       <!-- PORTFOLIO BY UTILITY TYPE -->
-      <div class="section">
+      <div class="section scroll-wrap">
         <div class="section-title">Portfolio Cost by Utility Type</div>
-        <table class="data-table" style="width:100%;">
+        <table class="data-table" style="width:100%; min-width:440px;">
           <thead><tr><th>Utility Type</th><th style="text-align:right;">T12 Total</th><th style="text-align:right;">% of Total</th><th style="text-align:right;">Monthly Avg</th></tr></thead>
           <tbody>
             <tr><td>Water / Sewer</td><td style="text-align:right; color:#EF4444;"><b>$365k</b></td><td style="text-align:right;">75.1%</td><td style="text-align:right;">$33k</td></tr>
@@ -5503,9 +5796,9 @@
       </div>
     </div>
 
-    <div class="section" style="margin-bottom:14px;">
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
       <div class="section-title">Model Utility Reimbursement Settings by Property</div>
-      <table class="data-table" style="width:100%;">
+      <table class="data-table" style="width:100%; min-width:580px;">
         <thead>
           <tr><th>Property</th><th style="text-align:right;">W/S $/Unit/Yr</th><th style="text-align:right;">Trash $/Mo</th><th style="text-align:right;">Recovery %</th><th style="text-align:right;">Ramp</th><th style="text-align:right;">Start</th></tr>
         </thead>
@@ -6097,8 +6390,8 @@
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
+      <table class="data-table" style="min-width:560px;">
         <thead>
           <tr>
             <th>Owner</th>
@@ -7704,7 +7997,7 @@
   <div class="tab-content" id="tab-page13">
 
     <!-- DEAL OVERVIEW KPI STRIP -->
-    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+    <div class="audit-kpi-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;"><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA Executed</a></div>
         <div style="font-size:20px; font-weight:900; color:#00E676;">3/22</div>
@@ -7717,8 +8010,8 @@
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Inspection Period</div>
-        <div id="inspection-countdown" style="font-size:20px; font-weight:900; color:#FBBF24; animation: pulse 2s infinite;">RUNNING</div>
-        <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">Ends 4/16/2026</div>
+        <div id="inspection-countdown" style="font-size:20px; font-weight:900; color:#FBBF24; animation: pulse 2s infinite;">NOT STARTED</div>
+        <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">45 days from Sched. 7.1 delivery (TBD)</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
@@ -7727,9 +8020,219 @@
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">CMBS Assumption</div>
-        <div style="font-size:18px; font-weight:900; color:#FBBF24;">Docs Received</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">6.45% fixed &mdash; 60&ndash;90+ days</div>
+        <div style="font-size:18px; font-weight:900; color:#FBBF24;">App Due 4/3</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">6.45% fixed &mdash; Period ends 5/19</div>
       </div>
+    </div>
+
+    <!-- CRITICAL DATES TIMELINE (Full) -->
+    <div class="group-divider">
+      <div class="group-label">Critical Dates Timeline</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:110px;">Date</th>
+            <th>Event</th>
+            <th style="width:100px;">Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>3/3/2026</b></td>
+            <td>LOI Executed</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Original price $38,562,000. Signed by both parties.</td>
+          </tr>
+          <tr>
+            <td><b>3/20/2026</b></td>
+            <td><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA Effective Date</a></td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Price reduced to $38,172,919 (11 POH sold between LOI and PSA). <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA &amp; LOI &rarr;</a></td>
+          </tr>
+          <tr>
+            <td><b>3/22/2026</b></td>
+            <td>Buyer Signs PSA</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Studio 168 fully executed.</td>
+          </tr>
+          <tr>
+            <td><b>3/23/2026</b></td>
+            <td>PSA to Escrow / CMBS Contact Initiated</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">PSA sent to Fidelity. Keiana contacted Midland/PNC.</td>
+          </tr>
+          <tr>
+            <td><b>3/24/2026</b></td>
+            <td>DD Data Room Shared</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Kris Wessel shared Google Drive link with all DD materials.</td>
+          </tr>
+          <tr>
+            <td><b>3/25/2026</b></td>
+            <td>Title Commitment Deadline (PSA &sect;5)</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Per CDL: Buyer to procure title commitment within 5 days of Effective Date. Fidelity National Title engaged.</td>
+          </tr>
+          <tr>
+            <td><b>3/25/2026</b></td>
+            <td>Escrow Opened / $250K EM Wired</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Fidelity GF# 9001312600125. First EM tranche deposited. Critical dates letter delivered by Grace Wilson.</td>
+          </tr>
+          <tr>
+            <td><b>3/26/2026</b></td>
+            <td>$100K EM Balance / ALTA Surveys / OTP Allocations</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Full $350K EM confirmed. Matt sent existing ALTA surveys to Fidelity. Seth requested OTP price allocations — Matt confirmed: SV $19,518,439 / OC $16,194,468 / LAV $2,460,012.</td>
+          </tr>
+          <tr>
+            <td><b>3/27/2026</b></td>
+            <td>Formal DD Request Sent to Seller</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Chris sent 20-item DD request to Kris: 9 empty folders, 2 partial deliverables, 4 POH-specific, 2 financial clarifications, CMBS assumption status, 2 regulatory items. Priority: bank reqs + tax reassessment exposure first.</td>
+          </tr>
+          <tr>
+            <td><b>3/28/2026</b></td>
+            <td>DD Review Underway</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">PCA deep dive complete. Dashboard updated with site visit checklist. Loan docs received from Midland/PNC.</td>
+          </tr>
+          <tr>
+            <td><b>3/29/2026</b></td>
+            <td>Seller Acknowledges DD Request / Estoppel Clarified</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Kris confirmed receipt, shared with Ben (seller&rsquo;s principal). Kris flagged no estoppel language in PSA &mdash; Chris corrected: estoppel required under Loan Agreement &sect;4.18 (lender covenant), not PSA. Site visit dates requested by Kris (prefers Mon&ndash;Wed).</td>
+          </tr>
+          <tr style="background: rgba(251,191,36,0.06);">
+            <td><b class="orange">3/30/2026</b></td>
+            <td class="orange"><b>TODAY &mdash; Materials Review &amp; Site Visit Scheduling</b></td>
+            <td class="orange">IN PROGRESS</td>
+            <td class="dim">Review Sunset Vista Materials meeting at 4 PM (Kristen, Jeff B, Jeff M, Sage, Tommy, Chris). Keiana task update received &mdash; titles in progress, inspections calendared. Site visit dates TBD (coordinate with Kris).</td>
+          </tr>
+          <tr style="background:rgba(251,191,36,0.06);">
+            <td><b>TBD</b></td>
+            <td>Confirm site visit dates &mdash; <span class="orange">NOT YET CONFIRMED</span></td>
+            <td class="orange">PENDING</td>
+            <td class="dim">Coordinate with Derek and team. Kris prefers Mon&ndash;Wed. Awaiting final date confirmation.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b class="red">4/3/2026</b></td>
+            <td><b>Seller DD Materials Deadline</b> (PSA &sect;7.1)</td>
+            <td class="red">CONTRACTUAL</td>
+            <td class="dim">Per CDL: Seller must deliver all Schedule 7.1 DD materials within 10 business days of Effective Date. Also triggers survey delivery deadline (PSA &sect;5). <b>4 days away.</b></td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b class="red">4/3/2026</b></td>
+            <td><b>Loan Assumption Application Deadline</b> (PSA &sect;8.3)</td>
+            <td class="red">CONTRACTUAL</td>
+            <td class="dim">Per CDL: Buyer must submit complete application to Assumed Lender (Midland/PNC) within 10 business days of Effective Date. At Buyer&rsquo;s sole cost. <b>4 days away.</b></td>
+          </tr>
+          <tr>
+            <td><b>4/10/2026</b></td>
+            <td>DD Material Request Deadline (Buyer-Imposed)</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Internal target for receiving all 9 missing deliverable categories + POH data from seller. One week after contractual deadline.</td>
+          </tr>
+          <tr>
+            <td><b>4/10/2026</b></td>
+            <td>Financial DD Deep Dive Complete</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Bank statement reconciliation, T12 audit, lease review complete.</td>
+          </tr>
+          <tr>
+            <td><b class="orange">TBD</b></td>
+            <td>Site Visit &mdash; All 3 Properties</td>
+            <td class="orange">NOT SCHEDULED</td>
+            <td class="dim">Physical inspection of all 3 properties, POH condition assessment. Pending date confirmation.</td>
+          </tr>
+          <tr style="background: rgba(251,191,36,0.06);">
+            <td><b class="orange">TBD</b></td>
+            <td class="orange"><b>DD PERIOD / INSPECTION PERIOD EXPIRES</b></td>
+            <td class="orange">TBD</td>
+            <td class="dim">Per CDL (PSA &sect;7.1): DD period = 45 days from DD Period Commencement Date. Commencement date = when Seller delivers ALL Schedule 7.1 materials. Contractual delivery deadline is 4/3/2026, but materials still outstanding. If delivered 4/3, DD expires ~5/18. Buyer may terminate for any reason before deadline; deposit released to Seller per PSA &sect;7.1(3).</td>
+          </tr>
+          <tr>
+            <td><b>4/20/2026</b></td>
+            <td>Legal & Regulatory Review Complete</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Title clear, OTP compliance confirmed, zoning verified.</td>
+          </tr>
+          <tr>
+            <td><b>4/28/2026</b></td>
+            <td>DD Approval Package to IC</td>
+            <td class="dim">UPCOMING</td>
+            <td class="dim">Final DD memo with go/no-go recommendation to Investment Committee.</td>
+          </tr>
+          <tr style="background:rgba(251,191,36,0.06);">
+            <td><b class="orange">5/19/2026</b></td>
+            <td><b>Loan Assumption Period Expires</b> (PSA &sect;8.9)</td>
+            <td class="orange">CONTRACTUAL</td>
+            <td class="dim">Per CDL: 60 days from Effective Date. Buyer and Seller must receive written confirmation from Assumed Lender that Loan Assumption and Release have been approved by this date. If not approved, either party may terminate.</td>
+          </tr>
+          <tr>
+            <td><b>TBD</b></td>
+            <td>OTP 120-Day Period Expires</td>
+            <td class="dim">TBD</td>
+            <td class="dim">Must confirm when OTP notices were sent. Closing cannot occur before OTP period expires per Colorado OTP Statutes. Closing date is later of: (a) 30 days after DD period or OTP expiration, or (b) 5 business days after Loan Assumption Period.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>7/17/2026</b></td>
+            <td>Earliest Possible Closing Date (PSA &sect;15.1)</td>
+            <td class="dim">CONTRACTUAL</td>
+            <td class="dim">Per CDL: Closing not before 120 days from Effective Date (7/17/2026). Actual close = later of: (I) 30 days after DD Period or OTP expiration; (II) 5 business days after Loan Assumption Period.</td>
+          </tr>
+          <tr>
+            <td><b>TBD</b></td>
+            <td>Closing &mdash; <span style="color:#FBBF24;">Est. July&ndash;Sept 2026</span></td>
+            <td class="orange">TARGET</td>
+            <td class="dim">Per CDL: not before 7/17/2026. Extension available for $50K non-refundable deposit (15-day extension per PSA &sect;15.1). Ultimate termination date: 3/20/2027 (365 days from Effective Date).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RECENT COMMUNICATIONS -->
+    <div class="group-divider">
+      <div class="group-label">Recent Communications</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
+      <table class="data-table" style="min-width:520px;">
+        <thead>
+          <tr>
+            <th style="width:90px;">Date</th>
+            <th style="width:150px;">From</th>
+            <th>Summary</th>
+            <th style="width:90px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(251,191,36,0.06); border-left: 3px solid #FBBF24;">
+            <td class="dim">3/29</td>
+            <td><b>Kris Wessel</b></td>
+            <td>DD request acknowledged. Seth shared list with Ben (Saddleback) &mdash; will report back. <span style="color:#00E676; font-weight:700;">&#10003; Estoppel question resolved:</span> confirmed no estoppel language in PSA Section 7. Requirement exists only in CMBS Loan Agreement Section 4.18 (lender covenant).</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.4);">RESOLVED</span></td>
+          </tr>
+          <tr>
+            <td class="dim">3/27</td>
+            <td><b>Seth Weiland</b></td>
+            <td>Confirmed OTP price allocations: SV $19,518,439 / OC $16,194,468 / LAV $2,460,012. Ashley Ravn confirmed as co-counsel.</td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.4);">NOTED</span></td>
+          </tr>
+          <tr>
+            <td class="dim">3/26</td>
+            <td><b>Matt Molloy</b></td>
+            <td>Fidelity Title engaged &mdash; escrow opened. GF# 9001312600125. Amanda Brower assigned as escrow officer.</td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.4);">NOTED</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- PROPERTY COMPARISON MATRIX -->
@@ -7819,6 +8322,8 @@
             <tr><td class="dim">Rate</td><td><b>6.45% Fixed</b></td></tr>
             <tr><td class="dim">Open Prepayment</td><td><b>August 2030</b></td></tr>
             <tr><td class="dim">Assumption Fee</td><td><b>Est. 1% of UPB (~$219K)</b></td></tr>
+            <tr><td class="dim">Application Deadline</td><td class="red"><b>4/3/2026 (PSA &sect;8.3)</b></td></tr>
+            <tr><td class="dim">Assumption Period Ends</td><td class="orange"><b>5/19/2026 (PSA &sect;8.9)</b></td></tr>
             <tr><td class="dim">Est. Timeline</td><td class="orange"><b>60&ndash;90+ days from application</b></td></tr>
           </tbody>
         </table>
@@ -7830,163 +8335,16 @@
           <tbody>
             <tr><td>Request loan docs from servicer</td><td class="green">Sent</td><td>3/27</td></tr>
             <tr><td>Receive loan package</td><td class="green">Complete</td><td>3/28</td></tr>
-            <tr><td>Submit assumption application</td><td class="dim">Not started</td><td>TBD</td></tr>
+            <tr style="background:rgba(239,68,68,0.06);"><td><b>Submit assumption application</b></td><td class="red"><b>Due 4/3</b></td><td class="red"><b>4/3/2026</b></td></tr>
             <tr><td>Servicer credit review</td><td class="dim">Not started</td><td>TBD</td></tr>
             <tr><td>Servicer approval</td><td class="dim">Not started</td><td>TBD</td></tr>
             <tr><td>Assumption closing</td><td class="dim">Not started</td><td>TBD</td></tr>
           </tbody>
         </table>
         <div style="font-size:9px; color:#858D99; margin-top:8px; padding:8px; background:rgba(251,191,36,0.06); border-radius:6px; border:1px solid rgba(251,191,36,0.15);">
-          <b style="color:#FBBF24;">&#9888; Critical Path:</b> CMBS assumptions typically take 60-90+ days. Closing timeline depends on servicer responsiveness. Must coordinate with inspection period extension if needed.
+          <b style="color:#FBBF24;">&#9888; Critical Path:</b> Per CDL, application must be filed by <b>4/3/2026</b> (PSA &sect;8.3). Loan Assumption Period expires <b>5/19/2026</b> (60 days from Effective Date per PSA &sect;8.9). If not approved by then, either party may terminate. Closing not before <b>7/17/2026</b> (120 days per PSA &sect;15.1). Extension option: $50K non-refundable for 15 additional days.
         </div>
       </div>
-    </div>
-
-    <!-- CRITICAL DATES TIMELINE (Full) -->
-    <div class="group-divider">
-      <div class="group-label">Critical Dates Timeline</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section scroll-wrap" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:110px;">Date</th>
-            <th>Event</th>
-            <th style="width:100px;">Status</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>3/3/2026</b></td>
-            <td>LOI Executed</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Original price $38,562,000. Signed by both parties.</td>
-          </tr>
-          <tr>
-            <td><b>3/20/2026</b></td>
-            <td><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA Effective Date</a></td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Price reduced to $38,172,919 (11 POH sold between LOI and PSA). <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA &amp; LOI &rarr;</a></td>
-          </tr>
-          <tr>
-            <td><b>3/22/2026</b></td>
-            <td>Buyer Signs PSA</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Studio 168 fully executed.</td>
-          </tr>
-          <tr>
-            <td><b>3/23/2026</b></td>
-            <td>PSA to Escrow / CMBS Contact Initiated</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">PSA sent to Fidelity. Keiana contacted Midland/PNC.</td>
-          </tr>
-          <tr>
-            <td><b>3/24/2026</b></td>
-            <td>DD Data Room Shared</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Kris Wessel shared Google Drive link with all DD materials.</td>
-          </tr>
-          <tr>
-            <td><b>3/25/2026</b></td>
-            <td>Escrow Opened / $250K EM Wired</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Fidelity GF# 9001312600125. First EM tranche deposited. Critical dates letter delivered by Grace Wilson.</td>
-          </tr>
-          <tr>
-            <td><b>3/26/2026</b></td>
-            <td>$100K EM Balance / ALTA Surveys / OTP Allocations</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Full $350K EM confirmed. Matt sent existing ALTA surveys to Fidelity. Seth requested OTP price allocations — Matt confirmed: SV $19,518,439 / OC $16,194,468 / LAV $2,460,012.</td>
-          </tr>
-          <tr>
-            <td><b>3/27/2026</b></td>
-            <td>Formal DD Request Sent to Seller</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Chris sent 20-item DD request to Kris: 9 empty folders, 2 partial deliverables, 4 POH-specific, 2 financial clarifications, CMBS assumption status, 2 regulatory items. Priority: bank reqs + tax reassessment exposure first.</td>
-          </tr>
-          <tr>
-            <td><b>3/28/2026</b></td>
-            <td>DD Review Underway</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">PCA deep dive complete. Dashboard updated with site visit checklist. Loan docs received from Midland/PNC.</td>
-          </tr>
-          <tr>
-            <td><b>3/29/2026</b></td>
-            <td>Seller Acknowledges DD Request / Estoppel Clarified</td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Kris confirmed receipt, shared with Ben (seller&rsquo;s principal). Kris flagged no estoppel language in PSA &mdash; Chris corrected: estoppel required under Loan Agreement &sect;4.18 (lender covenant), not PSA. Site visit dates requested by Kris (prefers Mon&ndash;Wed).</td>
-          </tr>
-          <tr style="background: rgba(251,191,36,0.06);">
-            <td><b class="orange">3/30/2026</b></td>
-            <td class="orange"><b>TODAY &mdash; Materials Review &amp; Site Visit Scheduling</b></td>
-            <td class="orange">IN PROGRESS</td>
-            <td class="dim">Review Sunset Vista Materials meeting at 4 PM (Kristen, Jeff B, Jeff M, Sage, Tommy, Chris). Keiana task update received &mdash; titles in progress, inspections calendared. Site visit dates TBD (coordinate with Kris).</td>
-          </tr>
-          <tr style="background:rgba(251,191,36,0.06);">
-            <td><b>TBD</b></td>
-            <td>Confirm site visit dates &mdash; <span class="orange">NOT YET CONFIRMED</span></td>
-            <td class="orange">PENDING</td>
-            <td class="dim">Coordinate with Derek and team. Kris prefers Mon&ndash;Wed. Awaiting final date confirmation.</td>
-          </tr>
-          <tr>
-            <td><b>4/10/2026</b></td>
-            <td>DD Material Request Deadline (Buyer-Imposed)</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Target for receiving all 9 missing deliverable categories + POH data from seller.</td>
-          </tr>
-          <tr>
-            <td><b>4/10/2026</b></td>
-            <td>Financial DD Deep Dive Complete</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Bank statement reconciliation, T12 audit, lease review complete.</td>
-          </tr>
-          <tr>
-            <td><b class="orange">TBD</b></td>
-            <td>Site Visit &mdash; All 3 Properties</td>
-            <td class="orange">NOT SCHEDULED</td>
-            <td class="dim">Physical inspection of all 3 properties, POH condition assessment. Pending date confirmation.</td>
-          </tr>
-          <tr style="background: rgba(251,191,36,0.06);">
-            <td><b class="orange">TBD</b></td>
-            <td class="orange"><b>INSPECTION PERIOD EXPIRES</b></td>
-            <td class="orange">TBD</td>
-            <td class="dim">Date contingent on delivery of ALL Schedule 7.1 materials. Per PSA Section 7.1, DD period = 45 days from Seller&rsquo;s delivery of the last Schedule 7.1 item. Materials still outstanding.</td>
-          </tr>
-          <tr>
-            <td><b>4/20/2026</b></td>
-            <td>Legal & Regulatory Review Complete</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Title clear, OTP compliance confirmed, zoning verified.</td>
-          </tr>
-          <tr>
-            <td><b>4/28/2026</b></td>
-            <td>DD Approval Package to IC</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Final DD memo with go/no-go recommendation to Investment Committee.</td>
-          </tr>
-          <tr>
-            <td><b>TBD</b></td>
-            <td>CMBS Assumption Approval</td>
-            <td class="dim">TBD</td>
-            <td class="dim">Timeline depends on Midland/PNC. Typically 45-90 days. May extend past inspection period.</td>
-          </tr>
-          <tr>
-            <td><b>TBD</b></td>
-            <td>OTP 120-Day Period Expires</td>
-            <td class="dim">TBD</td>
-            <td class="dim">Must confirm when notices were sent. Closing cannot occur before OTP period expires.</td>
-          </tr>
-          <tr>
-            <td><b>TBD</b></td>
-            <td>Closing &mdash; <span style="color:#FBBF24;">Est. 09/03/2026</span></td>
-            <td class="orange">TARGET</td>
-            <td class="dim">Per PSA: closing within 10 business days of all conditions being satisfied. Estimated close 09/03/2026 pending CMBS assumption timeline and OTP period expiration.</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- COMMUNICATIONS TRACKER -->
@@ -8201,53 +8559,14 @@
       </div>
     </div>
 
-    <!-- RECENT COMMUNICATIONS -->
-    <div class="group-divider">
-      <div class="group-label">Recent Communications</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:90px;">Date</th>
-            <th style="width:150px;">From</th>
-            <th>Summary</th>
-            <th style="width:90px;">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background:rgba(251,191,36,0.06); border-left: 3px solid #FBBF24;">
-            <td class="dim">3/29</td>
-            <td><b>Kris Wessel</b></td>
-            <td>DD request acknowledged. Seth shared list with Ben (Saddleback) &mdash; will report back. <span style="color:#00E676; font-weight:700;">&#10003; Estoppel question resolved:</span> confirmed no estoppel language in PSA Section 7. Requirement exists only in CMBS Loan Agreement Section 4.18 (lender covenant).</td>
-            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.4);">RESOLVED</span></td>
-          </tr>
-          <tr>
-            <td class="dim">3/27</td>
-            <td><b>Seth Weiland</b></td>
-            <td>Confirmed OTP price allocations: SV $19,518,439 / OC $16,194,468 / LAV $2,460,012. Ashley Ravn confirmed as co-counsel.</td>
-            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.4);">NOTED</span></td>
-          </tr>
-          <tr>
-            <td class="dim">3/26</td>
-            <td><b>Matt Molloy</b></td>
-            <td>Fidelity Title engaged &mdash; escrow opened. GF# 9001312600125. Amanda Brower assigned as escrow officer.</td>
-            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.4);">NOTED</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <!-- DATA ROOM INVENTORY -->
     <div class="group-divider">
       <div class="group-label">Data Room File Inventory</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section">
-      <table class="data-table">
+    <div class="section scroll-wrap">
+      <table class="data-table" style="min-width:440px;">
         <thead>
           <tr>
             <th>Folder</th>
@@ -8949,7 +9268,7 @@
           <tr style="border-left: 2px solid rgba(234,179,8,0.5);">
             <td class="dim">3/30/2026</td>
             <td><span class="status-badge" style="background:rgba(234,179,8,0.15); color:#EAB308; border:1px solid rgba(234,179,8,0.3);">v1.6</span></td>
-            <td><b style="color:#E5E9ED;">Critical Dates Timeline updates:</b> Closing date changed to TBD Est. 09/03/2026. Site visit dates pending confirmation (coordinating with Derek and Kris). Keiana draft emails row removed. Inspection period expires changed to TBD (pending Schedule 7.1 delivery).</td>
+            <td><b style="color:#E5E9ED;">Critical Dates Timeline updates:</b> Closing date changed to TBD Est. July&ndash;Sept 2026 (not before 7/17 per CDL &sect;15.1). Site visit dates pending confirmation (coordinating with Derek and Kris). Keiana draft emails row removed. Inspection period expires changed to TBD (pending Schedule 7.1 delivery).</td>
             <td class="dim">Deal Status</td>
           </tr>
           <!-- v1.7 — Accessibility & Navigation Enhancements -->
@@ -8984,6 +9303,20 @@
             <td><span class="status-badge" style="background:rgba(236,72,153,0.15); color:#EC4899; border:1px solid rgba(236,72,153,0.3);">v1.9</span></td>
             <td><b style="color:#E5E9ED;">Visual polish:</b> Animated number counters on hero values (count up from 0). Status dots on all tab labels (green = complete, orange = in progress). Card hover lift with blue glow. Animated progress bar fills on tab load. Subtle dot grid background texture. Gradient shimmer on header accent text.</td>
             <td class="dim">All</td>
+          </tr>
+          <!-- v2.0 — Flow, Charts, CDL Update -->
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(139,92,246,0.15); color:#8B5CF6; border:1px solid rgba(139,92,246,0.3);">v2.0</span></td>
+            <td><b style="color:#E5E9ED;">Flow &amp; navigation:</b> DD Progress Pipeline tracker on Summary tab (clickable 7-phase pipeline). Mini charts on Utilities (donut + bar) and Financial (stacked bars + operating margin progress bars). Swipe hints for first-time mobile visitors. Deal Status reorder: Critical Dates Timeline now first. Additional scroll-wrap tables for mobile. Removed status dots from tab labels.</td>
+            <td class="dim">Summary, Financial, Utilities, Deal Status</td>
+          </tr>
+          <!-- v2.1 — Critical Dates Letter Update -->
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(239,68,68,0.15); color:#EF4444; border:1px solid rgba(239,68,68,0.3);">v2.1</span></td>
+            <td><b style="color:#E5E9ED;">CDL update:</b> Integrated Critical Dates Letter (GF# 9001312600125). New contractual deadlines: Seller DD Materials 4/3 (PSA &sect;7.1), Loan Assumption App 4/3 (PSA &sect;8.3), Title Commitment 3/25 (PSA &sect;5), Loan Assumption Period 5/19 (PSA &sect;8.9), Earliest Close 7/17 (PSA &sect;15.1, 120-day floor). DD period = 45 days from Sched. 7.1 delivery (not yet commenced). Extension option: $50K for 15 days. Ultimate termination: 3/20/2027.</td>
+            <td class="dim">Deal Status, CMBS Tracker</td>
           </tr>
         </tbody>
       </table>
@@ -9034,6 +9367,14 @@
   <div class="section-jump-dropdown" id="sectionJumpDropdown"></div>
 </div>
 
+<!-- SWIPE HINT OVERLAY -->
+<div class="swipe-hint-overlay" id="swipeHint">
+  <div class="swipe-hint-hand">👆</div>
+  <div class="swipe-hint-text">Swipe left or right to<br>navigate between tabs</div>
+  <div class="swipe-hint-sub">You can also use the bottom dock or arrow buttons</div>
+  <button class="swipe-hint-dismiss" onclick="dismissSwipeHint()">Got it</button>
+</div>
+
 <!-- BOTTOM TAB DOCK -->
 <div class="bottom-dock" id="bottomDock">
   <button class="dock-btn" onclick="goToTabByPage(1)" aria-label="Summary">
@@ -9068,42 +9409,30 @@ if ('serviceWorker' in navigator) {
 }
 
 // Inspection Period Countdown Timer
+// DD Period has NOT commenced — waiting for Seller to deliver all Schedule 7.1 materials
+// Per CDL (PSA §7.1): DD period = 45 days from DD Period Commencement Date
+// Contractual delivery deadline for materials: 4/3/2026
 function updateCountdown() {
-  const endDate = new Date('2026-04-16T23:59:59');
-  const now = new Date();
-  const diff = endDate - now;
-  const el = document.getElementById('inspection-countdown');
-  const sub = document.getElementById('inspection-subtext');
+  var el = document.getElementById('inspection-countdown');
+  var sub = document.getElementById('inspection-subtext');
   if (!el) return;
 
+  // Materials delivery deadline
+  var matDeadline = new Date('2026-04-03T17:00:00');
+  var now = new Date();
+  var diff = matDeadline - now;
+
   if (diff <= 0) {
-    el.textContent = 'EXPIRED';
+    // Past the materials deadline — check if they were delivered
+    el.textContent = 'AWAITING';
     el.style.color = '#EF4444';
-    if (sub) sub.textContent = 'Inspection period ended 4/16/2026';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-  if (days === 0) {
-    el.textContent = hours + ' HRS LEFT';
+    if (sub) sub.textContent = 'Materials deadline passed 4/3 — Sched. 7.1 items still outstanding';
   } else {
-    el.textContent = days + ' DAYS LEFT';
-  }
-
-  // Color shift: green > yellow > orange > red
-  if (days > 14) {
-    el.style.color = '#00E676';
-  } else if (days > 7) {
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    el.textContent = days + 'd TO MATLS';
     el.style.color = '#FBBF24';
-  } else if (days > 3) {
-    el.style.color = '#F97316';
-  } else {
-    el.style.color = '#EF4444';
+    if (sub) sub.textContent = 'Seller materials due 4/3 — then 45-day DD period starts';
   }
-
-  if (sub) sub.textContent = days + 'd ' + hours + 'h remaining — Ends 4/16/2026';
 }
 
 // Run immediately and refresh every minute
@@ -9795,6 +10124,32 @@ setInterval(updateCountdown, 60000);
     document.body.classList.add('dot-grid-enabled');
   });
 })();
+
+/* ===== SWIPE HINT ON FIRST VISIT ===== */
+(function() {
+  window.dismissSwipeHint = function() {
+    var el = document.getElementById('swipeHint');
+    if (el) { el.classList.remove('show'); }
+    try { localStorage.setItem('dd_swipe_seen', '1'); } catch(e) {}
+  };
+  window.addEventListener('DOMContentLoaded', function() {
+    // Only show on mobile-width screens, and only once
+    if (window.innerWidth > 768) return;
+    try {
+      if (localStorage.getItem('dd_swipe_seen')) return;
+    } catch(e) {}
+    setTimeout(function() {
+      var el = document.getElementById('swipeHint');
+      if (el) el.classList.add('show');
+      // Auto-dismiss after 6 seconds
+      setTimeout(function() { dismissSwipeHint(); }, 6000);
+    }, 1500);
+  });
+})();
+
+/* ===== DD PIPELINE CLICK NAVIGATION ===== */
+/* Already handled via onclick="goToTabByPage(X)" in HTML */
+
 </script>
 </body>
 </html>
