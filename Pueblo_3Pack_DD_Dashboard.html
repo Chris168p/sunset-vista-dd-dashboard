@@ -628,8 +628,16 @@
       display: table-cell !important;
       padding: 6px 10px !important;
       font-size: 12px !important;
-      white-space: nowrap !important;
       border-bottom: 1px solid rgba(59,130,246,0.08) !important;
+    }
+    .scroll-wrap .data-table th {
+      white-space: nowrap !important;
+    }
+    .scroll-wrap .data-table td {
+      white-space: normal !important;
+    }
+    .scroll-wrap .data-table td[style*="text-align:right"] {
+      white-space: nowrap !important;
     }
     .scroll-wrap .data-table td[style*="text-align:right"] {
       text-align: right !important;
@@ -1132,7 +1140,7 @@
   }
   .mini-chart-title {
     font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
-    color: #93B4F8; margin-bottom: 12px;
+    color: #93B4F8; margin-bottom: 16px;
   }
   .mini-chart-row {
     display: flex; gap: 14px; align-items: flex-start;
@@ -1153,21 +1161,23 @@
     margin-left: auto; font-weight: 700; color: #E5E9ED; font-size: 11px;
   }
   .mini-bar-chart {
-    display: flex; align-items: flex-end; gap: 8px; height: 80px; padding-top: 4px;
+    display: flex; align-items: flex-end; gap: 12px; height: 110px; padding-top: 8px;
   }
   .mini-bar-col {
-    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;
   }
   .mini-bar {
     width: 100%; border-radius: 4px 4px 0 0; transition: height 0.8s ease;
     min-width: 24px;
   }
   .mini-bar-label {
-    font-size: 8px; color: #858D99; font-weight: 600; text-align: center;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60px;
+    font-size: 9px; color: #858D99; font-weight: 600; text-align: center;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80px;
+    padding-top: 2px;
   }
   .mini-bar-val {
-    font-size: 9px; color: #E5E9ED; font-weight: 700; text-align: center;
+    font-size: 10px; color: #E5E9ED; font-weight: 700; text-align: center;
+    padding-bottom: 2px;
   }
   @media (max-width: 768px) {
     .mini-chart-row { flex-direction: column; gap: 10px; align-items: center; }
@@ -1238,7 +1248,7 @@
 
   <!-- QUICK STATS BAR -->
   <div class="quick-stats">
-    <div class="stat-item"><div class="stat-label">Purchase Price</div><div class="stat-value">$38.2M</div></div>
+    <div class="stat-item"><div class="stat-label">Purchase Price</div><div class="stat-value">$39.7M</div></div>
     <div class="stat-item"><div class="stat-label">Total Lots</div><div class="stat-value white">399</div></div>
     <div class="stat-item"><div class="stat-label">Park-Owned Homes</div><div class="stat-value white">144</div></div>
     <div class="stat-item"><div class="stat-label">Portfolio Occupancy</div><div class="stat-value green">90%</div></div>
@@ -1286,7 +1296,7 @@
     <label class="tab-label" for="radio-page7">POH Analysis</label>
     <label class="tab-label" for="radio-page10">Utilities</label>
     <label class="tab-label" for="radio-page5">Investor Deck</label>
-    <label class="tab-label" for="radio-page8">Kickoff Meeting</label>
+    <label class="tab-label" for="radio-page8">Ops Discussion</label>
   </div>
 
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
@@ -2147,12 +2157,12 @@
     <div class="section" style="margin-top: 14px;">
       <div class="section-title">Tax Reassessment Risk at Acquisition</div>
       <div style="font-size: 12px; color: #858D99; line-height: 1.6; padding: 4px;">
-        <b style="color: #EF4444;">HIGH PRIORITY</b> — Both SC and OC experienced significant reassessments in 2023 (likely triggered by prior acquisition). At a <b style="color: #FFF;">$38.2M purchase price</b>, Pueblo County will almost certainly reassess. Also confirm 2025 taxes are prorated correctly at closing — <b style="color: #FBBF24;">$31,831 in unpaid balances</b> across SC and OC.
+        <b style="color: #EF4444;">HIGH PRIORITY</b> — Both SC and OC experienced significant reassessments in 2023 (likely triggered by prior acquisition). At a <b style="color: #FFF;">$39.7M purchase price</b>, Pueblo County will almost certainly reassess. Also confirm 2025 taxes are prorated correctly at closing — <b style="color: #FBBF24;">$31,831 in unpaid balances</b> across SC and OC.
       </div>
     </div>
 
     <div class="section" style="margin-top: 14px;">
-      <div class="section-title">Tax Reassessment Scenarios — $38.2M Basis</div>
+      <div class="section-title">Tax Reassessment Scenarios — $39.7M Basis</div>
 
       <!-- Scenario 1: Ratio Method -->
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px; margin-top: 10px;">SCENARIO 1 — Ratio Method (Prior Basis Scaling)</div>
@@ -2195,7 +2205,7 @@
       </table>
       </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 6px; padding-left: 4px; line-height: 1.5;">
-        Assumes prior basis ~$30M (CMBS $21.9M at ~73% LTV). Ratio: $38.2M / $30M = 1.27x applied to current taxes.
+        Assumes prior basis ~$30M (CMBS $21.9M at ~73% LTV). Ratio: $39.7M / $30M = 1.32x applied to current taxes.
       </div>
 
       <!-- Scenario 2: Residential 6.7% -->
@@ -2235,10 +2245,10 @@
           </tr>
           <tr style="background: rgba(0,230,118,0.06);">
             <td><b>TOTAL</b></td>
-            <td style="text-align:right;"><b>$38,172,919</b></td>
-            <td style="text-align:right;"><b>$2,557,586</b></td>
-            <td style="text-align:right;"><b>$178,894</b></td>
-            <td style="text-align:right;" class="orange"><b>+$104,467</b></td>
+            <td style="text-align:right;"><b>$39,697,919</b></td>
+            <td style="text-align:right;"><b>$2,659,661</b></td>
+            <td style="text-align:right;"><b>$186,038</b></td>
+            <td style="text-align:right;" class="orange"><b>+$111,611</b></td>
           </tr>
         </tbody>
       </table>
@@ -2284,10 +2294,10 @@
           </tr>
           <tr style="background: rgba(239,68,68,0.06);">
             <td><b>TOTAL</b></td>
-            <td style="text-align:right;"><b>$38,172,919</b></td>
-            <td style="text-align:right;"><b>$11,070,147</b></td>
-            <td style="text-align:right;" class="red"><b>$774,150</b></td>
-            <td style="text-align:right;" class="red"><b>+$699,723</b></td>
+            <td style="text-align:right;"><b>$39,697,919</b></td>
+            <td style="text-align:right;"><b>$11,512,396</b></td>
+            <td style="text-align:right;" class="red"><b>$806,093</b></td>
+            <td style="text-align:right;" class="red"><b>+$731,666</b></td>
           </tr>
         </tbody>
       </table>
@@ -3070,7 +3080,7 @@
 
     <div class="risk-item risk-high">
       <div class="risk-title">Property Tax Reassessment Exposure at Acquisition</div>
-      <div class="risk-body">Both SC and OC experienced ~400-600% tax increases in 2023, likely from a prior sale reassessment. At $38.2M, Pueblo County will reassess. Tax exposure ranges from <b style="color:#FFF;">$95K (ratio method) to $179K (residential 6.7%) to $774K (commercial 29%)</b> depending on assessment classification. Additionally, $31,831 in 2025 taxes remain unpaid across SC and OC. Must confirm actual use codes on each parcel with Pueblo County Assessor.</div>
+      <div class="risk-body">Both SC and OC experienced ~400-600% tax increases in 2023, likely from a prior sale reassessment. At $39.7M, Pueblo County will reassess. Tax exposure ranges from <b style="color:#FFF;">$95K (ratio method) to $179K (residential 6.7%) to $774K (commercial 29%)</b> depending on assessment classification. Additionally, $31,831 in 2025 taxes remain unpaid across SC and OC. Must confirm actual use codes on each parcel with Pueblo County Assessor.</div>
       <span class="risk-tag tag-critical">CRITICAL — FINANCIAL</span>
     </div>
 
@@ -3184,14 +3194,14 @@
           </tr>
           <tr>
             <td>2</td>
-            <td>Confirm assessment classification (residential 6.7% vs commercial 29%) with Pueblo County Assessor — look up all parcels online, call (719) 583-6000 to verify actual use codes. CRS 39-1-102 says MHC land = residential, but must confirm on each parcel. Impacts tax reassessment exposure at $38.2M basis.</td>
+            <td>Confirm assessment classification (residential 6.7% vs commercial 29%) with Pueblo County Assessor — look up all parcels online, call (719) 583-6000 to verify actual use codes. CRS 39-1-102 says MHC land = residential, but must confirm on each parcel. Impacts tax reassessment exposure at $39.7M basis.</td>
             <td>Keiana</td>
             <td class="red">3/31/2026</td>
             <td><span class="risk-tag tag-critical">CRITICAL</span></td>
           </tr>
           <tr>
             <td>3</td>
-            <td><s>Model tax reassessment scenarios in underwriting — $38.2M basis, current Pueblo County mill rates, residential vs. commercial classification</s> — <span class="green">UPDATED 3/30</span></td>
+            <td><s>Model tax reassessment scenarios in underwriting — $39.7M basis, current Pueblo County mill rates, residential vs. commercial classification</s> — <span class="green">UPDATED 3/30</span></td>
             <td>Chris</td>
             <td class="green">3/30/2026</td>
             <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
@@ -4733,14 +4743,14 @@
   <div class="tab-content" id="tab-page8">
 
     <div class="group-divider">
-      <div class="group-label">Sunset Vista Portfolio — Kickoff Meeting</div>
+      <div class="group-label">Sunset Vista Portfolio — Ops Discussion</div>
       <div class="group-line"></div>
     </div>
 
     <!-- DEAL SNAPSHOT KPIs -->
     <div class="kpi-strip">
       <div class="kpi-card">
-        <div class="value" style="color:#3B82F6;">$38.2M</div>
+        <div class="value" style="color:#3B82F6;">$39.7M</div>
         <div class="label">Purchase Price</div>
       </div>
       <div class="kpi-card">
@@ -4879,7 +4889,7 @@
           </tr>
           <tr>
             <td><span class="risk-tag tag-critical">3</span></td>
-            <td><b>Property Tax Reassessment at $38.2M Basis</b></td>
+            <td><b>Property Tax Reassessment at $39.7M Basis</b></td>
             <td class="dim">SC and OC both saw 400–600% tax jumps on the last sale. Current taxes: $74K/yr. At our basis: estimated $95K–$181K/yr depending on classification.</td>
             <td class="dim">The residential vs. commercial classification question is huge — residential rate is ~6.25%, commercial is 29%. Keiana is confirming with the Pueblo County Assessor now. Also, $31,831 in unpaid 2025 taxes needs to be prorated at closing. <b style="color:#E5E9ED;">How are we modeling this in the underwriting? Do we use worst-case or expected-case?</b></td>
           </tr>
@@ -5629,15 +5639,15 @@
 
     <div class="section scroll-wrap" style="margin-bottom:14px;">
       <div class="section-title">Monthly Utility Budget Expectations by Property</div>
-      <table class="data-table" style="width:100%; min-width:650px;">
+      <table class="data-table" style="width:100%; min-width:580px;">
         <thead>
           <tr>
-            <th>Category</th>
-            <th style="text-align:right;">SV Monthly</th>
-            <th style="text-align:right;">OC Monthly</th>
-            <th style="text-align:right;">LAV Monthly</th>
-            <th style="text-align:right;">Portfolio Monthly</th>
-            <th>Ops Notes</th>
+            <th style="white-space:nowrap;">Category</th>
+            <th style="text-align:right; white-space:nowrap;">SV</th>
+            <th style="text-align:right; white-space:nowrap;">OC</th>
+            <th style="text-align:right; white-space:nowrap;">LAV</th>
+            <th style="text-align:right; white-space:nowrap;">Total</th>
+            <th style="min-width:180px;">Ops Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -5798,9 +5808,9 @@
 
     <div class="section scroll-wrap" style="margin-bottom:14px;">
       <div class="section-title">Model Utility Reimbursement Settings by Property</div>
-      <table class="data-table" style="width:100%; min-width:580px;">
+      <table class="data-table" style="width:100%; min-width:480px;">
         <thead>
-          <tr><th>Property</th><th style="text-align:right;">W/S $/Unit/Yr</th><th style="text-align:right;">Trash $/Mo</th><th style="text-align:right;">Recovery %</th><th style="text-align:right;">Ramp</th><th style="text-align:right;">Start</th></tr>
+          <tr><th>Property</th><th style="text-align:right;">W/S $/Unit</th><th style="text-align:right;">Trash</th><th style="text-align:right;">Recovery</th><th style="text-align:right;">Ramp</th><th style="text-align:right;">Start</th></tr>
         </thead>
         <tbody>
           <tr><td><b>Sunset Vista</b> (169 occ)</td><td style="text-align:right;">$950</td><td style="text-align:right;">$2,400</td><td style="text-align:right;" class="green"><b>80%</b></td><td style="text-align:right;">12 mo</td><td style="text-align:right;">Month 1</td></tr>
@@ -6078,7 +6088,7 @@
           </tr>
           <tr style="background:rgba(0,230,118,0.04);">
             <td>3</td>
-            <td><s>Model tax reassessment scenarios in underwriting — $38.2M basis, Pueblo County mill rates, residential vs commercial classification</s> — <span class="green">UPDATED 3/30</span></td>
+            <td><s>Model tax reassessment scenarios in underwriting — $39.7M basis, Pueblo County mill rates, residential vs commercial classification</s> — <span class="green">UPDATED 3/30</span></td>
             <td class="dim">UW</td>
             <td>Chris</td>
             <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
@@ -7051,7 +7061,7 @@
           <tr>
             <td><b>Median Price/Space</b></td>
             <td><b>$45,500/space</b> national median</td>
-            <td class="dim">Our $95,670/lot ($38.2M &divide; 399) includes POH inventory &mdash; land-only basis is lower.</td>
+            <td class="dim">Our $99,499/lot ($39.7M &divide; 399) includes POH inventory &mdash; land-only basis is lower.</td>
           </tr>
           <tr>
             <td><b>Sales Velocity</b></td>
@@ -7899,8 +7909,8 @@
             <td><span class="risk-tag tag-critical">2</span></td>
             <td><b>Purchase Price</b></td>
             <td style="color:#EF4444; font-weight:700; text-decoration: line-through;">$40.0M</td>
-            <td style="color:#00E676; font-weight:700;">$38.17M</td>
-            <td class="dim">Adjusted for POH reduction. PSA executed at new price.</td>
+            <td style="color:#00E676; font-weight:700;">$39.7M</td>
+            <td class="dim">Model total $39,697,919 (PSA $38.17M + $1.525M home purchases/closing). Updated from original $40M.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><span class="risk-tag tag-critical">3</span></td>
@@ -7951,7 +7961,7 @@
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
         <div style="padding:12px 14px; background:rgba(239,68,68,0.06); border-left:3px solid #EF4444; border-radius:6px;">
           <div style="font-size:12px; font-weight:700; color:#E5E9ED; margin-bottom:4px;">Tax Reassessment Risk</div>
-          <div style="font-size:11px; color:#858D99; line-height:1.5;">400&ndash;600% increase possible at $38.2M basis. Residential vs commercial rate TBD.</div>
+          <div style="font-size:11px; color:#858D99; line-height:1.5;">400&ndash;600% increase possible at $39.7M basis. Residential vs commercial rate TBD.</div>
         </div>
         <div style="padding:12px 14px; background:rgba(239,68,68,0.06); border-left:3px solid #EF4444; border-radius:6px;">
           <div style="font-size:12px; font-weight:700; color:#E5E9ED; margin-bottom:4px;">CMBS Assumption Risk</div>
@@ -9465,7 +9475,7 @@ setInterval(updateCountdown, 60000);
   // Tab name lookup for the floating label
   var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
     9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
-    12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Kickoff'};
+    12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Ops Discussion'};
 
   function updateNavLabel(idx) {
     var el = document.getElementById('navLabel');
@@ -9732,7 +9742,7 @@ setInterval(updateCountdown, 60000);
     var results = [];
     var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
       9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
-      12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Kickoff'};
+      12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Ops Discussion'};
     var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,5,8];
 
     // Search tab names
