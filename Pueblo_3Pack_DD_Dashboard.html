@@ -345,32 +345,33 @@
 
   /* Jump-to-Section Dropdown */
   .section-jump {
-    position: fixed; top: 80px; right: 20px; z-index: 9997;
-    display: none; flex-direction: column;
+    position: fixed; top: 12px; right: 14px; z-index: 10001;
+    display: none; flex-direction: column; align-items: flex-end;
   }
   .section-jump.show { display: flex; }
   .section-jump-btn {
-    width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.35);
-    background: rgba(10,14,26,0.92); color: #93B4F8; font-size: 16px;
+    width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(59,130,246,0.30);
+    background: rgba(10,14,26,0.96); color: #93B4F8; font-size: 16px;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.5);
   }
   .section-jump-btn:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
   .section-jump-dropdown {
-    position: absolute; top: 50px; right: 0; background: rgba(10,14,26,0.95);
-    border: 1px solid rgba(59,130,246,0.25); border-radius: 8px; overflow-y: auto;
-    max-height: 400px; min-width: 200px; backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5); display: none; flex-direction: column;
+    position: absolute; top: 46px; right: 0; background: #0A0E1A;
+    border: 1px solid rgba(59,130,246,0.20); border-radius: 12px; overflow-y: auto;
+    max-height: 60vh; min-width: 240px; max-width: calc(100vw - 40px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,130,246,0.08);
+    display: none; flex-direction: column;
   }
   .section-jump-dropdown.open { display: flex; }
   .section-jump-item {
-    padding: 10px 16px; font-size: 11px; color: #93B4F8; cursor: pointer;
-    border-bottom: 1px solid rgba(59,130,246,0.10); transition: background 0.15s;
+    padding: 12px 16px; font-size: 12px; color: #93B4F8; cursor: pointer;
+    border-bottom: 1px solid rgba(59,130,246,0.08); transition: background 0.15s;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .section-jump-item:last-child { border-bottom: none; }
-  .section-jump-item:hover { background: rgba(59,130,246,0.15); }
+  .section-jump-item:hover, .section-jump-item:active { background: rgba(59,130,246,0.12); }
 
   /* Bottom Tab Dock */
   .bottom-dock {
@@ -405,8 +406,9 @@
   /* RESPONSIVE ADJUSTMENTS */
   @media (max-width: 768px) {
     .back-to-top { width: 36px; height: 36px; font-size: 16px; }
-    .section-jump-btn { width: 36px; height: 36px; font-size: 14px; }
-    .section-jump-dropdown { max-width: calc(100vw - 20px); min-width: 150px; }
+    .section-jump { top: 8px; right: 8px; }
+    .section-jump-btn { width: 34px; height: 34px; font-size: 14px; }
+    .section-jump-dropdown { max-width: calc(100vw - 24px); min-width: 200px; max-height: 50vh; }
     .bottom-dock { height: 54px; bottom: 10px; left: 8px; right: 8px; border-radius: 16px; }
     .bottom-dock .dock-btn { width: 50px; }
     .bottom-dock .dock-btn .dock-icon { font-size: 16px; }
@@ -426,6 +428,133 @@
     .tab-content { display: block !important; }
     .tab-content + .tab-content { page-break-before: always; }
     body { padding: 0.4in; }
+  }
+
+  /* ===== NEW FEATURES ===== */
+
+  /* Feature 1: Tab Search Bar */
+  .search-icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; margin-left: 8px; padding: 0;
+    border: 1px solid rgba(59,130,246,0.20); border-radius: 50px;
+    background: rgba(59,130,246,0.06); color: #93A1B0;
+    font-size: 16px; cursor: pointer; transition: all 0.2s ease;
+  }
+  .search-icon-btn:hover { color: #E5E9ED; background: rgba(59,130,246,0.14); border-color: rgba(59,130,246,0.40); }
+
+  .search-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,14,26,0.95); backdrop-filter: blur(4px);
+    display: none; flex-direction: column; z-index: 99998;
+    overflow-y: auto;
+  }
+  .search-overlay.open {
+    display: flex;
+  }
+  .search-overlay-header {
+    position: sticky; top: 0; z-index: 99999;
+    background: #0A0E1A; padding: 16px 20px; border-bottom: 1px solid rgba(59,130,246,0.12);
+    display: flex; gap: 12px; align-items: center;
+  }
+  .search-overlay-header input {
+    flex: 1; background: #111827; border: 1px solid rgba(59,130,246,0.25);
+    color: #E5E9ED; padding: 10px 14px; border-radius: 8px; font-size: 14px;
+    font-family: 'Inter', sans-serif;
+  }
+  .search-overlay-header input:focus {
+    outline: none; border-color: #3B82F6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+  }
+  .search-overlay-header input::placeholder {
+    color: #858D99;
+  }
+  .search-overlay-close {
+    width: 32px; height: 32px; border: none; background: rgba(59,130,246,0.1);
+    color: #93B4F8; font-size: 18px; cursor: pointer; border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  .search-overlay-close:hover { background: rgba(59,130,246,0.2); }
+
+  .search-results {
+    padding: 16px 20px;
+  }
+  .search-result-item {
+    background: #111827; border: 1px solid rgba(59,130,246,0.08);
+    border-radius: 8px; padding: 12px 14px; margin-bottom: 10px;
+    cursor: pointer; transition: all 0.15s ease;
+  }
+  .search-result-item:hover {
+    background: #1a1f35; border-color: rgba(59,130,246,0.25);
+  }
+  .search-result-tab { font-size: 10px; color: #3B82F6; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .search-result-preview { font-size: 12px; color: #E5E9ED; margin-top: 4px; line-height: 1.4; }
+  .search-match-badge {
+    display: inline-block; background: rgba(59,130,246,0.2); color: #3B82F6;
+    padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: 600; margin-left: 6px;
+  }
+
+  /* Feature 2: Smooth Tab Transitions */
+  @keyframes tabFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .tab-content.active-fade {
+    animation: tabFadeIn 0.2s ease-out;
+  }
+
+  /* Feature 3: Reading Progress Bar */
+  .progress-bar-top {
+    position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);
+    width: 0%; z-index: 99999; transition: width 0.1s ease-out;
+  }
+
+  /* Feature 4: Font Size Toggle */
+  .font-size-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; margin-left: 12px;
+    border: 1px solid rgba(59,130,246,0.20); border-radius: 8px;
+    background: rgba(59,130,246,0.06); color: #93A1B0;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .font-size-toggle:hover {
+    color: #E5E9ED; background: rgba(59,130,246,0.14); border-color: rgba(59,130,246,0.40);
+  }
+
+  body.font-size-medium { font-size: 110%; }
+  body.font-size-large { font-size: 120%; }
+
+  /* Feature 5: Tap-to-Copy Toast */
+  .copy-toast {
+    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+    background: rgba(10,14,26,0.95); color: #E5E9ED;
+    padding: 10px 16px; border-radius: 20px; font-size: 12px;
+    border: 1px solid rgba(59,130,246,0.25);
+    backdrop-filter: blur(8px); box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    pointer-events: none; z-index: 99997;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .copy-toast.show { opacity: 1; }
+
+  .kpi-card .value,
+  .hero-val,
+  .stat-value {
+    cursor: pointer; transition: color 0.15s ease;
+  }
+  .kpi-card .value:active,
+  .hero-val:active,
+  .stat-value:active {
+    color: #60A5FA;
+  }
+
+  /* Feature 6: Relative Timestamp */
+  .relative-timestamp {
+    font-size: 8px; color: #858D99; margin-top: 2px;
   }
 
   /* RESPONSIVE */
@@ -466,6 +595,7 @@
     .hero-val { font-size: 32px; }
     .tiles-grid, .tiles-grid-3 { grid-template-columns: 1fr; gap: 10px; }
     .tiles-grid-5 { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .audit-kpi-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
     .kpi-strip { flex-wrap: wrap; gap: 6px; }
     .kpi-card { flex: 1 1 45%; }
     .section { padding: 12px !important; }
@@ -904,7 +1034,14 @@
     <div class="header-right">
       <div class="brand">Silver Lands Management Group</div>
       <div class="date">March 30, 2026</div>
-      <div class="timestamp"><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PSA Effective: 3/20/2026</a> | Inspection Period Ends: TBD</div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="text-align: right;">
+          <div class="timestamp"><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PSA Effective: 3/20/2026</a> | Inspection Period Ends: TBD</div>
+          <div class="relative-timestamp" id="relativeTimestamp">Updated just now</div>
+        </div>
+        <button class="font-size-toggle" id="fontSizeToggle" onclick="cycleFontSize()" title="Toggle font size" aria-label="Toggle font size">A</button>
+        <button class="search-icon-btn" id="searchBtn" onclick="openSearch()" title="Search" aria-label="Search tabs and content">🔍</button>
+      </div>
     </div>
   </div>
   <div class="accent-bar"></div>
@@ -5121,9 +5258,9 @@
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom:14px;">
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
       <div class="section-title">Monthly Utility Budget Expectations by Property</div>
-      <table class="data-table" style="width:100%;">
+      <table class="data-table" style="width:100%; min-width:650px;">
         <thead>
           <tr>
             <th>Category</th>
@@ -5188,9 +5325,9 @@
     </div>
 
     <!-- CLOSING TRANSFER CHECKLIST -->
-    <div class="section">
+    <div class="section scroll-wrap">
       <div class="section-title">Pre-Closing Utility Transfer Checklist</div>
-      <table class="data-table" style="width:100%;">
+      <table class="data-table" style="width:100%; min-width:550px;">
         <thead>
           <tr>
             <th style="width:5%;">#</th>
@@ -7712,11 +7849,11 @@
             <td class="orange">IN PROGRESS</td>
             <td class="dim">Review Sunset Vista Materials meeting at 4 PM (Kristen, Jeff B, Jeff M, Sage, Tommy, Chris). Keiana task update received &mdash; titles in progress, inspections calendared. Site visit dates TBD (coordinate with Kris).</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
-            <td><b>3/30/2026</b></td>
-            <td><s>Confirm site visit dates</s> &mdash; <span class="green">CONFIRMED</span></td>
-            <td class="green">COMPLETE</td>
-            <td class="dim">Coordinate with Derek and team and reply to Kris.</td>
+          <tr style="background:rgba(251,191,36,0.06);">
+            <td><b>TBD</b></td>
+            <td>Confirm site visit dates &mdash; <span class="orange">NOT YET CONFIRMED</span></td>
+            <td class="orange">PENDING</td>
+            <td class="dim">Coordinate with Derek and team. Kris prefers Mon&ndash;Wed. Awaiting final date confirmation.</td>
           </tr>
           <tr>
             <td><b>4/10/2026</b></td>
@@ -7731,10 +7868,10 @@
             <td class="dim">Bank statement reconciliation, T12 audit, lease review complete.</td>
           </tr>
           <tr>
-            <td><b>4/15/2026</b></td>
-            <td>Site Visit Complete</td>
-            <td class="dim">UPCOMING</td>
-            <td class="dim">Physical inspection of all 3 properties, POH condition assessment.</td>
+            <td><b class="orange">TBD</b></td>
+            <td>Site Visit &mdash; All 3 Properties</td>
+            <td class="orange">NOT SCHEDULED</td>
+            <td class="dim">Physical inspection of all 3 properties, POH condition assessment. Pending date confirmation.</td>
           </tr>
           <tr style="background: rgba(251,191,36,0.06);">
             <td><b class="orange">TBD</b></td>
@@ -7801,12 +7938,12 @@
             <td><span class="status-badge badge-in-progress">ACKNOWLEDGED</span></td>
             <td class="dim">Monitor data room for uploads</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
+          <tr style="background:rgba(251,191,36,0.06);">
             <td><b>Site Visit Scheduling</b></td>
-            <td class="dim">Site visit confirmed &mdash; coordinated with Derek and team</td>
+            <td class="dim">Dates not yet confirmed &mdash; coordinating with Derek and Kris (prefers Mon&ndash;Wed)</td>
             <td class="dim">3/30</td>
-            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676;">CONFIRMED</span></td>
-            <td class="dim">Reply sent to Kris</td>
+            <td><span class="status-badge badge-partial">PENDING</span></td>
+            <td class="dim">Follow up with Kris on available dates</td>
           </tr>
           <tr style="background:rgba(59,130,246,0.06);">
             <td><b>Materials Review Meeting</b></td>
@@ -8356,10 +8493,10 @@
       <div class="group-label">Executed Lease Audit &mdash; 37 Leases Reviewed</div>
       <div class="group-line"></div>
     </div>
-    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:-8px;">Source: <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder F &mdash; Executed Leases</a> &middot; 37 PDFs analyzed (17 text-extractable, 20 OCR-processed) &middot; SC = Sunset Country &middot; OC = Oasis &middot; LAV = La Vista</div>
+    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:4px; line-height:1.6;">Source: <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder F &mdash; Executed Leases</a> &middot; 37 PDFs analyzed (17 text-extractable, 20 OCR-processed)<br>SC = Sunset Country &middot; OC = Oasis &middot; LAV = La Vista</div>
 
     <!-- AUDIT KPIs -->
-    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+    <div class="audit-kpi-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Total Leases</div>
         <div style="font-size:22px; font-weight:900; color:#FFFFFF;">37</div>
@@ -8736,7 +8873,7 @@
           <tr style="border-left: 2px solid rgba(234,179,8,0.5);">
             <td class="dim">3/30/2026</td>
             <td><span class="status-badge" style="background:rgba(234,179,8,0.15); color:#EAB308; border:1px solid rgba(234,179,8,0.3);">v1.6</span></td>
-            <td><b style="color:#E5E9ED;">Critical Dates Timeline updates:</b> Closing date changed to TBD Est. 09/03/2026. Site visit confirmed (coordinate with Derek and team). Keiana draft emails row removed. Inspection period expires changed to TBD (pending Schedule 7.1 delivery).</td>
+            <td><b style="color:#E5E9ED;">Critical Dates Timeline updates:</b> Closing date changed to TBD Est. 09/03/2026. Site visit dates pending confirmation (coordinating with Derek and Kris). Keiana draft emails row removed. Inspection period expires changed to TBD (pending Schedule 7.1 delivery).</td>
             <td class="dim">Deal Status</td>
           </tr>
           <!-- v1.7 — Accessibility & Navigation Enhancements -->
@@ -8751,6 +8888,19 @@
             <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">v1.7</span></td>
             <td><b style="color:#E5E9ED;">Tab reorder:</b> Reorganized tab sequence to prioritize workflow — Summary → Deal Status → Actions → Docs → Pics → Red Flags → Site Visit → Model → Forecast → Market → Financial → Debt → Rent Roll → Lease Audit → POH → Utilities → Investor Deck → Kickoff.</td>
             <td class="dim">All</td>
+          </tr>
+          <!-- v1.8 — UX Polish & Mobile Fixes -->
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(99,102,241,0.15); color:#818CF8; border:1px solid rgba(99,102,241,0.3);">v1.8</span></td>
+            <td><b style="color:#E5E9ED;">UX polish:</b> Tab search bar (cross-tab content search), smooth fade transitions between tabs, reading progress bar, font size toggle (A/A+/A++), tap-to-copy on KPI values, live &ldquo;Last updated&rdquo; timestamp.</td>
+            <td class="dim">All</td>
+          </tr>
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(99,102,241,0.15); color:#818CF8; border:1px solid rgba(99,102,241,0.3);">v1.8</span></td>
+            <td><b style="color:#E5E9ED;">Mobile fixes:</b> Fixed duplicate collapsible chevrons. Lease Audit KPI grid now stacks to 2-col on mobile. Fixed header/text overlap on Lease Audit. Utility Budget table now horizontally scrollable. Section jump dropdown repositioned to avoid tab bar overlap with opaque background. Site visit status corrected to NOT CONFIRMED throughout.</td>
+            <td class="dim">Lease Audit, Utilities, Market, Deal Status</td>
           </tr>
         </tbody>
       </table>
@@ -8770,6 +8920,18 @@
     Prepared by Chris Meriwether, VP of Acquisitions & Asset Management
   </div>
 
+</div>
+
+<!-- PROGRESS BAR — outside .page to avoid overflow clip -->
+<div class="progress-bar-top" id="progressBar"></div>
+
+<!-- SEARCH OVERLAY — outside .page to avoid overflow clip -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-overlay-header">
+    <input type="text" id="searchInput" placeholder="Search tabs and content...">
+    <button class="search-overlay-close" onclick="closeSearch()" aria-label="Close search">✕</button>
+  </div>
+  <div class="search-results" id="searchResults"></div>
 </div>
 
 <!-- FLOATING TAB NAVIGATION — outside .page to avoid overflow clip -->
@@ -8996,6 +9158,9 @@ setInterval(updateCountdown, 60000);
     collapsibleTabs.forEach(function(pageNum) {
       var tabEl = document.getElementById('tab-page' + pageNum);
       if (!tabEl) return;
+      // Skip if already set up (prevents duplicate chevrons)
+      if (tabEl.dataset.collapsiblesReady) return;
+      tabEl.dataset.collapsiblesReady = 'true';
 
       var dividers = tabEl.querySelectorAll('.group-divider');
       if (dividers.length < 2) return;
@@ -9097,21 +9262,18 @@ setInterval(updateCountdown, 60000);
     if (dropdown) dropdown.classList.toggle('open');
   };
 
-  // Initialize collapsibles and jump sections on page load
-  document.addEventListener('DOMContentLoaded', function() {
+  // Initialize collapsibles and jump sections on page load (run exactly once)
+  var _collapsiblesReady = false;
+  function initCollapsibles() {
+    if (_collapsiblesReady) return;
+    _collapsiblesReady = true;
     setupCollapsibles();
     updateSectionJump();
-  });
-
-  // Also setup if DOM is already loaded
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      setupCollapsibles();
-      updateSectionJump();
-    });
+    document.addEventListener('DOMContentLoaded', initCollapsibles);
   } else {
-    setupCollapsibles();
-    updateSectionJump();
+    initCollapsibles();
   }
 
 
@@ -9123,6 +9285,263 @@ setInterval(updateCountdown, 60000);
       if (dropdown) dropdown.classList.remove('open');
     }
   });
+
+  /* ===== NEW FEATURES IMPLEMENTATION ===== */
+
+  /* Feature 1: Tab Search Bar */
+  window.openSearch = function() {
+    var overlay = document.getElementById('searchOverlay');
+    if (overlay) {
+      overlay.classList.add('open');
+      var input = document.getElementById('searchInput');
+      if (input) {
+        input.focus();
+        input.value = '';
+      }
+    }
+  };
+
+  window.closeSearch = function() {
+    var overlay = document.getElementById('searchOverlay');
+    if (overlay) overlay.classList.remove('open');
+  };
+
+  function performSearch() {
+    var input = document.getElementById('searchInput');
+    var query = input ? input.value.toLowerCase().trim() : '';
+    var resultsContainer = document.getElementById('searchResults');
+    if (!resultsContainer) return;
+
+    if (query.length === 0) {
+      resultsContainer.innerHTML = '';
+      return;
+    }
+
+    var results = [];
+    var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
+      9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
+      12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',5:'Investor Deck',8:'Kickoff'};
+    var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,5,8];
+
+    // Search tab names
+    tabOrder.forEach(function(pageNum) {
+      var tabName = tabNames[pageNum] || '';
+      if (tabName.toLowerCase().includes(query)) {
+        results.push({
+          type: 'tab',
+          pageNum: pageNum,
+          tabName: tabName,
+          matchType: 'name'
+        });
+      }
+    });
+
+    // Search tab content
+    tabOrder.forEach(function(pageNum) {
+      var tabEl = document.getElementById('tab-page' + pageNum);
+      if (!tabEl) return;
+      var text = tabEl.textContent.toLowerCase();
+      var count = (text.match(new RegExp(query, 'g')) || []).length;
+      if (count > 0) {
+        results.push({
+          type: 'content',
+          pageNum: pageNum,
+          tabName: tabNames[pageNum] || '',
+          count: count,
+          preview: getSearchPreview(tabEl, query)
+        });
+      }
+    });
+
+    // Render results
+    resultsContainer.innerHTML = '';
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div style="padding:20px; color:#858D99; text-align:center;">No results found</div>';
+      return;
+    }
+
+    results.forEach(function(result) {
+      var item = document.createElement('div');
+      item.className = 'search-result-item';
+      if (result.type === 'tab') {
+        item.innerHTML = '<div class="search-result-tab">' + result.tabName + ' (Tab Name Match)</div>';
+      } else {
+        item.innerHTML = '<div class="search-result-tab">' + result.tabName + '</div>' +
+          '<div class="search-result-preview">' + result.preview + '<span class="search-match-badge">' + result.count + ' matches</span></div>';
+      }
+      item.onclick = function() {
+        var idx = tabOrder.indexOf(result.pageNum);
+        if (idx >= 0) {
+          var radio = document.getElementById('radio-page' + result.pageNum);
+          if (radio) {
+            radio.checked = true;
+            window.scrollTo(0, 0);
+            updateNavLabel(idx);
+          }
+        }
+        closeSearch();
+      };
+      resultsContainer.appendChild(item);
+    });
+  }
+
+  function getSearchPreview(element, query) {
+    var text = element.textContent;
+    var idx = text.toLowerCase().indexOf(query);
+    if (idx === -1) return text.substring(0, 100) + '...';
+    var start = Math.max(0, idx - 40);
+    var end = Math.min(text.length, idx + query.length + 40);
+    var preview = text.substring(start, end);
+    if (start > 0) preview = '...' + preview;
+    if (end < text.length) preview = preview + '...';
+    return preview;
+  }
+
+  // Search input handler
+  document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', performSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSearch();
+      });
+    }
+  });
+
+  /* Feature 2: Smooth Tab Transitions */
+  document.querySelectorAll('.tab-radio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var pageNum = this.id.replace('radio-page', '');
+      var tabContent = document.getElementById('tab-page' + pageNum);
+      if (tabContent && tabContent.style.display === 'block') {
+        tabContent.classList.remove('active-fade');
+        void tabContent.offsetWidth; // Trigger reflow
+        tabContent.classList.add('active-fade');
+      }
+    });
+  });
+
+  /* Feature 3: Reading Progress Bar */
+  var lastScrollTime = 0;
+  var scrollTimeout;
+  window.addEventListener('scroll', function() {
+    var progressBar = document.getElementById('progressBar');
+    if (!progressBar) return;
+
+    var currentPage = getCurrentIndex ? getCurrentIndex() : 0;
+    var pageNum = tabOrder[currentPage];
+    var tabEl = document.getElementById('tab-page' + pageNum);
+    if (!tabEl) return;
+
+    var scrollHeight = tabEl.scrollHeight - window.innerHeight;
+    var scrolled = window.scrollY;
+    var percent = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
+    percent = Math.min(100, Math.max(0, percent));
+
+    progressBar.style.width = percent + '%';
+
+    // Hide at top
+    if (scrolled < 50) {
+      progressBar.style.opacity = '0';
+    } else {
+      progressBar.style.opacity = '1';
+    }
+  }, { passive: true });
+
+  /* Feature 4: Font Size Toggle */
+  var fontSizeState = 0; // 0=normal, 1=medium, 2=large
+  window.cycleFontSize = function() {
+    fontSizeState = (fontSizeState + 1) % 3;
+    var body = document.body;
+    body.classList.remove('font-size-medium', 'font-size-large');
+    if (fontSizeState === 1) {
+      body.classList.add('font-size-medium');
+    } else if (fontSizeState === 2) {
+      body.classList.add('font-size-large');
+    }
+    // Update button text
+    var btn = document.getElementById('fontSizeToggle');
+    if (btn) {
+      if (fontSizeState === 0) {
+        btn.textContent = 'A';
+        btn.style.fontSize = '14px';
+      } else if (fontSizeState === 1) {
+        btn.textContent = 'A+';
+        btn.style.fontSize = '14px';
+      } else {
+        btn.textContent = 'A++';
+        btn.style.fontSize = '13px';
+      }
+    }
+  };
+
+  /* Feature 5: Tap-to-Copy on KPI Values */
+  function setupCopyListeners() {
+    var selectors = ['.kpi-card .value', '.hero-val', '.stat-value'];
+    selectors.forEach(function(selector) {
+      document.querySelectorAll(selector).forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var text = el.textContent.trim();
+          navigator.clipboard.writeText(text).then(function() {
+            showCopyToast('Copied!');
+          }).catch(function() {
+            showCopyToast('Copy failed');
+          });
+        });
+      });
+    });
+  }
+
+  function showCopyToast(message) {
+    var toast = document.getElementById('copyToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'copyToast';
+      toast.className = 'copy-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(function() {
+      toast.classList.remove('show');
+    }, 1200);
+  }
+
+  // Setup copy listeners on DOMContentLoaded and after tab changes
+  document.addEventListener('DOMContentLoaded', setupCopyListeners);
+  document.querySelectorAll('.tab-radio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      setTimeout(setupCopyListeners, 100);
+    });
+  });
+
+  /* Feature 6: Relative "Last Updated" Timestamp */
+  var pageLoadTime = Date.now();
+  function updateRelativeTimestamp() {
+    var el = document.getElementById('relativeTimestamp');
+    if (!el) return;
+    var elapsed = Date.now() - pageLoadTime;
+    var seconds = Math.floor(elapsed / 1000);
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(minutes / 60);
+    var days = Math.floor(hours / 24);
+
+    var text = 'Updated ';
+    if (days > 0) {
+      text += days + ' day' + (days > 1 ? 's' : '') + ' ago';
+    } else if (hours > 0) {
+      text += hours + ' hr' + (hours > 1 ? 's' : '') + ' ago';
+    } else if (minutes > 0) {
+      text += minutes + ' min' + (minutes > 1 ? 's' : '') + ' ago';
+    } else {
+      text += 'just now';
+    }
+    el.textContent = text;
+  }
+
+  updateRelativeTimestamp();
+  setInterval(updateRelativeTimestamp, 30000); // Update every 30 seconds
 })();
 </script>
 </body>
