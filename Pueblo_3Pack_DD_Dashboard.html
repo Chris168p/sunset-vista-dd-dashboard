@@ -282,11 +282,11 @@
   .drive-link:hover .link-arrow { opacity: 1; }
 
   /* FOOTER */
-  .footer { margin-top: 20px; text-align: center; font-size: 8px; color: #5A6270; letter-spacing: 0.5px; padding-top: 12px; border-top: 1px solid rgba(59,130,246,0.1); }
+  .footer { margin-top: 20px; text-align: center; font-size: 8px; color: #5A6270; letter-spacing: 0.5px; padding-top: 12px; padding-bottom: 80px; border-top: 1px solid rgba(59,130,246,0.1); }
 
   /* FLOATING NAV BUTTONS */
   .float-nav {
-    position: fixed; bottom: 20px; right: 16px; z-index: 10000;
+    position: fixed; bottom: 78px; right: 16px; z-index: 10000;
     display: flex; gap: 6px; opacity: 0.55; transition: opacity 0.2s;
   }
   .float-nav:hover, .float-nav:active { opacity: 1; }
@@ -308,7 +308,7 @@
   /* ACCESSIBILITY FEATURES */
   /* Back-to-Top Button */
   .back-to-top {
-    position: fixed; bottom: 20px; left: 20px; z-index: 9998;
+    position: fixed; bottom: 78px; left: 20px; z-index: 9998;
     width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.35);
     background: rgba(10,14,26,0.92); color: #93B4F8; font-size: 20px; font-weight: 700;
     cursor: pointer; display: none; align-items: center; justify-content: center;
@@ -374,29 +374,43 @@
 
   /* Bottom Tab Dock */
   .bottom-dock {
-    position: fixed; bottom: 14px; left: 10px; right: 10px; z-index: 9996;
-    height: 52px; background: rgba(10,14,26,0.96); border: 1px solid rgba(59,130,246,0.15); border-radius: 16px;
-    display: flex; justify-content: space-around; align-items: center;
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    position: fixed; bottom: 14px; left: 12px; right: 12px; z-index: 9996;
+    height: 58px; background: rgba(10,14,26,0.97);
+    border: 1px solid rgba(59,130,246,0.12); border-radius: 18px;
+    display: flex; justify-content: space-evenly; align-items: center;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.06);
+    padding: 0 6px;
   }
-  .bottom-dock button {
-    width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(59,130,246,0.20);
-    background: rgba(59,130,246,0.08); color: #93B4F8; font-size: 20px;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s ease;
+  .bottom-dock .dock-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px; padding: 6px 0; width: 56px; border: none; background: none;
+    cursor: pointer; transition: all 0.15s ease; border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
   }
-  .bottom-dock button:hover {
-    background: rgba(59,130,246,0.16); border-color: rgba(59,130,246,0.35);
+  .bottom-dock .dock-btn .dock-icon {
+    font-size: 18px; line-height: 1;
   }
-  .bottom-dock button:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
+  .bottom-dock .dock-btn .dock-label {
+    font-size: 8px; font-weight: 600; color: #5A6270; letter-spacing: 0.5px;
+    text-transform: uppercase; font-family: 'Inter', sans-serif;
+    transition: color 0.15s;
+  }
+  .bottom-dock .dock-btn:hover .dock-label,
+  .bottom-dock .dock-btn:active .dock-label { color: #93B4F8; }
+  .bottom-dock .dock-btn:active { background: rgba(59,130,246,0.12); transform: scale(0.92); }
+  .bottom-dock .dock-btn.active .dock-icon { filter: brightness(1.3); }
+  .bottom-dock .dock-btn.active .dock-label { color: #3B82F6; }
 
   /* RESPONSIVE ADJUSTMENTS */
   @media (max-width: 768px) {
     .back-to-top { width: 36px; height: 36px; font-size: 16px; }
     .section-jump-btn { width: 36px; height: 36px; font-size: 14px; }
     .section-jump-dropdown { max-width: calc(100vw - 20px); min-width: 150px; }
-    .bottom-dock { height: 46px; }
-    .bottom-dock button { width: 40px; height: 40px; font-size: 18px; }
+    .bottom-dock { height: 54px; bottom: 10px; left: 8px; right: 8px; border-radius: 16px; }
+    .bottom-dock .dock-btn { width: 50px; }
+    .bottom-dock .dock-btn .dock-icon { font-size: 16px; }
+    .bottom-dock .dock-btn .dock-label { font-size: 7px; }
     .tab-indicator { font-size: 8px; }
   }
 
@@ -1133,7 +1147,7 @@
     </div>
 
     <!-- CHANGELOG ACCESS (DISCRETE) -->
-    <div style="text-align: right; margin-top: 20px; padding-right: 4px;">
+    <div style="text-align: center; margin-top: 20px;">
       <a href="#" onclick="document.getElementById('radio-page18').checked=true; window.scrollTo(0,0); return false;" style="font-size: 10px; color: #4A5568; text-decoration: none; opacity: 0.5; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">changelog</a>
     </div>
 
@@ -8777,10 +8791,21 @@
 
 <!-- BOTTOM TAB DOCK -->
 <div class="bottom-dock" id="bottomDock">
-  <button onclick="goToTabByPage(1)" aria-label="Go to Summary">📌</button>
-  <button onclick="goToTabByPage(2)" aria-label="Go to Docs">📁</button>
-  <button onclick="goToTabByPage(9)" aria-label="Go to Site Visit">🏠</button>
-  <button onclick="goToTabByPage(13)" aria-label="Go to Deal Status">📊</button>
+  <button class="dock-btn" onclick="goToTabByPage(1)" aria-label="Summary">
+    <span class="dock-icon">📌</span><span class="dock-label">Summary</span>
+  </button>
+  <button class="dock-btn" onclick="goToTabByPage(13)" aria-label="Deal Status">
+    <span class="dock-icon">📊</span><span class="dock-label">Status</span>
+  </button>
+  <button class="dock-btn" onclick="goToTabByPage(11)" aria-label="Action Items">
+    <span class="dock-icon">📋</span><span class="dock-label">Actions</span>
+  </button>
+  <button class="dock-btn" onclick="goToTabByPage(2)" aria-label="Docs">
+    <span class="dock-icon">📁</span><span class="dock-label">Docs</span>
+  </button>
+  <button class="dock-btn" onclick="goToTabByPage(9)" aria-label="Site Visit">
+    <span class="dock-icon">🏠</span><span class="dock-label">Site Visit</span>
+  </button>
 </div>
 
 <script>
@@ -9010,6 +9035,32 @@ setInterval(updateCountdown, 60000);
     });
   }
 
+  // ===== FEATURE 6: BOTTOM TAB DOCK =====
+  var dockPages = [1, 13, 11, 2, 9];
+  window.goToTabByPage = function(pageNum) {
+    var idx = tabOrder.indexOf(pageNum);
+    if (idx >= 0) goToTab(idx);
+    updateDockHighlight(pageNum);
+  };
+  function updateDockHighlight(activePage) {
+    var btns = document.querySelectorAll('.bottom-dock .dock-btn');
+    btns.forEach(function(btn, i) {
+      if (dockPages[i] === activePage) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+  // Sync dock highlight when tabs change via any method
+  document.querySelectorAll('.tab-radio').forEach(function(r) {
+    r.addEventListener('change', function() {
+      var idx = getCurrentIndex();
+      var page = tabOrder[idx];
+      updateDockHighlight(page);
+    });
+  });
+
   // ===== FEATURE 5: JUMP-TO-SECTION DROPDOWN =====
   function updateSectionJump() {
     var currentIdx = getCurrentIndex();
@@ -9063,11 +9114,6 @@ setInterval(updateCountdown, 60000);
     updateSectionJump();
   }
 
-  // ===== FEATURE 6: BOTTOM TAB DOCK =====
-  window.goToTabByPage = function(pageNum) {
-    var idx = tabOrder.indexOf(pageNum);
-    if (idx >= 0) goToTab(idx);
-  };
 
   // Close section jump dropdown when clicking elsewhere
   document.addEventListener('click', function(e) {
