@@ -13,7 +13,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; touch-action: manipulation; }
   @page { size: 17in 22in; margin: 0.4in; }
   html { overflow-x: hidden; }
   body {
@@ -1020,6 +1020,82 @@
       padding: 7px 10px;
     }
   }
+
+  /* ===== FEATURE 6: GRADIENT HEADER SHIMMER ===== */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .header-left h1 span.shimmer-text {
+    background: linear-gradient(90deg, #3B82F6, #818CF8, #3B82F6);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s infinite linear;
+  }
+
+  /* ===== FEATURE 5: SUBTLE DOT GRID BACKGROUND ===== */
+  body.dot-grid-enabled {
+    background-image:
+      radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: 0 0;
+  }
+
+  /* ===== FEATURE 3: CARD HOVER LIFT ===== */
+  .section, .hero-card, .kpi-card, .phase-card, .takeaway {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .section:hover, .hero-card:hover, .kpi-card:hover, .phase-card:hover, .takeaway:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(59,130,246,0.12);
+  }
+  @media (max-width: 768px) {
+    .section:active, .hero-card:active, .kpi-card:active, .phase-card:active, .takeaway:active {
+      transform: scale(0.98) translateY(-1px);
+      box-shadow: 0 2px 12px rgba(59,130,246,0.08);
+    }
+  }
+
+  /* ===== FEATURE 2: STATUS DOTS ON TAB LABELS ===== */
+  .tab-label {
+    position: relative;
+  }
+  .tab-label::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .tab-label.tab-green::after {
+    background-color: #00E676;
+    opacity: 0.7;
+  }
+  .tab-label.tab-orange::after {
+    background-color: #FBBF24;
+    opacity: 0.7;
+  }
+  .tab-label.tab-red::after {
+    background-color: #EF4444;
+    opacity: 0.7;
+  }
+  .tab-label:hover.tab-green::after,
+  .tab-label:hover.tab-orange::after,
+  .tab-label:hover.tab-red::after {
+    opacity: 1;
+  }
+
+  /* ===== FEATURE 1: COUNTER ANIMATE CLASS ===== */
+  .counter-animate {
+    /* Used as a data flag, no special styling needed */
+  }
 </style>
 </head>
 <body>
@@ -1028,7 +1104,7 @@
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
-      <h1>SUNSET <span>VISTA</span></h1>
+      <h1>SUNSET <span class="shimmer-text">VISTA</span></h1>
       <div class="subtitle">Studio 168 / Silver Lands Management Group — Due Diligence Command Center</div>
     </div>
     <div class="header-right">
@@ -1079,24 +1155,24 @@
 <input type="radio" name="tabs" id="radio-page18" class="tab-radio">
 
   <div class="tab-bar">
-    <label class="tab-label" for="radio-page1">Executive Summary</label>
-    <label class="tab-label" for="radio-page13">Deal Status</label>
-    <label class="tab-label" for="radio-page11">Action Items</label>
-    <label class="tab-label" for="radio-page2">Docs</label>
-    <label class="tab-label" for="radio-page14">Pics</label>
-    <label class="tab-label" for="radio-page4">Red Flags</label>
-    <label class="tab-label" for="radio-page9">Site Visit</label>
-    <label class="tab-label" for="radio-page6">Model</label>
-    <label class="tab-label" for="radio-page16">Forecast</label>
-    <label class="tab-label" for="radio-page17">Market</label>
-    <label class="tab-label" for="radio-page3">Financial Analysis</label>
-    <label class="tab-label" for="radio-page15">Debt</label>
-    <label class="tab-label" for="radio-page12">Rent Roll Analysis</label>
-    <label class="tab-label" for="radio-page19">Lease Audit</label>
-    <label class="tab-label" for="radio-page7">POH Analysis</label>
-    <label class="tab-label" for="radio-page10">Utilities</label>
-    <label class="tab-label" for="radio-page5">Investor Deck</label>
-    <label class="tab-label" for="radio-page8">Kickoff Meeting</label>
+    <label class="tab-label tab-green" for="radio-page1">Executive Summary</label>
+    <label class="tab-label tab-orange" for="radio-page13">Deal Status</label>
+    <label class="tab-label tab-orange" for="radio-page11">Action Items</label>
+    <label class="tab-label tab-orange" for="radio-page2">Docs</label>
+    <label class="tab-label tab-green" for="radio-page14">Pics</label>
+    <label class="tab-label tab-orange" for="radio-page4">Red Flags</label>
+    <label class="tab-label tab-orange" for="radio-page9">Site Visit</label>
+    <label class="tab-label tab-green" for="radio-page6">Model</label>
+    <label class="tab-label tab-green" for="radio-page16">Forecast</label>
+    <label class="tab-label tab-orange" for="radio-page17">Market</label>
+    <label class="tab-label tab-green" for="radio-page3">Financial Analysis</label>
+    <label class="tab-label tab-orange" for="radio-page15">Debt</label>
+    <label class="tab-label tab-green" for="radio-page12">Rent Roll Analysis</label>
+    <label class="tab-label tab-orange" for="radio-page19">Lease Audit</label>
+    <label class="tab-label tab-green" for="radio-page7">POH Analysis</label>
+    <label class="tab-label tab-orange" for="radio-page10">Utilities</label>
+    <label class="tab-label tab-orange" for="radio-page5">Investor Deck</label>
+    <label class="tab-label tab-green" for="radio-page8">Kickoff Meeting</label>
   </div>
 
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
@@ -8902,6 +8978,13 @@
             <td><b style="color:#E5E9ED;">Mobile fixes:</b> Fixed duplicate collapsible chevrons. Lease Audit KPI grid now stacks to 2-col on mobile. Fixed header/text overlap on Lease Audit. Utility Budget table now horizontally scrollable. Section jump dropdown repositioned to avoid tab bar overlap with opaque background. Site visit status corrected to NOT CONFIRMED throughout.</td>
             <td class="dim">Lease Audit, Utilities, Market, Deal Status</td>
           </tr>
+          <!-- v1.9 — Visual Enhancements -->
+          <tr>
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge" style="background:rgba(236,72,153,0.15); color:#EC4899; border:1px solid rgba(236,72,153,0.3);">v1.9</span></td>
+            <td><b style="color:#E5E9ED;">Visual polish:</b> Animated number counters on hero values (count up from 0). Status dots on all tab labels (green = complete, orange = in progress). Card hover lift with blue glow. Animated progress bar fills on tab load. Subtle dot grid background texture. Gradient shimmer on header accent text.</td>
+            <td class="dim">All</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -9542,6 +9625,175 @@ setInterval(updateCountdown, 60000);
 
   updateRelativeTimestamp();
   setInterval(updateRelativeTimestamp, 30000); // Update every 30 seconds
+})();
+
+/* ===== FEATURE 1: ANIMATED NUMBER COUNTERS ===== */
+(function() {
+  // easeOutExpo easing function
+  function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
+
+  function parseNumber(text) {
+    // Extract number and format info from text like "$38.5M", "290", "6.45%"
+    var match = text.match(/[\d,.]+/);
+    if (!match) return null;
+    var numStr = match[0].replace(/,/g, '');
+    var num = parseFloat(numStr);
+    return isNaN(num) ? null : num;
+  }
+
+  function formatNumber(num, originalText) {
+    // Format number back to match original format
+    var hasDollar = originalText.indexOf('$') !== -1;
+    var hasPercent = originalText.indexOf('%') !== -1;
+    var hasM = originalText.toUpperCase().indexOf('M') !== -1;
+    var hasK = originalText.toUpperCase().indexOf('K') !== -1;
+    var decimalPlaces = (originalText.match(/\.\d+/) || [''])[0].length - 1;
+
+    var formatted = '';
+    if (hasDollar) formatted += '$';
+
+    if (hasM && num >= 1000000) {
+      formatted += (num / 1000000).toFixed(decimalPlaces) + 'M';
+    } else if (hasK && num >= 1000) {
+      formatted += (num / 1000).toFixed(decimalPlaces) + 'K';
+    } else {
+      formatted += num.toFixed(decimalPlaces);
+    }
+
+    if (hasPercent) formatted += '%';
+    return formatted;
+  }
+
+  function animateCounter(element, duration) {
+    if (element.getAttribute('data-counter-animated') === 'true') return;
+
+    var originalText = element.textContent.trim();
+    var num = parseNumber(originalText);
+    if (num === null) return;
+
+    element.setAttribute('data-counter-animated', 'true');
+    var startTime = null;
+    var startValue = 0;
+    var endValue = num;
+
+    function animate(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      var elapsed = currentTime - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var easedProgress = easeOutExpo(progress);
+      var currentValue = startValue + (endValue - startValue) * easedProgress;
+
+      element.textContent = formatNumber(currentValue, originalText);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        element.textContent = originalText;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  function animateCountersInTab(tabId) {
+    var tab = document.getElementById(tabId);
+    if (!tab) return;
+
+    var counters = tab.querySelectorAll('.hero-val, .stat-value');
+    counters.forEach(function(el) {
+      animateCounter(el, 1500); // 1.5 seconds
+    });
+  }
+
+  // Hook into tab changes to trigger counters
+  document.querySelectorAll('.tab-radio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      if (radio.checked) {
+        var tabId = radio.id.replace('radio-', 'tab-');
+        setTimeout(function() {
+          animateCountersInTab(tabId);
+        }, 50);
+      }
+    });
+  });
+
+  // Animate counters on initial page load
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      animateCountersInTab('tab-page1');
+    }, 100);
+  });
+})();
+
+/* ===== FEATURE 4: ANIMATED PROGRESS BAR FILLS ===== */
+(function() {
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animateProgressBars(tabId) {
+    var tab = document.getElementById(tabId);
+    if (!tab) return;
+
+    var progressBars = tab.querySelectorAll('.progress-fill, .progress-fill-orange, .progress-fill-red');
+    progressBars.forEach(function(bar) {
+      if (bar.getAttribute('data-progress-animated') === 'true') return;
+
+      var targetWidth = bar.style.width;
+      if (!targetWidth) return;
+
+      var targetPercent = parseFloat(targetWidth);
+      bar.setAttribute('data-progress-animated', 'true');
+      bar.style.width = '0';
+
+      var startTime = null;
+      var duration = 800; // 800ms
+
+      function animate(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        var elapsed = currentTime - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var easedProgress = easeOutCubic(progress);
+        var currentWidth = targetPercent * easedProgress;
+
+        bar.style.width = currentWidth + '%';
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    });
+  }
+
+  // Hook into tab changes
+  document.querySelectorAll('.tab-radio').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      if (radio.checked) {
+        var tabId = radio.id.replace('radio-', 'tab-');
+        setTimeout(function() {
+          animateProgressBars(tabId);
+        }, 50);
+      }
+    });
+  });
+
+  // Animate progress bars on initial page load
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      animateProgressBars('tab-page1');
+    }, 100);
+  });
+})();
+
+/* ===== FEATURE 5: ENABLE DOT GRID BACKGROUND ===== */
+(function() {
+  window.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('dot-grid-enabled');
+  });
 })();
 </script>
 </body>
