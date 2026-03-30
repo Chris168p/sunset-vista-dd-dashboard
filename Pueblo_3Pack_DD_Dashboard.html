@@ -88,7 +88,9 @@
     #radio-page12:checked ~ .tab-bar .tab-label[for="radio-page12"],
     #radio-page13:checked ~ .tab-bar .tab-label[for="radio-page13"],
     #radio-page14:checked ~ .tab-bar .tab-label[for="radio-page14"],
-    #radio-page15:checked ~ .tab-bar .tab-label[for="radio-page15"] {
+    #radio-page15:checked ~ .tab-bar .tab-label[for="radio-page15"],
+    #radio-page16:checked ~ .tab-bar .tab-label[for="radio-page16"],
+    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"] {
     color: #FFFFFF; background: rgba(59,130,246,0.25); border-color: #3B82F6; box-shadow: 0 0 12px rgba(59,130,246,0.25);
   }
 
@@ -106,7 +108,9 @@
   #radio-page12:checked ~ #tab-page12,
   #radio-page13:checked ~ #tab-page13,
   #radio-page14:checked ~ #tab-page14,
-  #radio-page15:checked ~ #tab-page15 {
+  #radio-page15:checked ~ #tab-page15,
+  #radio-page16:checked ~ #tab-page16,
+  #radio-page17:checked ~ #tab-page17 {
     display: block;
   }
 
@@ -198,6 +202,15 @@
   }
   .prop-table td:first-child { text-align: left; color: #FFF; font-weight: 600; }
   .prop-table tr:last-child td { border-bottom: none; }
+
+  /* MAP CONTAINERS */
+  .map-wrap { border-radius: 8px; overflow: hidden; border: 1px solid rgba(59,130,246,0.12); margin-top: 8px; }
+  .map-wrap iframe { display: block; width: 100%; height: 200px; border: 0; }
+  .map-address { font-size: 10px; color: #858D99; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+  .map-address a { color: #3B82F6; text-decoration: none; }
+  .map-address a:hover { text-decoration: underline; }
+  .map-combo { border-radius: 10px; overflow: hidden; border: 1px solid rgba(59,130,246,0.10); margin-bottom: 14px; }
+  .map-combo iframe { display: block; width: 100%; height: 320px; border: 0; }
 
   /* STATUS BADGES */
   .status-badge {
@@ -751,7 +764,7 @@
     </div>
     <div class="header-right">
       <div class="brand">Silver Lands Management Group</div>
-      <div class="date">March 28, 2026</div>
+      <div class="date">March 30, 2026</div>
       <div class="timestamp"><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PSA Effective: 3/20/2026</a> | Inspection Period Ends: TBD</div>
     </div>
   </div>
@@ -784,6 +797,8 @@
 <input type="radio" name="tabs" id="radio-page13" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page14" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page15" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page16" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page17" class="tab-radio">
 
   <div class="tab-bar">
     <label class="tab-label" for="radio-page1">Executive Summary</label>
@@ -794,6 +809,8 @@
     <label class="tab-label" for="radio-page4">Red Flags</label>
     <label class="tab-label" for="radio-page9">Site Visit</label>
     <label class="tab-label" for="radio-page6">Model</label>
+    <label class="tab-label" for="radio-page16">Forecast</label>
+    <label class="tab-label" for="radio-page17">Market</label>
     <label class="tab-label" for="radio-page3">Financial Analysis</label>
     <label class="tab-label" for="radio-page15">Debt</label>
     <label class="tab-label" for="radio-page12">Rent Roll Analysis</label>
@@ -834,6 +851,7 @@
     <div class="tiles-grid-3">
       <div class="section">
         <div class="section-title">Sunset Vista</div>
+        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 Red Creek Springs Rd, Pueblo, CO</a></div>
         <table class="prop-table">
           <tr><td class="dim">Lots</td><td>206</td></tr>
           <tr><td class="dim">Occupancy</td><td class="orange">86.4% (178/206)</td></tr>
@@ -848,6 +866,7 @@
       </div>
       <div class="section">
         <div class="section-title">Oasis</div>
+        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave, Pueblo, CO</a></div>
         <table class="prop-table">
           <tr><td class="dim">Lots</td><td>161</td></tr>
           <tr><td class="dim">Occupancy</td><td class="green">95.0% (153/161)</td></tr>
@@ -862,6 +881,7 @@
       </div>
       <div class="section">
         <div class="section-title">La Vista</div>
+        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr, Pueblo, CO</a></div>
         <table class="prop-table">
           <tr><td class="dim">Lots</td><td>32</td></tr>
           <tr><td class="dim">Occupancy</td><td class="green">90.6% (29/32)</td></tr>
@@ -873,6 +893,46 @@
           <tr><td class="dim">Phase 1</td><td class="green">Clean — No RECs</td></tr>
           <tr><td class="dim">PCA</td><td class="green">$0 immediate</td></tr>
         </table>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO MAP -->
+    <div class="group-divider">
+      <div class="group-label">Portfolio Map — Pueblo, CO</div>
+      <div class="group-line"></div>
+    </div>
+    <div class="map-combo">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Pueblo+CO+manufactured+housing&t=k&z=12&output=embed"
+        allowfullscreen></iframe>
+    </div>
+    <div class="tiles-grid-3" style="margin-bottom:14px;">
+      <div class="section" style="padding:10px 14px; border-left:3px solid #EF4444;">
+        <div style="font-size:10px; font-weight:700; color:#EF4444; margin-bottom:4px;">SUNSET VISTA</div>
+        <div class="map-address" style="margin:0;">&#128205; 5000 &amp; 5100 Red Creek Springs Rd</div>
+        <div class="map-wrap" style="margin-top:6px;">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=5000+Red+Creek+Springs+Rd+Pueblo+CO&t=k&z=16&output=embed"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="section" style="padding:10px 14px; border-left:3px solid #FBBF24;">
+        <div style="font-size:10px; font-weight:700; color:#FBBF24; margin-bottom:4px;">OASIS</div>
+        <div class="map-address" style="margin:0;">&#128205; 2221 S Prairie Ave</div>
+        <div class="map-wrap" style="margin-top:6px;">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=2221+S+Prairie+Ave+Pueblo+CO&t=k&z=16&output=embed"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="section" style="padding:10px 14px; border-left:3px solid #00E676;">
+        <div style="font-size:10px; font-weight:700; color:#00E676; margin-bottom:4px;">LA VISTA</div>
+        <div class="map-address" style="margin:0;">&#128205; 3333 Starlite Dr</div>
+        <div class="map-wrap" style="margin-top:6px;">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=3333+Starlite+Dr+Pueblo+CO&t=k&z=16&output=embed"
+            allowfullscreen></iframe>
+        </div>
       </div>
     </div>
 
@@ -1227,7 +1287,7 @@
             <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Estoppel Certificates</a></td>
             <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
             <td class="red">0</td>
-            <td><span style="color:#FBBF24; font-weight:700;">&#9888; Kris Wessel (3/29):</span> Could not find estoppel language in PSA Section 7. <span class="dim">Verify PSA requirement before distributing to tenants.</span></td>
+            <td><span style="color:#00E676; font-weight:700;">&#10003; RESOLVED (3/30):</span> Kris Wessel confirmed no estoppel language in PSA Section 7. <span class="dim">Estoppel requirement exists in <b>CMBS Loan Agreement Section 4.18</b> as a lender covenant, not a PSA obligation. No tenant estoppels required by PSA.</span></td>
           </tr>
         </tbody>
       </table>
@@ -2250,7 +2310,7 @@
           <tr>
             <td><b>Section 4.18</b></td>
             <td><b class="white">Estoppel Statement</b></td>
-            <td class="dim">Loan covenant requiring borrower estoppels. <b style="color:#FBBF24;">Relevant to Kris Wessel&rsquo;s PSA Section 7 question</b> &mdash; estoppel requirement is built into the CMBS docs, not just the PSA.</td>
+            <td class="dim">Loan covenant requiring borrower estoppels. <b style="color:#00E676;">&#10003; CONFIRMED:</b> Estoppel requirement is <b>only</b> in the CMBS Loan Agreement (Section 4.18), <b>not</b> in the PSA. PSA Section 7 covers Inspection Contingencies only. Full-text search of 77-page PSA returned zero &ldquo;estoppel&rdquo; hits.</td>
           </tr>
           <tr>
             <td><b>Article 7</b></td>
@@ -2333,7 +2393,7 @@
           <b style="color:#FFF;">Oasis SBA UCC Filing</b> &mdash; UCC filed 12/16/2021 (#20212123839) on Oasis property only. Need to understand if this is a subordinate lien or servicing artifact. Could complicate title at assumption.<br><br>
           <b style="color:#FFF;">Rapid City Financial LLC</b> &mdash; Named as &ldquo;Affiliate Home Owner&rdquo; in loan docs. Likely the POH financing entity. Must trace relationship and confirm no cross-default or additional lien exposure.<br><br>
           <b style="color:#FFF;">Alteration Threshold 2.0%</b> &mdash; Any property alterations exceeding 2% of allocated loan amount require lender consent. This could slow capital improvements or value-add execution during hold.<br><br>
-          <b style="color:#FFF;">Section 4.18 Estoppel</b> &mdash; Estoppel requirement is a loan covenant, not just a PSA provision. Connects to Kris Wessel&rsquo;s pushback on PSA Section 7 estoppels &mdash; this is lender-mandated.
+          <b style="color:#FFF;">Section 4.18 Estoppel</b> &mdash; <span style="color:#00E676;">&#10003; RESOLVED:</span> Estoppel requirement exists <b>only</b> in the CMBS Loan Agreement as a lender covenant. PSA Section 7 = Inspection Contingencies (no estoppel language). Full-text search of all 77 PSA pages confirmed zero &ldquo;estoppel&rdquo; hits. Kris Wessel was correct.
         </div>
       </div>
     </div>
@@ -2531,10 +2591,10 @@
           </tr>
           <tr>
             <td>3</td>
-            <td>Model tax reassessment scenarios in underwriting — $38.2M basis, current Pueblo County mill rates, residential vs. commercial classification</td>
+            <td><s>Model tax reassessment scenarios in underwriting — $38.2M basis, current Pueblo County mill rates, residential vs. commercial classification</s> — <span class="green">UPDATED 3/30</span></td>
             <td>Chris</td>
-            <td class="orange">3/31/2026</td>
-            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td class="green">3/30/2026</td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
           </tr>
           <tr>
             <td>4</td>
@@ -2709,7 +2769,7 @@
             <tr><td><b>Project IRR</b></td><td style="text-align:right;"><b class="green">18%</b></td></tr>
             <tr><td><b>MOIC</b></td><td style="text-align:right;"><b class="green">2.1x</b></td></tr>
             <tr><td><b>LP IRR / LP Multiple</b></td><td style="text-align:right;"><b class="green">16% / 1.92x</b></td></tr>
-            <tr><td class="dim">GP IRR / GP Multiple</td><td style="text-align:right;">42%</td></tr>
+            <tr><td><b>GP IRR / GP Multiple</b></td><td style="text-align:right;"><b class="green">42%</b></td></tr>
             <tr><td class="dim">Waterfall</td><td style="text-align:right;">95/5, 8% pref, 70/30</td></tr>
             <tr><td>Gross Exit Value (Y5)</td><td style="text-align:right;">$68,358K</td></tr>
             <tr><td>Net Exit Proceeds</td><td style="text-align:right;">$46,027K</td></tr>
@@ -2724,6 +2784,7 @@
     <!-- 5-YEAR PROFORMA -->
     <div class="section" style="margin-top: 14px;">
       <div class="section-title">5-Year Pro Forma</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr><th>Line Item</th><th style="text-align:right;">Year 1</th><th style="text-align:right;">Year 2</th><th style="text-align:right;">Year 3</th><th style="text-align:right;">Year 4</th><th style="text-align:right;">Year 5</th></tr>
@@ -2739,6 +2800,7 @@
           <tr><td class="dim">DSCR</td><td style="text-align:right;">2.01x</td><td style="text-align:right;">2.73x</td><td style="text-align:right;">2.55x</td><td style="text-align:right;">2.72x</td><td style="text-align:right;">2.90x</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
 
 <!-- ======= REVENUE COMPARISON ======= -->
@@ -2748,6 +2810,7 @@
     </div>
 
     <div class="section" style="margin-bottom: 14px;">
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -2796,6 +2859,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10.5px; color: #858D99; margin-top: 8px; padding-left: 4px;">
         Note: This comparison shows community operations only. Home rent revenue is analyzed separately on the POH Analysis tab.
       </div>
@@ -2808,6 +2872,7 @@
     </div>
 
     <div class="section" style="margin-bottom: 14px;">
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -2884,6 +2949,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10.5px; color: #858D99; margin-top: 8px; padding-left: 4px; line-height: 1.6;">
         <b style="color:#FBBF24;">Key takeaway:</b> The $337K expense gap is driven primarily by the payroll classification difference — the T12 buries <b style="color:#E5E9ED;">~$165K of on-site salaries</b> in Professional Fees and R&amp;M instead of a separate Payroll line. The model's management fee ($132K) and T12 Professional Fees ($123K) are nearly aligned once you account for this reclassification. The remaining $51K insurance gap is largely Oasis showing $0 on its T12 (likely billed at portfolio level). Taxes and R&amp;M are close matches.
       </div>
@@ -2899,6 +2965,18 @@
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 4px;">SOURCE: SELLER DATA ROOM — FOLDER B (T-12 P&amp;Ls)</div>
       <div style="font-size: 11px; color: #858D99; line-height: 1.6;">
         Cash-basis T12 P&amp;Ls covering March 1, 2025 – February 28, 2026. These are the seller's actual operating results. Expenses include all on-site costs but <b style="color:#FBBF24;">manager/maintenance salaries appear under Professional Fees and Maintenance &amp; Repairs, not a separate Payroll line.</b>
+      </div>
+    </div>
+
+    <!-- T12 KEY OBSERVATIONS -->
+    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #FBBF24; padding-left: 12px;">
+      <div style="font-size: 11px; color: #FBBF24; font-weight: 700; margin-bottom: 4px;">T12 KEY OBSERVATIONS</div>
+      <div style="font-size: 11px; color: #858D99; line-height: 1.8;">
+        <b style="color:#EF4444;">1. Payroll is hidden in Prof. Fees &amp; R&amp;M:</b> Manager salaries ($38.7K SC, $13.4K OC, $1K LAV = $53K) and maintenance payroll ($27.5K SC, $28K OC, $20K LAV = $75.5K) appear under Professional Fees and Maintenance &amp; Repairs — not a separate payroll line. Combined on-site labor: <b style="color:#E5E9ED;">~$165K</b> across all properties.<br>
+        <b style="color:#EF4444;">2. OC Insurance = $0:</b> Oasis shows zero insurance on T12 — likely billed at portfolio level or paid by a separate entity. Must verify where the actual cost sits.<br>
+        <b style="color:#EF4444;">3. District Mgmt Fees:</b> SC $14.4K + OC $11.3K + LAV $2.2K = $27.9K — this is regional oversight, separate from offsite management fees ($155K BTL). Model doesn't have this as a distinct line.<br>
+        <b style="color:#EF4444;">4. MDR (SC + OC only):</b> $48.6K each = $97.2K total. Management / distribution reserve — unique to seller's structure, won't carry forward.<br>
+        <b style="color:#EF4444;">5. Utility Reimbursement low:</b> T12 shows only $72K in utility income vs $417K in utility expenses (17% recovery). Model assumes $173K (40% recovery). Major RUBS upside if implemented.
       </div>
     </div>
 
@@ -3521,6 +3599,7 @@
     <!-- PORTFOLIO T12 SUMMARY -->
     <div class="section" style="margin-bottom: 14px;">
       <div class="section-title">Portfolio T12 Summary — Combined</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -3639,17 +3718,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <!-- T12 KEY OBSERVATIONS -->
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #FBBF24; padding-left: 12px;">
-      <div style="font-size: 11px; color: #FBBF24; font-weight: 700; margin-bottom: 4px;">T12 KEY OBSERVATIONS</div>
-      <div style="font-size: 11px; color: #858D99; line-height: 1.8;">
-        <b style="color:#EF4444;">1. Payroll is hidden in Prof. Fees &amp; R&amp;M:</b> Manager salaries ($38.7K SC, $13.4K OC, $1K LAV = $53K) and maintenance payroll ($27.5K SC, $28K OC, $20K LAV = $75.5K) appear under Professional Fees and Maintenance &amp; Repairs — not a separate payroll line. Combined on-site labor: <b style="color:#E5E9ED;">~$165K</b> across all properties.<br>
-        <b style="color:#EF4444;">2. OC Insurance = $0:</b> Oasis shows zero insurance on T12 — likely billed at portfolio level or paid by a separate entity. Must verify where the actual cost sits.<br>
-        <b style="color:#EF4444;">3. District Mgmt Fees:</b> SC $14.4K + OC $11.3K + LAV $2.2K = $27.9K — this is regional oversight, separate from offsite management fees ($155K BTL). Model doesn't have this as a distinct line.<br>
-        <b style="color:#EF4444;">4. MDR (SC + OC only):</b> $48.6K each = $97.2K total. Management / distribution reserve — unique to seller's structure, won't carry forward.<br>
-        <b style="color:#EF4444;">5. Utility Reimbursement low:</b> T12 shows only $72K in utility income vs $417K in utility expenses (17% recovery). Model assumes $173K (40% recovery). Major RUBS upside if implemented.
       </div>
     </div>
 
@@ -3703,7 +3771,7 @@
         <div class="label">Total POH</div>
       </div>
       <div class="kpi-card">
-        <div class="value white">$84,502</div>
+        <div class="value white">$85K</div>
         <div class="label">Monthly Income</div>
       </div>
       <div class="kpi-card">
@@ -3738,7 +3806,7 @@
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
       <table class="data-table">
         <thead>
           <tr>
@@ -3819,7 +3887,7 @@
     </div>
 
     <div class="tiles-grid">
-      <div class="section">
+      <div class="section scroll-wrap">
         <div class="section-title">Homes by Selling Entity</div>
         <table class="data-table">
           <thead><tr><th>Entity</th><th style="text-align:right;">Count</th><th style="text-align:right;">% of Total</th><th style="text-align:right;">Monthly Rent</th><th>Notes</th></tr></thead>
@@ -3859,7 +3927,7 @@
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom: 14px;">
+    <div class="section scroll-wrap" style="margin-bottom: 14px;">
       <div class="section-title">POH Economics — UW Model Expenses vs. T12 Gap Analysis</div>
       <table class="data-table">
         <thead>
@@ -4041,7 +4109,7 @@
     </div>
 
     <!-- POH DD ACTION ITEMS -->
-    <div class="section" style="margin-top: 14px;">
+    <div class="section scroll-wrap" style="margin-top: 14px;">
       <div class="section-title">POH-Specific DD Action Items</div>
       <table class="data-table">
         <thead><tr><th style="width:30px;">#</th><th>Action Item</th><th style="width:70px;">Priority</th></tr></thead>
@@ -4297,8 +4365,11 @@
         <div style="font-size: 11px; color: #22C55E; font-weight: 700; margin-bottom: 6px;">WHAT TO EXPECT</div>
         <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
           <b style="color:#E5E9ED;">1. Sunset Vista</b> (206 lots) &mdash; 2&ndash;3 hrs. Most vacant lots (28), office, pool, farm house. Strongest entrance, most dated housing stock.<br>
+          <span class="map-address" style="display:inline; margin:0;">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 Red Creek Springs Rd, Pueblo, CO</a></span><br>
           <b style="color:#E5E9ED;">2. Oasis</b> (161 lots) &mdash; 2 hrs. Worst roads ($41K immediate), ADA issues, boiler, 4 abandoned homes. Most complex property.<br>
-          <b style="color:#E5E9ED;">3. La Vista</b> (32 lots) &mdash; 45 min. Cleanest of the three. Verify survey encroachments (fence 4.3 ft + building 6.5 ft).
+          <span class="map-address" style="display:inline; margin:0;">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave, Pueblo, CO</a></span><br>
+          <b style="color:#E5E9ED;">3. La Vista</b> (32 lots) &mdash; 45 min. Cleanest of the three. Verify survey encroachments (fence 4.3 ft + building 6.5 ft).<br>
+          <span class="map-address" style="display:inline; margin:0;">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr, Pueblo, CO</a></span>
         </div>
       </div>
       <div class="section" style="margin-bottom:0; border-left: 3px solid #EF4444; padding-left: 12px;">
@@ -4341,6 +4412,44 @@
           <span class="link-icon">&#128196;</span><span class="link-label">POH</span><span class="link-arrow">→</span></a>
         <a href="https://drive.google.com/drive/folders/18ZJMRRbWC28q9hFJRkk4rzEEelH0wMul?usp=drive_link" target="_blank" class="drive-link">
           <span class="link-icon">&#128196;</span><span class="link-label">CapEx Records</span><span class="link-arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- PROPERTY MAPS — SATELLITE VIEW -->
+    <div class="group-divider">
+      <div class="group-label">Property Maps &mdash; Satellite View</div>
+      <div class="group-line"></div>
+    </div>
+    <div class="tiles-grid-3" style="margin-bottom:14px;">
+      <div class="section" style="padding:10px 14px; border-top:3px solid #EF4444;">
+        <div style="font-size:11px; font-weight:700; color:#EF4444; margin-bottom:2px;">SUNSET VISTA</div>
+        <div class="map-address" style="margin-bottom:6px;">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 Red Creek Springs Rd, Pueblo, CO</a></div>
+        <div class="map-wrap">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=5000+Red+Creek+Springs+Rd+Pueblo+CO&t=k&z=17&output=embed"
+            allowfullscreen></iframe>
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:4px;">206 lots &bull; 2&ndash;3 hr walk</div>
+      </div>
+      <div class="section" style="padding:10px 14px; border-top:3px solid #FBBF24;">
+        <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:2px;">OASIS</div>
+        <div class="map-address" style="margin-bottom:6px;">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave, Pueblo, CO</a></div>
+        <div class="map-wrap">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=2221+S+Prairie+Ave+Pueblo+CO&t=k&z=17&output=embed"
+            allowfullscreen></iframe>
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:4px;">161 lots &bull; 2 hr walk</div>
+      </div>
+      <div class="section" style="padding:10px 14px; border-top:3px solid #00E676;">
+        <div style="font-size:11px; font-weight:700; color:#00E676; margin-bottom:2px;">LA VISTA</div>
+        <div class="map-address" style="margin-bottom:6px;">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr, Pueblo, CO</a></div>
+        <div class="map-wrap">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=3333+Starlite+Dr+Pueblo+CO&t=k&z=17&output=embed"
+            allowfullscreen></iframe>
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:4px;">32 lots &bull; 45 min walk</div>
       </div>
     </div>
 
@@ -4665,7 +4774,7 @@
         <thead><tr><th>Provider</th><th>Service</th><th>Phone</th><th>Website / Email</th><th>Payment Address</th></tr></thead>
         <tbody>
           <tr><td><b>Board of Water Works</b></td><td>Water / Sewer</td><td class="dim">pueblowater.org</td><td class="dim">www.pueblowater.org</td><td class="dim">P.O. Box 755, Pueblo CO 81002-0755</td></tr>
-          <tr><td><b>Black Hills Energy</b></td><td>Electric</td><td class="dim">888-890-5554</td><td class="dim">help@support.blackhillsenergy.com</td><td class="dim">PO Box 7966, Carol Stream IL 60197-7966</td></tr>
+          <tr><td><b>Black Hills Energy</b></td><td>Electric</td><td class="dim">888-890-5554</td><td class="dim"><a href="mailto:help@support.blackhillsenergy.com" style="color:#3B82F6; text-decoration:none;">help@support.blackhillsenergy.com</a></td><td class="dim">PO Box 7966, Carol Stream IL 60197-7966</td></tr>
           <tr><td><b>Xcel Energy</b></td><td>Gas</td><td class="dim">1-800-895-4999</td><td class="dim">xcelenergy.com</td><td class="dim">P.O. Box 660553, Dallas TX 75266-0553</td></tr>
           <tr><td><b>Waste Connections</b></td><td>Trash</td><td class="dim">719-948-0047</td><td class="dim">myaccount.wcicustomer.com</td><td class="dim">PO Box 7428, Pasadena CA 91109-7428</td></tr>
           <tr><td><b>Comcast Business</b></td><td>Cable / Internet</td><td class="dim">1-800-391-3000</td><td class="dim">business.comcast.com</td><td class="dim">PO Box 60533, City of Industry CA 91716-0533</td></tr>
@@ -5033,11 +5142,11 @@
     <!-- KPI STRIP -->
     <div class="kpi-strip">
       <div class="kpi-card">
-        <div class="value red">1</div>
+        <div class="value green">2</div>
         <div class="label">Done</div>
       </div>
       <div class="kpi-card">
-        <div class="value red">10</div>
+        <div class="value red">9</div>
         <div class="label">Due This Week</div>
       </div>
       <div class="kpi-card">
@@ -5090,12 +5199,12 @@
             <td>Keiana</td>
             <td><span class="risk-tag tag-critical">CRITICAL</span></td>
           </tr>
-          <tr>
+          <tr style="background:rgba(0,230,118,0.04);">
             <td>3</td>
-            <td>Model tax reassessment scenarios in underwriting — $38.2M basis, Pueblo County mill rates, residential vs commercial classification</td>
+            <td><s>Model tax reassessment scenarios in underwriting — $38.2M basis, Pueblo County mill rates, residential vs commercial classification</s> — <span class="green">UPDATED 3/30</span></td>
             <td class="dim">UW</td>
             <td>Chris</td>
-            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
           </tr>
           <tr>
             <td>4</td>
@@ -5578,6 +5687,675 @@
   </div>
 
   <!-- ============================================================ -->
+  <!-- TAB 16: FORECAST                                              -->
+  <!-- ============================================================ -->
+  <div class="tab-content" id="tab-page16">
+
+    <!-- ======= HERO KPIs ======= -->
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="value green">$3.8M</div>
+        <div class="label">Y5 NOI</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value green">+34.9%</div>
+        <div class="label">NOI Growth (Y1&rarr;Y5)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value green">$3.5M</div>
+        <div class="label">Y5 Lot Revenue</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value white">95%</div>
+        <div class="label">Stabilized Occ.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value green">$2.2M</div>
+        <div class="label">Y5 Net Cash Flow</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value" style="color:#8B5CF6;">18%</div>
+        <div class="label">Project IRR</div>
+      </div>
+    </div>
+
+    <!-- ======= 5-YEAR NOI FORECAST ======= -->
+    <div class="group-divider">
+      <div class="group-label">5-Year NOI &amp; Cash Flow Forecast</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Line Item</th><th style="text-align:right;">Year 1</th><th style="text-align:right;">Year 2</th><th style="text-align:right;">Year 3</th><th style="text-align:right;">Year 4</th><th style="text-align:right;">Year 5</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Effective Gross Revenue</b></td><td style="text-align:right;"><b>$4,272,699</b></td><td style="text-align:right;"><b>$4,732,581</b></td><td style="text-align:right;"><b>$4,992,497</b></td><td style="text-align:right;"><b>$5,266,620</b></td><td style="text-align:right;"><b>$5,556,226</b></td></tr>
+          <tr><td class="dim">&nbsp;&nbsp;Lot Rent Revenue</td><td style="text-align:right;" class="dim">$2,616,888</td><td style="text-align:right;" class="dim">$2,878,596</td><td style="text-align:right;" class="dim">$3,141,444</td><td style="text-align:right;" class="dim">$3,334,332</td><td style="text-align:right;" class="dim">$3,501,720</td></tr>
+          <tr><td class="dim">&nbsp;&nbsp;Home Rent / POH</td><td style="text-align:right;" class="dim">$1,278,282</td><td style="text-align:right;" class="dim">$1,574,109</td><td style="text-align:right;" class="dim">$1,571,241</td><td style="text-align:right;" class="dim">$1,649,783</td><td style="text-align:right;" class="dim">$1,768,912</td></tr>
+          <tr><td class="dim">&nbsp;&nbsp;Utility Reimb. (RUBS)</td><td style="text-align:right;" class="dim">$173,424</td><td style="text-align:right;" class="dim">$201,672</td><td style="text-align:right;" class="dim">$211,756</td><td style="text-align:right;" class="dim">$222,343</td><td style="text-align:right;" class="dim">$233,461</td></tr>
+          <tr><td class="dim">&nbsp;&nbsp;Other Income</td><td style="text-align:right;" class="dim">$204,105</td><td style="text-align:right;" class="dim">$78,204</td><td style="text-align:right;" class="dim">$68,056</td><td style="text-align:right;" class="dim">$60,162</td><td style="text-align:right;" class="dim">$52,133</td></tr>
+          <tr><td class="dim">Operating Expenses</td><td style="text-align:right;">$1,427,025</td><td style="text-align:right;">$1,559,902</td><td style="text-align:right;">$1,612,794</td><td style="text-align:right;">$1,667,602</td><td style="text-align:right;">$1,717,947</td></tr>
+          <tr style="background: rgba(0,230,118,0.06);"><td><b class="green">NOI</b></td><td style="text-align:right;"><b class="green">$2,845,674</b></td><td style="text-align:right;"><b class="green">$3,172,678</b></td><td style="text-align:right;"><b class="green">$3,379,703</b></td><td style="text-align:right;"><b class="green">$3,599,018</b></td><td style="text-align:right;"><b class="green">$3,838,279</b></td></tr>
+          <tr><td class="dim">Operating Margin</td><td style="text-align:right;">66.6%</td><td style="text-align:right;">67.0%</td><td style="text-align:right;">67.7%</td><td style="text-align:right;">68.3%</td><td style="text-align:right;">69.1%</td></tr>
+          <tr><td class="dim">NOI YoY Growth</td><td style="text-align:right;">&mdash;</td><td style="text-align:right;" class="green">+11.5%</td><td style="text-align:right;" class="green">+6.5%</td><td style="text-align:right;" class="green">+6.5%</td><td style="text-align:right;" class="green">+6.6%</td></tr>
+          <tr style="border-top:1px solid rgba(255,255,255,0.08);"><td class="dim">Below-the-Line</td><td style="text-align:right;">$237,746</td><td style="text-align:right;">$248,467</td><td style="text-align:right;">$255,203</td><td style="text-align:right;">$262,239</td><td style="text-align:right;">$269,600</td></tr>
+          <tr><td class="dim">Debt Service</td><td style="text-align:right;">$883,009</td><td style="text-align:right;">$1,161,452</td><td style="text-align:right;">$1,325,809</td><td style="text-align:right;">$1,325,809</td><td style="text-align:right;">$1,325,809</td></tr>
+          <tr style="background: rgba(59,130,246,0.06);"><td><b style="color:#3B82F6;">Net Cash Flow</b></td><td style="text-align:right;"><b>$1,724,919</b></td><td style="text-align:right;"><b>$1,762,759</b></td><td style="text-align:right;"><b>$1,798,691</b></td><td style="text-align:right;"><b>$2,010,970</b></td><td style="text-align:right;"><b>$2,242,870</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= OCCUPANCY RAMP ======= -->
+    <div class="group-divider">
+      <div class="group-label">Occupancy Ramp &mdash; Lease-Up by Property</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #6366F1; padding-left: 12px;">
+      <div style="font-size: 11px; color: #6366F1; font-weight: 700; margin-bottom: 6px;">LEASE-UP ASSUMPTIONS</div>
+      <div style="font-size: 11px; color: #858D99; line-height: 1.7;">
+        Fill rate: <b style="color:#E5E9ED;">3 lots/month</b> across portfolio to reach <b style="color:#E5E9ED;">95% stabilized occupancy</b> by Year 3&ndash;4. Sunset Vista has the most upside (28 vacant lots). Oasis and La Vista are near-stabilized already.
+      </div>
+    </div>
+
+    <div class="tiles-grid-3" style="margin-bottom:14px;">
+      <!-- SV OCCUPANCY -->
+      <div class="section" style="border-top:3px solid #EF4444;">
+        <div style="font-size:11px; font-weight:700; color:#EF4444; margin-bottom:8px;">SUNSET VISTA</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Current</td><td class="orange"><b>82.0%</b> (169/206)</td></tr>
+          <tr><td class="dim">Year 2</td><td><b>88.0%</b> (181)</td></tr>
+          <tr><td class="dim">Year 3</td><td><b>93.0%</b> (192)</td></tr>
+          <tr><td class="dim">Year 4</td><td class="green"><b>95.0%</b> (196)</td></tr>
+          <tr><td class="dim">Year 5</td><td class="green"><b>95.0%</b> (196)</td></tr>
+          <tr><td class="dim">Lots to Fill</td><td><b class="orange">27 lots</b></td></tr>
+          <tr><td class="dim">Time to Stabilize</td><td><b>~9 months</b></td></tr>
+        </table>
+      </div>
+      <!-- OC OCCUPANCY -->
+      <div class="section" style="border-top:3px solid #FBBF24;">
+        <div style="font-size:11px; font-weight:700; color:#FBBF24; margin-bottom:8px;">OASIS</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Current</td><td class="green"><b>91.9%</b> (148/161)</td></tr>
+          <tr><td class="dim">Year 2</td><td class="green"><b>94.0%</b> (151)</td></tr>
+          <tr><td class="dim">Year 3</td><td class="green"><b>95.0%</b> (153)</td></tr>
+          <tr><td class="dim">Year 4</td><td class="green"><b>95.0%</b> (153)</td></tr>
+          <tr><td class="dim">Year 5</td><td class="green"><b>95.0%</b> (153)</td></tr>
+          <tr><td class="dim">Lots to Fill</td><td><b>5 lots</b></td></tr>
+          <tr><td class="dim">Time to Stabilize</td><td><b>~2 months</b></td></tr>
+        </table>
+      </div>
+      <!-- LAV OCCUPANCY -->
+      <div class="section" style="border-top:3px solid #00E676;">
+        <div style="font-size:11px; font-weight:700; color:#00E676; margin-bottom:8px;">LA VISTA</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Current</td><td class="green"><b>90.6%</b> (29/32)</td></tr>
+          <tr><td class="dim">Year 2</td><td class="green"><b>93.8%</b> (30)</td></tr>
+          <tr><td class="dim">Year 3</td><td class="green"><b>96.9%</b> (31)</td></tr>
+          <tr><td class="dim">Year 4</td><td class="green"><b>96.9%</b> (31)</td></tr>
+          <tr><td class="dim">Year 5</td><td class="green"><b>96.9%</b> (31)</td></tr>
+          <tr><td class="dim">Lots to Fill</td><td><b>2 lots</b></td></tr>
+          <tr><td class="dim">Time to Stabilize</td><td><b>~1 month</b></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO OCCUPANCY SUMMARY -->
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Portfolio Occupancy</th><th style="text-align:right;">Year 1</th><th style="text-align:right;">Year 2</th><th style="text-align:right;">Year 3</th><th style="text-align:right;">Year 4</th><th style="text-align:right;">Year 5</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Occupied Lots</td><td style="text-align:right;">346</td><td style="text-align:right;">362</td><td style="text-align:right;">376</td><td style="text-align:right;">380</td><td style="text-align:right;">380</td></tr>
+          <tr><td>Total Lots</td><td style="text-align:right;">399</td><td style="text-align:right;">399</td><td style="text-align:right;">399</td><td style="text-align:right;">399</td><td style="text-align:right;">399</td></tr>
+          <tr style="background:rgba(0,230,118,0.04);"><td><b class="green">Portfolio Occupancy</b></td><td style="text-align:right;"><b class="orange">86.7%</b></td><td style="text-align:right;"><b>90.7%</b></td><td style="text-align:right;"><b class="green">94.2%</b></td><td style="text-align:right;"><b class="green">95.2%</b></td><td style="text-align:right;"><b class="green">95.2%</b></td></tr>
+          <tr><td class="dim">Vacant Lots</td><td style="text-align:right;" class="orange">53</td><td style="text-align:right;">37</td><td style="text-align:right;" class="green">23</td><td style="text-align:right;" class="green">19</td><td style="text-align:right;" class="green">19</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= PER-LOT RENT PROJECTIONS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Per-Lot Rent Projections (Year 1&ndash;5)</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #6366F1; padding-left: 12px;">
+      <div style="font-size: 11px; color: #6366F1; font-weight: 700; margin-bottom: 6px;">RENT GROWTH ASSUMPTIONS</div>
+      <div style="font-size: 11px; color: #858D99; line-height: 1.7;">
+        Annual lot rent increase: <b style="color:#E5E9ED;">5%</b> (aggressive but achievable in value-add MHC). POH home rent premium: <b style="color:#E5E9ED;">$200&ndash;$400/mo</b> layered on top of lot rent. Current rents are at or slightly below Pueblo market for comparable MHC ($600&ndash;$700 lot rent range).
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th style="width:110px;">Year 1 (Current)</th>
+            <th style="width:100px;">Year 2</th>
+            <th style="width:100px;">Year 3</th>
+            <th style="width:100px;">Year 4</th>
+            <th style="width:100px;">Year 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim" colspan="6" style="color:#EF4444; font-weight:700;">SUNSET VISTA (206 lots @ $654)</td>
+          </tr>
+          <tr><td>Lot Rent</td><td>$654</td><td>$687</td><td>$721</td><td>$757</td><td>$795</td></tr>
+          <tr><td class="dim">Projected Occupancy</td><td class="orange">82.0%</td><td>88.0%</td><td>93.0%</td><td class="green">95.0%</td><td class="green">95.0%</td></tr>
+          <tr><td class="dim">Occupied Lots</td><td>169</td><td>181</td><td>192</td><td>196</td><td>196</td></tr>
+          <tr><td><b>Ann. Lot Revenue</b></td><td><b>$1,325,592</b></td><td><b>$1,491,684</b></td><td><b>$1,661,184</b></td><td><b>$1,780,464</b></td><td><b>$1,869,480</b></td></tr>
+          <tr>
+            <td class="dim" colspan="6" style="color:#FBBF24; font-weight:700;">OASIS (161 lots @ $615)</td>
+          </tr>
+          <tr><td>Lot Rent</td><td>$615</td><td>$646</td><td>$678</td><td>$712</td><td>$748</td></tr>
+          <tr><td class="dim">Projected Occupancy</td><td class="green">91.9%</td><td class="green">94.0%</td><td class="green">95.0%</td><td class="green">95.0%</td><td class="green">95.0%</td></tr>
+          <tr><td class="dim">Occupied Lots</td><td>148</td><td>151</td><td>153</td><td>153</td><td>153</td></tr>
+          <tr><td><b>Ann. Lot Revenue</b></td><td><b>$1,092,240</b></td><td><b>$1,170,552</b></td><td><b>$1,245,528</b></td><td><b>$1,307,232</b></td><td><b>$1,373,328</b></td></tr>
+          <tr>
+            <td class="dim" colspan="6" style="color:#00E676; font-weight:700;">LA VISTA (32 lots @ $572)</td>
+          </tr>
+          <tr><td>Lot Rent</td><td>$572</td><td>$601</td><td>$631</td><td>$663</td><td>$696</td></tr>
+          <tr><td class="dim">Projected Occupancy</td><td class="green">90.6%</td><td class="green">93.8%</td><td class="green">96.9%</td><td class="green">96.9%</td><td class="green">96.9%</td></tr>
+          <tr><td class="dim">Occupied Lots</td><td>29</td><td>30</td><td>31</td><td>31</td><td>31</td></tr>
+          <tr><td><b>Ann. Lot Revenue</b></td><td><b>$199,056</b></td><td><b>$216,360</b></td><td><b>$234,732</b></td><td><b>$246,636</b></td><td><b>$258,912</b></td></tr>
+          <tr style="border-top: 2px solid rgba(59,130,246,0.2); font-weight: 700;">
+            <td><b style="color:#3B82F6;">PORTFOLIO TOTAL</b></td>
+            <td><b>$2,616,888</b></td>
+            <td><b>$2,878,596</b></td>
+            <td><b>$3,141,444</b></td>
+            <td><b>$3,334,332</b></td>
+            <td><b>$3,501,720</b></td>
+          </tr>
+          <tr style="font-weight: 700;">
+            <td><b style="color:#10B981;">YoY Growth</b></td>
+            <td>&mdash;</td>
+            <td class="green">+10.0%</td>
+            <td class="green">+9.1%</td>
+            <td class="green">+6.1%</td>
+            <td class="green">+5.0%</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= REVENUE WATERFALL ======= -->
+    <div class="group-divider">
+      <div class="group-label">Revenue Waterfall &mdash; Where the Growth Comes From</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Revenue Driver</th><th style="text-align:right;">Year 1</th><th style="text-align:right;">Year 5</th><th style="text-align:right;">$ Change</th><th style="text-align:right;">% of Growth</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Lot Rent (Rate Increases)</b></td><td style="text-align:right;">$2,616,888</td><td style="text-align:right;">$3,501,720</td><td style="text-align:right;" class="green">+$884,832</td><td style="text-align:right;" class="green"><b>69%</b></td></tr>
+          <tr><td class="dim">&nbsp;&nbsp;From 5% annual rent growth</td><td style="text-align:right;" class="dim">&mdash;</td><td style="text-align:right;" class="dim">&mdash;</td><td style="text-align:right;" class="dim">~$560K</td><td style="text-align:right;" class="dim">44%</td></tr>
+          <tr><td class="dim">&nbsp;&nbsp;From lease-up (34 new lots)</td><td style="text-align:right;" class="dim">&mdash;</td><td style="text-align:right;" class="dim">&mdash;</td><td style="text-align:right;" class="dim">~$325K</td><td style="text-align:right;" class="dim">25%</td></tr>
+          <tr><td><b>RUBS / Utility Recovery</b></td><td style="text-align:right;">$173,424</td><td style="text-align:right;">$233,461</td><td style="text-align:right;" class="green">+$60,037</td><td style="text-align:right;"><b>5%</b></td></tr>
+          <tr><td><b>Home Rent / POH Income</b></td><td style="text-align:right;">$1,278,282</td><td style="text-align:right;">$1,768,912</td><td style="text-align:right;" class="green">+$490,630</td><td style="text-align:right;"><b>38%</b></td></tr>
+          <tr><td class="dim">Other Income</td><td style="text-align:right;">$204,105</td><td style="text-align:right;">$52,133</td><td style="text-align:right;" class="red">-$151,972</td><td style="text-align:right;" class="red">-12%</td></tr>
+          <tr style="background:rgba(59,130,246,0.06);"><td><b style="color:#3B82F6;">TOTAL REVENUE</b></td><td style="text-align:right;"><b>$4,272,699</b></td><td style="text-align:right;"><b>$5,556,226</b></td><td style="text-align:right;" class="green"><b>+$1,283,527</b></td><td style="text-align:right;"><b>100%</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= RETURN MILESTONES ======= -->
+    <div class="group-divider">
+      <div class="group-label">Return Milestones &amp; Key Metrics by Year</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Metric</th><th style="text-align:right;">Year 1</th><th style="text-align:right;">Year 2</th><th style="text-align:right;">Year 3</th><th style="text-align:right;">Year 4</th><th style="text-align:right;">Year 5</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Cash on Cash Return</b></td><td style="text-align:right;">7%</td><td style="text-align:right;">7%</td><td style="text-align:right;">7%</td><td style="text-align:right;" class="green">8%</td><td style="text-align:right;" class="green">9%</td></tr>
+          <tr><td><b>DSCR</b></td><td style="text-align:right;" class="green">2.01x</td><td style="text-align:right;" class="green">2.73x</td><td style="text-align:right;" class="green">2.55x</td><td style="text-align:right;" class="green">2.72x</td><td style="text-align:right;" class="green">2.90x</td></tr>
+          <tr><td><b>Cap Rate (on Purchase)</b></td><td style="text-align:right;">7.2%</td><td style="text-align:right;">8.0%</td><td style="text-align:right;">8.5%</td><td style="text-align:right;">9.1%</td><td style="text-align:right;">9.7%</td></tr>
+          <tr><td><b>Cumulative Cash Distributed</b></td><td style="text-align:right;">$1.7M</td><td style="text-align:right;">$3.5M</td><td style="text-align:right;">$5.3M</td><td style="text-align:right;">$7.3M</td><td style="text-align:right;">$9.5M</td></tr>
+          <tr style="background:rgba(0,230,118,0.04);"><td><b class="green">Portfolio Occupancy</b></td><td style="text-align:right;" class="orange">86.7%</td><td style="text-align:right;">90.7%</td><td style="text-align:right;" class="green">94.2%</td><td style="text-align:right;" class="green">95.2%</td><td style="text-align:right;" class="green">95.2%</td></tr>
+          <tr><td><b>Avg Blended Lot Rent</b></td><td style="text-align:right;">$630</td><td style="text-align:right;">$662</td><td style="text-align:right;">$695</td><td style="text-align:right;">$730</td><td style="text-align:right;">$766</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- MILESTONES CALLOUT -->
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section" style="border-left:3px solid #00E676; padding-left:12px;">
+        <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">KEY MILESTONES</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Year 1:</b> 8% pref return covered from day one &mdash; DSCR 2.01x provides comfortable debt cushion even during IO period.<br>
+          <b style="color:#E5E9ED;">Year 2:</b> Portfolio crosses 90% occupancy. NOI jumps 11.5% as lease-up and rent growth compound.<br>
+          <b style="color:#E5E9ED;">Year 3:</b> Stabilization reached at 94%+. Cash on Cash still 7% as debt service increases post-IO.<br>
+          <b style="color:#E5E9ED;">Year 4:</b> Cash on Cash hits 8%. Cumulative distributions pass $7M. Refi or disposition analysis begins.<br>
+          <b style="color:#E5E9ED;">Year 5:</b> Exit target. 9% CoC, 2.90x DSCR, $3.8M NOI. Gross exit value $68.4M at 5.6% cap.
+        </div>
+      </div>
+      <div class="section" style="border-left:3px solid #EF4444; padding-left:12px;">
+        <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">SENSITIVITY &mdash; WHAT BREAKS IT</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Breakeven Exit Cap:</b> 7.0% &mdash; 140bps of cushion vs. 5.6% exit assumption.<br>
+          <b style="color:#E5E9ED;">Breakeven Rent Growth:</b> 0% &mdash; returns hit target even with zero rent increases.<br>
+          <b style="color:#E5E9ED;">Risk: Lease-up stalls</b> &mdash; If occupancy stays at 87%, Y5 NOI drops ~$300K but DSCR stays above 2.0x.<br>
+          <b style="color:#E5E9ED;">Risk: Commercial tax class</b> &mdash; If Pueblo classifies as commercial (29%), adds $600K+/yr OpEx. Kills returns.<br>
+          <b style="color:#E5E9ED;">Risk: RUBS blocked</b> &mdash; If RUBS can't be implemented, lose $60K-$160K in utility recovery.
+        </div>
+      </div>
+    </div>
+
+    <!-- EXIT SCENARIO -->
+    <div class="group-divider">
+      <div class="group-label">Exit Scenario &mdash; Year 5 Disposition</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section">
+        <div class="section-title">Exit Valuation</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Y5 NOI</td><td><b class="green">$3,838,279</b></td></tr>
+          <tr><td class="dim">Exit Cap Rate</td><td><b>5.6%</b></td></tr>
+          <tr><td class="dim">Gross Exit Value</td><td><b>$68,358K</b></td></tr>
+          <tr><td class="dim">Less: Loan Payoff</td><td>($21,914K)</td></tr>
+          <tr><td class="dim">Less: Closing Costs</td><td>($417K)</td></tr>
+          <tr><td class="dim">Net Exit Proceeds</td><td><b class="green">$46,027K</b></td></tr>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Investor Returns at Exit</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Project IRR</td><td><b class="green">18%</b></td></tr>
+          <tr><td class="dim">MOIC</td><td><b class="green">2.1x</b></td></tr>
+          <tr><td class="dim">LP IRR</td><td><b class="green">16%</b></td></tr>
+          <tr><td class="dim">LP Multiple</td><td><b class="green">1.92x</b></td></tr>
+          <tr><td class="dim">GP IRR</td><td><b class="green">42%</b></td></tr>
+          <tr><td class="dim">Waterfall</td><td>95/5, 8% pref, 70/30</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 17: MARKET                                                -->
+  <!-- ============================================================ -->
+  <div class="tab-content" id="tab-page17">
+
+    <!-- ======= HERO KPIs ======= -->
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="value white">111K</div>
+        <div class="label">Population</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value white">$57K</div>
+        <div class="label">Median HH Income</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value white">$257K</div>
+        <div class="label">Median Home Price</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value white">$1,200</div>
+        <div class="label">Median Apt Rent</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value orange">6.0%</div>
+        <div class="label">Unemployment</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value white">38.4</div>
+        <div class="label">Median Age</div>
+      </div>
+    </div>
+
+    <!-- ======= MARKET OVERVIEW ======= -->
+    <div class="group-divider">
+      <div class="group-label">Market Overview &mdash; Pueblo, CO MSA</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">WHY PUEBLO</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        Pueblo is the <b style="color:#E5E9ED;">7th largest city in Colorado</b> and the regional hub for southern Colorado. It offers a significantly lower cost of living than Denver/Colorado Springs (median home price $257K vs. $550K+ statewide), making it a natural market for manufactured housing. The MSA has a diversified employer base anchored by healthcare, education, government, and heavy manufacturing, with a growing renewable energy sector. MHC demand is supported by a <b style="color:#E5E9ED;">17.5% poverty rate</b> and a large renter population that needs affordable alternatives to $1,200/mo apartments.
+      </div>
+    </div>
+
+    <!-- ======= DEMOGRAPHICS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Demographics &amp; Population</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section">
+        <div class="section-title">Population &amp; Age</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">City Population (2026)</td><td><b>111,851</b></td></tr>
+          <tr><td class="dim">MSA Population</td><td><b>~170,000</b></td></tr>
+          <tr><td class="dim">Population Trend</td><td class="orange"><b>-0.17%/yr</b> (slight decline)</td></tr>
+          <tr><td class="dim">Median Age</td><td><b>38.4 years</b></td></tr>
+          <tr><td class="dim">Male Median Age</td><td>36.6</td></tr>
+          <tr><td class="dim">Female Median Age</td><td>40.8</td></tr>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Income &amp; Affordability</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Median Household Income</td><td><b>$56,664</b></td></tr>
+          <tr><td class="dim">Per Capita Income</td><td><b>$44,101</b></td></tr>
+          <tr><td class="dim">Poverty Rate</td><td class="red"><b>17.5%</b></td></tr>
+          <tr><td class="dim">CO Statewide Median HHI</td><td>$87,598</td></tr>
+          <tr><td class="dim">Pueblo vs. State</td><td class="orange"><b>35% below</b> state median</td></tr>
+          <tr><td class="dim">Implication</td><td class="dim">Strong MHC demand driver</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Racial &amp; Ethnic Composition</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Group</th><th style="text-align:right;">Share</th><th>Context</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>White</td><td style="text-align:right;"><b>67.4%</b></td><td class="dim">Includes Hispanic/Latino white identification</td></tr>
+          <tr><td>Hispanic/Latino (any race)</td><td style="text-align:right;"><b>~52%</b></td><td class="dim">Largest ethnic group &mdash; historically significant community</td></tr>
+          <tr><td>Other Race</td><td style="text-align:right;">9.1%</td><td class="dim">&mdash;</td></tr>
+          <tr><td>Two or More Races</td><td style="text-align:right;">6.8%</td><td class="dim">&mdash;</td></tr>
+          <tr><td>Black or African American</td><td style="text-align:right;">2.5%</td><td class="dim">&mdash;</td></tr>
+          <tr><td>Native American</td><td style="text-align:right;">1.5%</td><td class="dim">&mdash;</td></tr>
+          <tr><td>Asian</td><td style="text-align:right;">1.0%</td><td class="dim">&mdash;</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= MAJOR EMPLOYERS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Major Employers</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>#</th><th>Employer</th><th>Sector</th><th style="text-align:right;">Est. Employees</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><b>UCHealth Parkview Medical Center</b></td><td>Healthcare</td><td style="text-align:right;"><b>~3,000</b></td><td class="dim">350-bed hospital, largest employer in Pueblo</td></tr>
+          <tr><td>2</td><td><b>Pueblo School District 60</b></td><td>Education</td><td style="text-align:right;"><b>~2,400</b></td><td class="dim">15,000+ K-12 students</td></tr>
+          <tr><td>3</td><td><b>Pueblo County Government</b></td><td>Government</td><td style="text-align:right;"><b>~1,500</b></td><td class="dim">County administration &amp; services</td></tr>
+          <tr><td>4</td><td><b>St. Mary-Corwin Medical Center</b></td><td>Healthcare</td><td style="text-align:right;"><b>~1,200</b></td><td class="dim">Second major hospital system</td></tr>
+          <tr><td>5</td><td><b>EVRAZ Rocky Mountain Steel</b></td><td>Manufacturing</td><td style="text-align:right;"><b>~1,100</b></td><td class="dim">World&rsquo;s largest solar-powered steel mill</td></tr>
+          <tr><td>6</td><td><b>CS Wind</b></td><td>Manufacturing</td><td style="text-align:right;"><b>~850+</b></td><td class="dim">World&rsquo;s largest wind tower factory &mdash; expanding to 850 new jobs by 2028</td></tr>
+          <tr><td>7</td><td><b>Pueblo City Schools (D70)</b></td><td>Education</td><td style="text-align:right;"><b>~1,000</b></td><td class="dim">Second school district</td></tr>
+          <tr><td>8</td><td><b>Trane Technologies</b></td><td>Manufacturing</td><td style="text-align:right;"><b>~600</b></td><td class="dim">HVAC systems manufacturing</td></tr>
+          <tr><td>9</td><td><b>Colorado State University&ndash;Pueblo</b></td><td>Education</td><td style="text-align:right;"><b>~500</b></td><td class="dim">Regional university</td></tr>
+          <tr><td>10</td><td><b>Colorado Mental Health Institute</b></td><td>Healthcare</td><td style="text-align:right;"><b>~450</b></td><td class="dim">State psychiatric facility</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #22C55E; padding-left:12px;">
+      <div style="font-size:11px; color:#22C55E; font-weight:700; margin-bottom:6px;">EMPLOYER STABILITY ASSESSMENT</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        <b style="color:#E5E9ED;">Healthcare + Education + Government = ~60% of top employment.</b> These sectors are recession-resistant and provide stable demand for affordable housing. The manufacturing base (EVRAZ, CS Wind, Trane) adds blue-collar jobs that align well with MHC tenant demographics. No single employer dominates &mdash; diversified risk profile.
+      </div>
+    </div>
+
+    <!-- ======= ECONOMIC DEVELOPMENT ======= -->
+    <div class="group-divider">
+      <div class="group-label">Economic Development &amp; Upcoming Projects</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table">
+        <thead>
+          <tr><th>Project</th><th>Status</th><th>Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>CS Wind Manufacturing Expansion</b></td>
+            <td><span class="status-badge badge-in-progress">UNDERWAY</span></td>
+            <td class="dim">850 new jobs by 2028. World&rsquo;s largest wind tower factory expanding production to 10,000 sections/yr.</td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>I-25 / US 50B Interchange</b></td>
+            <td><span class="status-badge badge-in-progress">CONSTRUCTION</span></td>
+            <td class="dim">CDOT diverging diamond interchange. Sound walls early 2026, traffic shifts mid-2026. Major infrastructure upgrade.</td>
+          </tr>
+          <tr>
+            <td><b>PEDCO Manufacturing Pipeline</b></td>
+            <td><span class="status-badge badge-partial">PROSPECT</span></td>
+            <td class="dim">3 active prospects in aerospace, defense &amp; advanced manufacturing. Could create 450+ full-time jobs in Pueblo industrial parks.</td>
+          </tr>
+          <tr>
+            <td><b>Trussworks Operations LLC</b></td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676;">ANNOUNCED</span></td>
+            <td class="dim">New manufacturing facility announced Aug 2025. Expanding operations to Pueblo region.</td>
+          </tr>
+          <tr>
+            <td><b>Denver Metro EDC Alliance</b></td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676;">ACTIVE</span></td>
+            <td class="dim">Sept 2025 alliance with Metro Denver EDC to leverage Pueblo&rsquo;s strengths in steel, high-tech, advanced manufacturing.</td>
+          </tr>
+          <tr>
+            <td><b>Pueblo West Aquatics Center</b></td>
+            <td><span class="status-badge badge-partial">FUNDED</span></td>
+            <td class="dim">1A Community Improvement funding for new aquatics center construction.</td>
+          </tr>
+          <tr>
+            <td><b>Lake Beckwith Trail Restoration</b></td>
+            <td><span class="status-badge badge-partial">FUNDED</span></td>
+            <td class="dim">1.4 miles of trail repair + new amenities. Colorado City Metro District.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======= HOUSING MARKET ======= -->
+    <div class="group-divider">
+      <div class="group-label">Housing Market &amp; Affordability</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section">
+        <div class="section-title">Home Sales Market</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Median Home Price (Dec 2025)</td><td><b>$257,000</b></td></tr>
+          <tr><td class="dim">YoY Price Change</td><td class="green"><b>+2.8%</b></td></tr>
+          <tr><td class="dim">Pueblo County Median</td><td>$320,000</td></tr>
+          <tr><td class="dim">CO Statewide Median</td><td>$550,000+</td></tr>
+          <tr><td class="dim">Pueblo vs. State</td><td class="green"><b>53% cheaper</b></td></tr>
+          <tr><td class="dim">Affordability Ratio (Price/Income)</td><td><b>4.5x</b></td></tr>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Apartment Rental Market</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Median All-Type Rent (Feb 2026)</td><td><b>$1,200/mo</b></td></tr>
+          <tr><td class="dim">Studio</td><td>$876/mo</td></tr>
+          <tr><td class="dim">1-Bedroom</td><td>$986/mo (618 sq ft)</td></tr>
+          <tr><td class="dim">2-Bedroom</td><td>$1,267/mo (873 sq ft)</td></tr>
+          <tr><td class="dim">3-Bedroom</td><td>$1,491/mo (1,069 sq ft)</td></tr>
+          <tr><td class="dim">MHC Lot Rent Range</td><td class="green"><b>$572&ndash;$654</b></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #00E676; padding-left:12px;">
+      <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">MHC AFFORDABILITY ADVANTAGE</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        A 2BR apartment at <b style="color:#E5E9ED;">$1,267/mo</b> vs. an MHC lot rent at <b style="color:#E5E9ED;">$615&ndash;$654/mo</b> represents a <b style="color:#00E676;">46&ndash;51% savings</b> for MHC residents. Even adding a $200&ndash;$400 home payment, MHC total housing cost of $815&ndash;$1,054 is still 17&ndash;36% cheaper than apartments with more space and privacy. This affordability gap is the primary demand driver and provides a durable moat for lot rent increases.
+      </div>
+    </div>
+
+    <!-- ======= RENT COMPS ======= -->
+    <div class="group-divider">
+      <div class="group-label">MHC Rent Comparables &mdash; Pueblo Market</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Community</th><th style="text-align:right;">Lots</th><th style="text-align:right;">Lot Rent</th><th>Type</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b style="color:#EF4444;">Sunset Vista (Subject)</b></td>
+            <td style="text-align:right;"><b>206</b></td>
+            <td style="text-align:right;"><b>$654</b></td>
+            <td>All-Age</td>
+            <td class="dim">Largest of the 3-pack. 5000 Red Creek Springs Rd.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b style="color:#FBBF24;">Oasis (Subject)</b></td>
+            <td style="text-align:right;"><b>161</b></td>
+            <td style="text-align:right;"><b>$615</b></td>
+            <td>All-Age</td>
+            <td class="dim">2221 S Prairie Ave. Worst roads, most deferred maint.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b style="color:#00E676;">La Vista (Subject)</b></td>
+            <td style="text-align:right;"><b>32</b></td>
+            <td style="text-align:right;"><b>$572</b></td>
+            <td>All-Age</td>
+            <td class="dim">3333 Starlite Dr. Smallest, cleanest property.</td>
+          </tr>
+          <tr>
+            <td>Pueblo Grande</td>
+            <td style="text-align:right;">252</td>
+            <td style="text-align:right;" class="orange">$1,445&ndash;$1,574</td>
+            <td>All-Age</td>
+            <td class="dim">Gated community. Fortino Blvd. Premium amenities &mdash; not a direct comp (rent-to-own model likely).</td>
+          </tr>
+          <tr>
+            <td>Oasis MHP (55+)</td>
+            <td style="text-align:right;">&mdash;</td>
+            <td style="text-align:right;">$640</td>
+            <td>55+</td>
+            <td class="dim">Age-restricted. Includes water, trash, sewer in lot rent.</td>
+          </tr>
+          <tr>
+            <td>Pueblo Pointe MHC</td>
+            <td style="text-align:right;">&mdash;</td>
+            <td style="text-align:right;" class="dim">TBD</td>
+            <td>All-Age</td>
+            <td class="dim">Active community &mdash; lot rent not publicly listed. Needs phone comp.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #FBBF24; padding-left:12px;">
+      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">RENT COMP OBSERVATIONS</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        <b style="color:#E5E9ED;">Limited public comp data</b> &mdash; Pueblo MHC lot rents are not widely published online. Phone surveys needed for accurate market positioning. Our subject properties ($572&ndash;$654) appear to be in the <b style="color:#E5E9ED;">mid-market range</b> for all-age communities. The 55+ Oasis MHP at $640 (utilities included) suggests our $615&ndash;$654 base rents are competitive. <b style="color:#E5E9ED;">Pueblo Grande at $1,445+</b> is an outlier &mdash; likely a rent-to-own or premium model, not a direct comp. Model assumes 5% annual increases to reach $700+ by Year 3, which is achievable given the apartment rent spread.
+      </div>
+    </div>
+
+    <!-- ======= ECONOMIC INDICATORS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Economic Indicators &amp; Risk Factors</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section">
+        <div class="section-title">Labor Market</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">Unemployment Rate (Dec 2024)</td><td class="orange"><b>6.0%</b></td></tr>
+          <tr><td class="dim">Colorado Statewide</td><td>4.5%</td></tr>
+          <tr><td class="dim">US National</td><td>4.1%</td></tr>
+          <tr><td class="dim">2026 CO Forecast</td><td class="green">4.1% (improving)</td></tr>
+          <tr><td class="dim">Key Growth Sectors</td><td class="dim">Healthcare, Education, Mfg</td></tr>
+          <tr><td class="dim">CS Wind Jobs Pipeline</td><td class="green"><b>+850 by 2028</b></td></tr>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">Cost of Living &amp; Inflation</div>
+        <table class="prop-table" style="width:100%;">
+          <tr><td class="dim">CPI Inflation (CO, 2025)</td><td><b>3.0%</b></td></tr>
+          <tr><td class="dim">2026 Forecast</td><td class="orange"><b>3.5%</b></td></tr>
+          <tr><td class="dim">Home Price Growth (YoY)</td><td class="green">+2.8%</td></tr>
+          <tr><td class="dim">Pueblo vs. Denver CoL</td><td class="green"><b>~35% lower</b></td></tr>
+          <tr><td class="dim">MHC Rent Increase Model</td><td><b>5.0%/yr</b></td></tr>
+          <tr><td class="dim">Rent Increase vs. CPI</td><td class="dim">+1.5&ndash;2.0% above inflation</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ======= MARKET RISKS & TAILWINDS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Market Tailwinds &amp; Headwinds</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section" style="border-left:3px solid #00E676; padding-left:12px;">
+        <div style="font-size:11px; color:#00E676; font-weight:700; margin-bottom:6px;">TAILWINDS</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Affordability gap widening</b> &mdash; Apartment rents rising faster than MHC lot rents, expanding the savings moat.<br>
+          <b style="color:#E5E9ED;">CS Wind + 850 jobs</b> &mdash; Blue-collar manufacturing expansion aligns perfectly with MHC tenant demographics.<br>
+          <b style="color:#E5E9ED;">Colorado MHC protections</b> &mdash; 60-day rent increase notice + 12-month minimum between increases provides regulatory certainty.<br>
+          <b style="color:#E5E9ED;">No new MHC supply</b> &mdash; Virtually zero new MHC development in Pueblo. Existing communities have pricing power.<br>
+          <b style="color:#E5E9ED;">Denver/COS migration</b> &mdash; Housing refugees from higher-cost Front Range markets moving south to Pueblo for affordability.<br>
+          <b style="color:#E5E9ED;">Infrastructure investment</b> &mdash; I-25/US 50B interchange upgrade improves connectivity and property accessibility.
+        </div>
+      </div>
+      <div class="section" style="border-left:3px solid #EF4444; padding-left:12px;">
+        <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">HEADWINDS</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Population decline (-0.17%/yr)</b> &mdash; Slight population loss means organic demand growth is limited. Must rely on affordability migration.<br>
+          <b style="color:#E5E9ED;">Above-average unemployment (6.0%)</b> &mdash; 1.5% above state average. Higher bad debt and collections risk for tenants.<br>
+          <b style="color:#E5E9ED;">Below-average incomes</b> &mdash; $57K median HHI is 35% below state. Limits rent increase ceiling if affordability tightens.<br>
+          <b style="color:#E5E9ED;">17.5% poverty rate</b> &mdash; Nearly 1 in 5 residents below poverty line. Social services dependency and higher turnover risk.<br>
+          <b style="color:#E5E9ED;">Tax reassessment risk</b> &mdash; Pueblo County may reclassify MHC as commercial (29% vs. 6.7% residential). Could add $600K+/yr.<br>
+          <b style="color:#E5E9ED;">Limited comp data</b> &mdash; Thin MHC transaction and rent comp market makes accurate benchmarking difficult.
+        </div>
+      </div>
+    </div>
+
+    <!-- DATA SOURCES -->
+    <div class="section" style="margin-bottom:14px; padding:10px 14px;">
+      <div style="font-size:9px; color:#858D99; line-height:1.6;">
+        <b>Sources:</b> U.S. Census Bureau (ACS 2023), World Population Review (2026 est.), Bureau of Labor Statistics (Pueblo MSA Dec 2024), Redfin (Dec 2025 home sales), RentCafe/Zumper/Zillow (Feb 2026 apartment rents), PEDCO (economic development), CDOT (I-25/US 50B), CPR News (CS Wind expansion), Colorado State Demography Office, Colorado Division of Housing. MHC rent comps from MHVillage, mymhcommunity.com, and seller data room. Data compiled March 2026.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
   <!-- TAB 12: RENT ROLL ANALYSIS                                    -->
   <!-- ============================================================ -->
   <div class="tab-content" id="tab-page12">
@@ -5767,157 +6545,6 @@
       <div style="font-size: 11px; color: #858D99; line-height: 1.7;">
         All lots within each property are charged the <b style="color:#E5E9ED;">same rent regardless of lot type</b> (POH, TOH, LTO). Sunset Vista: $654/lot. Oasis: $615/lot. La Vista: $572/lot. There is <b style="color:#E5E9ED;">no differentiation</b> between POH lot rent and TOH lot rent. This is unusual &mdash; most institutional operators charge higher rent to POH lots (bundled home + lot) vs. TOH lots (lot only). Misc charges do vary: POH avg ~$10&ndash;22/mo higher in misc fees (likely RUBS water/sewer pass-through or home-related charges).
       </div>
-    </div>
-
-    <!-- RENT PROJECTION MODEL -->
-    <div class="group-divider">
-      <div class="group-label">Per-Lot Rent Projections (Year 1&ndash;5 Pro Forma)</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #6366F1; padding-left: 12px;">
-      <div style="font-size: 11px; color: #6366F1; font-weight: 700; margin-bottom: 6px;">ASSUMPTIONS</div>
-      <div style="font-size: 11px; color: #858D99; line-height: 1.7;">
-        Annual lot rent increase: <b style="color:#E5E9ED;">5%</b> (aggressive but achievable in value-add MHC). Lease-up: <b style="color:#E5E9ED;">3 lots/month</b> filled across portfolio to reach 95% stabilized occupancy. POH home rent premium: <b style="color:#E5E9ED;">$200&ndash;$400/mo</b> layered on top of lot rent for POH units (home income). Current rents are at or slightly below Pueblo market for comparable MHC ($600&ndash;$700 lot rent range).
-      </div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Metric</th>
-            <th style="width:110px;">Year 1 (Current)</th>
-            <th style="width:100px;">Year 2</th>
-            <th style="width:100px;">Year 3</th>
-            <th style="width:100px;">Year 4</th>
-            <th style="width:100px;">Year 5</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="dim" colspan="6" style="color:#3B82F6; font-weight:700;">SUNSET VISTA (206 lots @ $654)</td>
-          </tr>
-          <tr>
-            <td>Lot Rent</td>
-            <td>$654</td>
-            <td>$687</td>
-            <td>$721</td>
-            <td>$757</td>
-            <td>$795</td>
-          </tr>
-          <tr>
-            <td>Projected Occupancy</td>
-            <td class="orange">82.0%</td>
-            <td>88.0%</td>
-            <td>93.0%</td>
-            <td class="green">95.0%</td>
-            <td class="green">95.0%</td>
-          </tr>
-          <tr>
-            <td>Occupied Lots</td>
-            <td>169</td>
-            <td>181</td>
-            <td>192</td>
-            <td>196</td>
-            <td>196</td>
-          </tr>
-          <tr>
-            <td>Ann. Lot Revenue</td>
-            <td>$1,325,592</td>
-            <td>$1,491,684</td>
-            <td>$1,661,184</td>
-            <td>$1,780,464</td>
-            <td>$1,869,480</td>
-          </tr>
-          <tr>
-            <td class="dim" colspan="6" style="color:#3B82F6; font-weight:700;">OASIS (161 lots @ $615)</td>
-          </tr>
-          <tr>
-            <td>Lot Rent</td>
-            <td>$615</td>
-            <td>$646</td>
-            <td>$678</td>
-            <td>$712</td>
-            <td>$748</td>
-          </tr>
-          <tr>
-            <td>Projected Occupancy</td>
-            <td class="green">91.9%</td>
-            <td class="green">94.0%</td>
-            <td class="green">95.0%</td>
-            <td class="green">95.0%</td>
-            <td class="green">95.0%</td>
-          </tr>
-          <tr>
-            <td>Occupied Lots</td>
-            <td>148</td>
-            <td>151</td>
-            <td>153</td>
-            <td>153</td>
-            <td>153</td>
-          </tr>
-          <tr>
-            <td>Ann. Lot Revenue</td>
-            <td>$1,092,240</td>
-            <td>$1,170,552</td>
-            <td>$1,245,528</td>
-            <td>$1,307,232</td>
-            <td>$1,373,328</td>
-          </tr>
-          <tr>
-            <td class="dim" colspan="6" style="color:#3B82F6; font-weight:700;">LA VISTA (32 lots @ $572)</td>
-          </tr>
-          <tr>
-            <td>Lot Rent</td>
-            <td>$572</td>
-            <td>$601</td>
-            <td>$631</td>
-            <td>$663</td>
-            <td>$696</td>
-          </tr>
-          <tr>
-            <td>Projected Occupancy</td>
-            <td class="green">90.6%</td>
-            <td class="green">93.8%</td>
-            <td class="green">96.9%</td>
-            <td class="green">96.9%</td>
-            <td class="green">96.9%</td>
-          </tr>
-          <tr>
-            <td>Occupied Lots</td>
-            <td>29</td>
-            <td>30</td>
-            <td>31</td>
-            <td>31</td>
-            <td>31</td>
-          </tr>
-          <tr>
-            <td>Ann. Lot Revenue</td>
-            <td>$199,056</td>
-            <td>$216,360</td>
-            <td>$234,732</td>
-            <td>$246,636</td>
-            <td>$258,912</td>
-          </tr>
-          <tr style="border-top: 1px solid rgba(255,255,255,0.1); font-weight: 700;">
-            <td><b style="color:#3B82F6;">PORTFOLIO TOTAL</b></td>
-            <td>$2,616,888</td>
-            <td>$2,878,596</td>
-            <td>$3,141,444</td>
-            <td>$3,334,332</td>
-            <td>$3,501,720</td>
-          </tr>
-          <tr style="font-weight: 700;">
-            <td><b style="color:#10B981;">YoY Growth</b></td>
-            <td>&mdash;</td>
-            <td class="green">+10.0%</td>
-            <td class="green">+9.1%</td>
-            <td class="green">+6.1%</td>
-            <td class="green">+5.0%</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- RESIDENT TENURE ANALYSIS -->
@@ -6445,7 +7072,8 @@
     <div class="prop-matrix" style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px;">
       <!-- LA VISTA -->
       <div class="section" style="border-top:3px solid #00E676;">
-        <div style="font-size:13px; font-weight:800; color:#00E676; margin-bottom:10px;">La Vista</div>
+        <div style="font-size:13px; font-weight:800; color:#00E676; margin-bottom:2px;">La Vista</div>
+        <div class="map-address" style="margin-bottom:8px;">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr, Pueblo, CO</a></div>
         <table class="prop-table" style="width:100%;">
           <tbody>
             <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
@@ -6465,7 +7093,8 @@
       </div>
       <!-- OASIS -->
       <div class="section" style="border-top:3px solid #FBBF24;">
-        <div style="font-size:13px; font-weight:800; color:#FBBF24; margin-bottom:10px;">Oasis</div>
+        <div style="font-size:13px; font-weight:800; color:#FBBF24; margin-bottom:2px;">Oasis</div>
+        <div class="map-address" style="margin-bottom:8px;">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave, Pueblo, CO</a></div>
         <table class="prop-table" style="width:100%;">
           <tbody>
             <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
@@ -6485,7 +7114,8 @@
       </div>
       <!-- SUNSET COURTYARD -->
       <div class="section" style="border-top:3px solid #EF4444;">
-        <div style="font-size:13px; font-weight:800; color:#EF4444; margin-bottom:10px;">Sunset Courtyard</div>
+        <div style="font-size:13px; font-weight:800; color:#EF4444; margin-bottom:2px;">Sunset Courtyard</div>
+        <div class="map-address" style="margin-bottom:8px;">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 &amp; 5100 Red Creek Springs Rd, Pueblo, CO</a></div>
         <table class="prop-table" style="width:100%;">
           <tbody>
             <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
@@ -6761,8 +7391,8 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Jeff Mendez</b></td><td class="dim">Principal / Managing Partner</td><td class="dim">jmendez@s168p.com</td></tr>
-            <tr><td><b>Jeff Bennett</b></td><td class="dim">Principal / Managing Partner</td><td class="dim">jbennett@s168p.com</td></tr>
+            <tr><td><b>Jeff Mendez</b></td><td class="dim">Principal / Managing Partner</td><td class="dim"><a href="mailto:jmendez@s168p.com" style="color:#3B82F6; text-decoration:none;">jmendez@s168p.com</a></td></tr>
+            <tr><td><b>Jeff Bennett</b></td><td class="dim">Principal / Managing Partner</td><td class="dim"><a href="mailto:jbennett@s168p.com" style="color:#3B82F6; text-decoration:none;">jbennett@s168p.com</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -6771,12 +7401,12 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Chris Meriwether</b></td><td class="dim">VP of Acquisitions & Asset Management</td><td class="dim">chris@silverlandsmg.com</td></tr>
-            <tr><td><b>Keiana Manalo</b></td><td class="dim">DD and Asset Management</td><td class="dim">keiana@silverlandsmg.com</td></tr>
-            <tr><td><b>Derek Wilson</b></td><td class="dim">Chief Operating Officer</td><td class="dim">derek@silverlandsmg.com</td></tr>
-            <tr><td><b>Tommy Marcheschi</b></td><td class="dim">Chief Financial Officer</td><td class="dim">tommy@silverlandsmg.com</td></tr>
-            <tr><td><b>Nicholas Hansen</b></td><td class="dim">Chief Revenue Officer</td><td class="dim">nick@silverlandsmg.com</td></tr>
-            <tr><td><b>Lauren Taft</b></td><td class="dim">Vice President of Finance</td><td class="dim">lauren@silverlandsmg.com</td></tr>
+            <tr><td><b>Chris Meriwether</b></td><td class="dim">VP of Acquisitions & Asset Management</td><td class="dim"><a href="mailto:chris@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">chris@silverlandsmg.com</a></td></tr>
+            <tr><td><b>Keiana Manalo</b></td><td class="dim">DD and Asset Management</td><td class="dim"><a href="mailto:keiana@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">keiana@silverlandsmg.com</a></td></tr>
+            <tr><td><b>Derek Wilson</b></td><td class="dim">Chief Operating Officer</td><td class="dim"><a href="mailto:derek@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">derek@silverlandsmg.com</a></td></tr>
+            <tr><td><b>Tommy Marcheschi</b></td><td class="dim">Chief Financial Officer</td><td class="dim"><a href="mailto:tommy@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">tommy@silverlandsmg.com</a></td></tr>
+            <tr><td><b>Nicholas Hansen</b></td><td class="dim">Chief Revenue Officer</td><td class="dim"><a href="mailto:nick@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">nick@silverlandsmg.com</a></td></tr>
+            <tr><td><b>Lauren Taft</b></td><td class="dim">Vice President of Finance</td><td class="dim"><a href="mailto:lauren@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">lauren@silverlandsmg.com</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -6788,10 +7418,10 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Sarge Wiebold</b></td><td class="dim">CapEx</td><td class="dim">sarge@silverlands.com</td></tr>
-            <tr><td><b>Drew Taft</b></td><td class="dim">CapEx</td><td class="dim">drew@silverlands.com</td></tr>
-            <tr><td><b>Paul Bradshaw</b></td><td class="dim">CapEx</td><td class="dim">paul@silverlandsmg.com</td></tr>
-            <tr><td><b>Jose Torres</b></td><td class="dim">CapEx</td><td class="dim">jose.torres@silverlandsmg.com</td></tr>
+            <tr><td><b>Sarge Wiebold</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:sarge@silverlands.com" style="color:#3B82F6; text-decoration:none;">sarge@silverlands.com</a></td></tr>
+            <tr><td><b>Drew Taft</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:drew@silverlands.com" style="color:#3B82F6; text-decoration:none;">drew@silverlands.com</a></td></tr>
+            <tr><td><b>Paul Bradshaw</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:paul@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">paul@silverlandsmg.com</a></td></tr>
+            <tr><td><b>Jose Torres</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:jose.torres@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">jose.torres@silverlandsmg.com</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -6800,8 +7430,8 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Kristen Kealer</b></td><td class="dim">VP of Investor Relations</td><td class="dim">kkealer@s168p.com</td></tr>
-            <tr><td><b>Sage Damiano</b></td><td class="dim">Investor Relations</td><td class="dim">sage@silverlandsmg.com</td></tr>
+            <tr><td><b>Kristen Kealer</b></td><td class="dim">VP of Investor Relations</td><td class="dim"><a href="mailto:kkealer@s168p.com" style="color:#3B82F6; text-decoration:none;">kkealer@s168p.com</a></td></tr>
+            <tr><td><b>Sage Damiano</b></td><td class="dim">Investor Relations</td><td class="dim"><a href="mailto:sage@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">sage@silverlandsmg.com</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -6813,8 +7443,8 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Matt Molloy</b></td><td class="dim">Buyer's Attorney — Molloy Law Group</td><td class="dim">matt@molloylawgroup.com</td></tr>
-            <tr><td><b>Sophia Gulgulian</b></td><td class="dim">Molloy Law Group</td><td class="dim">sophia@molloylawgroup.com</td></tr>
+            <tr><td><b>Matt Molloy</b></td><td class="dim">Buyer's Attorney — Molloy Law Group</td><td class="dim"><a href="mailto:matt@molloylawgroup.com" style="color:#3B82F6; text-decoration:none;">matt@molloylawgroup.com</a></td></tr>
+            <tr><td><b>Sophia Gulgulian</b></td><td class="dim">Molloy Law Group</td><td class="dim"><a href="mailto:sophia@molloylawgroup.com" style="color:#3B82F6; text-decoration:none;">sophia@molloylawgroup.com</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -6823,8 +7453,8 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Mordy Jurkowitz</b></td><td class="dim">Director</td><td class="dim">mordy@princetoncapgrp.com</td></tr>
-            <tr><td><b>Henny Heisler</b></td><td class="dim">Princeton Capital Group</td><td class="dim">henny@princetoncapgrp.com</td></tr>
+            <tr><td><b>Mordy Jurkowitz</b></td><td class="dim">Director</td><td class="dim"><a href="mailto:mordy@princetoncapgrp.com" style="color:#3B82F6; text-decoration:none;">mordy@princetoncapgrp.com</a></td></tr>
+            <tr><td><b>Henny Heisler</b></td><td class="dim">Princeton Capital Group</td><td class="dim"><a href="mailto:henny@princetoncapgrp.com" style="color:#3B82F6; text-decoration:none;">henny@princetoncapgrp.com</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -6836,11 +7466,11 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Kris Wessel</b></td><td class="dim">Seller Representative / DD Contact</td><td class="dim">kris@mhclistings.com</td></tr>
-            <tr><td><b>Ben</b></td><td class="dim">Saddleback (Seller's PM)</td><td class="dim">ben@saddlebackpro.com</td></tr>
-            <tr><td><b>Seth Weiland</b></td><td class="dim">Seller's Counsel — Otten Johnson</td><td class="dim">sweiland@ottenjohnson.com</td></tr>
-            <tr><td><b>Ashley Ravn</b></td><td class="dim">Otten Johnson (co-counsel w/ Seth)</td><td class="dim">aravn@ottenjohnson.com</td></tr>
-            <tr><td><b>Ali Renes</b></td><td class="dim">Otten Johnson</td><td class="dim">arenes@ottenjohnson.com</td></tr>
+            <tr><td><b>Kris Wessel</b></td><td class="dim">Seller Representative / DD Contact</td><td class="dim"><a href="mailto:kris@mhclistings.com" style="color:#3B82F6; text-decoration:none;">kris@mhclistings.com</a></td></tr>
+            <tr><td><b>Ben</b></td><td class="dim">Saddleback (Seller's PM)</td><td class="dim"><a href="mailto:ben@saddlebackpro.com" style="color:#3B82F6; text-decoration:none;">ben@saddlebackpro.com</a></td></tr>
+            <tr><td><b>Seth Weiland</b></td><td class="dim">Seller's Counsel — Otten Johnson</td><td class="dim"><a href="mailto:sweiland@ottenjohnson.com" style="color:#3B82F6; text-decoration:none;">sweiland@ottenjohnson.com</a></td></tr>
+            <tr><td><b>Ashley Ravn</b></td><td class="dim">Otten Johnson (co-counsel w/ Seth)</td><td class="dim"><a href="mailto:aravn@ottenjohnson.com" style="color:#3B82F6; text-decoration:none;">aravn@ottenjohnson.com</a></td></tr>
+            <tr><td><b>Ali Renes</b></td><td class="dim">Otten Johnson</td><td class="dim"><a href="mailto:arenes@ottenjohnson.com" style="color:#3B82F6; text-decoration:none;">arenes@ottenjohnson.com</a></td></tr>
             <tr><td><b>Rapid City Financial</b></td><td class="dim">Home Seller (POH Entity)</td><td class="dim"></td></tr>
           </tbody>
         </table>
@@ -6850,10 +7480,10 @@
         <table class="data-table">
           <thead><tr><th>Name</th><th>Role</th><th>Email</th></tr></thead>
           <tbody>
-            <tr><td><b>Amanda Brower</b></td><td class="dim">Commercial Escrow Officer / Branch Mgr / VP</td><td class="dim">Amanda.Brower@fnf.com</td></tr>
-            <tr><td><b>Grace Wilson</b></td><td class="dim">Commercial Escrow Assistant</td><td class="dim">Grace.Wilson@fnf.com</td></tr>
-            <tr><td><b>Brittney Taylor</b></td><td class="dim">Commercial Escrow Assistant / Escrow Officer</td><td class="dim">Brittney.Taylor@fnf.com</td></tr>
-            <tr><td><b>Joshua Samuel</b></td><td class="dim">VP of Commercial Development</td><td class="dim">Joshua.Samuel@fnf.com</td></tr>
+            <tr><td><b>Amanda Brower</b></td><td class="dim">Commercial Escrow Officer / Branch Mgr / VP</td><td class="dim"><a href="mailto:Amanda.Brower@fnf.com" style="color:#3B82F6; text-decoration:none;">Amanda.Brower@fnf.com</a></td></tr>
+            <tr><td><b>Grace Wilson</b></td><td class="dim">Commercial Escrow Assistant</td><td class="dim"><a href="mailto:Grace.Wilson@fnf.com" style="color:#3B82F6; text-decoration:none;">Grace.Wilson@fnf.com</a></td></tr>
+            <tr><td><b>Brittney Taylor</b></td><td class="dim">Commercial Escrow Assistant / Escrow Officer</td><td class="dim"><a href="mailto:Brittney.Taylor@fnf.com" style="color:#3B82F6; text-decoration:none;">Brittney.Taylor@fnf.com</a></td></tr>
+            <tr><td><b>Joshua Samuel</b></td><td class="dim">VP of Commercial Development</td><td class="dim"><a href="mailto:Joshua.Samuel@fnf.com" style="color:#3B82F6; text-decoration:none;">Joshua.Samuel@fnf.com</a></td></tr>
             <tr><td colspan="3" class="dim" style="text-align:left;">GF# 9001312600125 · 1125 Executive Circle, Ste. 220, Irving, TX 75038</td></tr>
           </tbody>
         </table>
@@ -6896,8 +7526,8 @@
           <tr style="background:rgba(251,191,36,0.06); border-left: 3px solid #FBBF24;">
             <td class="dim">3/29</td>
             <td><b>Kris Wessel</b></td>
-            <td>DD request acknowledged. Seth shared list with Ben (Saddleback) &mdash; will report back. <span style="color:#FBBF24; font-weight:700;">Raised question on estoppels:</span> could not find estoppel language in PSA Section 7. Needs clarification.</td>
-            <td><span class="status-badge" style="background:rgba(251,191,36,0.15); color:#FBBF24; border:1px solid rgba(251,191,36,0.4);">REVIEW</span></td>
+            <td>DD request acknowledged. Seth shared list with Ben (Saddleback) &mdash; will report back. <span style="color:#00E676; font-weight:700;">&#10003; Estoppel question resolved:</span> confirmed no estoppel language in PSA Section 7. Requirement exists only in CMBS Loan Agreement Section 4.18 (lender covenant).</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.4);">RESOLVED</span></td>
           </tr>
           <tr>
             <td class="dim">3/27</td>
