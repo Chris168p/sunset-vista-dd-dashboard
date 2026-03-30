@@ -320,6 +320,37 @@
 
     /* ===== GLOBAL: ALL TABS MOBILE FIXES ===== */
 
+    /* --- Scroll tables: keep as traditional table, horizontally scroll --- */
+    .scroll-wrap {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 14px !important;
+      border-radius: 8px;
+      border: 1px solid rgba(59,130,246,0.10);
+    }
+    .scroll-wrap .data-table { display: table !important; min-width: 500px; width: 100%; }
+    .scroll-wrap .data-table thead { display: table-header-group !important; }
+    .scroll-wrap .data-table tbody { display: table-row-group !important; }
+    .scroll-wrap .data-table tr {
+      display: table-row !important;
+      background: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .scroll-wrap .data-table td,
+    .scroll-wrap .data-table th {
+      display: table-cell !important;
+      padding: 6px 10px !important;
+      font-size: 12px !important;
+      white-space: nowrap !important;
+      border-bottom: 1px solid rgba(59,130,246,0.08) !important;
+    }
+    .scroll-wrap .data-table td[style*="text-align:right"] {
+      text-align: right !important;
+    }
+
     /* --- ALL data-tables: stacked card layout --- */
     .data-table { display: block !important; width: 100% !important; }
     .data-table thead { display: none !important; }
@@ -1317,6 +1348,7 @@
 
     <div class="section" style="margin-bottom: 14px;">
       <div class="section-title">T12 P&L Summary (Mar 2025 – Feb 2026)</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -1407,6 +1439,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10px; color: #EF4444; margin-top: 10px; padding-left: 4px;">* Oasis insurance shows $0 on T12 P&L — likely bundled in portfolio policy or reported elsewhere. Verify with seller.</div>
     </div>
 
@@ -1419,6 +1452,7 @@
     <div class="tiles-grid">
       <div class="section">
         <div class="section-title">Sunset Vista Tax History</div>
+        <div class="scroll-wrap">
         <table class="data-table">
           <thead><tr><th>Year</th><th style="text-align:right;">Tax Amount</th><th>Status</th></tr></thead>
           <tbody>
@@ -1429,10 +1463,12 @@
             <tr><td>2021</td><td style="text-align:right;">$8,546</td><td class="green">Paid</td></tr>
           </tbody>
         </table>
+        </div>
         <div style="font-size: 10px; color: #EF4444; margin-top: 8px;">Assessment jumped ~380% from 2022 to 2023. Likely reassessment event.</div>
       </div>
       <div class="section">
         <div class="section-title">Oasis Tax History</div>
+        <div class="scroll-wrap">
         <table class="data-table">
           <thead><tr><th>Year</th><th style="text-align:right;">Tax Amount</th><th>Status</th></tr></thead>
           <tbody>
@@ -1443,6 +1479,7 @@
             <tr><td>2021</td><td style="text-align:right;">$4,588</td><td class="green">Paid</td></tr>
           </tbody>
         </table>
+        </div>
         <div style="font-size: 10px; color: #EF4444; margin-top: 8px;">Assessment jumped ~600% from 2022 to 2023. Same reassessment trigger as SC.</div>
       </div>
     </div>
@@ -1459,6 +1496,7 @@
 
       <!-- Scenario 1: Ratio Method -->
       <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 6px; margin-top: 10px;">SCENARIO 1 — Ratio Method (Prior Basis Scaling)</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -1495,12 +1533,14 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 6px; padding-left: 4px; line-height: 1.5;">
         Assumes prior basis ~$30M (CMBS $21.9M at ~73% LTV). Ratio: $38.2M / $30M = 1.27x applied to current taxes.
       </div>
 
       <!-- Scenario 2: Residential 6.7% -->
       <div style="font-size: 11px; color: #00E676; font-weight: 700; margin-bottom: 6px; margin-top: 16px;">SCENARIO 2 — Residential Assessment (6.7% of Market Value)</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -1542,12 +1582,14 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 6px; padding-left: 4px; line-height: 1.5;">
         CRS 39-1-102 classifies MHC land as residential. Assessed value = 6.7% of PSA allocation. Tax estimated using Pueblo County avg residential mill rate (~69.93 mills). <b style="color:#FBBF24;">$179K total — $98K above model budget of $81K.</b>
       </div>
 
       <!-- Scenario 3: Commercial 29% -->
       <div style="font-size: 11px; color: #EF4444; font-weight: 700; margin-bottom: 6px; margin-top: 16px;">SCENARIO 3 — Commercial Assessment (29% of Market Value)</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -1589,6 +1631,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 6px; padding-left: 4px; line-height: 1.5;">
         <b style="color:#EF4444;">WORST CASE.</b> If Pueblo County classifies as commercial: assessed value = 29% of PSA allocation. Same mill rate. <b style="color:#EF4444;">$774K total — $693K above model budget. Would reduce Y1 NOI by ~36%.</b> Must confirm actual use codes on each parcel with Pueblo County Assessor (719) 583-6000.
       </div>
@@ -1596,6 +1639,7 @@
       <!-- Scenario Summary -->
       <div style="margin-top: 16px; padding: 10px 14px; background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.15); border-radius: 8px;">
         <div style="font-size: 11px; color: #FBBF24; font-weight: 700; margin-bottom: 6px;">SCENARIO SUMMARY — ANNUAL TAX EXPOSURE</div>
+        <div class="scroll-wrap">
         <table class="data-table">
           <thead>
             <tr>
@@ -1637,6 +1681,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
 
@@ -1648,6 +1693,7 @@
 
     <div class="section" style="margin-bottom: 14px;">
       <div class="section-title">Per-Lot Operating Economics (T12 Actuals — Occupied Lots Only)</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -1774,6 +1820,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10.5px; color: #858D99; margin-top: 8px; line-height: 1.6; padding-left: 4px;">
         <b style="color:#FBBF24;">Key takeaway:</b> Oasis delivers the highest per-lot NOI ($489/mo) thanks to low expense load — OC insurance is $0 on T12 (billed at portfolio level) and R&amp;M is modest. La Vista has the lowest margin (55%) driven by high per-lot utility and maintenance costs across only 29 lots — limited economies of scale. Sunset Vista is the revenue leader ($721/lot/mo) but carries the highest insurance burden. Portfolio-wide, each occupied lot generates <b style="color:#E5E9ED;">$5,649/yr in NOI</b>.
       </div>
@@ -1815,6 +1862,7 @@
     <!-- BUDGET vs ACTUAL TABLE -->
     <div class="section" style="margin-bottom: 14px;">
       <div class="section-title">2025 Actual vs 2026 Budget &mdash; Operating Summary</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -1938,6 +1986,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <!-- PORTFOLIO BUDGET TOTALS -->
@@ -1967,6 +2016,7 @@
     <!-- DEBT SERVICE FROM BUDGETS -->
     <div class="section" style="margin-bottom:14px;">
       <div class="section-title">Debt Service &amp; Below-the-Line &mdash; From Seller Budgets</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -2001,6 +2051,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <!-- BUDGET FLAGS -->
@@ -2024,6 +2075,7 @@
 
     <div class="section" style="margin-bottom:14px;">
       <div style="font-size:10px; color:#858D99; margin-bottom:10px;">Source: Rent Manager charge breakdown for Jan 2026 current residents. Confirms actual lot rents being charged.</div>
+      <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
@@ -2062,6 +2114,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 8px;">SC water/sewer charges vary by unit ($29&ndash;$86 range). Pet fees ($25/mo) and late charges ($50) applied per resident where applicable.</div>
     </div>
 
