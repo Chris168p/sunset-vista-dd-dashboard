@@ -342,6 +342,42 @@
     max-height: 0; opacity: 0; pointer-events: none;
   }
 
+  /* Alphabetical Tab Menu */
+  .tab-menu {
+    position: fixed; top: 68px; left: 14px; z-index: 10001;
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .tab-menu-btn {
+    width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(59,130,246,0.30);
+    background: rgba(10,14,26,0.96); color: #93B4F8; font-size: 15px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .tab-menu-btn:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
+  .tab-menu-dropdown {
+    position: absolute; top: 46px; left: 0; background: #0A0E1A;
+    border: 1px solid rgba(59,130,246,0.20); border-radius: 12px; overflow-y: auto;
+    max-height: 70vh; min-width: 220px; max-width: calc(100vw - 40px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,130,246,0.08);
+    display: none; flex-direction: column; padding: 6px 0;
+  }
+  .tab-menu-dropdown.open { display: flex; }
+  .tab-menu-item {
+    padding: 10px 16px; font-size: 12px; color: #C9CDD3; cursor: pointer;
+    border-bottom: 1px solid rgba(59,130,246,0.06); transition: background 0.15s;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tab-menu-item:last-child { border-bottom: none; }
+  .tab-menu-item:hover, .tab-menu-item:active { background: rgba(59,130,246,0.12); color: #FFFFFF; }
+  .tab-menu-item.active { color: #3B82F6; font-weight: 600; }
+  .tab-menu-item .tab-menu-num {
+    font-size: 9px; color: #5A6270; min-width: 18px; text-align: center;
+    background: rgba(59,130,246,0.08); border-radius: 4px; padding: 2px 4px;
+    font-weight: 600;
+  }
+  .tab-menu-item.active .tab-menu-num { background: rgba(59,130,246,0.20); color: #3B82F6; }
+
   /* Jump-to-Section Dropdown */
   .section-jump {
     position: fixed; top: 68px; right: 14px; z-index: 10001;
@@ -405,6 +441,9 @@
   /* RESPONSIVE ADJUSTMENTS */
   @media (max-width: 768px) {
     .back-to-top { width: 36px; height: 36px; font-size: 16px; }
+    .tab-menu { top: 60px; left: 8px; }
+    .tab-menu-btn { width: 34px; height: 34px; font-size: 13px; }
+    .tab-menu-dropdown { max-width: calc(100vw - 24px); min-width: 200px; max-height: 60vh; }
     .section-jump { top: 60px; right: 8px; }
     .section-jump-btn { width: 34px; height: 34px; font-size: 14px; }
     .section-jump-dropdown { max-width: calc(100vw - 24px); min-width: 200px; max-height: 50vh; }
@@ -417,7 +456,7 @@
 
   /* PRINT: Hide all floating UI */
   @media print {
-    .back-to-top, .section-jump, .bottom-dock,
+    .back-to-top, .tab-menu, .section-jump, .bottom-dock,
     .group-divider .chevron { display: none !important; }
   }
 
@@ -1141,6 +1180,46 @@
     }
   }
 
+  /* ===== START HERE NAV GRID ===== */
+  .nav-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;
+  }
+  .nav-tile {
+    background: #111827; border-radius: 10px; padding: 12px 14px;
+    border: 1px solid rgba(59,130,246,0.10); cursor: pointer;
+    transition: all 0.2s ease; text-decoration: none; display: block;
+  }
+  .nav-tile:hover {
+    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.06);
+    transform: translateY(-1px); box-shadow: 0 2px 12px rgba(59,130,246,0.10);
+  }
+  .nav-tile-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;
+  }
+  .nav-tile-name {
+    font-size: 11px; font-weight: 700; color: #E5E9ED; letter-spacing: 0.3px;
+  }
+  .nav-tile-badge {
+    font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .badge-green { background: rgba(0,230,118,0.15); color: #00E676; }
+  .badge-orange { background: rgba(251,191,36,0.15); color: #FBBF24; }
+  .badge-red { background: rgba(239,68,68,0.15); color: #EF4444; }
+  .badge-blue { background: rgba(59,130,246,0.15); color: #3B82F6; }
+  .badge-dim { background: rgba(133,141,153,0.15); color: #858D99; }
+  .nav-tile-desc {
+    font-size: 9px; color: #858D99; line-height: 1.4; margin-top: 2px;
+  }
+  @media (max-width: 768px) {
+    .nav-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .nav-tile { padding: 10px 12px; }
+    .nav-tile-name { font-size: 10px; }
+  }
+  @media (max-width: 480px) {
+    .nav-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== FEATURE 6: GRADIENT HEADER SHIMMER ===== */
   @keyframes shimmer {
     0% { background-position: -200% center; }
@@ -1547,6 +1626,116 @@
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
   <div class="tab-content" id="tab-page1">
 
+    <!-- START HERE: NAVIGATION HUB -->
+    <div style="margin-bottom:18px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <div>
+          <div style="font-size:13px; font-weight:800; color:#3B82F6; letter-spacing:0.5px;">START HERE</div>
+          <div style="font-size:10px; color:#858D99; margin-top:2px;">Jump to any workstream. Status updated as of 3/31/2026.</div>
+        </div>
+        <div style="font-size:9px; color:#858D99; background:rgba(59,130,246,0.06); padding:4px 10px; border-radius:6px; border:1px solid rgba(59,130,246,0.10);">18 tabs &bull; 13,000+ lines</div>
+      </div>
+
+      <!-- ROW 1: DEAL MANAGEMENT -->
+      <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px; margin-top:4px;">Deal Management</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(13)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Deal Status</span><span class="nav-tile-badge badge-blue">Active</span></div>
+          <div class="nav-tile-desc">PSA tracker, data room status, deliverable checklist, document links</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(11)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Action Items</span><span class="nav-tile-badge badge-red">58 items</span></div>
+          <div class="nav-tile-desc">Master task list by week &mdash; DD requests, follow-ups, deadlines</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(4)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Red Flags &amp; Risks</span><span class="nav-tile-badge badge-red">4 critical</span></div>
+          <div class="nav-tile-desc">CMBS assumption, POH liens, title gaps, zoning nonconformity</div>
+        </div>
+      </div>
+
+      <!-- ROW 2: FINANCIAL ANALYSIS -->
+      <div style="font-size:8px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Financial Analysis</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(3)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Financials</span><span class="nav-tile-badge badge-green">Complete</span></div>
+          <div class="nav-tile-desc">T12 P&amp;L, operating margins, seller budgets, expense analysis</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(6)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Underwriting</span><span class="nav-tile-badge badge-green">Complete</span></div>
+          <div class="nav-tile-desc">Model assumptions, returns, sensitivity, cap rate analysis</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(16)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Projections</span><span class="nav-tile-badge badge-blue">In Model</span></div>
+          <div class="nav-tile-desc">5-year pro forma, rent growth, occupancy ramp, NOI forecast</div>
+        </div>
+      </div>
+
+      <!-- ROW 3: PROPERTY & OPERATIONS -->
+      <div style="font-size:8px; font-weight:700; color:#F59E0B; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Property &amp; Operations</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(12)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Tenants</span><span class="nav-tile-badge badge-green">Received</span></div>
+          <div class="nav-tile-desc">Rent roll, occupancy by property, lease audit, security deposits</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(7)">
+          <div class="nav-tile-header"><span class="nav-tile-name">POH (146 Homes)</span><span class="nav-tile-badge badge-orange">Liens Open</span></div>
+          <div class="nav-tile-desc">Title verification, bed/bath mix, age distribution, lien analysis</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(10)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Utilities</span><span class="nav-tile-badge badge-green">Analyzed</span></div>
+          <div class="nav-tile-desc">$485K T12 across 5 types, provider directory, red flags, RUBS</div>
+        </div>
+      </div>
+
+      <!-- ROW 4: DEBT, CAPEX, MARKET -->
+      <div style="font-size:8px; font-weight:700; color:#8B5CF6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Debt, CapEx &amp; Market</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(15)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Debt / CMBS</span><span class="nav-tile-badge badge-orange">Forms Rec'd</span></div>
+          <div class="nav-tile-desc">$21.9M loan, Midland assumption checklists, covenants, guarantor</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(21)">
+          <div class="nav-tile-header"><span class="nav-tile-name">CapEx</span><span class="nav-tile-badge badge-red">Data Gap</span></div>
+          <div class="nav-tile-desc">PCA findings, Year 1 budget, 5-year plan, site visit checklists</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(17)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Market</span><span class="nav-tile-badge badge-green">Complete</span></div>
+          <div class="nav-tile-desc">Pueblo MSA, demographics, rent comps, supply/demand</div>
+        </div>
+      </div>
+
+      <!-- ROW 5: CLOSING & PRESENTATION -->
+      <div style="font-size:8px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Site Visit, Closing &amp; Presentation</div>
+      <div class="nav-grid">
+        <div class="nav-tile" onclick="goToTabByPage(9)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Site Visit</span><span class="nav-tile-badge badge-dim">Not Scheduled</span></div>
+          <div class="nav-tile-desc">Inspection checklists, PCA walkthrough, photo requirements</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(14)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Photos</span><span class="nav-tile-badge badge-blue">Satellite</span></div>
+          <div class="nav-tile-desc">Property maps, aerial views, lot layouts</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(20)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Value Add</span><span class="nav-tile-badge badge-blue">Planned</span></div>
+          <div class="nav-tile-desc">Revenue initiatives, RUBS, rent bumps, infill, expense savings</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(8)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Ops Handoff</span><span class="nav-tile-badge badge-dim">Pre-Close</span></div>
+          <div class="nav-tile-desc">90-day transition plan, vendor transfers, staffing, systems</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(5)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Investor Deck</span><span class="nav-tile-badge badge-orange">Pending</span></div>
+          <div class="nav-tile-desc">LP presentation, deal summary, returns, risk factors</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORIGINAL OVERVIEW CONTENT BELOW -->
+    <div class="group-divider">
+      <div class="group-label">Portfolio Overview</div>
+      <div class="group-line"></div>
+    </div>
+
     <div class="hero-row">
       <div class="hero-card">
         <div class="hero-label">DD Completion</div>
@@ -1561,7 +1750,7 @@
       <div class="takeaway">
         <div class="takeaway-title">Status Overview</div>
         <div class="takeaway-body">
-          <b><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA executed 3/20/2026.</a></b> Earnest money ($350K) fully deposited. Seller's data room contains <b>370+ documents</b> across 22 categories. Key items received: rent rolls, T12 P&Ls, 12 months bank statements, 2 years property taxes, 37 executed leases, 217 utility bills, ALTA surveys, Phase 1s, PCAs, site maps, insurance policies, personal property inventory, <span class="orange">POH titles (155 received for 146 POH / 131 matched — 15 units missing titles)</span>, <span class="green">zoning reports (3)</span>, <span class="green">vendor listing (160+ vendors)</span>, <span class="green">delinquency report (4.74%)</span>, <span class="green">OE CapEx records ($1.56M)</span>. <b>Remaining gaps:</b> <span class="red">15 POH units missing titles (SC: 12, OC: 3)</span>, 6 categories still empty — Rent Manager export, MPOP registration, OTP compliance docs, litigation/code violations, permits, <b>Critical findings:</b> $1.1M+ active chattel liens on POH fleet (Legacy Housing past due, 21st Mortgage $979K, Clayton B&amp;T $3M released). SC zoning is Legal Nonconforming (12-mo abandonment rule). <b>CMBS loan assumption</b> ($21.9M at 6.45% fixed via German American Capital / Midland / PNC) &mdash; loan docs received 3/28. Key flags: 3% management fee cap, lockbox trigger at 1.15x DSCR, guarantor replacement required.
+          <b><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA executed 3/20/2026.</a></b> Earnest money ($350K) fully deposited. Seller's data room contains <b>370+ documents</b> across 22 categories. Key items received: rent rolls, T12 P&Ls, 12 months bank statements, 2 years property taxes, 37 executed leases, 217 utility bills, ALTA surveys, Phase 1s, PCAs, site maps, insurance policies, personal property inventory, <span class="orange">POH titles (155 received for 146 POH / 131 matched — 15 units missing titles)</span>, <span class="green">zoning reports (3)</span>, <span class="green">vendor listing (160+ vendors)</span>, <span class="green">delinquency report (4.74%)</span>, <span class="red">OE CapEx records (REMOVED — wrong community)</span>. <b>Remaining gaps:</b> <span class="red">15 POH units missing titles (SC: 12, OC: 3)</span>, 6 categories still empty — Rent Manager export, MPOP registration, OTP compliance docs, litigation/code violations, permits, <b>Critical findings:</b> $1.1M+ active chattel liens on POH fleet (Legacy Housing past due, 21st Mortgage $979K, Clayton B&amp;T $3M released). SC zoning is Legal Nonconforming (12-mo abandonment rule). <b>CMBS loan assumption</b> ($21.9M at 6.45% fixed via German American Capital / Midland / PNC) &mdash; loan docs received 3/28. Key flags: 3% management fee cap, lockbox trigger at 1.15x DSCR, guarantor replacement required.
         </div>
       </div>
     </div>
@@ -1743,27 +1932,11 @@
       </div>
     </div>
 
-    <!-- SELLER'S RECENT CAPEX — OE (OASIS) -->
-    <div class="section" style="margin-bottom:14px; padding:14px 18px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.20); border-radius:10px;">
-      <div style="font-size:11px; font-weight:700; color:#10B981; margin-bottom:8px;">Seller&rsquo;s Recent Capital Improvements — Oasis (Oakwood Estates) <span style="color:#00E676; font-size:9px; font-weight:400;">RECEIVED 3/30</span></div>
-      <div class="kpi-strip" style="margin-bottom:10px;">
-        <div class="kpi-card"><div class="value green">$1.56M</div><div class="label">Total CapEx Spent</div></div>
-        <div class="kpi-card"><div class="value" style="color:#3B82F6;">$1.145M</div><div class="label">Natural Gas System</div></div>
-        <div class="kpi-card"><div class="value" style="color:#F59E0B;">$350K</div><div class="label">Clubhouse Remodel</div></div>
-        <div class="kpi-card"><div class="value" style="color:#8B5CF6;">$65K</div><div class="label">New Maint Shop</div></div>
-      </div>
-      <table class="data-table">
-        <thead><tr><th>Project</th><th>Description</th><th style="width:90px;">Cost</th></tr></thead>
-        <tbody>
-          <tr><td><b style="color:#E5E9ED;">Clubhouse Exterior</b></td><td class="dim">New roof, new windows, new stucco</td><td>$210,000</td></tr>
-          <tr><td><b style="color:#E5E9ED;">Clubhouse Interior</b></td><td class="dim">New flooring, new paint, new HVAC</td><td>$140,000</td></tr>
-          <tr><td><b style="color:#E5E9ED;">Natural Gas System</b></td><td class="dim">Installed new PE lines throughout the park. No longer master metered (direct bill to residents)</td><td>$1,145,000</td></tr>
-          <tr><td><b style="color:#E5E9ED;">Maintenance Shop</b></td><td class="dim">New 40&times;60 maintenance building with concrete slab and roll-up doors</td><td>$65,000</td></tr>
-          <tr style="border-top: 1px solid rgba(255,255,255,0.1); font-weight: 700;"><td></td><td><b>Total</b></td><td><b style="color:#10B981;">$1,560,000</b></td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.6;">
-        <b style="color:#FBBF24;">Key DD note:</b> The $1.145M natural gas conversion is significant — Oasis is now direct-billed to residents (no longer master metered). This eliminates gas as an owner expense and creates a pass-through model. Must verify with Black Hills Energy that all individual meters are active and properly transferred. Clubhouse improvements should be inspected during site visit for quality/condition.
+    <!-- SELLER'S RECENT CAPEX — REMOVED (WRONG COMMUNITY) -->
+    <div class="section" style="margin-bottom:14px; padding:14px 18px; background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:10px;">
+      <div style="font-size:11px; font-weight:700; color:#EF4444; margin-bottom:6px;">&#9888; Seller CapEx Data Removed — Wrong Community</div>
+      <div style="font-size:10px; color:#C9CDD3; line-height:1.6;">
+        The seller CapEx spreadsheet received 3/30 was for a different community, not the Pueblo Three Pack. Data has been removed. <b style="color:#FBBF24;">Follow up with seller for correct CapEx documentation for SV, OC, and LAV.</b> See <a href="#" onclick="document.getElementById('radio-page21').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">CapEx tab</a> for details.
       </div>
     </div>
 
@@ -6139,10 +6312,10 @@
 
     <!-- HERO KPI STRIP -->
     <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
-      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(16,185,129,0.25); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Seller CapEx Invested</div>
-        <div style="font-size:22px; font-weight:900; color:#10B981;">$1.56M</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">Oakwood / Oasis only</div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(239,68,68,0.25); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Seller CapEx</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">TBD</div>
+        <div style="font-size:9px; color:#FBBF24; margin-top:2px;">&#9888; Awaiting correct data</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(239,68,68,0.25); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">PCA Immediate Need</div>
@@ -6170,7 +6343,7 @@
     <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:14px;">
       <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">HOW TO USE THIS TAB</div>
       <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
-        This tab consolidates everything we know about capital expenditures across the Pueblo Three Pack &mdash; what the seller already spent, what the PCA inspections flagged, what our underwriting model assumes, and what we recommend doing in Year 1. Use this as your reference before and during the site visit. After the physical walkthrough, the team should update the "Site Visit Findings" section with actual conditions observed, then finalize the Year 1 CapEx budget.
+        This tab consolidates everything we know about capital expenditures across the Pueblo Three Pack &mdash; what the PCA inspections flagged, what our underwriting model assumes, and what we recommend doing in Year 1. Use this as your reference before and during the site visit. After the physical walkthrough, the team should update the &ldquo;Site Visit Findings&rdquo; section with actual conditions observed, then finalize the Year 1 CapEx budget. <b style="color:#EF4444;">Note: The seller CapEx spreadsheet originally uploaded (3/30) was for a different community, not the Pueblo 3-Pack. We are awaiting the correct seller CapEx documentation for these properties.</b>
       </div>
     </div>
 
@@ -6179,8 +6352,8 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 32px;">
         <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" class="drive-link">
           <span class="link-icon">&#128196;</span><span class="link-label">PCA Reports (All 3)</span><span class="link-arrow">&rarr;</span></a>
-        <a href="https://drive.google.com/file/d/1jjaLrAKcfdvXtaSQzFoL2Dl5yvOADIkd/view?usp=drive_link" target="_blank" class="drive-link">
-          <span class="link-icon">&#128202;</span><span class="link-label">Seller CapEx Summary</span><span class="link-arrow">&rarr;</span></a>
+        <span class="drive-link" style="opacity:0.5; cursor:not-allowed; text-decoration:line-through;">
+          <span class="link-icon">&#9888;</span><span class="link-label">Seller CapEx — Wrong Community (Removed)</span></span>
         <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" class="drive-link">
           <span class="link-icon">&#128196;</span><span class="link-label">Phase 1 Environmental</span><span class="link-arrow">&rarr;</span></a>
       </div>
@@ -6188,86 +6361,28 @@
 
     <!-- ======= SECTION 1: SELLER'S RECENT CAPITAL IMPROVEMENTS ======= -->
     <div class="group-divider">
-      <div class="group-label">Seller&rsquo;s Recent Capital Improvements &mdash; Oasis (Oakwood Estates)</div>
+      <div class="group-label">Seller&rsquo;s Recent Capital Improvements</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="section" style="margin-bottom:14px; border-left:3px solid #10B981; padding-left:14px;">
-      <div style="font-size:11px; color:#10B981; font-weight:700; margin-bottom:6px;">CONTEXT</div>
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #EF4444; padding-left:14px; background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:10px;">
+      <div style="font-size:13px; color:#EF4444; font-weight:700; margin-bottom:8px;">&#9888; DATA REMOVED — WRONG COMMUNITY</div>
       <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
-        The seller (Oakwood Capital / Rapid City Financial) invested <b style="color:#10B981;">$1.56M</b> in capital improvements at the Oasis community prior to listing. This is significant because it means the largest property in the portfolio has already received meaningful infrastructure upgrades, reducing our Year 1 deferred maintenance burden at that site. No equivalent CapEx documentation was provided for Sunset Vista or La Vista &mdash; this is a gap we need to address during the site visit.
-      </div>
-    </div>
-
-    <div class="section" style="margin-bottom:14px;">
-      <div class="section-title">Seller CapEx Detail &mdash; Oasis</div>
-      <div class="scroll-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Project</th>
-            <th>Description</th>
-            <th style="text-align:right;">Cost</th>
-            <th style="text-align:right;">% of Total</th>
-            <th>Category</th>
-            <th>Site Visit Check</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b style="color:#E5E9ED;">Natural Gas System</b></td>
-            <td class="dim">Installed new PE lines throughout park. No longer master metered &mdash; residents direct-billed by Black Hills Energy</td>
-            <td style="text-align:right;"><b>$1,145,000</b></td>
-            <td style="text-align:right;">73.4%</td>
-            <td><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">INFRASTRUCTURE</span></td>
-            <td class="dim">Verify all individual meters active with Black Hills Energy. Check PE line exposed connections. Confirm direct billing is working.</td>
-          </tr>
-          <tr>
-            <td><b style="color:#E5E9ED;">Clubhouse Exterior</b></td>
-            <td class="dim">New roof, new windows, new stucco</td>
-            <td style="text-align:right;">$210,000</td>
-            <td style="text-align:right;">13.5%</td>
-            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">PRESERVATION</span></td>
-            <td class="dim">Inspect roof quality. Check window seals. Evaluate stucco for cracking or moisture intrusion.</td>
-          </tr>
-          <tr>
-            <td><b style="color:#E5E9ED;">Clubhouse Interior</b></td>
-            <td class="dim">New flooring, new paint, new HVAC</td>
-            <td style="text-align:right;">$140,000</td>
-            <td style="text-align:right;">9.0%</td>
-            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">PRESERVATION</span></td>
-            <td class="dim">Check flooring condition. Test HVAC. Assess overall amenity quality vs. market comps.</td>
-          </tr>
-          <tr>
-            <td><b style="color:#E5E9ED;">Maintenance Shop</b></td>
-            <td class="dim">New 40&times;60 building with concrete slab and roll-up doors</td>
-            <td style="text-align:right;">$65,000</td>
-            <td style="text-align:right;">4.2%</td>
-            <td><span style="background:rgba(139,92,246,0.15); color:#8B5CF6; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">OPERATIONAL</span></td>
-            <td class="dim">Inspect structure. Confirm adequate for 161-lot operations. Check tool/equipment storage.</td>
-          </tr>
-          <tr style="border-top:1px solid rgba(255,255,255,0.1);">
-            <td><b>Total</b></td>
-            <td></td>
-            <td style="text-align:right;"><b style="color:#10B981;">$1,560,000</b></td>
-            <td style="text-align:right;"><b>100%</b></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+        The seller CapEx spreadsheet received 3/30 (&ldquo;OE recent Cap exp spent 3-23-26&rdquo;) pertains to <b style="color:#EF4444;">a different community</b>, not the Pueblo Three Pack (Sunset Vista, Oasis, La Vista). All data from that spreadsheet has been removed from this tab.<br><br>
+        <b style="color:#FBBF24;">Action Required:</b> Request the correct seller CapEx documentation for the Pueblo Three Pack properties from Kris/Ben. We need a detailed breakdown of any capital improvements made across all three communities in the past 3&ndash;5 years, including project descriptions, costs, dates completed, contractors, permits, and warranty documentation.<br><br>
+        <b style="color:#858D99;">Previously displayed:</b> $1.56M in improvements (natural gas system $1.145M, clubhouse exterior $210K, clubhouse interior $140K, maintenance shop $65K) &mdash; this data was for another property and has been struck from the analysis.
       </div>
     </div>
 
     <div class="section" style="margin-bottom:14px; border-left:3px solid #FBBF24; padding-left:14px;">
-      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">DD QUESTIONS FOR SELLER</div>
+      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">DD QUESTIONS FOR SELLER — CAPEX HISTORY</div>
       <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
-        <b style="color:#E5E9ED;">1.</b> When were these improvements completed? Need dates to assess warranty coverage and remaining useful life.<br>
-        <b style="color:#E5E9ED;">2.</b> Were permits pulled and inspections passed for the gas line work and maintenance building?<br>
-        <b style="color:#E5E9ED;">3.</b> Who was the general contractor? Do we have lien waivers on file?<br>
-        <b style="color:#E5E9ED;">4.</b> Are there any warranty documents (roof, HVAC, gas lines) that transfer with sale?<br>
-        <b style="color:#E5E9ED;">5.</b> Were any similar improvements made at Sunset Vista or La Vista? If not, why was Oasis prioritized?<br>
-        <b style="color:#E5E9ED;">6.</b> Is the $1.56M reflected in the seller&rsquo;s cost basis or will it be capitalized by the buyer?
+        <b style="color:#E5E9ED;">1.</b> Provide the correct seller CapEx documentation for all three Pueblo properties (SV, OC, LAV).<br>
+        <b style="color:#E5E9ED;">2.</b> What capital improvements have been made in the past 3&ndash;5 years at each property? Include dates, costs, and contractors.<br>
+        <b style="color:#E5E9ED;">3.</b> Were permits pulled and inspections passed for any infrastructure work (gas, water, electrical, roads)?<br>
+        <b style="color:#E5E9ED;">4.</b> Are there warranty documents that transfer with sale (roofs, HVAC, gas lines, etc.)?<br>
+        <b style="color:#E5E9ED;">5.</b> What deferred maintenance items is the seller aware of but has not addressed?<br>
+        <b style="color:#E5E9ED;">6.</b> Are any CapEx costs reflected in the seller&rsquo;s cost basis or will they be capitalized by the buyer?
       </div>
     </div>
 
@@ -6880,7 +6995,7 @@
       <div class="section" style="margin-bottom:0; border-left:3px solid #EF4444; padding-left:14px;">
         <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">POTENTIAL SELLER CREDITS</div>
         <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
-          <b style="color:#E5E9ED;">Oasis Roads ($41K):</b> Strongest case for a seller credit or escrow holdback. PCA-documented, safety-related, and the seller had $1.56M to spend on other items but did not address roads. Ask: &ldquo;Why were roads skipped?&rdquo;<br><br>
+          <b style="color:#E5E9ED;">Oasis Roads ($41K):</b> Strongest case for a seller credit or escrow holdback. PCA-documented, safety-related. Ask: &ldquo;Why were roads not addressed?&rdquo; <span style="color:#EF4444; font-size:9px;">&#9888; Prior $1.56M seller CapEx reference removed &mdash; was for wrong community.</span><br><br>
           <b style="color:#E5E9ED;">Sewer Camera ($8.5K):</b> Can argue this is a seller obligation to demonstrate infrastructure condition pre-sale. Standard DD request.<br><br>
           <b style="color:#E5E9ED;">Abandoned Homes ($8K&ndash;20K):</b> Seller should remove or provide credit for 4 derelict homes at Oasis. These are their responsibility under CO MHC Act.
         </div>
@@ -7913,7 +8028,7 @@
         <div class="label">Due This Week</div>
       </div>
       <div class="kpi-card">
-        <div class="value orange">20</div>
+        <div class="value orange">21</div>
         <div class="label">Due Next Week</div>
       </div>
       <div class="kpi-card">
@@ -7925,7 +8040,7 @@
         <div class="label">Rent Roll / Survey</div>
       </div>
       <div class="kpi-card">
-        <div class="value" style="color:#3B82F6;">57</div>
+        <div class="value" style="color:#3B82F6;">58</div>
         <div class="label">Total Items</div>
       </div>
     </div>
@@ -8161,6 +8276,13 @@
             <td class="dim">Debt</td>
             <td>Chris</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td><b style="color:#EF4444;">SELLER CAPEX — WRONG COMMUNITY:</b> The CapEx spreadsheet received 3/30 (&ldquo;OE recent Cap exp spent&rdquo;) was for a different property, not the Pueblo 3-Pack. Request the correct seller CapEx documentation for Sunset Vista, Oasis, and La Vista from Kris/Ben — need project descriptions, costs, dates, contractors, permits, and warranties for past 3&ndash;5 years.</td>
+            <td class="dim">CapEx</td>
+            <td>Chris / Kris</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
           </tr>
         </tbody>
       </table>
@@ -12487,6 +12609,12 @@
 <!-- BACK-TO-TOP BUTTON -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
+<!-- ALPHABETICAL TAB MENU -->
+<div class="tab-menu" id="tabMenu">
+  <button class="tab-menu-btn" onclick="toggleTabMenu()" aria-label="All tabs (A-Z)">A‑Z</button>
+  <div class="tab-menu-dropdown" id="tabMenuDropdown"></div>
+</div>
+
 <!-- JUMP-TO-SECTION DROPDOWN -->
 <div class="section-jump" id="sectionJump">
   <button class="section-jump-btn" onclick="toggleSectionJump()" aria-label="Jump to section">≡</button>
@@ -12558,7 +12686,7 @@ setInterval(updateCountdown, 60000);
 // ===== TAB NAVIGATION: SWIPE + FLOATING BUTTONS =====
 (function() {
   // Ordered list of visible tab page IDs (excludes hidden page18/changelog)
-  var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,4,20,8,5];
+  var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,21,4,20,8,5];
 
   function getCurrentIndex() {
     for (var i = 0; i < tabOrder.length; i++) {
@@ -12581,7 +12709,7 @@ setInterval(updateCountdown, 60000);
   // Tab name lookup for the floating label
   var tabNames = {1:'Overview',13:'Deal Status',11:'Actions',3:'Financials',6:'Underwriting',
     16:'Projections',15:'Debt',12:'Tenants',7:'POH',10:'Utilities',17:'Market',
-    14:'Photos',9:'Site Visit',4:'Risks',20:'Value Add',8:'Ops Handoff',5:'Investor Deck'};
+    14:'Photos',9:'Site Visit',21:'CapEx',4:'Risks',20:'Value Add',8:'Ops Handoff',5:'Investor Deck'};
 
   function updateNavLabel(idx) {
     var el = document.getElementById('navLabel');
@@ -12680,7 +12808,7 @@ setInterval(updateCountdown, 60000);
   });
 
   // ===== FEATURE 4: COLLAPSIBLE SECTIONS =====
-  var collapsibleTabs = [3, 6, 10, 11, 12, 17, 19];  // Financial, Model, Utilities, Actions, Rent Roll, Market, Lease Audit
+  var collapsibleTabs = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 20, 21];  // All content tabs
 
   function setupCollapsibles() {
     collapsibleTabs.forEach(function(pageNum) {
@@ -12788,7 +12916,70 @@ setInterval(updateCountdown, 60000);
   window.toggleSectionJump = function() {
     var dropdown = document.getElementById('sectionJumpDropdown');
     if (dropdown) dropdown.classList.toggle('open');
+    // Close tab menu if open
+    var tabMenuDD = document.getElementById('tabMenuDropdown');
+    if (tabMenuDD) tabMenuDD.classList.remove('open');
   };
+
+  // ===== ALPHABETICAL TAB MENU =====
+  var tabMenuData = [
+    { page: 11, name: 'Actions' },
+    { page: 21, name: 'CapEx' },
+    { page: 13, name: 'Deal Status' },
+    { page: 15, name: 'Debt' },
+    { page: 3,  name: 'Financials' },
+    { page: 5,  name: 'Investor Deck' },
+    { page: 17, name: 'Market' },
+    { page: 8,  name: 'Ops Handoff' },
+    { page: 1,  name: 'Overview' },
+    { page: 14, name: 'Photos' },
+    { page: 7,  name: 'POH' },
+    { page: 16, name: 'Projections' },
+    { page: 4,  name: 'Risks' },
+    { page: 9,  name: 'Site Visit' },
+    { page: 12, name: 'Tenants' },
+    { page: 6,  name: 'Underwriting' },
+    { page: 10, name: 'Utilities' },
+    { page: 20, name: 'Value Add' }
+  ];
+
+  function buildTabMenu() {
+    var dropdown = document.getElementById('tabMenuDropdown');
+    if (!dropdown) return;
+    dropdown.innerHTML = '';
+    var currentPage = tabOrder[getCurrentIndex()];
+    tabMenuData.forEach(function(t) {
+      var item = document.createElement('div');
+      item.className = 'tab-menu-item' + (t.page === currentPage ? ' active' : '');
+      var num = document.createElement('span');
+      num.className = 'tab-menu-num';
+      num.textContent = tabMenuData.indexOf(t) + 1;
+      item.appendChild(num);
+      var label = document.createTextNode(t.name);
+      item.appendChild(label);
+      item.onclick = function() {
+        goToTabByPage(t.page);
+        dropdown.classList.remove('open');
+        buildTabMenu(); // refresh active highlight
+      };
+      dropdown.appendChild(item);
+    });
+  }
+
+  window.toggleTabMenu = function() {
+    var dropdown = document.getElementById('tabMenuDropdown');
+    if (!dropdown) return;
+    buildTabMenu(); // refresh before opening
+    dropdown.classList.toggle('open');
+    // Close section jump if open
+    var sjDD = document.getElementById('sectionJumpDropdown');
+    if (sjDD) sjDD.classList.remove('open');
+  };
+
+  // Refresh tab menu active state on tab change
+  document.querySelectorAll('.tab-radio').forEach(function(r) {
+    r.addEventListener('change', function() { buildTabMenu(); });
+  });
 
   // Initialize collapsibles and jump sections on page load (run exactly once)
   var _collapsiblesReady = false;
@@ -12805,12 +12996,17 @@ setInterval(updateCountdown, 60000);
   }
 
 
-  // Close section jump dropdown when clicking elsewhere
+  // Close dropdowns when clicking elsewhere
   document.addEventListener('click', function(e) {
     var sectionJump = document.getElementById('sectionJump');
     if (sectionJump && !sectionJump.contains(e.target)) {
       var dropdown = document.getElementById('sectionJumpDropdown');
       if (dropdown) dropdown.classList.remove('open');
+    }
+    var tabMenu = document.getElementById('tabMenu');
+    if (tabMenu && !tabMenu.contains(e.target)) {
+      var tmDD = document.getElementById('tabMenuDropdown');
+      if (tmDD) tmDD.classList.remove('open');
     }
   });
 
@@ -12849,7 +13045,7 @@ setInterval(updateCountdown, 60000);
     var tabNames = {1:'Overview',13:'Deal Status',11:'Actions',3:'Financials',6:'Underwriting',
       16:'Projections',15:'Debt',12:'Tenants',7:'POH',10:'Utilities',17:'Market',
       14:'Photos',9:'Site Visit',4:'Risks',20:'Value Add',8:'Ops Handoff',5:'Investor Deck'};
-    var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,4,20,8,5];
+    var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,21,4,20,8,5];
 
     // Search tab names
     tabOrder.forEach(function(pageNum) {
