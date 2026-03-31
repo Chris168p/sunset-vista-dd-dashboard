@@ -75,7 +75,6 @@
   .tab-content { display: none; }
 
   #radio-page1:checked ~ .tab-bar .tab-label[for="radio-page1"],
-  #radio-page2:checked ~ .tab-bar .tab-label[for="radio-page2"],
   #radio-page3:checked ~ .tab-bar .tab-label[for="radio-page3"],
   #radio-page4:checked ~ .tab-bar .tab-label[for="radio-page4"],
   #radio-page6:checked ~ .tab-bar .tab-label[for="radio-page6"],
@@ -90,13 +89,11 @@
     #radio-page14:checked ~ .tab-bar .tab-label[for="radio-page14"],
     #radio-page15:checked ~ .tab-bar .tab-label[for="radio-page15"],
     #radio-page16:checked ~ .tab-bar .tab-label[for="radio-page16"],
-    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"],
-    #radio-page19:checked ~ .tab-bar .tab-label[for="radio-page19"] {
+    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"] {
     color: #FFFFFF; background: rgba(59,130,246,0.25); border-color: #3B82F6; box-shadow: 0 0 12px rgba(59,130,246,0.25);
   }
 
   #radio-page1:checked ~ #tab-page1,
-  #radio-page2:checked ~ #tab-page2,
   #radio-page3:checked ~ #tab-page3,
   #radio-page4:checked ~ #tab-page4,
   #radio-page5:checked ~ #tab-page5,
@@ -112,7 +109,6 @@
   #radio-page15:checked ~ #tab-page15,
   #radio-page16:checked ~ #tab-page16,
   #radio-page17:checked ~ #tab-page17,
-  #radio-page19:checked ~ #tab-page19,
   #radio-page20:checked ~ #tab-page20,
   #radio-page18:checked ~ #tab-page18 {
     display: block;
@@ -1255,7 +1251,6 @@
 
   <!-- TABS -->
   <input type="radio" name="tabs" id="radio-page1" class="tab-radio" checked>
-  <input type="radio" name="tabs" id="radio-page2" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page3" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page4" class="tab-radio">
   <input type="radio" name="tabs" id="radio-page6" class="tab-radio">
@@ -1271,30 +1266,27 @@
 <input type="radio" name="tabs" id="radio-page15" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page16" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page17" class="tab-radio">
-<input type="radio" name="tabs" id="radio-page19" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page20" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page18" class="tab-radio">
 
   <div class="tab-bar">
-    <label class="tab-label" for="radio-page1">Executive Summary</label>
+    <label class="tab-label" for="radio-page1">Overview</label>
     <label class="tab-label" for="radio-page13">Deal Status</label>
-    <label class="tab-label" for="radio-page11">Action Items</label>
-    <label class="tab-label" for="radio-page2">Docs</label>
-    <label class="tab-label" for="radio-page14">Pics</label>
-    <label class="tab-label" for="radio-page4">Red Flags</label>
-    <label class="tab-label" for="radio-page9">Site Visit</label>
-    <label class="tab-label" for="radio-page6">Model</label>
-    <label class="tab-label" for="radio-page16">Forecast</label>
-    <label class="tab-label" for="radio-page17">Market</label>
-    <label class="tab-label" for="radio-page3">Financial Analysis</label>
+    <label class="tab-label" for="radio-page11">Actions</label>
+    <label class="tab-label" for="radio-page3">Financials</label>
+    <label class="tab-label" for="radio-page6">Underwriting</label>
+    <label class="tab-label" for="radio-page16">Projections</label>
     <label class="tab-label" for="radio-page15">Debt</label>
-    <label class="tab-label" for="radio-page12">Rent Roll Analysis</label>
-    <label class="tab-label" for="radio-page19">Lease Audit</label>
-    <label class="tab-label" for="radio-page7">POH Analysis</label>
+    <label class="tab-label" for="radio-page12">Tenants</label>
+    <label class="tab-label" for="radio-page7">POH</label>
     <label class="tab-label" for="radio-page10">Utilities</label>
+    <label class="tab-label" for="radio-page17">Market</label>
+    <label class="tab-label" for="radio-page14">Photos</label>
+    <label class="tab-label" for="radio-page9">Site Visit</label>
+    <label class="tab-label" for="radio-page4">Risks</label>
     <label class="tab-label" for="radio-page20">Value Add</label>
-    <label class="tab-label" for="radio-page5">Investor Deck</label>
     <label class="tab-label" for="radio-page8">Ops Handoff</label>
+    <label class="tab-label" for="radio-page5">Investor Deck</label>
   </div>
 
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
@@ -1532,398 +1524,6 @@
     <!-- CHANGELOG ACCESS (DISCRETE) -->
     <div style="text-align: center; margin-top: 20px;">
       <a href="#" onclick="document.getElementById('radio-page18').checked=true; window.scrollTo(0,0); return false;" style="font-size: 10px; color: #4A5568; text-decoration: none; opacity: 0.5; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">changelog</a>
-    </div>
-
-  </div>
-
-  <!-- ============================= PAGE 2: DD CHECKLIST ============================= -->
-  <div class="tab-content" id="tab-page2">
-
-    <div class="group-divider">
-      <div class="group-label">Deliverables Checklist — <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Schedule 7.1</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="progress-container">
-      <div class="progress-label"><span>Overall Completion</span><span class="green">18 / 27 Deliverables Received (67%)</span></div>
-      <div class="progress-bar"><div class="progress-fill" style="width: 67%;"></div></div>
-    </div>
-
-    <!-- DRIVE FOLDER LINK BAR -->
-    <div class="section" style="margin-bottom: 14px; padding: 16px 18px;">
-      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 10px;">DOCS &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Google Drive</a></div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px;">
-        <a href="https://drive.google.com/drive/folders/1ZRhmL3J41luXe5vJocrBtPJ9a4zES8T1?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Financial</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1OtVXnAp_aWmZ3asMiag6G2Ub-QUynTZP?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Tax &amp; Insurance</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1bpkgb28JbABRXQizy-kXcnnri0lAaizq?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Legal &amp; Leases</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/14QeOmIcGFR2ePiklPZ8xUCyHHJmq-m3C?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Operations</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Physical &amp; Reports</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1uMuE5YLK-YFoYFzVf4bd_6e1qB13ha0E?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Title &amp; Closing</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1PQLcU2sANFWUQnwSStVRuVBQhVy1GldK?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">POH</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1yQwOYPfrUDlzhV-t7n7V6G7e7RD-ZeKu?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">UW &amp; Analysis</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">Misc Files</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" class="drive-link">
-    <span class="link-icon">&#128193;</span><span class="link-label">PSA &amp; LOI</span><span class="link-arrow">→</span></a>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px;">
-        <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" class="drive-link">
-          <span class="link-icon">&#128193;</span><span class="link-label">Loan Docs</span><span class="link-arrow">→</span></a>
-        <a href="https://1drv.ms/x/c/83aacab46b08e19a/IQB5RuaKMpHETLE9qiY3NtZZAcOyo18UMebQLtnjriO6DEs" target="_blank" class="drive-link">
-          <span class="link-icon">&#128202;</span><span class="link-label">Underwriting Model</span><span class="link-arrow">→</span></a>
-        <a href="https://drive.google.com/drive/folders/1J_1TslQaaxED_x-t9D52Jj_Ur1J2grO7?usp=drive_link" target="_blank" class="drive-link">
-          <span class="link-icon">&#128193;</span><span class="link-label">Investor Decks</span><span class="link-arrow">→</span></a>
-      </div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:30px;">#</th>
-            <th>Deliverable</th>
-            <th style="width:90px;">Status</th>
-            <th style="width:60px;">Files</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 01 FINANCIAL (A-D) — Blue #3B82F6 -->
-          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
-            <td class="dim">A</td>
-            <td><a href="https://drive.google.com/drive/folders/1E1a_vYX8gC9qhl_wAZBdA8pE2M8wsVCd?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">Rent Rolls (Current)</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">6</td>
-            <td class="dim">Rent rolls + lot-by-type analysis for all 3 properties. Dated 3/10/2026.</td>
-          </tr>
-          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
-            <td class="dim">B</td>
-            <td><a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Profit &amp; Loss Statements</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">6</td>
-            <td class="dim">T12 and CY2025 P&amp;L for SC, OC, LAV. Complete set.</td>
-          </tr>
-          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
-            <td class="dim">C</td>
-            <td><a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Utility Bills</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">217</td>
-            <td class="dim">SC: 110 bills, OC: 65 bills, LAV: 42 bills. Black Hills, Water Works, Xcel, Waste Connections, Comcast.</td>
-          </tr>
-          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
-            <td class="dim">D</td>
-            <td><a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Bank Statements</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">36</td>
-            <td class="dim">12 months per property (Mar 2025 – Feb 2026). Complete set.</td>
-          </tr>
-          <!-- 02 TAX & INSURANCE (E, J-K) — Purple #8B5CF6 -->
-          <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
-            <td class="dim">E</td>
-            <td><a href="https://drive.google.com/drive/folders/1uhhNpBbKhBFESFQEFpoAOxZiNTyaeiL0?usp=drive_link" target="_blank" style="color:#B794F6; text-decoration:none;">Property Tax Records (2 Years)</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">42</td>
-            <td class="dim">2024 &amp; 2025 tax notices for real estate + park-owned home personal property. Includes tax history.</td>
-          </tr>
-          <!-- 03 LEGAL & LEASES (F) — Teal #14B8A6 -->
-          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
-            <td class="dim">F</td>
-            <td><a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">Executed Leases (Sample 10+)</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">37</td>
-            <td class="dim">37 leases provided — exceeds the 10+ requirement. SC: 17, OC: 15, LAV: 5.</td>
-          </tr>
-          <!-- 04 OPERATIONS (G-I) — Orange #F59E0B -->
-          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
-            <td class="dim">G</td>
-            <td><a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Service Contracts</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Folder exists but empty. Need trash hauling, landscaping, pest control, snow removal, etc.</td>
-          </tr>
-          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
-            <td class="dim">H</td>
-            <td><a href="https://drive.google.com/drive/folders/1B8JQd0knv7ZPwvzqRbOXlaKB21MTX3jE?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Contractor &amp; Vendor Lists</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Folder exists but empty. Required for operations transition planning.</td>
-          </tr>
-          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
-            <td class="dim">I</td>
-            <td><a href="https://drive.google.com/drive/folders/163-dj0LrTIrsNCPK-4l81fptVKpCrb03?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Delinquency Report</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Folder exists but empty. Critical for collections analysis and underwriting adjustment.</td>
-          </tr>
-          <!-- 02 TAX & INSURANCE (J-K) — Purple #8B5CF6 -->
-          <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
-            <td class="dim">J</td>
-            <td><a href="https://drive.google.com/drive/folders/1y99i4PWE5iY__-Rgxw5MjnolZETVkwzC?usp=drive_link" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Loss Runs (5 Years)</a></td>
-            <td><span class="status-badge badge-partial">PARTIAL</span></td>
-            <td class="orange">1</td>
-            <td class="dim">Only Sunset Vista loss runs provided (clean — zero claims). Missing: Oasis and La Vista loss runs.</td>
-          </tr>
-          <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
-            <td class="dim">K</td>
-            <td><a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Policies (Current)</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">6</td>
-            <td class="dim">25-26 and 26-27 PKG, UMB, and POH policies. Portfolio-wide coverage confirmed.</td>
-          </tr>
-          <!-- 05 PHYSICAL & ENV (L-O) — Green #10B981 -->
-          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
-            <td class="dim">L</td>
-            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">ALTA Surveys</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">3</td>
-            <td class="dim">All 3 properties. Dated October 2025. Matt forwarded existing ALTAs to Fidelity on 3/24.</td>
-          </tr>
-          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
-            <td class="dim">M</td>
-            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">Phase 1 Environmental Reports</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">3</td>
-            <td class="dim">All 3 properties — 2025 reports. ALL CLEAN: No RECs, CRECs, or HRECs.</td>
-          </tr>
-          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
-            <td class="dim">N</td>
-            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">PCA Reports</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">3</td>
-            <td class="dim">All 3 properties — 2025 reports. Total immediate CapEx: $52,471. Portfolio total: $221,577.</td>
-          </tr>
-          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
-            <td class="dim">O</td>
-            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">Site Maps</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">3</td>
-            <td class="dim">SC and OC (JPG), LAV (PDF). All 3 properties represented.</td>
-          </tr>
-          <!-- 04 OPERATIONS (P-R) — Orange #F59E0B -->
-          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
-            <td class="dim">P</td>
-            <td><a href="https://drive.google.com/drive/folders/1lNZVZnjmmiRumo4mICg_mmFrT5_brs1V?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Personal Property Inventory</a></td>
-            <td><span class="status-badge badge-received">RECEIVED</span></td>
-            <td class="green">1</td>
-            <td class="dim">Personal Property Schedule (Excel). Covers maintenance equipment, office items, amenity assets.</td>
-          </tr>
-          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
-            <td class="dim">Q</td>
-            <td><a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Rent Manager Access / Export</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Folder exists but empty. Need full Rent Manager data export for resident history, ledger cards, AR aging.</td>
-          </tr>
-          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
-            <td class="dim">R</td>
-            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">MPOP Registration (Active)</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Evidence of current Mobile Home Park registration with CO DORA. Required by Colorado law.</td>
-          </tr>
-          <!-- 03 LEGAL & LEASES (S-U) — Teal #14B8A6 -->
-          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
-            <td class="dim">S</td>
-            <td><a href="https://drive.google.com/drive/folders/1KllhpE7p4M4ULiX7lbN-izuYf0pbyJuw?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">OTP Compliance Documents</a></td>
-            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
-            <td class="orange">0</td>
-            <td class="dim">OTP price allocations confirmed 3/26 (SV $19.5M, OC $16.2M, LAV $2.5M). Notices being prepared by seller's counsel.</td>
-          </tr>
-          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
-            <td class="dim">T</td>
-            <td><a href="https://drive.google.com/drive/folders/1j2r0tSBltzQ6wdYMeJLQ7GwZdbmR9ur3?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">Litigation / Gov't Notices / Code Violations</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Folder exists but empty. Need seller confirmation of no pending litigation or violations.</td>
-          </tr>
-          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
-            <td class="dim">U</td>
-            <td><a href="https://drive.google.com/drive/folders/1N8VqGRrr1S2yEkjr7CaDM9Yel-dp00sl?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">Permits &amp; Licenses</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Operating permits, CDPHE wastewater permits, business licenses, fire department inspections.</td>
-          </tr>
-          <!-- 05 PHYSICAL & ENV (V) — Green #10B981 -->
-          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
-            <td class="dim">V</td>
-            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">CapEx Records (3 Years)</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Historical capital expenditure records — needed to validate <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a> findings and assess deferred maintenance.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ADDITIONAL PSA DELIVERABLES -->
-    <div class="group-divider">
-      <div class="group-label">Additional <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Required Items</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:30px;">#</th>
-            <th>Deliverable</th>
-            <th style="width:90px;">Status</th>
-            <th style="width:60px;">Files</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 06 TITLE & CLOSING (W-X) — Pink #EC4899 -->
-          <tr style="background:rgba(236,72,153,0.04); border-left: 2px solid rgba(236,72,153,0.40);">
-            <td class="dim">W</td>
-            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">Title Commitments &amp; Exception Documents</a></td>
-            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
-            <td class="orange">2</td>
-            <td class="dim">Fidelity National Title engaged. CDL received 3/25. GF# 9001312600125. Title insurance policies from prior transaction on file.</td>
-          </tr>
-          <tr style="background:rgba(236,72,153,0.04); border-left: 2px solid rgba(236,72,153,0.40);">
-            <td class="dim">X</td>
-            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">CMBS Loan Assumption Package</a></td>
-            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
-            <td class="green">3</td>
-            <td class="dim">$21.9M at 6.45% fixed. Loan docs received 3/28 (Promissory Note, Loan Agreement, Hello Letter). See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a>. <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA &amp; LOI &rarr;</a> &middot; <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a></td>
-          </tr>
-          <!-- 07 POH (Y) — Cyan #06B6D4 -->
-          <tr style="background:rgba(6,182,212,0.04); border-left: 2px solid rgba(6,182,212,0.40);">
-            <td class="dim">Y</td>
-            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#67E8F9; text-decoration:none;">POH Inventory &amp; Title Verification</a></td>
-            <td><span class="status-badge badge-partial">PARTIAL</span></td>
-            <td class="orange">1</td>
-            <td class="dim">POH schedule received (144 homes, $84,502/mo income). Individual home titles not yet verified.</td>
-          </tr>
-          <!-- 03 LEGAL & LEASES (Z-AA) — Teal #14B8A6 -->
-          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
-            <td class="dim">Z</td>
-            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Zoning &amp; Land Use Confirmation</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td class="dim">Need zoning letters from Pueblo County confirming MHC as conforming use.</td>
-          </tr>
-          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
-            <td class="dim">AA</td>
-            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Estoppel Certificates</a></td>
-            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
-            <td class="red">0</td>
-            <td><span style="color:#00E676; font-weight:700;">&#10003; RESOLVED (3/30):</span> Kris Wessel confirmed no estoppel language in PSA Section 7. <span class="dim">Estoppel requirement exists in <b>CMBS Loan Agreement Section 4.18</b> as a lender covenant, not a PSA obligation. No tenant estoppels required by PSA.</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- MISC FILES -->
-    <div class="group-divider">
-      <div class="group-label">Misc Files &mdash; Analysis Summaries</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 14px;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:30px;">#</th>
-            <th>Document</th>
-            <th style="width:90px;">Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="dim">1</td>
-            <td><a href="https://drive.google.com/file/d/1q9bojXu6OX6l_TIATqZrB3mJ3hui4QyR/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Executive Summary</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">High-level deal overview and key takeaways for the Pueblo Three Pack.</td>
-          </tr>
-          <tr>
-            <td class="dim">2</td>
-            <td><a href="https://drive.google.com/file/d/1zt5GClufpfbmW_Or33G4_G2tQn3sTLtj/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Key Metrics Overview</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">Portfolio-level KPIs: occupancy, NOI, cap rate, price per unit, rent levels.</td>
-          </tr>
-          <tr>
-            <td class="dim">3</td>
-            <td><a href="https://drive.google.com/file/d/1SGKur3yqRvbUKV2kpvUhSLWnk0t9e7Uz/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Due Diligence Index</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">Master index of all DD documents received, organized by category.</td>
-          </tr>
-          <tr>
-            <td class="dim">4</td>
-            <td><a href="https://drive.google.com/file/d/1-smu-LJuBkbbUlFnrNbGIGb72YHDO4pc/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Due Diligence Summary</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">Comprehensive DD findings narrative covering all three properties.</td>
-          </tr>
-          <tr>
-            <td class="dim">5</td>
-            <td><a href="https://drive.google.com/file/d/1zm3EDO1sfbbrt8kNmSwXNFUAG798bEh8/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Red Flags Summary</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">Consolidated risk register: CMBS assumption, OTP, tax reassessment, roads, occupancy.</td>
-          </tr>
-          <tr>
-            <td class="dim">6</td>
-            <td><a href="https://drive.google.com/file/d/1jjaLrAKcfdvXtaSQzFoL2Dl5yvOADIkd/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">CapEx Summary</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">7-year capital reserve schedule by property and category from <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA reports</a>.</td>
-          </tr>
-          <tr>
-            <td class="dim">7</td>
-            <td><a href="https://docs.google.com/spreadsheets/d/1u14URBObt_9CrGOiZ-lQqEBhE1EOArWB/edit?usp=drive_link&ouid=113826806408502291450&rtpof=true&sd=true" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Combined Rent Roll</a></td>
-            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">XLSX</span></td>
-            <td class="dim">Consolidated rent roll across all three properties.</td>
-          </tr>
-          <tr>
-            <td class="dim">8</td>
-            <td><a href="https://drive.google.com/file/d/1sj1oB6YvUM7Vw_Dc24jjK0Pgb9tkYDva/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Photo Review &amp; Site Visit Prep</a></td>
-            <td><span class="status-badge badge-in-progress">DOC</span></td>
-            <td class="dim">50-photo review across 3 properties with site visit checklist additions.</td>
-          </tr>
-          <tr>
-            <td class="dim">9</td>
-            <td><a href="https://docs.google.com/spreadsheets/d/1bo0zC_g2XMT0ANoGpqXo_MQwYXvHiu4S/edit?usp=drive_link&ouid=113826806408502291450&rtpof=true&sd=true" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">T12 Utility Bill Analysis</a></td>
-            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">XLSX</span></td>
-            <td class="dim">217 bills analyzed across 5 utility types, Apr 2025 &ndash; Mar 2026.</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="margin-top: 10px;">
-        <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR?usp=drive_link" target="_blank" class="drive-link">
-          <span class="link-icon">&#128193;</span><span class="link-label">Open Misc Files in Google Drive</span><span class="link-arrow">&rarr;</span></a>
-      </div>
-    </div>
-
-    <!-- SUMMARY STATS -->
-    <div class="kpi-strip">
-      <div class="kpi-card">
-        <div class="value green">18</div>
-        <div class="label">Received</div>
-      </div>
-      <div class="kpi-card">
-        <div class="value orange">2</div>
-        <div class="label">Partial</div>
-      </div>
-      <div class="kpi-card">
-        <div class="value blue">3</div>
-        <div class="label">In Progress</div>
-      </div>
-      <div class="kpi-card">
-        <div class="value red">4</div>
-        <div class="label">Not Received</div>
-      </div>
-      <div class="kpi-card">
-        <div class="value white">364</div>
-        <div class="label">Total Files</div>
-      </div>
     </div>
 
   </div>
@@ -3389,25 +2989,12 @@
       </div>
     </div>
 
-    <!-- 5-YEAR PROFORMA -->
-    <div class="section" style="margin-top: 14px;">
-      <div class="section-title">5-Year Pro Forma</div>
-      <div class="scroll-wrap">
-      <table class="data-table">
-        <thead>
-          <tr><th>Line Item</th><th style="text-align:right;">Year 1</th><th style="text-align:right;">Year 2</th><th style="text-align:right;">Year 3</th><th style="text-align:right;">Year 4</th><th style="text-align:right;">Year 5</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>Effective Gross Revenue</b></td><td style="text-align:right;"><b>$4,272,699</b></td><td style="text-align:right;"><b>$4,732,581</b></td><td style="text-align:right;"><b>$4,992,497</b></td><td style="text-align:right;"><b>$5,266,620</b></td><td style="text-align:right;"><b>$5,556,226</b></td></tr>
-          <tr><td class="dim">Operating Expenses</td><td style="text-align:right;">$1,427,025</td><td style="text-align:right;">$1,559,902</td><td style="text-align:right;">$1,612,794</td><td style="text-align:right;">$1,667,602</td><td style="text-align:right;">$1,717,947</td></tr>
-          <tr style="background: rgba(0,230,118,0.04);"><td><b class="green">NOI</b></td><td style="text-align:right;"><b class="green">$2,845,674</b></td><td style="text-align:right;"><b class="green">$3,172,678</b></td><td style="text-align:right;"><b class="green">$3,379,703</b></td><td style="text-align:right;"><b class="green">$3,599,018</b></td><td style="text-align:right;"><b class="green">$3,838,279</b></td></tr>
-          <tr><td class="dim">Below-the-Line</td><td style="text-align:right;">$237,746</td><td style="text-align:right;">$248,467</td><td style="text-align:right;">$255,203</td><td style="text-align:right;">$262,239</td><td style="text-align:right;">$269,600</td></tr>
-          <tr><td class="dim">Debt Service</td><td style="text-align:right;">$883,009</td><td style="text-align:right;">$1,161,452</td><td style="text-align:right;">$1,325,809</td><td style="text-align:right;">$1,325,809</td><td style="text-align:right;">$1,325,809</td></tr>
-          <tr style="background: rgba(59,130,246,0.06);"><td><b>Net Cash Flow</b></td><td style="text-align:right;"><b>$1,724,919</b></td><td style="text-align:right;"><b>$1,762,759</b></td><td style="text-align:right;"><b>$1,798,691</b></td><td style="text-align:right;"><b>$2,010,970</b></td><td style="text-align:right;"><b>$2,242,870</b></td></tr>
-          <tr><td class="dim">Cash on Cash</td><td style="text-align:right;">7%</td><td style="text-align:right;">7%</td><td style="text-align:right;">7%</td><td style="text-align:right;">8%</td><td style="text-align:right;">9%</td></tr>
-          <tr><td class="dim">DSCR</td><td style="text-align:right;">2.01x</td><td style="text-align:right;">2.73x</td><td style="text-align:right;">2.55x</td><td style="text-align:right;">2.72x</td><td style="text-align:right;">2.90x</td></tr>
-        </tbody>
-      </table>
+    <!-- 5-YEAR PROFORMA — SEE FORECAST TAB -->
+    <div class="section" style="margin-top: 14px; border-left: 3px solid #3B82F6; padding-left: 12px;">
+      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 4px;">5-YEAR PRO FORMA</div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size: 11px; color: #858D99;">Y1 NOI: <b style="color:#10B981;">$2.85M</b> &nbsp;→&nbsp; Y5 NOI: <b style="color:#10B981;">$3.84M</b> &nbsp;|&nbsp; Y1 CoC: <b style="color:#E5E9ED;">7%</b> &nbsp;|&nbsp; Y1 DSCR: <b style="color:#E5E9ED;">2.01x</b></div>
+        <a href="#" onclick="document.getElementById('radio-page16').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700; font-size:11px; white-space:nowrap;">Full 5-Year Detail →</a>
       </div>
     </div>
 
@@ -3563,772 +3150,15 @@
       </div>
     </div>
 
-    <!-- ======= FULL SELLER T12 P&L DETAIL BY PROPERTY ======= -->
-    <div class="group-divider">
-      <div class="group-label">Seller T12 P&amp;L — Full Detail by Property (Mar 2025 – Feb 2026)</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom: 10px; border-left: 3px solid #3B82F6; padding-left: 12px;">
-      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 4px;">SOURCE: SELLER DATA ROOM — <a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">FOLDER B (T-12 P&amp;Ls)</a></div>
-      <div style="font-size: 11px; color: #858D99; line-height: 1.6;">
-        Cash-basis T12 P&amp;Ls covering March 1, 2025 – February 28, 2026. These are the seller's actual operating results. Expenses include all on-site costs but <b style="color:#FBBF24;">manager/maintenance salaries appear under Professional Fees and Maintenance &amp; Repairs, not a separate Payroll line.</b>
+    <!-- ── T12 P&L DETAIL — SEE FINANCIAL TAB ── -->
+    <div class="section" style="margin-top: 14px; margin-bottom:14px; border-left: 3px solid #FBBF24; padding-left: 12px;">
+      <div style="font-size: 11px; color: #FBBF24; font-weight: 700; margin-bottom: 4px;">SELLER T12 P&amp;L — FULL DETAIL BY PROPERTY</div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size: 11px; color: #858D99;">SC: $956K NOI &nbsp;|&nbsp; OC: $867K NOI &nbsp;|&nbsp; LAV: $131K NOI &nbsp;|&nbsp; <b style="color:#E5E9ED;">Portfolio: $1.95M</b></div>
+        <a href="#" onclick="document.getElementById('radio-page3').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700; font-size:11px; white-space:nowrap;">Full T12 Detail →</a>
       </div>
+      <div style="font-size: 10px; color: #858D99; margin-top:6px;">Key insight: T12 NOI $168K above Model Y1 — payroll reclassification is the primary driver. See comparison tables above.</div>
     </div>
-
-    <!-- T12 KEY OBSERVATIONS -->
-    <div class="section" style="margin-bottom: 14px; border-left: 3px solid #FBBF24; padding-left: 12px;">
-      <div style="font-size: 11px; color: #FBBF24; font-weight: 700; margin-bottom: 4px;">T12 KEY OBSERVATIONS</div>
-      <div style="font-size: 11px; color: #858D99; line-height: 1.8;">
-        <b style="color:#EF4444;">1. Payroll is hidden in Prof. Fees &amp; R&amp;M:</b> Manager salaries ($38.7K SC, $13.4K OC, $1K LAV = $53K) and maintenance payroll ($27.5K SC, $28K OC, $20K LAV = $75.5K) appear under Professional Fees and Maintenance &amp; Repairs — not a separate payroll line. Combined on-site labor: <b style="color:#E5E9ED;">~$165K</b> across all properties.<br>
-        <b style="color:#EF4444;">2. OC Insurance = $0:</b> Oasis shows zero insurance on T12 — likely billed at portfolio level or paid by a separate entity. Must verify where the actual cost sits.<br>
-        <b style="color:#EF4444;">3. District Mgmt Fees:</b> SC $14.4K + OC $11.3K + LAV $2.2K = $27.9K — this is regional oversight, separate from offsite management fees ($155K BTL). Model doesn't have this as a distinct line.<br>
-        <b style="color:#EF4444;">4. MDR (SC + OC only):</b> $48.6K each = $97.2K total. Management / distribution reserve — unique to seller's structure, won't carry forward.<br>
-        <b style="color:#EF4444;">5. Utility Reimbursement low:</b> T12 shows only $72K in utility income vs $417K in utility expenses (17% recovery). Model assumes $173K (40% recovery). Major RUBS upside if implemented.
-      </div>
-    </div>
-
-    <!-- SC T12 -->
-    <div class="section" style="margin-bottom: 14px;">
-      <div class="section-title">Sunset Vista — T12 P&amp;L Detail</div>
-      <table class="data-table" style="font-size: 10.5px;">
-        <thead>
-          <tr>
-            <th>Line Item</th>
-            <th style="text-align:right;">T12 Amount</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background: rgba(0,230,118,0.04);">
-            <td colspan="3"><b class="green">REVENUE</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Lot Rent Income</td>
-            <td style="text-align:right;"><b>$1,374,554</b></td>
-            <td class="dim">Primary revenue</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Home Rental Income</td>
-            <td style="text-align:right;">$7,000</td>
-            <td class="dim">Minimal</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Tenant Prepaid Un-allocated</td>
-            <td style="text-align:right;">$8,086</td>
-            <td class="dim">Prepayments received</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Security Deposit Forfeitures</td>
-            <td style="text-align:right;">$1,440</td>
-            <td class="dim">Forfeited deposits</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Late Fees</td>
-            <td style="text-align:right;">$9,753</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Application Fees</td>
-            <td style="text-align:right;">$4,377</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">NSF Fees</td>
-            <td style="text-align:right;">$125</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Pet Fees</td>
-            <td style="text-align:right;">$9,750</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Service / Other Fee Income</td>
-            <td style="text-align:right;">$20,649</td>
-            <td class="dim">Misc fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Water Income</td>
-            <td style="text-align:right;">$254</td>
-            <td class="dim">Utility reimbursement</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Refuse Income</td>
-            <td style="text-align:right;">$25,766</td>
-            <td class="dim">Trash reimbursement</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Misc Income</td>
-            <td style="text-align:right;">$440</td>
-            <td class="dim">Other</td>
-          </tr>
-          <tr style="background: rgba(59,130,246,0.06);">
-            <td><b>TOTAL REVENUE</b></td>
-            <td style="text-align:right;"><b>$1,462,195</b></td>
-            <td class="dim"></td>
-          </tr>
-
-          <tr style="background: rgba(239,68,68,0.04);">
-            <td colspan="3"><b class="red">OPERATING EXPENSES</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Property Taxes</i></td>
-            <td style="text-align:right;">$40,405</td>
-            <td class="dim">Real estate taxes</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Property Insurance</i></td>
-            <td style="text-align:right;">$79,926</td>
-            <td class="dim">Includes POH coverage? Verify allocation</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Facilities Repair &amp; Maint.</i></td>
-            <td style="text-align:right;">$4,746</td>
-            <td class="dim">General R&amp;M</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance Payroll</i></td>
-            <td style="text-align:right;">$27,478</td>
-            <td class="dim">On-site maintenance staff wages</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance PR Burden + Benefits</i></td>
-            <td style="text-align:right;">$13,318</td>
-            <td class="dim">Payroll taxes + benefits for maintenance</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Plumbing &amp; Electrical</i></td>
-            <td style="text-align:right;">$1,680</td>
-            <td class="dim">Likely mix of community + POH</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Pest Control</i></td>
-            <td style="text-align:right;">$95</td>
-            <td class="dim">Minimal</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Grounds Maintenance / Plowing</i></td>
-            <td style="text-align:right;">$2,455</td>
-            <td class="dim">Landscaping + snow</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Pool Service &amp; Repairs</i></td>
-            <td style="text-align:right;">$674</td>
-            <td class="dim">Community amenity</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Accounting</i></td>
-            <td style="text-align:right;">$700</td>
-            <td class="dim">Professional fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Legal</i></td>
-            <td style="text-align:right;">$13,300</td>
-            <td class="dim">Legal + eviction</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Eviction / Process Fees</i></td>
-            <td style="text-align:right;">$727</td>
-            <td class="dim">Court costs</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Onsite Mgmt Fees (Payroll)</i></td>
-            <td style="text-align:right;">$38,654</td>
-            <td class="dim">Manager salary — in Prof. Fees, not Payroll line</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Onsite PR Burden + Benefits</i></td>
-            <td style="text-align:right;">$19,167</td>
-            <td class="dim">Manager payroll taxes + health</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>District Mgmt Fees</i></td>
-            <td style="text-align:right;">$14,353</td>
-            <td class="dim">Regional / district management allocation</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Water Expenses</i></td>
-            <td style="text-align:right;">$84,794</td>
-            <td class="dim">Master-metered water</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Sewer Expense</i></td>
-            <td style="text-align:right;">$111,658</td>
-            <td class="dim">Sewer charges</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Rubbish Expense</i></td>
-            <td style="text-align:right;">$31,351</td>
-            <td class="dim">Trash hauling</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Natural Gas</i></td>
-            <td style="text-align:right;">$1,577</td>
-            <td class="dim">Common area gas</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Electricity — Infrastructure</i></td>
-            <td style="text-align:right;">$4,535</td>
-            <td class="dim">Common area electric</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Cable</i></td>
-            <td style="text-align:right;">$4,703</td>
-            <td class="dim">Bulk cable service</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>G&amp;A (Software, Bank, Office, etc.)</i></td>
-            <td style="text-align:right;">$9,511</td>
-            <td class="dim">AppFolio $1,560, Credit apps $4,377, CC processing $2,440, other</td>
-          </tr>
-          <tr style="background: rgba(239,68,68,0.06);">
-            <td><b>TOTAL OPERATING EXPENSES</b></td>
-            <td style="text-align:right;"><b>$505,807</b></td>
-            <td class="dim"></td>
-          </tr>
-          <tr style="background: rgba(0,230,118,0.06);">
-            <td><b class="green">NET OPERATING INCOME</b></td>
-            <td style="text-align:right;"><b class="green">$956,388</b></td>
-            <td class="dim">65.4% margin</td>
-          </tr>
-
-          <tr style="background: rgba(251,191,36,0.04);">
-            <td colspan="3"><b class="orange">BELOW THE LINE</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">1st Mortgage Debt Service</td>
-            <td style="text-align:right;">$320,881</td>
-            <td class="dim">CMBS loan</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Other Interest Expense</td>
-            <td style="text-align:right;">$21,278</td>
-            <td class="dim">Mezz or seller note?</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Offsite Management Fees</td>
-            <td style="text-align:right;">$79,003</td>
-            <td class="dim">Corporate management</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">MDR</td>
-            <td style="text-align:right;">$48,600</td>
-            <td class="dim">Management / distribution reserve</td>
-          </tr>
-          <tr style="background: rgba(59,130,246,0.06);">
-            <td><b>NET INCOME</b></td>
-            <td style="text-align:right;"><b>$486,626</b></td>
-            <td class="dim">After all charges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- OC T12 -->
-    <div class="section" style="margin-bottom: 14px;">
-      <div class="section-title">Oasis — T12 P&amp;L Detail</div>
-      <table class="data-table" style="font-size: 10.5px;">
-        <thead>
-          <tr>
-            <th>Line Item</th>
-            <th style="text-align:right;">T12 Amount</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background: rgba(0,230,118,0.04);">
-            <td colspan="3"><b class="green">REVENUE</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Lot Rent Income</td>
-            <td style="text-align:right;"><b>$1,102,128</b></td>
-            <td class="dim">Primary revenue — TOH + POH lot rents bundled</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Tenant Prepaid Un-allocated</td>
-            <td style="text-align:right;">($3,641)</td>
-            <td class="dim">Negative — adjustment</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Late Fees</td>
-            <td style="text-align:right;">$2,000</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Application Fees</td>
-            <td style="text-align:right;">$1,069</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Pet Fees</td>
-            <td style="text-align:right;">$2,723</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Other Fee Income</td>
-            <td style="text-align:right;">$1,740</td>
-            <td class="dim">Misc fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Refuse Income</td>
-            <td style="text-align:right;">$17,130</td>
-            <td class="dim">Trash reimbursement</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Natural Gas Income</td>
-            <td style="text-align:right;">$179</td>
-            <td class="dim">Gas reimbursement</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Misc Income</td>
-            <td style="text-align:right;">$3,777</td>
-            <td class="dim">Other</td>
-          </tr>
-          <tr style="background: rgba(59,130,246,0.06);">
-            <td><b>TOTAL REVENUE</b></td>
-            <td style="text-align:right;"><b>$1,127,106</b></td>
-            <td class="dim"></td>
-          </tr>
-
-          <tr style="background: rgba(239,68,68,0.04);">
-            <td colspan="3"><b class="red">OPERATING EXPENSES</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Property Taxes</i></td>
-            <td style="text-align:right;">$31,229</td>
-            <td class="dim">Real estate taxes</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Property Insurance</i></td>
-            <td style="text-align:right;" class="red">$0</td>
-            <td class="red"><b>$0 on T12 — billed at portfolio level or separate entity</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maint. Mgmt Salaries - CO</i></td>
-            <td style="text-align:right;">$1,811</td>
-            <td class="dim">Payroll line (minimal — rest in Prof. Fees)</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Facilities Repair &amp; Maint.</i></td>
-            <td style="text-align:right;">$1,939</td>
-            <td class="dim">General R&amp;M</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance Payroll</i></td>
-            <td style="text-align:right;">$28,035</td>
-            <td class="dim">On-site maintenance staff wages (under R&amp;M)</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance PR Burden + Benefits</i></td>
-            <td style="text-align:right;">$15,703</td>
-            <td class="dim">Payroll taxes + benefits for maintenance</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Plumbing &amp; Electrical</i></td>
-            <td style="text-align:right;">$5,665</td>
-            <td class="dim">Mix of community + POH</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Grounds Maintenance / Plowing</i></td>
-            <td style="text-align:right;">$2,611</td>
-            <td class="dim">Landscaping + snow</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Accounting</i></td>
-            <td style="text-align:right;">$650</td>
-            <td class="dim">Professional fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Legal + Eviction</i></td>
-            <td style="text-align:right;">$362</td>
-            <td class="dim">Legal $225 + eviction $137</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Onsite Mgmt Fees (Payroll)</i></td>
-            <td style="text-align:right;">$13,370</td>
-            <td class="dim">Manager salary — in Prof. Fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Onsite PR Burden + Benefits</i></td>
-            <td style="text-align:right;">$5,076</td>
-            <td class="dim">Manager payroll taxes + health</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>District Mgmt Fees</i></td>
-            <td style="text-align:right;">$11,275</td>
-            <td class="dim">Regional management allocation</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Water Expenses</i></td>
-            <td style="text-align:right;">$41,004</td>
-            <td class="dim">Master-metered water</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Sewer Expense</i></td>
-            <td style="text-align:right;">$58,446</td>
-            <td class="dim">Sewer charges</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Rubbish Expense</i></td>
-            <td style="text-align:right;">$21,203</td>
-            <td class="dim">Trash hauling</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Natural Gas</i></td>
-            <td style="text-align:right;">$1,111</td>
-            <td class="dim">Common area gas</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Electricity — Infrastructure</i></td>
-            <td style="text-align:right;">$9,946</td>
-            <td class="dim">Common area electric</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>G&amp;A (Software, Bank, Office, etc.)</i></td>
-            <td style="text-align:right;">$10,310</td>
-            <td class="dim">AppFolio $1,560, Licenses $5,397, CC processing $1,846, other</td>
-          </tr>
-          <tr style="background: rgba(239,68,68,0.06);">
-            <td><b>TOTAL OPERATING EXPENSES</b></td>
-            <td style="text-align:right;"><b>$259,744</b></td>
-            <td class="dim"></td>
-          </tr>
-          <tr style="background: rgba(0,230,118,0.06);">
-            <td><b class="green">NET OPERATING INCOME</b></td>
-            <td style="text-align:right;"><b class="green">$867,362</b></td>
-            <td class="dim">77.0% margin</td>
-          </tr>
-
-          <tr style="background: rgba(251,191,36,0.04);">
-            <td colspan="3"><b class="orange">BELOW THE LINE</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">1st Mortgage Debt Service</td>
-            <td style="text-align:right;">$347,455</td>
-            <td class="dim">CMBS loan</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Other Interest Expense</td>
-            <td style="text-align:right;">$23,121</td>
-            <td class="dim">Mezz or seller note?</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Offsite Management Fees</td>
-            <td style="text-align:right;">$64,181</td>
-            <td class="dim">Corporate management</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">MDR</td>
-            <td style="text-align:right;">$48,600</td>
-            <td class="dim">Management / distribution reserve</td>
-          </tr>
-          <tr style="background: rgba(59,130,246,0.06);">
-            <td><b>NET INCOME</b></td>
-            <td style="text-align:right;"><b>$384,006</b></td>
-            <td class="dim">After all charges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- LAV T12 -->
-    <div class="section" style="margin-bottom: 14px;">
-      <div class="section-title">La Vista — T12 P&amp;L Detail</div>
-      <table class="data-table" style="font-size: 10.5px;">
-        <thead>
-          <tr>
-            <th>Line Item</th>
-            <th style="text-align:right;">T12 Amount</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background: rgba(0,230,118,0.04);">
-            <td colspan="3"><b class="green">REVENUE</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Lot Rent Income</td>
-            <td style="text-align:right;"><b>$198,356</b></td>
-            <td class="dim">Primary revenue — TOH + POH lot rents bundled</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Tenant Prepaid Un-allocated</td>
-            <td style="text-align:right;">$3,912</td>
-            <td class="dim">Prepayments</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Late Fees</td>
-            <td style="text-align:right;">$3,152</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Application Fees</td>
-            <td style="text-align:right;">$360</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Pet Fees</td>
-            <td style="text-align:right;">$300</td>
-            <td class="dim">Fee income</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Other Fee Income</td>
-            <td style="text-align:right;">$2,008</td>
-            <td class="dim">Misc fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Sewer Income</td>
-            <td style="text-align:right;">$22,698</td>
-            <td class="dim">Sewer reimbursement (RUBS)</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:24px;">Refuse Income</td>
-            <td style="text-align:right;">$6,178</td>
-            <td class="dim">Trash reimbursement</td>
-          </tr>
-          <tr style="background: rgba(59,130,246,0.06);">
-            <td><b>TOTAL REVENUE</b></td>
-            <td style="text-align:right;"><b>$236,965</b></td>
-            <td class="dim"></td>
-          </tr>
-
-          <tr style="background: rgba(239,68,68,0.04);">
-            <td colspan="3"><b class="red">OPERATING EXPENSES</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Property Taxes</i></td>
-            <td style="text-align:right;">$3,179</td>
-            <td class="dim">Real estate taxes</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Property Insurance</i></td>
-            <td style="text-align:right;">$15,259</td>
-            <td class="dim">Property + POH coverage?</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maint. Mgmt Salaries - CO</i></td>
-            <td style="text-align:right;">$713</td>
-            <td class="dim">Payroll line</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance Wages - CO</i></td>
-            <td style="text-align:right;">$4,313</td>
-            <td class="dim">Additional maintenance wages</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance Payroll (under R&amp;M)</i></td>
-            <td style="text-align:right;">$20,083</td>
-            <td class="dim">On-site maintenance staff wages</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Maintenance PR Burden</i></td>
-            <td style="text-align:right;">$6,922</td>
-            <td class="dim">Payroll taxes for maintenance</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Accounting</i></td>
-            <td style="text-align:right;">$550</td>
-            <td class="dim">Professional fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Onsite Mgmt Fees (Payroll)</i></td>
-            <td style="text-align:right;">$1,000</td>
-            <td class="dim">Manager salary — in Prof. Fees</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Onsite PR Burden + Benefits</i></td>
-            <td style="text-align:right;">$1,697</td>
-            <td class="dim">Manager payroll taxes + health</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>District Mgmt Fees</i></td>
-            <td style="text-align:right;">$2,170</td>
-            <td class="dim">Regional management allocation</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Water Expenses</i></td>
-            <td style="text-align:right;">$15,790</td>
-            <td class="dim">Master-metered water</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Sewer Expense</i></td>
-            <td style="text-align:right;">$23,081</td>
-            <td class="dim">Sewer charges</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Rubbish Expense</i></td>
-            <td style="text-align:right;">$6,608</td>
-            <td class="dim">Trash hauling</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>Electricity — Infrastructure</i></td>
-            <td style="text-align:right;">$791</td>
-            <td class="dim">Common area electric</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;"><i>G&amp;A (Software, Bank, Office, etc.)</i></td>
-            <td style="text-align:right;">$3,580</td>
-            <td class="dim">AppFolio $1,560, Licenses $908, other</td>
-          </tr>
-          <tr style="background: rgba(239,68,68,0.06);">
-            <td><b>TOTAL OPERATING EXPENSES</b></td>
-            <td style="text-align:right;"><b>$105,738</b></td>
-            <td class="dim"></td>
-          </tr>
-          <tr style="background: rgba(0,230,118,0.06);">
-            <td><b class="green">NET OPERATING INCOME</b></td>
-            <td style="text-align:right;"><b class="green">$131,227</b></td>
-            <td class="dim">55.4% margin</td>
-          </tr>
-
-          <tr style="background: rgba(251,191,36,0.04);">
-            <td colspan="3"><b class="orange">BELOW THE LINE</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">1st Mortgage Debt Service</td>
-            <td style="text-align:right;">$26,341</td>
-            <td class="dim">CMBS loan</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Offsite Management Fees</td>
-            <td style="text-align:right;">$12,199</td>
-            <td class="dim">Corporate management</td>
-          </tr>
-          <tr style="background: rgba(59,130,246,0.06);">
-            <td><b>NET INCOME</b></td>
-            <td style="text-align:right;"><b>$92,687</b></td>
-            <td class="dim">After all charges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- PORTFOLIO T12 SUMMARY -->
-    <div class="section" style="margin-bottom: 14px;">
-      <div class="section-title">Portfolio T12 Summary — Combined</div>
-      <div class="scroll-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Metric</th>
-            <th style="text-align:right;">Sunset Vista</th>
-            <th style="text-align:right;">Oasis</th>
-            <th style="text-align:right;">La Vista</th>
-            <th style="text-align:right;">Portfolio Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>Total Revenue</b></td>
-            <td style="text-align:right;">$1,462,195</td>
-            <td style="text-align:right;">$1,127,106</td>
-            <td style="text-align:right;">$236,965</td>
-            <td style="text-align:right;"><b>$2,826,266</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Lot Rent</td>
-            <td style="text-align:right;" class="dim">$1,374,554</td>
-            <td style="text-align:right;" class="dim">$1,102,128</td>
-            <td style="text-align:right;" class="dim">$198,356</td>
-            <td style="text-align:right;" class="dim">$2,675,038</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Fee Income</td>
-            <td style="text-align:right;" class="dim">$44,655</td>
-            <td style="text-align:right;" class="dim">$7,532</td>
-            <td style="text-align:right;" class="dim">$5,820</td>
-            <td style="text-align:right;" class="dim">$58,007</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Utility Reimbursement</td>
-            <td style="text-align:right;" class="dim">$26,020</td>
-            <td style="text-align:right;" class="dim">$17,309</td>
-            <td style="text-align:right;" class="dim">$28,876</td>
-            <td style="text-align:right;" class="dim">$72,206</td>
-          </tr>
-          <tr>
-            <td><b>Total Operating Expenses</b></td>
-            <td style="text-align:right;">$505,807</td>
-            <td style="text-align:right;">$259,744</td>
-            <td style="text-align:right;">$105,738</td>
-            <td style="text-align:right;"><b>$871,289</b></td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Taxes + Insurance</td>
-            <td style="text-align:right;" class="dim">$120,331</td>
-            <td style="text-align:right;" class="dim">$31,229</td>
-            <td style="text-align:right;" class="dim">$18,438</td>
-            <td style="text-align:right;" class="dim">$169,998</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Maintenance &amp; Repairs</td>
-            <td style="text-align:right;" class="dim">$50,446</td>
-            <td style="text-align:right;" class="dim">$53,953</td>
-            <td style="text-align:right;" class="dim">$27,005</td>
-            <td style="text-align:right;" class="dim">$131,404</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Utilities</td>
-            <td style="text-align:right;" class="dim">$238,618</td>
-            <td style="text-align:right;" class="dim">$131,709</td>
-            <td style="text-align:right;" class="dim">$46,270</td>
-            <td style="text-align:right;" class="dim">$416,597</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">Professional Fees</td>
-            <td style="text-align:right;" class="dim">$86,901</td>
-            <td style="text-align:right;" class="dim">$30,732</td>
-            <td style="text-align:right;" class="dim">$5,418</td>
-            <td style="text-align:right;" class="dim">$123,051</td>
-          </tr>
-          <tr>
-            <td class="dim" style="padding-left:12px;">G&amp;A</td>
-            <td style="text-align:right;" class="dim">$9,511</td>
-            <td style="text-align:right;" class="dim">$10,310</td>
-            <td style="text-align:right;" class="dim">$3,580</td>
-            <td style="text-align:right;" class="dim">$23,401</td>
-          </tr>
-          <tr style="background: rgba(0,230,118,0.06);">
-            <td><b class="green">Net Operating Income</b></td>
-            <td style="text-align:right;"><b>$956,388</b></td>
-            <td style="text-align:right;"><b>$867,362</b></td>
-            <td style="text-align:right;"><b>$131,227</b></td>
-            <td style="text-align:right;"><b class="green">$1,954,977</b></td>
-          </tr>
-          <tr>
-            <td class="dim">Operating Margin</td>
-            <td style="text-align:right;" class="dim">65.4%</td>
-            <td style="text-align:right;" class="dim">77.0%</td>
-            <td style="text-align:right;" class="dim">55.4%</td>
-            <td style="text-align:right;" class="dim">69.2%</td>
-          </tr>
-          <tr>
-            <td class="dim">Debt Service</td>
-            <td style="text-align:right;" class="dim">$320,881</td>
-            <td style="text-align:right;" class="dim">$347,455</td>
-            <td style="text-align:right;" class="dim">$26,341</td>
-            <td style="text-align:right;" class="dim">$694,677</td>
-          </tr>
-          <tr>
-            <td class="dim">Offsite Mgmt Fees</td>
-            <td style="text-align:right;" class="dim">$79,003</td>
-            <td style="text-align:right;" class="dim">$64,181</td>
-            <td style="text-align:right;" class="dim">$12,199</td>
-            <td style="text-align:right;" class="dim">$155,383</td>
-          </tr>
-          <tr>
-            <td><b>Net Income</b></td>
-            <td style="text-align:right;"><b>$486,626</b></td>
-            <td style="text-align:right;"><b>$384,006</b></td>
-            <td style="text-align:right;"><b>$92,687</b></td>
-            <td style="text-align:right;"><b>$963,319</b></td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-
     <!-- MODEL CHANGES (moved to bottom) -->
     <div class="group-divider">
       <div class="group-label">Model Changes &amp; <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Reconciliation</div>
@@ -4901,94 +3731,234 @@
       </div>
     </div>
 
-    <!-- ── BUSINESS PLAN IMPLEMENTATION ── -->
+    <!-- ── BUSINESS PLAN EXECUTION CHECKLIST ── -->
     <div class="group-divider">
-      <div class="group-label">Business Plan Implementation &mdash; What Ops Needs to Execute</div>
+      <div class="group-label">Business Plan Execution &mdash; Ops Checklist by Deadline</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:10px; padding:16px 18px;">
+      <div style="font-size:11px; color:#858D99; margin-bottom:8px; line-height:1.6;">
+        The model targets <b style="color:#10B981;">+$554K Year 1 NOI uplift</b> across 5 value levers. For strategy details, financial targets, and per-community breakdowns, see <a href="#" onclick="document.getElementById('radio-page20').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Value Add tab</a>. For RUBS regulatory detail, see <a href="#" onclick="document.getElementById('radio-page10').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Utilities tab</a>. This section focuses on <b style="color:#E5E9ED;">what the PM does and when</b>.
+      </div>
+
+      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <table class="data-table" style="min-width:700px;">
+          <thead>
+            <tr>
+              <th style="text-align:center;">Deadline</th>
+              <th>PM Action Item</th>
+              <th style="text-align:center;">Lever</th>
+              <th>Success Metric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:rgba(239,68,68,0.04);">
+              <td style="text-align:center;"><b style="color:#EF4444;">Close +14d</b></td>
+              <td class="dim">Walk and photo-document all 53 vacant lots. Confirm pad condition, hookups, dimensions.</td>
+              <td style="text-align:center;"><span style="background:rgba(251,191,36,0.15); color:#FBBF24; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Infill</span></td>
+              <td class="dim">53 lots graded with photo evidence. Report to CapEx.</td>
+            </tr>
+            <tr style="background:rgba(239,68,68,0.04);">
+              <td style="text-align:center;"><b style="color:#EF4444;">Close +30d</b></td>
+              <td class="dim">Mail 90-day rent increase notices to all 360 occupied lots (CO MHP Act compliant templates from Legal).</td>
+              <td style="text-align:center;"><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Lot Rent</span></td>
+              <td class="dim">100% delivered. Proof of service documented.</td>
+            </tr>
+            <tr style="background:rgba(239,68,68,0.04);">
+              <td style="text-align:center;"><b style="color:#EF4444;">Close +30d</b></td>
+              <td class="dim">Grade all 144 POH homes A/B/C. Walk every unit with CapEx. Identify first 10 for sale listing.</td>
+              <td style="text-align:center;"><span style="background:rgba(139,92,246,0.15); color:#B794F6; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">POH</span></td>
+              <td class="dim">Grading report complete. "A" homes identified.</td>
+            </tr>
+            <tr style="background:rgba(239,68,68,0.04);">
+              <td style="text-align:center;"><b style="color:#EF4444;">Close +30d</b></td>
+              <td class="dim">Select RUBS vendor (Conservice/NWP/SimpleBills). Compile 12 months utility invoices for allocation model.</td>
+              <td style="text-align:center;"><span style="background:rgba(59,130,246,0.15); color:#3B82F6; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">RUBS</span></td>
+              <td class="dim">Vendor under contract. Invoice compilation complete.</td>
+            </tr>
+            <tr style="background:rgba(239,68,68,0.04);">
+              <td style="text-align:center;"><b style="color:#EF4444;">Close +30d</b></td>
+              <td class="dim">Submit insurance rebid through SL portfolio carrier. Target $30K annual savings.</td>
+              <td style="text-align:center;"><span style="background:rgba(6,182,212,0.15); color:#06B6D4; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Expense</span></td>
+              <td class="dim">Quotes received. Policy bound at &le;$155K.</td>
+            </tr>
+            <tr style="background:rgba(249,115,22,0.04);">
+              <td style="text-align:center;"><b style="color:#F59E0B;">Close +60d</b></td>
+              <td class="dim">List first 10 "A grade" POH homes for sale. Set pricing. Activate financing options (21st Mortgage, rent-to-own).</td>
+              <td style="text-align:center;"><span style="background:rgba(139,92,246,0.15); color:#B794F6; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">POH</span></td>
+              <td class="dim">10 homes listed. Financing pipeline active.</td>
+            </tr>
+            <tr style="background:rgba(249,115,22,0.04);">
+              <td style="text-align:center;"><b style="color:#F59E0B;">Close +60d</b></td>
+              <td class="dim">Order first 5 infill homes from dealer (Clayton/Cavco/Champion). Coordinate lot prep with CapEx.</td>
+              <td style="text-align:center;"><span style="background:rgba(251,191,36,0.15); color:#FBBF24; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Infill</span></td>
+              <td class="dim">Purchase orders signed. Delivery dates confirmed.</td>
+            </tr>
+            <tr style="background:rgba(249,115,22,0.04);">
+              <td style="text-align:center;"><b style="color:#F59E0B;">Close +60d</b></td>
+              <td class="dim">Rebid trash, landscaping, and pest contracts. Terminate underperformers. Lock in new pricing.</td>
+              <td style="text-align:center;"><span style="background:rgba(6,182,212,0.15); color:#06B6D4; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Expense</span></td>
+              <td class="dim">All vendor contracts renegotiated or replaced.</td>
+            </tr>
+            <tr style="background:rgba(59,130,246,0.04);">
+              <td style="text-align:center;"><b style="color:#3B82F6;">Close +90d</b></td>
+              <td class="dim">Launch RUBS billing on all non-blocked units. Cure SC 183/190/203 leases first (utilities "included" language).</td>
+              <td style="text-align:center;"><span style="background:rgba(59,130,246,0.15); color:#3B82F6; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">RUBS</span></td>
+              <td class="dim">RUBS billing live &ge;95% of units. $14K/mo target.</td>
+            </tr>
+            <tr style="background:rgba(59,130,246,0.04);">
+              <td style="text-align:center;"><b style="color:#3B82F6;">Close +90d</b></td>
+              <td class="dim">File property tax appeals with Pueblo County Assessor. Provide comp data and classification argument.</td>
+              <td style="text-align:center;"><span style="background:rgba(6,182,212,0.15); color:#06B6D4; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Expense</span></td>
+              <td class="dim">Appeal filed. Target $22K annual savings.</td>
+            </tr>
+            <tr style="background:rgba(34,197,94,0.04);">
+              <td style="text-align:center;"><b style="color:#10B981;">Close +120d</b></td>
+              <td class="dim">New lot rents take effect across all 3 communities. Update Rent Manager. Monitor for turnover.</td>
+              <td style="text-align:center;"><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Lot Rent</span></td>
+              <td class="dim">&lt;5% turnover from increases. $167K annualized.</td>
+            </tr>
+            <tr style="background:rgba(34,197,94,0.04);">
+              <td style="text-align:center;"><b style="color:#10B981;">Close +120d</b></td>
+              <td class="dim">Issue new standard leases to all month-to-month tenants. Incorporate RUBS addendum and updated rent.</td>
+              <td style="text-align:center;"><span style="background:rgba(236,72,153,0.15); color:#EC4899; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">Lease</span></td>
+              <td class="dim">100% of tenants on SL standard lease.</td>
+            </tr>
+            <tr style="background:rgba(34,197,94,0.04);">
+              <td style="text-align:center;"><b style="color:#10B981;">Month 12</b></td>
+              <td class="dim">Year 1 targets hit: 40 POH sold, 20 lots filled, RUBS at 40% recovery, all vendor contracts optimized.</td>
+              <td style="text-align:center;"><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">ALL</span></td>
+              <td class="dim">NOI run-rate &ge;$2.50M (+28.4% over T12).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── ITEMS TO DISCUSS ── -->
+    <div class="group-divider">
+      <div class="group-label">Items to Discuss Before Closing</div>
       <div class="group-line"></div>
     </div>
 
     <div class="section" style="margin-bottom:10px; padding:16px 18px;">
       <div style="font-size:11px; color:#858D99; margin-bottom:12px; line-height:1.6;">
-        The underwriting model assumes <b style="color:#10B981;">$554K in Year 1 NOI uplift</b>. Every dollar of that depends on ops executing 5 levers on a specific timeline. Below is what the PM and ops team need to do, when, and what success looks like.
+        These are open questions and decisions that need alignment between Acquisitions, Ops, Finance, and Legal before the transition can run cleanly. Each one affects how we staff, budget, or execute the business plan.
       </div>
 
-      <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
-        <table class="data-table" style="min-width:850px;">
-          <thead>
-            <tr>
-              <th>Value Lever</th>
-              <th style="text-align:right;">NOI Impact</th>
-              <th>What Ops Must Do</th>
-              <th>Timeline</th>
-              <th>Success Metric</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-left:3px solid #10B981;">
-              <td><b style="color:#10B981;">Lot Rent Increases</b></td>
-              <td style="text-align:right;"><b style="color:#10B981;">+$167K</b></td>
-              <td class="dim">
-                <b>1.</b> Mail 90-day rent increase notices within 30 days of close (CO MHP Act compliant)<br>
-                <b>2.</b> SV: $654 &rarr; $690 (+$36) | OC: $615 &rarr; $655 (+$40) | LAV: $572 &rarr; $620 (+$48)<br>
-                <b>3.</b> Handle tenant inquiries and pushback. Document all communications.<br>
-                <b>4.</b> Update Rent Manager with new rates effective ~120 days post-close
-              </td>
-              <td>Notices: Close +30d<br>Effective: Close +120d</td>
-              <td class="dim">100% of notices delivered. &lt;5% turnover attributable to increase. New rates in effect by Month 5.</td>
-            </tr>
-            <tr style="border-left:3px solid #3B82F6;">
-              <td><b style="color:#3B82F6;">RUBS Program</b></td>
-              <td style="text-align:right;"><b style="color:#10B981;">+$95K</b></td>
-              <td class="dim">
-                <b>1.</b> Compile 12 months utility invoices for all 3 properties (water, sewer, trash, electric common area)<br>
-                <b>2.</b> Select and contract RUBS vendor. Silver Lands to provide vendor shortlist.<br>
-                <b>3.</b> Issue RUBS addendum with lease renewals. Cure SC 183, 190, 203 leases first (utilities "included").<br>
-                <b>4.</b> Launch billing for all non-blocked units. Target 40% recovery Year 1 ($167K of $417K).
-              </td>
-              <td>Vendor selected: Close +30d<br>Billing live: Close +90d</td>
-              <td class="dim">RUBS billing active on &ge;95% of units. 40% cost recovery rate. $14K/mo in utility reimbursement.</td>
-            </tr>
-            <tr style="border-left:3px solid #8B5CF6;">
-              <td><b style="color:#8B5CF6;">POH &rarr; TOH Sales</b></td>
-              <td style="text-align:right;"><b style="color:#10B981;">+$72K</b></td>
-              <td class="dim">
-                <b>1.</b> Grade all 144 homes A/B/C within 30 days. Walk every unit with CapEx team.<br>
-                <b>2.</b> Prep "A" grade homes for sale first (minimal rehab). Budget $3K&ndash;$5K make-ready per home.<br>
-                <b>3.</b> List homes through on-site sales + online (Facebook Marketplace, MHVillage, Craigslist).<br>
-                <b>4.</b> Coordinate financing options: chattel loans (21st Mortgage), rent-to-own, seller financing via PCF SPE.<br>
-                <b>5.</b> Process title transfers &mdash; Certificates of Title from closing binder. File with CO DMV.
-              </td>
-              <td>Grading: Close +30d<br>First 10 listed: Close +60d<br>40 sold: Month 12</td>
-              <td class="dim">40 homes converted Year 1. $735K in sale proceeds. $72K annual maintenance savings. POH portfolio reduced to 104.</td>
-            </tr>
-            <tr style="border-left:3px solid #FBBF24;">
-              <td><b style="color:#FBBF24;">Infill Program</b></td>
-              <td style="text-align:right;"><b style="color:#10B981;">+$135K</b></td>
-              <td class="dim">
-                <b>1.</b> Walk and photo-document all 53 vacant lots. Confirm: pad condition, utility hookups stubbed, lot dimensions, access.<br>
-                <b>2.</b> Prioritize SV (28 vacant) &mdash; identify 12 best lots for Year 1 infill.<br>
-                <b>3.</b> Get dealer quotes: Clayton, Cavco, Champion for Pueblo delivery. Budget $55K&ndash;$70K new, $25K&ndash;$40K used.<br>
-                <b>4.</b> Order first 5 homes immediately. Target 20 homes placed in Year 1.<br>
-                <b>5.</b> Build waiting list / lead pipeline. Market vacant lots via signage, online listings, outreach to employers.
-              </td>
-              <td>Lot audit: Close +14d<br>First 5 ordered: Close +60d<br>20 placed: Month 12</td>
-              <td class="dim">20 new homes placed. Portfolio occupancy: 90% &rarr; 95.5%. $161K new lot revenue. &lt;90 days avg time-to-occupy.</td>
-            </tr>
-            <tr style="border-left:3px solid #06B6D4;">
-              <td><b style="color:#06B6D4;">Expense Reduction</b></td>
-              <td style="text-align:right;"><b style="color:#10B981;">+$85K</b></td>
-              <td class="dim">
-                <b>1.</b> Insurance: Rebid through SL portfolio carrier. Target $30K savings (from $185K to $155K).<br>
-                <b>2.</b> Property Tax: File appeals with Pueblo County Assessor post-close. Target $22K savings.<br>
-                <b>3.</b> Trash/Waste: Rebid contract. Consolidate dumpster count across 3 properties. Target $10K savings.<br>
-                <b>4.</b> Landscaping: Bring common area maintenance in-house. Enforce tenant lot maintenance per lease. Target $8K savings.<br>
-                <b>5.</b> R&amp;M: Shift POH repairs to tenants as homes convert to TOH. Negotiate bulk vendor pricing. Target $15K savings.
-              </td>
-              <td>Insurance rebid: Close +30d<br>Tax appeal: Close +90d<br>Vendor rebids: Close +60d</td>
-              <td class="dim">$85K total annual expense reduction. Insurance renewed at &le;$155K. Tax appeal filed. All vendor contracts renegotiated.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div style="display:grid; grid-template-columns:1fr; gap:10px;">
+
+        <!-- Discussion 1 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">1. Staffing Model &mdash; Who Runs What?</div>
+            <span style="font-size:9px; color:#858D99;">Ops + Finance</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            We don't have clear visibility into current on-site staffing. SV (206 lots) likely needs a full-time manager + maintenance tech. OC (161 lots) could be part-time. LAV (32 lots) can be managed remotely from SV or OC. <b style="color:#E5E9ED;">Do we plan to retain any existing staff, or start fresh? What's the Day 1 org chart look like? What authority levels does the PM get for spend approvals?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 2 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">2. CMBS Management Fee Cap &mdash; 3% vs 5&ndash;6%</div>
+            <span style="font-size:9px; color:#858D99;">Finance + Legal</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            The assumed loan docs cap the management fee at 3% of gross revenue. Industry standard is 5&ndash;6%. We're trying to negotiate this up during the assumption process, but if we're stuck at 3%, Silver Lands' fee structure has to accommodate. <b style="color:#E5E9ED;">What's our fallback if PNC won't budge? Do we restructure the PM compensation, or eat the difference at the GP level?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 3 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">3. Rent Increase Staging &mdash; All at Once or Phased?</div>
+            <span style="font-size:9px; color:#858D99;">Ops + Acquisitions</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            The model assumes rent increases across all 3 communities within 30 days of close. But large increases during or right after the OTP waiver period could create friction with homeowner groups and draw attention from the Division of Housing. <b style="color:#E5E9ED;">Do we send all notices at once, or stage them &mdash; Phase 1 at close (smaller bump), Phase 2 at 6 months (catch up to target)? What's the turnover risk tolerance?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 4 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">4. POH Sales Strategy &mdash; Pricing &amp; Financing</div>
+            <span style="font-size:9px; color:#858D99;">CapEx + Finance</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            We're targeting 40 home sales in Year 1 across 144 POH units. The question is pricing and how we make it accessible. Pueblo's median household income is ~$45K &mdash; most residents can't qualify for traditional financing. <b style="color:#E5E9ED;">Do we lean into seller financing through the Private Credit Facility SPE, partner with 21st Mortgage for chattel loans, or run a rent-to-own program? What's the minimum acceptable sale price vs. speed of conversion?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 5 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">5. Oasis Roads &mdash; Negotiate or Absorb?</div>
+            <span style="font-size:9px; color:#858D99;">Acquisitions + CapEx</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            PCA flagged $41K in immediate road repairs at Oasis &mdash; 79% of total portfolio immediate CapEx. This is both a safety issue and the biggest curb appeal detractor. <b style="color:#E5E9ED;">Do we ask for a seller credit at closing, negotiate an escrow holdback, or just absorb it in our Year 1 CapEx budget? If we negotiate, does it risk souring the relationship before assumption closes?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 6 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">6. Infill &mdash; New vs. Used Homes</div>
+            <span style="font-size:9px; color:#858D99;">CapEx + Finance</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            20 infill homes in Year 1 is the target. New singlewides run $55K&ndash;$70K delivered and set. Used homes (move-in + rehab) are $25K&ndash;$40K but lower quality and harder to source. <b style="color:#E5E9ED;">What's the mix? All new for consistency, or a blend to keep capital outlay down? How do we fund it &mdash; operating cash flow, investor capital call, or dealer financing?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 7 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">7. Purchase Price Allocation &mdash; Real vs. Personal Property</div>
+            <span style="font-size:9px; color:#858D99;">Finance + CPA</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            PSA &sect;10 gives us flexibility to allocate between real and personal property on a community-by-community basis. If we can't agree with seller, each party allocates independently. <b style="color:#E5E9ED;">How aggressively do we allocate to personal property (homes) for accelerated depreciation? Do we engage a cost segregation firm pre-close, or handle it with the CPA post-close? What's the tax strategy for the 144 homes we plan to sell?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 8 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">8. SC Clubhouse Roof &mdash; Year 1 or Defer?</div>
+            <span style="font-size:9px; color:#858D99;">CapEx + Finance</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            PCA says the Sunset Vista clubhouse roof (built 1973) is at end of life. $77K replacement within 7 years &mdash; single largest CapEx item in the portfolio. <b style="color:#E5E9ED;">Do we budget this Year 1 to get ahead of it, or defer to Year 3&ndash;5 and patch in the meantime? If we defer, what's the risk of a failure during that window? Does the condition affect insurance coverage?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 9 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">9. Security Deposits &mdash; 39% at $0</div>
+            <span style="font-size:9px; color:#858D99;">Ops + Legal</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            135 of 346 occupied units show no security deposit on file. If that's real (not a data gap), we're inheriting a portfolio where 4 in 10 tenants have no deposit &mdash; which means no leverage on move-out damage and a weaker collections position. <b style="color:#E5E9ED;">Do we require deposits on all new leases going forward? Do we try to collect from existing tenants at renewal? What's the legal framework in CO for requiring deposits from existing month-to-month tenants?</b>
+          </div>
+        </div>
+
+        <!-- Discussion 10 -->
+        <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">10. Lot 67 &mdash; The $25/Month Rent</div>
+            <span style="font-size:9px; color:#858D99;">Ops + Legal</span>
+          </div>
+          <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
+            SC Lot 67 is paying $25/mo &mdash; 96% below the $654 market rate. Likely an employee or legacy arrangement. <b style="color:#E5E9ED;">Do we know the story here? If it's a current employee we retain, do we formalize it as a staff housing benefit? If not, do we bring it to market immediately or phase it up? CO MHP Act notice requirements apply either way.</b>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -8274,6 +7244,269 @@
       </table>
     </div>
 
+    <!-- ── LEASE AUDIT (MERGED) ── -->
+    <div class="group-divider" style="margin-top:28px;">
+      <div class="group-label">Lease Audit — 37 Leases Reviewed</div>
+      <div class="group-line"></div>
+    </div>
+    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:4px; line-height:1.6;">Source: <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder F &mdash; Executed Leases</a> &middot; 37 PDFs analyzed (17 text-extractable, 20 OCR-processed)<br>SC = Sunset Country &middot; OC = Oasis &middot; LAV = La Vista</div>
+
+    <!-- AUDIT KPIs -->
+    <div class="audit-kpi-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Total Leases</div>
+        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">37</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">SC: 19 &middot; OC: 15 &middot; LAV: 3</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Lease Type</div>
+        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">100%</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">All POH (Park-Owned Home)</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Rent Range</div>
+        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">$555&ndash;$795</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC: $555&ndash;$596 &middot; SC: $635&ndash;$795</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(EF,68,68,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Compliance Gaps</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">5</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Items requiring legal review</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(245,158,11,0.20); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Unreadable PDFs</div>
+        <div style="font-size:22px; font-weight:900; color:#FBBF24;">4</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Failed OCR &mdash; manual review needed</div>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE FINDINGS -->
+    <div class="group-divider">
+      <div class="group-label">Critical Compliance Findings</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="tiles-grid" style="margin-bottom:14px;">
+      <div class="section" style="border-left:3px solid #EF4444; padding-left:12px;">
+        <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">RED FLAGS</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">1. No RUBS/billback language</b> &mdash; Zero leases authorize utility cost allocation. RUBS implementation requires new addenda for all 346 occupied lots.<br>
+          <b style="color:#E5E9ED;">2. Security deposits not documented</b> &mdash; No security deposit amounts extracted from any lease. Verify with Rent Manager &mdash; CO law requires deposits to be held in escrow.<br>
+          <b style="color:#E5E9ED;">3. Late fee terms unclear</b> &mdash; Leases reference &ldquo;Default Charges&rdquo; after 11:59 PM on the 7th but specific dollar amounts not found. CO law caps late fees at reasonable amounts.<br>
+          <b style="color:#E5E9ED;">4. SC Lot 67 at $25/mo</b> &mdash; Extreme outlier (98% below market). Likely an employee, relative, or legacy arrangement. Must be corrected post-close.<br>
+          <b style="color:#E5E9ED;">5. Multiple leases state utilities &ldquo;included in rent&rdquo;</b> &mdash; SC 183, SC 190, SC 203 explicitly state utilities will not be charged separately. These leases must be replaced before RUBS billing.
+        </div>
+      </div>
+      <div class="section" style="border-left:3px solid #FBBF24; padding-left:12px;">
+        <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">OBSERVATIONS</div>
+        <div style="font-size:11px; color:#858D99; line-height:1.8;">
+          <b style="color:#E5E9ED;">Two lease templates detected</b> &mdash; Older OC/SC leases use a shorter form (~5 pages text-extractable). Newer leases (2025&ndash;2026) appear to be 17&ndash;22 page scanned documents with more comprehensive terms.<br>
+          <b style="color:#E5E9ED;">No fixed-term leases found</b> &mdash; All extractable leases appear to be month-to-month or open-ended. No annual term locks. Good for operational flexibility.<br>
+          <b style="color:#E5E9ED;">Pet policy present</b> &mdash; Most leases include a pet addendum. SC 118 shows $25/mo pet rent. Standard across portfolio.<br>
+          <b style="color:#E5E9ED;">Assignment/subletting provisions</b> &mdash; Standard clause requiring landlord consent found in most leases. No unusual restrictions.<br>
+          <b style="color:#E5E9ED;">Utility charge line items</b> &mdash; Several OCR&rsquo;d leases show $9.50&ndash;$10.50 &ldquo;if applicable&rdquo; utility fees. Appears nominal &mdash; not proportional cost recovery. Clarify with seller.
+        </div>
+      </div>
+    </div>
+
+    <!-- LEASE-BY-LEASE DATA TABLE: SUNSET COUNTRY -->
+    <div class="group-divider">
+      <div class="group-label">Sunset Country Estates &mdash; 19 Leases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>SC 1</b></td><td class="dim">Bozeman</td><td style="text-align:right;"><b>$654</b></td><td class="dim">3/14/2026</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 17</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">2/16/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 25</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">8/1/2025</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 33</b></td><td class="dim">Alcala</td><td style="text-align:right;"><b>N/A</b></td><td class="dim">7/31/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Rent not extracted</td></tr>
+          <tr><td><b>SC 38</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">1/31/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 67</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="red"><b>$25</b></td><td class="dim">1/3/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="red"><b>OUTLIER</b> &mdash; 98% below mkt</td></tr>
+          <tr><td><b>SC 70</b></td><td class="dim">Coberly</td><td style="text-align:right;"><b>$654</b></td><td class="dim">1/14/2026</td><td class="dim">M2M</td><td class="dim">Utility charges permitted by law</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 114</b></td><td class="dim">Hernandez</td><td style="text-align:right;"><b>$756</b></td><td class="dim">3/4/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Non-standard rent ($756)</td></tr>
+          <tr><td><b>SC 118</b></td><td class="dim">Muniz</td><td style="text-align:right;"><b>$635</b></td><td class="dim">6/9/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays gas, heat, electric, rubbish. Water/sewer if metered individually; shared W/S allocated.</td><td class="green">Most detailed util clause</td></tr>
+          <tr><td><b>SC 128</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$725</b></td><td class="dim">1/1/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Non-standard rent ($725)</td></tr>
+          <tr><td><b>SC 132</b></td><td class="dim">Tafoya</td><td style="text-align:right;"><b>$635</b></td><td class="dim">7/12/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 145</b></td><td class="dim">Montoya &amp; Cruz</td><td style="text-align:right;"><b>$654</b></td><td class="dim">1/16/2026</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 151</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">9/25/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 175</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">3/9/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>SC 180</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">3/22/2026</td><td class="dim">M2M</td><td class="dim">Utilities referenced in outstanding charges</td><td>&mdash;</td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 183</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">7/24/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 190</b></td><td class="dim">Sandoval</td><td style="text-align:right;"><b>$635</b></td><td class="dim">2/7/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
+          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 203</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">10/13/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td colspan="2">SC SUMMARY</td><td style="text-align:right;">$635&ndash;$795</td><td colspan="2">All M2M &middot; All POH</td><td colspan="2">3 RUBS blockers &middot; 1 rent outlier</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- OASIS LEASES -->
+    <div class="group-divider">
+      <div class="group-label">Oasis Mobile Country Club &mdash; 15 Leases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>OC 2</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">6/13/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 21</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">3/13/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 5</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$596</b></td><td class="dim">6/15/2023</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Oldest lease (2023)</td></tr>
+          <tr><td><b>OC 52</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Feb 2026</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr><td><b>OC 53</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">4/24/2025</td><td class="dim">M2M</td><td class="dim">Charges whether or not separately metered; utility charges to lessees permitted by law</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 57</b></td><td class="dim">Hartney</td><td style="text-align:right;"><b>N/A</b></td><td class="dim">9/30/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays for metered utility service</td><td class="orange">Rent not extracted</td></tr>
+          <tr><td><b>OC 61</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr><td><b>OC 69</b></td><td class="dim">Erickson</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Nov 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr><td><b>OC 71</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">5/2/2025</td><td class="dim">M2M</td><td class="dim">$9.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 94</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">7/11/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 116</b></td><td class="dim">Benfatti</td><td style="text-align:right;"><b>$595</b></td><td class="dim">11/22/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays gas, heat, electric; metered utility service</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 121</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">11/8/2025</td><td class="dim">M2M</td><td class="dim">Charges permitted by law</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 138</b></td><td class="dim">Etherton</td><td style="text-align:right;"><b>$595</b></td><td class="dim">1/31/2025</td><td class="dim">M2M</td><td class="dim">$9.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
+          <tr><td><b>OC 150</b></td><td class="dim">Esquibel</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">May 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr><td><b>OC 156</b></td><td class="dim">Salazar</td><td style="text-align:right;"><b>$555</b></td><td class="dim">8/1/2023</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Below market &mdash; 2023 rate</td></tr>
+          <tr><td><b>OC 159</b></td><td class="dim">Kramer</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Aug 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td colspan="2">OC SUMMARY</td><td style="text-align:right;">$555&ndash;$596</td><td colspan="2">All M2M &middot; All POH</td><td colspan="2">4 failed OCR &middot; 1 below market</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LA VISTA LEASES -->
+    <div class="group-divider">
+      <div class="group-label">La Vista MHP &mdash; 3 Leases</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section scroll-wrap" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>LAV 6</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr><td><b>LAV 8</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr><td><b>LAV 21</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td colspan="2">LAV SUMMARY</td><td style="text-align:right;">$572 (per rent roll)</td><td colspan="2">All appear M2M &middot; All POH</td><td colspan="2">3 minimal extraction &mdash; manual review needed</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:9px; color:#858D99; margin-top:6px;">La Vista leases had minimal text extraction. All 3 PDFs returned no readable text via standard extraction or OCR. Rent data sourced from Rent Manager export ($572/lot). Manual review of physical lease documents recommended.</div>
+    </div>
+
+    <!-- RENT DISTRIBUTION ANALYSIS -->
+    <div class="group-divider">
+      <div class="group-label">Rent Distribution Analysis</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th>Rent Tier</th><th style="text-align:right;">Count</th><th style="text-align:right;">%</th><th>Properties</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);"><td class="red"><b>$25</b></td><td style="text-align:right;">1</td><td style="text-align:right;">3%</td><td>SC 67</td><td class="dim red"><b>Extreme outlier &mdash; verify arrangement with seller</b></td></tr>
+          <tr><td>$555</td><td style="text-align:right;">1</td><td style="text-align:right;">3%</td><td>OC</td><td class="dim">Legacy 2023 rate &mdash; below current OC standard of $595</td></tr>
+          <tr><td>$572</td><td style="text-align:right;">3</td><td style="text-align:right;">9%</td><td>LAV</td><td class="dim">La Vista standard rate (per rent roll)</td></tr>
+          <tr><td>$595&ndash;$596</td><td style="text-align:right;">10</td><td style="text-align:right;">30%</td><td>OC</td><td class="dim">Oasis standard rate. $596 is legacy (OC 5, June 2023).</td></tr>
+          <tr><td>$635</td><td style="text-align:right;">7</td><td style="text-align:right;">21%</td><td>SC</td><td class="dim">SC mid-tier rate (older leases)</td></tr>
+          <tr><td>$654</td><td style="text-align:right;">4</td><td style="text-align:right;">12%</td><td>SC</td><td class="dim">SC standard current rate</td></tr>
+          <tr><td>$725&ndash;$756</td><td style="text-align:right;">2</td><td style="text-align:right;">6%</td><td>SC</td><td class="dim">Above standard &mdash; possibly renovated units or premium lots</td></tr>
+          <tr><td>$795</td><td style="text-align:right;">4</td><td style="text-align:right;">12%</td><td>SC</td><td class="dim">SC top-tier rate &mdash; all 2026 leases. Likely new move-ins at market rate.</td></tr>
+          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
+            <td>TOTAL EXTRACTED</td><td style="text-align:right;">32</td><td style="text-align:right;">&mdash;</td><td>&mdash;</td><td class="dim">5 leases had no rent data extracted (4 OCR failures + 1 minimal)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">RENT ESCALATION ANALYSIS</div>
+      <div style="font-size:11px; color:#858D99; line-height:1.8;">
+        SC shows clear rent progression over time: $635 (mid-2025) &rarr; $654 (late 2025) &rarr; $725&ndash;$756 (select units) &rarr; $795 (2026 new leases). This represents a <b style="color:#00E676;">25% increase from $635 to $795</b> within 8 months. OC rents remain flat at $595, with one legacy lease at $555 (2023). <b style="color:#E5E9ED;">SC is actively pushing rates</b> while OC has not adjusted rents meaningfully. Post-close, the model assumes 5%/yr increases across all properties &mdash; the SC trajectory suggests this is achievable. OC&rsquo;s $595 base has significant room to move toward $654+ in Year 1.
+      </div>
+    </div>
+
+    <!-- ACTION ITEMS -->
+    <div class="group-divider">
+      <div class="group-label">Lease Audit Action Items</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <table class="data-table" style="width:100%;">
+        <thead>
+          <tr><th style="width:30px;">#</th><th>Action</th><th style="width:100px;">Priority</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td>1</td>
+            <td><b>Draft new RUBS lease addendum</b></td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">Must comply with HB25-1090 four conditions + CO Division of Housing water billing requirements. Include allocation methodology, admin fee disclosure, common area exclusion, monthly billing format.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td>2</td>
+            <td><b>Replace &ldquo;utilities included&rdquo; leases</b></td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">SC 183, SC 190, SC 203 explicitly state utilities included in rent. These must be terminated and replaced with new leases before RUBS billing begins. 60-day notice required.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td>3</td>
+            <td><b>Investigate SC Lot 67 ($25/mo)</b></td>
+            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
+            <td class="dim">Ask seller/Kris about this arrangement. If employee housing, confirm if it transfers with the sale. If legacy deal, plan correction to market rate ($654+) post-close with proper notice.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><b>Verify security deposits with Rent Manager</b></td>
+            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
+            <td class="dim">No deposits found in lease documents. CO law requires deposits held in escrow. Check Rent Manager for deposit ledger. If no deposits collected, this is a compliance gap the seller must address.</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><b>Manual review of 4 failed OCR leases</b></td>
+            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
+            <td class="dim">OC 52, OC 69, OC 150, OC 159 could not be processed. Request cleaner copies from seller or review physical originals at site visit.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><b>Confirm late fee structure</b></td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Leases reference default charges after the 7th but specific amounts unclear. Clarify with seller and ensure compliance with CO Revised Statutes &sect;38-12-104.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><b>Standardize lease template post-close</b></td>
+            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
+            <td class="dim">Two different templates in use. Plan to roll all residents onto Silver Lands standard MHC lease at next renewal. Include RUBS addendum, updated pet policy, and standardized terms.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SOURCE DOCUMENTS -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">SOURCE DOCUMENTS</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px;">
+        <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:8px; padding:8px 12px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.30); border-radius:6px; color:#93B4F8; font-size:11px; text-decoration:none; font-weight:600; border-left:3px solid #3B82F6;">
+          <span style="font-size:14px;">&#128193;</span> F &mdash; Executed Leases (37 files)</a>
+        <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:8px; padding:8px 12px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.30); border-radius:6px; color:#B794F6; font-size:11px; text-decoration:none; font-weight:600; border-left:3px solid #8B5CF6;">
+          <span style="font-size:14px;">&#128193;</span> Q &mdash; Rent Manager Access</a>
+      </div>
+    </div>
+
   </div>
 
   <!-- ============================= PAGE 5: INVESTOR DECK ============================= -->
@@ -9168,6 +8401,398 @@
       </table>
     </div>
 
+
+    <!-- ── DELIVERABLES (MERGED FROM DOCS TAB) ── -->
+    <div class="group-divider" style="margin-top:28px;">
+      <div class="group-label">Deliverables &amp; File Tracking</div>
+      <div class="group-line"></div>
+    </div>
+    <div class="group-divider">
+      <div class="group-label">Deliverables Checklist — <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Schedule 7.1</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-label"><span>Overall Completion</span><span class="green">18 / 27 Deliverables Received (67%)</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 67%;"></div></div>
+    </div>
+
+    <!-- DRIVE FOLDER LINK BAR -->
+    <div class="section" style="margin-bottom: 14px; padding: 16px 18px;">
+      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 10px;">DOCS &mdash; <a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color: #3B82F6; text-decoration: none;">Google Drive</a></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px;">
+        <a href="https://drive.google.com/drive/folders/1ZRhmL3J41luXe5vJocrBtPJ9a4zES8T1?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Financial</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1OtVXnAp_aWmZ3asMiag6G2Ub-QUynTZP?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Tax &amp; Insurance</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1bpkgb28JbABRXQizy-kXcnnri0lAaizq?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Legal &amp; Leases</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/14QeOmIcGFR2ePiklPZ8xUCyHHJmq-m3C?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Operations</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Physical &amp; Reports</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1uMuE5YLK-YFoYFzVf4bd_6e1qB13ha0E?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Title &amp; Closing</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1PQLcU2sANFWUQnwSStVRuVBQhVy1GldK?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">POH</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1yQwOYPfrUDlzhV-t7n7V6G7e7RD-ZeKu?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">UW &amp; Analysis</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">Misc Files</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" class="drive-link">
+    <span class="link-icon">&#128193;</span><span class="link-label">PSA &amp; LOI</span><span class="link-arrow">→</span></a>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px;">
+        <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128193;</span><span class="link-label">Loan Docs</span><span class="link-arrow">→</span></a>
+        <a href="https://1drv.ms/x/c/83aacab46b08e19a/IQB5RuaKMpHETLE9qiY3NtZZAcOyo18UMebQLtnjriO6DEs" target="_blank" class="drive-link">
+          <span class="link-icon">&#128202;</span><span class="link-label">Underwriting Model</span><span class="link-arrow">→</span></a>
+        <a href="https://drive.google.com/drive/folders/1J_1TslQaaxED_x-t9D52Jj_Ur1J2grO7?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128193;</span><span class="link-label">Investor Decks</span><span class="link-arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">#</th>
+            <th>Deliverable</th>
+            <th style="width:90px;">Status</th>
+            <th style="width:60px;">Files</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 01 FINANCIAL (A-D) — Blue #3B82F6 -->
+          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
+            <td class="dim">A</td>
+            <td><a href="https://drive.google.com/drive/folders/1E1a_vYX8gC9qhl_wAZBdA8pE2M8wsVCd?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">Rent Rolls (Current)</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">6</td>
+            <td class="dim">Rent rolls + lot-by-type analysis for all 3 properties. Dated 3/10/2026.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
+            <td class="dim">B</td>
+            <td><a href="https://drive.google.com/drive/folders/11wLq3CsBI8Kw8ZLX_Ou62-nOWPu7R2XV?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Profit &amp; Loss Statements</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">6</td>
+            <td class="dim">T12 and CY2025 P&amp;L for SC, OC, LAV. Complete set.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
+            <td class="dim">C</td>
+            <td><a href="https://drive.google.com/drive/folders/1-vMuDR8QfPYa0tROGXJHJYS5VguyI1Gs?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Utility Bills</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">217</td>
+            <td class="dim">SC: 110 bills, OC: 65 bills, LAV: 42 bills. Black Hills, Water Works, Xcel, Waste Connections, Comcast.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.04); border-left: 2px solid rgba(59,130,246,0.40);">
+            <td class="dim">D</td>
+            <td><a href="https://drive.google.com/drive/folders/18ffsV-S-9EAZi46W-Gu-_2s6LZjFeFkc?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none;">T-12 Bank Statements</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">36</td>
+            <td class="dim">12 months per property (Mar 2025 – Feb 2026). Complete set.</td>
+          </tr>
+          <!-- 02 TAX & INSURANCE (E, J-K) — Purple #8B5CF6 -->
+          <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
+            <td class="dim">E</td>
+            <td><a href="https://drive.google.com/drive/folders/1uhhNpBbKhBFESFQEFpoAOxZiNTyaeiL0?usp=drive_link" target="_blank" style="color:#B794F6; text-decoration:none;">Property Tax Records (2 Years)</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">42</td>
+            <td class="dim">2024 &amp; 2025 tax notices for real estate + park-owned home personal property. Includes tax history.</td>
+          </tr>
+          <!-- 03 LEGAL & LEASES (F) — Teal #14B8A6 -->
+          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
+            <td class="dim">F</td>
+            <td><a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">Executed Leases (Sample 10+)</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">37</td>
+            <td class="dim">37 leases provided — exceeds the 10+ requirement. SC: 17, OC: 15, LAV: 5.</td>
+          </tr>
+          <!-- 04 OPERATIONS (G-I) — Orange #F59E0B -->
+          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
+            <td class="dim">G</td>
+            <td><a href="https://drive.google.com/drive/folders/185uCGrv8pnRb9Kql15Q2YnYNoyHk1ZHt?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Service Contracts</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Folder exists but empty. Need trash hauling, landscaping, pest control, snow removal, etc.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
+            <td class="dim">H</td>
+            <td><a href="https://drive.google.com/drive/folders/1B8JQd0knv7ZPwvzqRbOXlaKB21MTX3jE?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Contractor &amp; Vendor Lists</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Folder exists but empty. Required for operations transition planning.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
+            <td class="dim">I</td>
+            <td><a href="https://drive.google.com/drive/folders/163-dj0LrTIrsNCPK-4l81fptVKpCrb03?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Delinquency Report</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Folder exists but empty. Critical for collections analysis and underwriting adjustment.</td>
+          </tr>
+          <!-- 02 TAX & INSURANCE (J-K) — Purple #8B5CF6 -->
+          <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
+            <td class="dim">J</td>
+            <td><a href="https://drive.google.com/drive/folders/1y99i4PWE5iY__-Rgxw5MjnolZETVkwzC?usp=drive_link" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Loss Runs (5 Years)</a></td>
+            <td><span class="status-badge badge-partial">PARTIAL</span></td>
+            <td class="orange">1</td>
+            <td class="dim">Only Sunset Vista loss runs provided (clean — zero claims). Missing: Oasis and La Vista loss runs.</td>
+          </tr>
+          <tr style="background:rgba(139,92,246,0.04); border-left: 2px solid rgba(139,92,246,0.40);">
+            <td class="dim">K</td>
+            <td><a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#B794F6; text-decoration:none;">Insurance Policies (Current)</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">6</td>
+            <td class="dim">25-26 and 26-27 PKG, UMB, and POH policies. Portfolio-wide coverage confirmed.</td>
+          </tr>
+          <!-- 05 PHYSICAL & ENV (L-O) — Green #10B981 -->
+          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
+            <td class="dim">L</td>
+            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">ALTA Surveys</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">3</td>
+            <td class="dim">All 3 properties. Dated October 2025. Matt forwarded existing ALTAs to Fidelity on 3/24.</td>
+          </tr>
+          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
+            <td class="dim">M</td>
+            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">Phase 1 Environmental Reports</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">3</td>
+            <td class="dim">All 3 properties — 2025 reports. ALL CLEAN: No RECs, CRECs, or HRECs.</td>
+          </tr>
+          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
+            <td class="dim">N</td>
+            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">PCA Reports</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">3</td>
+            <td class="dim">All 3 properties — 2025 reports. Total immediate CapEx: $52,471. Portfolio total: $221,577.</td>
+          </tr>
+          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
+            <td class="dim">O</td>
+            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">Site Maps</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">3</td>
+            <td class="dim">SC and OC (JPG), LAV (PDF). All 3 properties represented.</td>
+          </tr>
+          <!-- 04 OPERATIONS (P-R) — Orange #F59E0B -->
+          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
+            <td class="dim">P</td>
+            <td><a href="https://drive.google.com/drive/folders/1lNZVZnjmmiRumo4mICg_mmFrT5_brs1V?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Personal Property Inventory</a></td>
+            <td><span class="status-badge badge-received">RECEIVED</span></td>
+            <td class="green">1</td>
+            <td class="dim">Personal Property Schedule (Excel). Covers maintenance equipment, office items, amenity assets.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
+            <td class="dim">Q</td>
+            <td><a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="color:#FBBF24; text-decoration:none;">Rent Manager Access / Export</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Folder exists but empty. Need full Rent Manager data export for resident history, ledger cards, AR aging.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.04); border-left: 2px solid rgba(245,158,11,0.40);">
+            <td class="dim">R</td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#FBBF24; text-decoration:none;">MPOP Registration (Active)</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Evidence of current Mobile Home Park registration with CO DORA. Required by Colorado law.</td>
+          </tr>
+          <!-- 03 LEGAL & LEASES (S-U) — Teal #14B8A6 -->
+          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
+            <td class="dim">S</td>
+            <td><a href="https://drive.google.com/drive/folders/1KllhpE7p4M4ULiX7lbN-izuYf0pbyJuw?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">OTP Compliance Documents</a></td>
+            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
+            <td class="orange">0</td>
+            <td class="dim">OTP price allocations confirmed 3/26 (SV $19.5M, OC $16.2M, LAV $2.5M). Notices being prepared by seller's counsel.</td>
+          </tr>
+          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
+            <td class="dim">T</td>
+            <td><a href="https://drive.google.com/drive/folders/1j2r0tSBltzQ6wdYMeJLQ7GwZdbmR9ur3?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">Litigation / Gov't Notices / Code Violations</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Folder exists but empty. Need seller confirmation of no pending litigation or violations.</td>
+          </tr>
+          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
+            <td class="dim">U</td>
+            <td><a href="https://drive.google.com/drive/folders/1N8VqGRrr1S2yEkjr7CaDM9Yel-dp00sl?usp=drive_link" target="_blank" style="color:#5EEAD4; text-decoration:none;">Permits &amp; Licenses</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Operating permits, CDPHE wastewater permits, business licenses, fire department inspections.</td>
+          </tr>
+          <!-- 05 PHYSICAL & ENV (V) — Green #10B981 -->
+          <tr style="background:rgba(16,185,129,0.04); border-left: 2px solid rgba(16,185,129,0.40);">
+            <td class="dim">V</td>
+            <td><a href="https://drive.google.com/drive/folders/12pDScKL2R-hVMB1zhd1DUcLDm54gASJR?usp=drive_link" target="_blank" style="color:#6EE7B7; text-decoration:none;">CapEx Records (3 Years)</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Historical capital expenditure records — needed to validate <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA</a> findings and assess deferred maintenance.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ADDITIONAL PSA DELIVERABLES -->
+    <div class="group-divider">
+      <div class="group-label">Additional <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Required Items</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">#</th>
+            <th>Deliverable</th>
+            <th style="width:90px;">Status</th>
+            <th style="width:60px;">Files</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 06 TITLE & CLOSING (W-X) — Pink #EC4899 -->
+          <tr style="background:rgba(236,72,153,0.04); border-left: 2px solid rgba(236,72,153,0.40);">
+            <td class="dim">W</td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">Title Commitments &amp; Exception Documents</a></td>
+            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
+            <td class="orange">2</td>
+            <td class="dim">Fidelity National Title engaged. CDL received 3/25. GF# 9001312600125. Title insurance policies from prior transaction on file.</td>
+          </tr>
+          <tr style="background:rgba(236,72,153,0.04); border-left: 2px solid rgba(236,72,153,0.40);">
+            <td class="dim">X</td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#F9A8D4; text-decoration:none;">CMBS Loan Assumption Package</a></td>
+            <td><span class="status-badge badge-in-progress">IN PROGRESS</span></td>
+            <td class="green">3</td>
+            <td class="dim">$21.9M at 6.45% fixed. Loan docs received 3/28 (Promissory Note, Loan Agreement, Hello Letter). See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a>. <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PSA &amp; LOI &rarr;</a> &middot; <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a></td>
+          </tr>
+          <!-- 07 POH (Y) — Cyan #06B6D4 -->
+          <tr style="background:rgba(6,182,212,0.04); border-left: 2px solid rgba(6,182,212,0.40);">
+            <td class="dim">Y</td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#67E8F9; text-decoration:none;">POH Inventory &amp; Title Verification</a></td>
+            <td><span class="status-badge badge-partial">PARTIAL</span></td>
+            <td class="orange">1</td>
+            <td class="dim">POH schedule received (144 homes, $84,502/mo income). Individual home titles not yet verified.</td>
+          </tr>
+          <!-- 03 LEGAL & LEASES (Z-AA) — Teal #14B8A6 -->
+          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
+            <td class="dim">Z</td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Zoning &amp; Land Use Confirmation</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td class="dim">Need zoning letters from Pueblo County confirming MHC as conforming use.</td>
+          </tr>
+          <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
+            <td class="dim">AA</td>
+            <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#5EEAD4; text-decoration:none;">Estoppel Certificates</a></td>
+            <td><span class="status-badge badge-not-received">NOT RECEIVED</span></td>
+            <td class="red">0</td>
+            <td><span style="color:#00E676; font-weight:700;">&#10003; RESOLVED (3/30):</span> Kris Wessel confirmed no estoppel language in PSA Section 7. <span class="dim">Estoppel requirement exists in <b>CMBS Loan Agreement Section 4.18</b> as a lender covenant, not a PSA obligation. No tenant estoppels required by PSA.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MISC FILES -->
+    <div class="group-divider">
+      <div class="group-label">Misc Files &mdash; Analysis Summaries</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom: 14px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">#</th>
+            <th>Document</th>
+            <th style="width:90px;">Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim">1</td>
+            <td><a href="https://drive.google.com/file/d/1q9bojXu6OX6l_TIATqZrB3mJ3hui4QyR/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Executive Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">High-level deal overview and key takeaways for the Pueblo Three Pack.</td>
+          </tr>
+          <tr>
+            <td class="dim">2</td>
+            <td><a href="https://drive.google.com/file/d/1zt5GClufpfbmW_Or33G4_G2tQn3sTLtj/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Key Metrics Overview</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Portfolio-level KPIs: occupancy, NOI, cap rate, price per unit, rent levels.</td>
+          </tr>
+          <tr>
+            <td class="dim">3</td>
+            <td><a href="https://drive.google.com/file/d/1SGKur3yqRvbUKV2kpvUhSLWnk0t9e7Uz/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Due Diligence Index</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Master index of all DD documents received, organized by category.</td>
+          </tr>
+          <tr>
+            <td class="dim">4</td>
+            <td><a href="https://drive.google.com/file/d/1-smu-LJuBkbbUlFnrNbGIGb72YHDO4pc/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Due Diligence Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Comprehensive DD findings narrative covering all three properties.</td>
+          </tr>
+          <tr>
+            <td class="dim">5</td>
+            <td><a href="https://drive.google.com/file/d/1zm3EDO1sfbbrt8kNmSwXNFUAG798bEh8/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Red Flags Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">Consolidated risk register: CMBS assumption, OTP, tax reassessment, roads, occupancy.</td>
+          </tr>
+          <tr>
+            <td class="dim">6</td>
+            <td><a href="https://drive.google.com/file/d/1jjaLrAKcfdvXtaSQzFoL2Dl5yvOADIkd/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">CapEx Summary</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">7-year capital reserve schedule by property and category from <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">PCA reports</a>.</td>
+          </tr>
+          <tr>
+            <td class="dim">7</td>
+            <td><a href="https://docs.google.com/spreadsheets/d/1u14URBObt_9CrGOiZ-lQqEBhE1EOArWB/edit?usp=drive_link&ouid=113826806408502291450&rtpof=true&sd=true" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Combined Rent Roll</a></td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">XLSX</span></td>
+            <td class="dim">Consolidated rent roll across all three properties.</td>
+          </tr>
+          <tr>
+            <td class="dim">8</td>
+            <td><a href="https://drive.google.com/file/d/1sj1oB6YvUM7Vw_Dc24jjK0Pgb9tkYDva/view?usp=drive_link" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">Photo Review &amp; Site Visit Prep</a></td>
+            <td><span class="status-badge badge-in-progress">DOC</span></td>
+            <td class="dim">50-photo review across 3 properties with site visit checklist additions.</td>
+          </tr>
+          <tr>
+            <td class="dim">9</td>
+            <td><a href="https://docs.google.com/spreadsheets/d/1bo0zC_g2XMT0ANoGpqXo_MQwYXvHiu4S/edit?usp=drive_link&ouid=113826806408502291450&rtpof=true&sd=true" target="_blank" style="color:#93B4F8; text-decoration:none; font-weight:700;">T12 Utility Bill Analysis</a></td>
+            <td><span class="status-badge" style="background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3);">XLSX</span></td>
+            <td class="dim">217 bills analyzed across 5 utility types, Apr 2025 &ndash; Mar 2026.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 10px;">
+        <a href="https://drive.google.com/drive/folders/1XNhPRBiTuP31LFgL5TeUANEBetiC9eOR?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128193;</span><span class="link-label">Open Misc Files in Google Drive</span><span class="link-arrow">&rarr;</span></a>
+      </div>
+    </div>
+
+    <!-- SUMMARY STATS -->
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="value green">18</div>
+        <div class="label">Received</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value orange">2</div>
+        <div class="label">Partial</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value blue">3</div>
+        <div class="label">In Progress</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value red">4</div>
+        <div class="label">Not Received</div>
+      </div>
+      <div class="kpi-card">
+        <div class="value white">364</div>
+        <div class="label">Total Files</div>
+      </div>
+    </div>
   </div>
 
   <!-- ============================= PAGE 14: PHOTOS ============================= -->
@@ -9331,273 +8956,6 @@
 
   </div>
 
-  <!-- ============================= PAGE 19: LEASE AUDIT ============================= -->
-  <div class="tab-content" id="tab-page19">
-
-    <div class="group-divider">
-      <div class="group-label">Executed Lease Audit &mdash; 37 Leases Reviewed</div>
-      <div class="group-line"></div>
-    </div>
-    <div style="font-size:10px; color:#858D99; margin-bottom:14px; margin-top:4px; line-height:1.6;">Source: <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Folder F &mdash; Executed Leases</a> &middot; 37 PDFs analyzed (17 text-extractable, 20 OCR-processed)<br>SC = Sunset Country &middot; OC = Oasis &middot; LAV = La Vista</div>
-
-    <!-- AUDIT KPIs -->
-    <div class="audit-kpi-grid" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
-      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Total Leases</div>
-        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">37</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">SC: 19 &middot; OC: 15 &middot; LAV: 3</div>
-      </div>
-      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Lease Type</div>
-        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">100%</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">All POH (Park-Owned Home)</div>
-      </div>
-      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Rent Range</div>
-        <div style="font-size:22px; font-weight:900; color:#FFFFFF;">$555&ndash;$795</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">OC: $555&ndash;$596 &middot; SC: $635&ndash;$795</div>
-      </div>
-      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(EF,68,68,0.20); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Compliance Gaps</div>
-        <div style="font-size:22px; font-weight:900; color:#EF4444;">5</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">Items requiring legal review</div>
-      </div>
-      <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(245,158,11,0.20); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Unreadable PDFs</div>
-        <div style="font-size:22px; font-weight:900; color:#FBBF24;">4</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">Failed OCR &mdash; manual review needed</div>
-      </div>
-    </div>
-
-    <!-- COMPLIANCE FINDINGS -->
-    <div class="group-divider">
-      <div class="group-label">Critical Compliance Findings</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="tiles-grid" style="margin-bottom:14px;">
-      <div class="section" style="border-left:3px solid #EF4444; padding-left:12px;">
-        <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">RED FLAGS</div>
-        <div style="font-size:11px; color:#858D99; line-height:1.8;">
-          <b style="color:#E5E9ED;">1. No RUBS/billback language</b> &mdash; Zero leases authorize utility cost allocation. RUBS implementation requires new addenda for all 346 occupied lots.<br>
-          <b style="color:#E5E9ED;">2. Security deposits not documented</b> &mdash; No security deposit amounts extracted from any lease. Verify with Rent Manager &mdash; CO law requires deposits to be held in escrow.<br>
-          <b style="color:#E5E9ED;">3. Late fee terms unclear</b> &mdash; Leases reference &ldquo;Default Charges&rdquo; after 11:59 PM on the 7th but specific dollar amounts not found. CO law caps late fees at reasonable amounts.<br>
-          <b style="color:#E5E9ED;">4. SC Lot 67 at $25/mo</b> &mdash; Extreme outlier (98% below market). Likely an employee, relative, or legacy arrangement. Must be corrected post-close.<br>
-          <b style="color:#E5E9ED;">5. Multiple leases state utilities &ldquo;included in rent&rdquo;</b> &mdash; SC 183, SC 190, SC 203 explicitly state utilities will not be charged separately. These leases must be replaced before RUBS billing.
-        </div>
-      </div>
-      <div class="section" style="border-left:3px solid #FBBF24; padding-left:12px;">
-        <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">OBSERVATIONS</div>
-        <div style="font-size:11px; color:#858D99; line-height:1.8;">
-          <b style="color:#E5E9ED;">Two lease templates detected</b> &mdash; Older OC/SC leases use a shorter form (~5 pages text-extractable). Newer leases (2025&ndash;2026) appear to be 17&ndash;22 page scanned documents with more comprehensive terms.<br>
-          <b style="color:#E5E9ED;">No fixed-term leases found</b> &mdash; All extractable leases appear to be month-to-month or open-ended. No annual term locks. Good for operational flexibility.<br>
-          <b style="color:#E5E9ED;">Pet policy present</b> &mdash; Most leases include a pet addendum. SC 118 shows $25/mo pet rent. Standard across portfolio.<br>
-          <b style="color:#E5E9ED;">Assignment/subletting provisions</b> &mdash; Standard clause requiring landlord consent found in most leases. No unusual restrictions.<br>
-          <b style="color:#E5E9ED;">Utility charge line items</b> &mdash; Several OCR&rsquo;d leases show $9.50&ndash;$10.50 &ldquo;if applicable&rdquo; utility fees. Appears nominal &mdash; not proportional cost recovery. Clarify with seller.
-        </div>
-      </div>
-    </div>
-
-    <!-- LEASE-BY-LEASE DATA TABLE: SUNSET COUNTRY -->
-    <div class="group-divider">
-      <div class="group-label">Sunset Country Estates &mdash; 19 Leases</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section scroll-wrap" style="margin-bottom:14px;">
-      <table class="data-table" style="width:100%;">
-        <thead>
-          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>SC 1</b></td><td class="dim">Bozeman</td><td style="text-align:right;"><b>$654</b></td><td class="dim">3/14/2026</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 17</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">2/16/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 25</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">8/1/2025</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 33</b></td><td class="dim">Alcala</td><td style="text-align:right;"><b>N/A</b></td><td class="dim">7/31/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Rent not extracted</td></tr>
-          <tr><td><b>SC 38</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">1/31/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 67</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="red"><b>$25</b></td><td class="dim">1/3/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="red"><b>OUTLIER</b> &mdash; 98% below mkt</td></tr>
-          <tr><td><b>SC 70</b></td><td class="dim">Coberly</td><td style="text-align:right;"><b>$654</b></td><td class="dim">1/14/2026</td><td class="dim">M2M</td><td class="dim">Utility charges permitted by law</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 114</b></td><td class="dim">Hernandez</td><td style="text-align:right;"><b>$756</b></td><td class="dim">3/4/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Non-standard rent ($756)</td></tr>
-          <tr><td><b>SC 118</b></td><td class="dim">Muniz</td><td style="text-align:right;"><b>$635</b></td><td class="dim">6/9/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays gas, heat, electric, rubbish. Water/sewer if metered individually; shared W/S allocated.</td><td class="green">Most detailed util clause</td></tr>
-          <tr><td><b>SC 128</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$725</b></td><td class="dim">1/1/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Non-standard rent ($725)</td></tr>
-          <tr><td><b>SC 132</b></td><td class="dim">Tafoya</td><td style="text-align:right;"><b>$635</b></td><td class="dim">7/12/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 145</b></td><td class="dim">Montoya &amp; Cruz</td><td style="text-align:right;"><b>$654</b></td><td class="dim">1/16/2026</td><td class="dim">M2M</td><td class="dim">$10.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 151</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">9/25/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 175</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">3/9/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>SC 180</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$795</b></td><td class="dim">3/22/2026</td><td class="dim">M2M</td><td class="dim">Utilities referenced in outstanding charges</td><td>&mdash;</td></tr>
-          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 183</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">7/24/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
-          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 190</b></td><td class="dim">Sandoval</td><td style="text-align:right;"><b>$635</b></td><td class="dim">2/7/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
-          <tr style="background:rgba(239,68,68,0.06);"><td><b>SC 203</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$635</b></td><td class="dim">10/13/2025</td><td class="dim">M2M</td><td class="dim red"><b>Utilities &ldquo;included in rent&rdquo;</b></td><td class="red"><b>RUBS blocker</b></td></tr>
-          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
-            <td colspan="2">SC SUMMARY</td><td style="text-align:right;">$635&ndash;$795</td><td colspan="2">All M2M &middot; All POH</td><td colspan="2">3 RUBS blockers &middot; 1 rent outlier</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- OASIS LEASES -->
-    <div class="group-divider">
-      <div class="group-label">Oasis Mobile Country Club &mdash; 15 Leases</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section scroll-wrap" style="margin-bottom:14px;">
-      <table class="data-table" style="width:100%;">
-        <thead>
-          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>OC 2</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">6/13/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 21</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">3/13/2026</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 5</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$596</b></td><td class="dim">6/15/2023</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Oldest lease (2023)</td></tr>
-          <tr><td><b>OC 52</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Feb 2026</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
-          <tr><td><b>OC 53</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">4/24/2025</td><td class="dim">M2M</td><td class="dim">Charges whether or not separately metered; utility charges to lessees permitted by law</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 57</b></td><td class="dim">Hartney</td><td style="text-align:right;"><b>N/A</b></td><td class="dim">9/30/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays for metered utility service</td><td class="orange">Rent not extracted</td></tr>
-          <tr><td><b>OC 61</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
-          <tr><td><b>OC 69</b></td><td class="dim">Erickson</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Nov 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
-          <tr><td><b>OC 71</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">5/2/2025</td><td class="dim">M2M</td><td class="dim">$9.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 94</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">7/11/2025</td><td class="dim">M2M</td><td class="dim">Not specified</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 116</b></td><td class="dim">Benfatti</td><td style="text-align:right;"><b>$595</b></td><td class="dim">11/22/2025</td><td class="dim">M2M</td><td class="dim">Lessee pays gas, heat, electric; metered utility service</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 121</b></td><td class="dim">&mdash;</td><td style="text-align:right;"><b>$595</b></td><td class="dim">11/8/2025</td><td class="dim">M2M</td><td class="dim">Charges permitted by law</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 138</b></td><td class="dim">Etherton</td><td style="text-align:right;"><b>$595</b></td><td class="dim">1/31/2025</td><td class="dim">M2M</td><td class="dim">$9.50 util fee &ldquo;if applicable&rdquo;</td><td>&mdash;</td></tr>
-          <tr><td><b>OC 150</b></td><td class="dim">Esquibel</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">May 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
-          <tr><td><b>OC 156</b></td><td class="dim">Salazar</td><td style="text-align:right;"><b>$555</b></td><td class="dim">8/1/2023</td><td class="dim">M2M</td><td class="dim">Not specified</td><td class="orange">Below market &mdash; 2023 rate</td></tr>
-          <tr><td><b>OC 159</b></td><td class="dim">Kramer</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">Aug 2025</td><td class="dim">&mdash;</td><td class="dim">Failed OCR</td><td class="orange">Manual review needed</td></tr>
-          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
-            <td colspan="2">OC SUMMARY</td><td style="text-align:right;">$555&ndash;$596</td><td colspan="2">All M2M &middot; All POH</td><td colspan="2">4 failed OCR &middot; 1 below market</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- LA VISTA LEASES -->
-    <div class="group-divider">
-      <div class="group-label">La Vista MHP &mdash; 3 Leases</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section scroll-wrap" style="margin-bottom:14px;">
-      <table class="data-table" style="width:100%;">
-        <thead>
-          <tr><th>Lot</th><th>Tenant</th><th style="text-align:right;">Rent</th><th>Date</th><th>Term</th><th>Utility Provisions</th><th>Flags</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><b>LAV 6</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
-          <tr><td><b>LAV 8</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
-          <tr><td><b>LAV 21</b></td><td class="dim">&mdash;</td><td style="text-align:right;" class="orange"><b>N/A</b></td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">Not specified</td><td class="orange">Minimal extraction</td></tr>
-          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
-            <td colspan="2">LAV SUMMARY</td><td style="text-align:right;">$572 (per rent roll)</td><td colspan="2">All appear M2M &middot; All POH</td><td colspan="2">3 minimal extraction &mdash; manual review needed</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="font-size:9px; color:#858D99; margin-top:6px;">La Vista leases had minimal text extraction. All 3 PDFs returned no readable text via standard extraction or OCR. Rent data sourced from Rent Manager export ($572/lot). Manual review of physical lease documents recommended.</div>
-    </div>
-
-    <!-- RENT DISTRIBUTION ANALYSIS -->
-    <div class="group-divider">
-      <div class="group-label">Rent Distribution Analysis</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom:14px;">
-      <table class="data-table" style="width:100%;">
-        <thead>
-          <tr><th>Rent Tier</th><th style="text-align:right;">Count</th><th style="text-align:right;">%</th><th>Properties</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr style="background:rgba(239,68,68,0.06);"><td class="red"><b>$25</b></td><td style="text-align:right;">1</td><td style="text-align:right;">3%</td><td>SC 67</td><td class="dim red"><b>Extreme outlier &mdash; verify arrangement with seller</b></td></tr>
-          <tr><td>$555</td><td style="text-align:right;">1</td><td style="text-align:right;">3%</td><td>OC</td><td class="dim">Legacy 2023 rate &mdash; below current OC standard of $595</td></tr>
-          <tr><td>$572</td><td style="text-align:right;">3</td><td style="text-align:right;">9%</td><td>LAV</td><td class="dim">La Vista standard rate (per rent roll)</td></tr>
-          <tr><td>$595&ndash;$596</td><td style="text-align:right;">10</td><td style="text-align:right;">30%</td><td>OC</td><td class="dim">Oasis standard rate. $596 is legacy (OC 5, June 2023).</td></tr>
-          <tr><td>$635</td><td style="text-align:right;">7</td><td style="text-align:right;">21%</td><td>SC</td><td class="dim">SC mid-tier rate (older leases)</td></tr>
-          <tr><td>$654</td><td style="text-align:right;">4</td><td style="text-align:right;">12%</td><td>SC</td><td class="dim">SC standard current rate</td></tr>
-          <tr><td>$725&ndash;$756</td><td style="text-align:right;">2</td><td style="text-align:right;">6%</td><td>SC</td><td class="dim">Above standard &mdash; possibly renovated units or premium lots</td></tr>
-          <tr><td>$795</td><td style="text-align:right;">4</td><td style="text-align:right;">12%</td><td>SC</td><td class="dim">SC top-tier rate &mdash; all 2026 leases. Likely new move-ins at market rate.</td></tr>
-          <tr style="background:rgba(59,130,246,0.06); font-weight:700;">
-            <td>TOTAL EXTRACTED</td><td style="text-align:right;">32</td><td style="text-align:right;">&mdash;</td><td>&mdash;</td><td class="dim">5 leases had no rent data extracted (4 OCR failures + 1 minimal)</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
-      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">RENT ESCALATION ANALYSIS</div>
-      <div style="font-size:11px; color:#858D99; line-height:1.8;">
-        SC shows clear rent progression over time: $635 (mid-2025) &rarr; $654 (late 2025) &rarr; $725&ndash;$756 (select units) &rarr; $795 (2026 new leases). This represents a <b style="color:#00E676;">25% increase from $635 to $795</b> within 8 months. OC rents remain flat at $595, with one legacy lease at $555 (2023). <b style="color:#E5E9ED;">SC is actively pushing rates</b> while OC has not adjusted rents meaningfully. Post-close, the model assumes 5%/yr increases across all properties &mdash; the SC trajectory suggests this is achievable. OC&rsquo;s $595 base has significant room to move toward $654+ in Year 1.
-      </div>
-    </div>
-
-    <!-- ACTION ITEMS -->
-    <div class="group-divider">
-      <div class="group-label">Lease Audit Action Items</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="section" style="margin-bottom:14px;">
-      <table class="data-table" style="width:100%;">
-        <thead>
-          <tr><th style="width:30px;">#</th><th>Action</th><th style="width:100px;">Priority</th><th>Detail</th></tr>
-        </thead>
-        <tbody>
-          <tr style="background:rgba(239,68,68,0.06);">
-            <td>1</td>
-            <td><b>Draft new RUBS lease addendum</b></td>
-            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td class="dim">Must comply with HB25-1090 four conditions + CO Division of Housing water billing requirements. Include allocation methodology, admin fee disclosure, common area exclusion, monthly billing format.</td>
-          </tr>
-          <tr style="background:rgba(239,68,68,0.06);">
-            <td>2</td>
-            <td><b>Replace &ldquo;utilities included&rdquo; leases</b></td>
-            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td class="dim">SC 183, SC 190, SC 203 explicitly state utilities included in rent. These must be terminated and replaced with new leases before RUBS billing begins. 60-day notice required.</td>
-          </tr>
-          <tr style="background:rgba(239,68,68,0.06);">
-            <td>3</td>
-            <td><b>Investigate SC Lot 67 ($25/mo)</b></td>
-            <td><span class="status-badge badge-not-received" style="background:rgba(239,68,68,0.15); color:#F87171;">CRITICAL</span></td>
-            <td class="dim">Ask seller/Kris about this arrangement. If employee housing, confirm if it transfers with the sale. If legacy deal, plan correction to market rate ($654+) post-close with proper notice.</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><b>Verify security deposits with Rent Manager</b></td>
-            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
-            <td class="dim">No deposits found in lease documents. CO law requires deposits held in escrow. Check Rent Manager for deposit ledger. If no deposits collected, this is a compliance gap the seller must address.</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td><b>Manual review of 4 failed OCR leases</b></td>
-            <td><span class="status-badge badge-partial" style="background:rgba(245,158,11,0.15); color:#FBBF24;">HIGH</span></td>
-            <td class="dim">OC 52, OC 69, OC 150, OC 159 could not be processed. Request cleaner copies from seller or review physical originals at site visit.</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td><b>Confirm late fee structure</b></td>
-            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td class="dim">Leases reference default charges after the 7th but specific amounts unclear. Clarify with seller and ensure compliance with CO Revised Statutes &sect;38-12-104.</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td><b>Standardize lease template post-close</b></td>
-            <td><span class="status-badge badge-in-progress">MEDIUM</span></td>
-            <td class="dim">Two different templates in use. Plan to roll all residents onto Silver Lands standard MHC lease at next renewal. Include RUBS addendum, updated pet policy, and standardized terms.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- SOURCE DOCUMENTS -->
-    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:12px;">
-      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">SOURCE DOCUMENTS</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px;">
-        <a href="https://drive.google.com/drive/folders/1kiXvxoP4b4ym8fcSPd40j2SXGf57DWeT?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:8px; padding:8px 12px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.30); border-radius:6px; color:#93B4F8; font-size:11px; text-decoration:none; font-weight:600; border-left:3px solid #3B82F6;">
-          <span style="font-size:14px;">&#128193;</span> F &mdash; Executed Leases (37 files)</a>
-        <a href="https://drive.google.com/drive/folders/1aNjh_cE5FhxDnyjFk2nHvZkyoENoAZYG?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:8px; padding:8px 12px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.30); border-radius:6px; color:#B794F6; font-size:11px; text-decoration:none; font-weight:600; border-left:3px solid #8B5CF6;">
-          <span style="font-size:14px;">&#128193;</span> Q &mdash; Rent Manager Access</a>
-      </div>
-    </div>
-
-  </div>
-
   <!-- ============================= PAGE 20: VALUE ADD STRATEGY ============================= -->
   <div class="tab-content" id="tab-page20">
 
@@ -9741,78 +9099,29 @@
 
     <div class="section" style="margin-bottom:10px; padding:16px 18px;">
       <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
-        Current utility cost recovery is <b style="color:#EF4444;">only 17%</b> ($72K recovered on $417K in annual utility costs). Master-metered water/sewer is the biggest opportunity. RUBS (Ratio Utility Billing System) is the fastest path to recovery. Long-term submetering offers higher capture rates but requires $150K&ndash;$200K capital investment.
+        Current utility cost recovery is <b style="color:#EF4444;">only 17%</b> ($72K recovered on $417K in annual utility costs). Master-metered water/sewer is the biggest opportunity. For full regulatory analysis (HB25-1090, metering audit, lease blockers, and 90-day implementation roadmap), see the <a href="#" onclick="document.getElementById('radio-page10').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Utilities tab</a>.
       </div>
 
-      <!-- Utility recovery waterfall chart -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:12px;">
-        <div style="background:rgba(30,34,44,0.6); border:1px solid rgba(59,130,246,0.10); border-radius:8px; padding:14px;">
-          <div style="font-size:10px; color:#858D99; font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Recovery Rate Progression</div>
-          <div class="mini-bar-chart" style="height:120px;">
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">17%</div>
-              <div style="width:100%; background:linear-gradient(to top,#EF4444,#EF4444); border-radius:3px 3px 0 0; height:17%;"></div>
-              <div class="mini-bar-label">Current</div>
-            </div>
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">40%</div>
-              <div style="width:100%; background:linear-gradient(to top,#FBBF24,#FBBF24); border-radius:3px 3px 0 0; height:40%;"></div>
-              <div class="mini-bar-label">Yr 1 RUBS</div>
-            </div>
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">60%</div>
-              <div style="width:100%; background:linear-gradient(to top,#3B82F6,#3B82F6); border-radius:3px 3px 0 0; height:60%;"></div>
-              <div class="mini-bar-label">Yr 2 RUBS</div>
-            </div>
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">85%</div>
-              <div style="width:100%; background:linear-gradient(to top,#10B981,#10B981); border-radius:3px 3px 0 0; height:85%;"></div>
-              <div class="mini-bar-label">Submetered</div>
-            </div>
-          </div>
-        </div>
-        <div style="background:rgba(30,34,44,0.6); border:1px solid rgba(59,130,246,0.10); border-radius:8px; padding:14px;">
-          <div style="font-size:10px; color:#858D99; font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px;">Annual Recovery by Phase</div>
-          <div class="mini-bar-chart" style="height:120px;">
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">$72K</div>
-              <div style="width:100%; background:linear-gradient(to top,#EF4444,#EF4444); border-radius:3px 3px 0 0; height:20%;"></div>
-              <div class="mini-bar-label">Current</div>
-            </div>
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">$167K</div>
-              <div style="width:100%; background:linear-gradient(to top,#FBBF24,#FBBF24); border-radius:3px 3px 0 0; height:47%;"></div>
-              <div class="mini-bar-label">Yr 1</div>
-            </div>
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">$250K</div>
-              <div style="width:100%; background:linear-gradient(to top,#3B82F6,#3B82F6); border-radius:3px 3px 0 0; height:71%;"></div>
-              <div class="mini-bar-label">Yr 2</div>
-            </div>
-            <div class="mini-bar-col">
-              <div class="mini-bar-val">$354K</div>
-              <div style="width:100%; background:linear-gradient(to top,#10B981,#10B981); border-radius:3px 3px 0 0; height:100%;"></div>
-              <div class="mini-bar-label">Submetered</div>
-            </div>
-          </div>
-        </div>
+      <!-- Compact recovery summary -->
+      <div style="display:flex; align-items:center; gap:0; border-radius:6px; overflow:hidden; height:32px; margin-bottom:10px;">
+        <div style="flex:0 0 17%; background:#EF4444; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">17% &bull; $72K</div>
+        <div style="flex:0 0 23%; background:#FBBF24; display:flex; align-items:center; justify-content:center; font-size:9px; color:#1E222C; font-weight:700;">40% &bull; $167K (Yr 1)</div>
+        <div style="flex:0 0 20%; background:#3B82F6; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">60% &bull; $250K (Yr 2)</div>
+        <div style="flex:0 0 25%; background:#10B981; display:flex; align-items:center; justify-content:center; font-size:9px; color:#fff; font-weight:700;">85% &bull; $354K (Submetered)</div>
+        <div style="flex:0 0 15%; background:rgba(16,185,129,0.3); display:flex; align-items:center; justify-content:center; font-size:8px; color:#10B981; font-weight:700;">+$282K upside</div>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
         <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.20); border-radius:6px; padding:10px;">
-          <div style="font-size:9px; color:#EF4444; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">RUBS Blockers &mdash; Fix Before Launch</div>
+          <div style="font-size:9px; color:#EF4444; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">3 RUBS Blockers</div>
           <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
-            &bull; <b>SC Lot 183, 190, 203</b> &mdash; Leases state utilities "included in rent." Must renegotiate or issue new leases before RUBS can apply to these lots.<br>
-            &bull; CO law: 90-day written notice required for any material lease change. Budget 90 days from close before RUBS takes effect on these units.
+            SC Lots 183, 190, 203 &mdash; leases state utilities "included in rent." Must cure before RUBS applies. 90-day notice required under CO law.
           </div>
         </div>
         <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:6px; padding:10px;">
-          <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Team Action</div>
+          <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Year 1 NOI Impact</div>
           <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
-            &bull; <b>Ops:</b> Select RUBS vendor (Conservice, NWP, SimpleBills) &mdash; get quotes pre-close<br>
-            &bull; <b>Legal:</b> Draft RUBS addendum for lease renewals<br>
-            &bull; <b>PM:</b> Obtain 12 months of utility invoices for allocation modeling<br>
-            &bull; <b>CapEx:</b> Scope submetering install cost for Year 2 budget
+            <b style="color:#10B981;">+$95K</b> at 40% recovery target. RUBS vendor selected by Close +30d, billing live by Close +90d. See <a href="#" onclick="document.getElementById('radio-page8').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none;">Ops Handoff</a> for execution timeline.
           </div>
         </div>
       </div>
@@ -10515,7 +9824,7 @@ setInterval(updateCountdown, 60000);
 // ===== TAB NAVIGATION: SWIPE + FLOATING BUTTONS =====
 (function() {
   // Ordered list of visible tab page IDs (excludes hidden page18/changelog)
-  var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,20,5,8];
+  var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,4,20,8,5];
 
   function getCurrentIndex() {
     for (var i = 0; i < tabOrder.length; i++) {
@@ -10536,9 +9845,9 @@ setInterval(updateCountdown, 60000);
   }
 
   // Tab name lookup for the floating label
-  var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
-    9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
-    12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',20:'Value Add',5:'Investor Deck',8:'Ops Handoff'};
+  var tabNames = {1:'Overview',13:'Deal Status',11:'Actions',3:'Financials',6:'Underwriting',
+    16:'Projections',15:'Debt',12:'Tenants',7:'POH',10:'Utilities',17:'Market',
+    14:'Photos',9:'Site Visit',4:'Risks',20:'Value Add',8:'Ops Handoff',5:'Investor Deck'};
 
   function updateNavLabel(idx) {
     var el = document.getElementById('navLabel');
@@ -10803,10 +10112,10 @@ setInterval(updateCountdown, 60000);
     }
 
     var results = [];
-    var tabNames = {1:'Summary',13:'Deal Status',11:'Actions',2:'Docs',14:'Pics',4:'Red Flags',
-      9:'Site Visit',6:'Model',16:'Forecast',17:'Market',3:'Financial',15:'Debt',
-      12:'Rent Roll',19:'Lease Audit',7:'POH',10:'Utilities',20:'Value Add',5:'Investor Deck',8:'Ops Handoff'};
-    var tabOrder = [1,13,11,2,14,4,9,6,16,17,3,15,12,19,7,10,20,5,8];
+    var tabNames = {1:'Overview',13:'Deal Status',11:'Actions',3:'Financials',6:'Underwriting',
+      16:'Projections',15:'Debt',12:'Tenants',7:'POH',10:'Utilities',17:'Market',
+      14:'Photos',9:'Site Visit',4:'Risks',20:'Value Add',8:'Ops Handoff',5:'Investor Deck'};
+    var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,4,20,8,5];
 
     // Search tab names
     tabOrder.forEach(function(pageNum) {
