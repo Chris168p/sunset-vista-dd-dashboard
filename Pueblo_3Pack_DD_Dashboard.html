@@ -89,7 +89,8 @@
     #radio-page14:checked ~ .tab-bar .tab-label[for="radio-page14"],
     #radio-page15:checked ~ .tab-bar .tab-label[for="radio-page15"],
     #radio-page16:checked ~ .tab-bar .tab-label[for="radio-page16"],
-    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"] {
+    #radio-page17:checked ~ .tab-bar .tab-label[for="radio-page17"],
+    #radio-page21:checked ~ .tab-bar .tab-label[for="radio-page21"] {
     color: #FFFFFF; background: rgba(59,130,246,0.25); border-color: #3B82F6; box-shadow: 0 0 12px rgba(59,130,246,0.25);
   }
 
@@ -110,6 +111,7 @@
   #radio-page16:checked ~ #tab-page16,
   #radio-page17:checked ~ #tab-page17,
   #radio-page20:checked ~ #tab-page20,
+  #radio-page21:checked ~ #tab-page21,
   #radio-page18:checked ~ #tab-page18 {
     display: block;
   }
@@ -1381,6 +1383,7 @@
 <input type="radio" name="tabs" id="radio-page16" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page17" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page20" class="tab-radio">
+<input type="radio" name="tabs" id="radio-page21" class="tab-radio">
 <input type="radio" name="tabs" id="radio-page18" class="tab-radio">
 
   <div class="tab-bar">
@@ -1397,6 +1400,7 @@
     <label class="tab-label" for="radio-page17">Market</label>
     <label class="tab-label" for="radio-page14">Photos</label>
     <label class="tab-label" for="radio-page9">Site Visit</label>
+    <label class="tab-label" for="radio-page21">CapEx</label>
     <label class="tab-label" for="radio-page4">Risks</label>
     <label class="tab-label" for="radio-page20">Value Add</label>
     <label class="tab-label" for="radio-page8">Ops Handoff</label>
@@ -1441,28 +1445,28 @@
           <div class="dd-phase-label">Financial Review</div>
           <div class="dd-phase-pct">90%</div>
         </div>
-        <div class="dd-phase active" onclick="goToTabByPage(9)" title="Go to Site Visit">
+        <div class="dd-phase pending" onclick="goToTabByPage(5)" title="Go to Investor Deck">
           <div class="dd-phase-dot">3</div>
+          <div class="dd-phase-connector"></div>
+          <div class="dd-phase-label">Investor Package</div>
+          <div class="dd-phase-pct">Pending</div>
+        </div>
+        <div class="dd-phase active" onclick="goToTabByPage(9)" title="Go to Site Visit">
+          <div class="dd-phase-dot">4</div>
           <div class="dd-phase-connector"></div>
           <div class="dd-phase-label">Site Visit</div>
           <div class="dd-phase-pct">Not Scheduled</div>
         </div>
         <div class="dd-phase active" onclick="goToTabByPage(15)" title="Go to Debt">
-          <div class="dd-phase-dot">4</div>
+          <div class="dd-phase-dot">5</div>
           <div class="dd-phase-connector"></div>
           <div class="dd-phase-label">Loan Assumption</div>
           <div class="dd-phase-pct">In Review</div>
         </div>
         <div class="dd-phase pending" onclick="goToTabByPage(19)" title="Go to Lease Audit">
-          <div class="dd-phase-dot">5</div>
-          <div class="dd-phase-connector"></div>
-          <div class="dd-phase-label">Legal & Lease</div>
-          <div class="dd-phase-pct">Pending</div>
-        </div>
-        <div class="dd-phase pending" onclick="goToTabByPage(5)" title="Go to Investor Deck">
           <div class="dd-phase-dot">6</div>
           <div class="dd-phase-connector"></div>
-          <div class="dd-phase-label">Investor Package</div>
+          <div class="dd-phase-label">Legal & Lease</div>
           <div class="dd-phase-pct">Pending</div>
         </div>
         <div class="dd-phase pending">
@@ -3714,6 +3718,64 @@
       </table>
     </div>
 
+    <!-- POH PORTFOLIO-WIDE ANALYSIS -->
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Portfolio POH Analysis — Bed/Bath Mix &amp; Rent Distribution</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Configuration</th>
+            <th style="text-align:right;">Count</th>
+            <th style="text-align:right;">% of Fleet</th>
+            <th style="text-align:right;">Avg Rent</th>
+            <th style="text-align:right;">Min Rent</th>
+            <th style="text-align:right;">Max Rent</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><b>2BD/1BA</b></td><td style="text-align:right;">11</td><td style="text-align:right;">7.5%</td><td style="text-align:right;">$427</td><td style="text-align:right;">$240</td><td style="text-align:right;">$596</td><td class="dim">Mostly 14x52–14x60, older singles</td></tr>
+          <tr><td><b>2BD/2BA</b></td><td style="text-align:right;">6</td><td style="text-align:right;">4.1%</td><td style="text-align:right;">$544</td><td style="text-align:right;">$395</td><td style="text-align:right;">$760</td><td class="dim">16x56 Legacy units (newer)</td></tr>
+          <tr><td><b>3BD/2BA (Single)</b></td><td style="text-align:right;">109</td><td style="text-align:right;">74.7%</td><td style="text-align:right;">$618</td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td class="dim">Core of the fleet — 14x66 to 16x76 <span style="color:#FBBF24; font-size:9px;">⚠ +2 OC units estimated</span></td></tr>
+          <tr><td><b>3BD/2BA (Double)</b></td><td style="text-align:right;">7</td><td style="text-align:right;">4.8%</td><td style="text-align:right;">$529</td><td style="text-align:right;">$246</td><td style="text-align:right;">$745</td><td class="dim">28x40 to 28x58 doublewides (SC only)</td></tr>
+          <tr><td><b>4BD/2BA</b></td><td style="text-align:right;">13</td><td style="text-align:right;">8.9%</td><td style="text-align:right;">$445</td><td style="text-align:right;">$245</td><td style="text-align:right;">$725</td><td class="dim">16x80 singles (mixed vintage)</td></tr>
+          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$587</b></td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">POH Age Distribution &amp; Condition Risk</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Vintage Tier</th>
+            <th style="text-align:right;">Count</th>
+            <th style="text-align:right;">% of Fleet</th>
+            <th style="text-align:right;">Avg Rent</th>
+            <th>Condition Risk</th>
+            <th>Inspection Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><b>2020–2022</b> (Newest)</td><td style="text-align:right;">55</td><td style="text-align:right;">38.2%</td><td style="text-align:right;">$739</td><td class="green">Low</td><td class="dim">Standard</td></tr>
+          <tr><td><b>2019</b></td><td style="text-align:right;">3</td><td style="text-align:right;">2.1%</td><td style="text-align:right;">$690</td><td class="green">Low</td><td class="dim">Standard</td></tr>
+          <tr><td><b>2012–2013</b></td><td style="text-align:right;">17</td><td style="text-align:right;">11.8%</td><td style="text-align:right;">$487</td><td class="orange">Medium</td><td class="dim">HVAC, roof check</td></tr>
+          <tr><td><b>2009–2011</b></td><td style="text-align:right;">30</td><td style="text-align:right;">20.8%</td><td style="text-align:right;">$583</td><td class="orange">Medium</td><td class="orange">Priority — 15+ yrs old</td></tr>
+          <tr><td><b>2000–2005</b></td><td style="text-align:right;">22</td><td style="text-align:right;">15.3%</td><td style="text-align:right;">$476</td><td class="red">High</td><td class="red">Critical — 20+ yrs, full inspection</td></tr>
+          <tr><td><b>Pre-2000</b> (Oldest)</td><td style="text-align:right;">17</td><td style="text-align:right;">11.8%</td><td style="text-align:right;">$406</td><td class="red">High</td><td class="red">Critical — roof, skirting, plumbing, HVAC</td></tr>
+          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$587</b></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.5;">
+        <b style="color:#00E676;">38% of fleet is 2020+ vintage</b> — relatively low maintenance risk. However, <b style="color:#EF4444;">27% of fleet (39 homes) is 20+ years old</b> and should be prioritized for physical inspection. These older homes average $441/mo rent vs $739 for newest, suggesting value-add upside through renovation or replacement. <b style="color:#FBBF24;">Personal Property Schedule received but essentially empty</b> — only lists "Ford Truck, Mower, Snake" with no VINs, locations, or values. Must be completed by seller before closing.
+      </div>
+    </div>
+
     <!-- COMPREHENSIVE POH HOME INVENTORY -->
     <div class="group-divider">
       <div class="group-label">Comprehensive Home Inventory</div>
@@ -3986,64 +4048,6 @@
       </div>
       <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.5;">
         <span class="green">105 of 101 titles received (104% ✓ — 4 extra titles, likely sold/removed homes).</span> Of those reviewed: <b style="color:#EF4444;">SC-106 carries a $979,341 lien from 21st Mortgage Corp (matures Jan 2037)</b> — likely a blanket chattel lien covering multiple homes. SC-005 shows a $3M Clayton Bank &amp; Trust lien marked "Released." Remaining titles are clean. All held by Rapid City Financial LLC. Fleet is diverse with homes spanning 1986–2022. 7 doublewides (28' width). <b style="color:#E5E9ED;">Value-add opportunities:</b> 14 homes renting below $400/mo — many are 2009-2010 Clayton 16x72 3BD/2BA units that could command $600+ with renovations. <b style="color:#EF4444;">Oldest home: 1986 Liberty doublewide (SC-071, $246/mo)</b> — likely candidate for removal/replacement. SC home taxes lower than OC/LAV since in county (60M) not city (60B).
-      </div>
-    </div>
-
-    <!-- POH PORTFOLIO-WIDE ANALYSIS -->
-    <div class="section" style="margin-bottom:14px;">
-      <div class="section-title">Portfolio POH Analysis — Bed/Bath Mix &amp; Rent Distribution</div>
-      <div class="scroll-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Configuration</th>
-            <th style="text-align:right;">Count</th>
-            <th style="text-align:right;">% of Fleet</th>
-            <th style="text-align:right;">Avg Rent</th>
-            <th style="text-align:right;">Min Rent</th>
-            <th style="text-align:right;">Max Rent</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><b>2BD/1BA</b></td><td style="text-align:right;">11</td><td style="text-align:right;">7.5%</td><td style="text-align:right;">$427</td><td style="text-align:right;">$240</td><td style="text-align:right;">$596</td><td class="dim">Mostly 14x52–14x60, older singles</td></tr>
-          <tr><td><b>2BD/2BA</b></td><td style="text-align:right;">6</td><td style="text-align:right;">4.1%</td><td style="text-align:right;">$544</td><td style="text-align:right;">$395</td><td style="text-align:right;">$760</td><td class="dim">16x56 Legacy units (newer)</td></tr>
-          <tr><td><b>3BD/2BA (Single)</b></td><td style="text-align:right;">109</td><td style="text-align:right;">74.7%</td><td style="text-align:right;">$618</td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td class="dim">Core of the fleet — 14x66 to 16x76 <span style="color:#FBBF24; font-size:9px;">⚠ +2 OC units estimated</span></td></tr>
-          <tr><td><b>3BD/2BA (Double)</b></td><td style="text-align:right;">7</td><td style="text-align:right;">4.8%</td><td style="text-align:right;">$529</td><td style="text-align:right;">$246</td><td style="text-align:right;">$745</td><td class="dim">28x40 to 28x58 doublewides (SC only)</td></tr>
-          <tr><td><b>4BD/2BA</b></td><td style="text-align:right;">13</td><td style="text-align:right;">8.9%</td><td style="text-align:right;">$445</td><td style="text-align:right;">$245</td><td style="text-align:right;">$725</td><td class="dim">16x80 singles (mixed vintage)</td></tr>
-          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$587</b></td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td></td></tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-
-    <div class="section" style="margin-bottom:14px;">
-      <div class="section-title">POH Age Distribution &amp; Condition Risk</div>
-      <div class="scroll-wrap">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Vintage Tier</th>
-            <th style="text-align:right;">Count</th>
-            <th style="text-align:right;">% of Fleet</th>
-            <th style="text-align:right;">Avg Rent</th>
-            <th>Condition Risk</th>
-            <th>Inspection Priority</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><b>2020–2022</b> (Newest)</td><td style="text-align:right;">55</td><td style="text-align:right;">38.2%</td><td style="text-align:right;">$739</td><td class="green">Low</td><td class="dim">Standard</td></tr>
-          <tr><td><b>2019</b></td><td style="text-align:right;">3</td><td style="text-align:right;">2.1%</td><td style="text-align:right;">$690</td><td class="green">Low</td><td class="dim">Standard</td></tr>
-          <tr><td><b>2012–2013</b></td><td style="text-align:right;">17</td><td style="text-align:right;">11.8%</td><td style="text-align:right;">$487</td><td class="orange">Medium</td><td class="dim">HVAC, roof check</td></tr>
-          <tr><td><b>2009–2011</b></td><td style="text-align:right;">30</td><td style="text-align:right;">20.8%</td><td style="text-align:right;">$583</td><td class="orange">Medium</td><td class="orange">Priority — 15+ yrs old</td></tr>
-          <tr><td><b>2000–2005</b></td><td style="text-align:right;">22</td><td style="text-align:right;">15.3%</td><td style="text-align:right;">$476</td><td class="red">High</td><td class="red">Critical — 20+ yrs, full inspection</td></tr>
-          <tr><td><b>Pre-2000</b> (Oldest)</td><td style="text-align:right;">17</td><td style="text-align:right;">11.8%</td><td style="text-align:right;">$406</td><td class="red">High</td><td class="red">Critical — roof, skirting, plumbing, HVAC</td></tr>
-          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$587</b></td><td></td><td></td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.5;">
-        <b style="color:#00E676;">38% of fleet is 2020+ vintage</b> — relatively low maintenance risk. However, <b style="color:#EF4444;">27% of fleet (39 homes) is 20+ years old</b> and should be prioritized for physical inspection. These older homes average $441/mo rent vs $739 for newest, suggesting value-add upside through renovation or replacement. <b style="color:#FBBF24;">Personal Property Schedule received but essentially empty</b> — only lists "Ford Truck, Mower, Snake" with no VINs, locations, or values. Must be completed by seller before closing.
       </div>
     </div>
 
@@ -5862,6 +5866,798 @@
       </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 8px; line-height: 1.6;">
         <b style="color:#8B5CF6;">Bring:</b> PCA photos &middot; Lot maps &middot; Survey plats (LAV) &middot; PZR zoning reports (all 3) &middot; Cert #98-152 &amp; Var #98-01 (SC) &middot; Tape measure &middot; Camera &middot; This dashboard
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================= PAGE 21: CAPEX DEEP DIVE ============================= -->
+  <div class="tab-content" id="tab-page21">
+
+    <!-- HERO KPI STRIP -->
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:16px;">
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(16,185,129,0.25); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Seller CapEx Invested</div>
+        <div style="font-size:22px; font-weight:900; color:#10B981;">$1.56M</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Oakwood / Oasis only</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(239,68,68,0.25); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">PCA Immediate Need</div>
+        <div style="font-size:22px; font-weight:900; color:#EF4444;">$52.5K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">79% at Oasis (roads)</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(245,158,11,0.25); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#F59E0B; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">7-Year PCA Total</div>
+        <div style="font-size:22px; font-weight:900; color:#F59E0B;">$221.6K</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">$62.88/unit/yr (in range)</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(59,130,246,0.25); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Model CapEx Budget</div>
+        <div style="font-size:22px; font-weight:900; color:#3B82F6;">$2.2M</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">5-year underwriting</div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:12px 16px; border:1px solid rgba(139,92,246,0.25); text-align:center;">
+        <div style="font-size:8px; font-weight:700; color:#8B5CF6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">Reserve Target</div>
+        <div style="font-size:22px; font-weight:900; color:#8B5CF6;">$500</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">/pad/year &bull; 399 lots</div>
+      </div>
+    </div>
+
+    <!-- HOW TO USE THIS TAB -->
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #3B82F6; padding-left:14px;">
+      <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">HOW TO USE THIS TAB</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        This tab consolidates everything we know about capital expenditures across the Pueblo Three Pack &mdash; what the seller already spent, what the PCA inspections flagged, what our underwriting model assumes, and what we recommend doing in Year 1. Use this as your reference before and during the site visit. After the physical walkthrough, the team should update the "Site Visit Findings" section with actual conditions observed, then finalize the Year 1 CapEx budget.
+      </div>
+    </div>
+
+    <!-- DRIVE LINKS -->
+    <div class="section" style="margin-bottom: 14px; padding: 16px 18px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 32px;">
+        <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128196;</span><span class="link-label">PCA Reports (All 3)</span><span class="link-arrow">&rarr;</span></a>
+        <a href="https://drive.google.com/file/d/1jjaLrAKcfdvXtaSQzFoL2Dl5yvOADIkd/view?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128202;</span><span class="link-label">Seller CapEx Summary</span><span class="link-arrow">&rarr;</span></a>
+        <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" class="drive-link">
+          <span class="link-icon">&#128196;</span><span class="link-label">Phase 1 Environmental</span><span class="link-arrow">&rarr;</span></a>
+      </div>
+    </div>
+
+    <!-- ======= SECTION 1: SELLER'S RECENT CAPITAL IMPROVEMENTS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Seller&rsquo;s Recent Capital Improvements &mdash; Oasis (Oakwood Estates)</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #10B981; padding-left:14px;">
+      <div style="font-size:11px; color:#10B981; font-weight:700; margin-bottom:6px;">CONTEXT</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        The seller (Oakwood Capital / Rapid City Financial) invested <b style="color:#10B981;">$1.56M</b> in capital improvements at the Oasis community prior to listing. This is significant because it means the largest property in the portfolio has already received meaningful infrastructure upgrades, reducing our Year 1 deferred maintenance burden at that site. No equivalent CapEx documentation was provided for Sunset Vista or La Vista &mdash; this is a gap we need to address during the site visit.
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Seller CapEx Detail &mdash; Oasis</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Description</th>
+            <th style="text-align:right;">Cost</th>
+            <th style="text-align:right;">% of Total</th>
+            <th>Category</th>
+            <th>Site Visit Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:#E5E9ED;">Natural Gas System</b></td>
+            <td class="dim">Installed new PE lines throughout park. No longer master metered &mdash; residents direct-billed by Black Hills Energy</td>
+            <td style="text-align:right;"><b>$1,145,000</b></td>
+            <td style="text-align:right;">73.4%</td>
+            <td><span style="background:rgba(16,185,129,0.15); color:#10B981; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">INFRASTRUCTURE</span></td>
+            <td class="dim">Verify all individual meters active with Black Hills Energy. Check PE line exposed connections. Confirm direct billing is working.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Clubhouse Exterior</b></td>
+            <td class="dim">New roof, new windows, new stucco</td>
+            <td style="text-align:right;">$210,000</td>
+            <td style="text-align:right;">13.5%</td>
+            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">PRESERVATION</span></td>
+            <td class="dim">Inspect roof quality. Check window seals. Evaluate stucco for cracking or moisture intrusion.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Clubhouse Interior</b></td>
+            <td class="dim">New flooring, new paint, new HVAC</td>
+            <td style="text-align:right;">$140,000</td>
+            <td style="text-align:right;">9.0%</td>
+            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">PRESERVATION</span></td>
+            <td class="dim">Check flooring condition. Test HVAC. Assess overall amenity quality vs. market comps.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Maintenance Shop</b></td>
+            <td class="dim">New 40&times;60 building with concrete slab and roll-up doors</td>
+            <td style="text-align:right;">$65,000</td>
+            <td style="text-align:right;">4.2%</td>
+            <td><span style="background:rgba(139,92,246,0.15); color:#8B5CF6; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">OPERATIONAL</span></td>
+            <td class="dim">Inspect structure. Confirm adequate for 161-lot operations. Check tool/equipment storage.</td>
+          </tr>
+          <tr style="border-top:1px solid rgba(255,255,255,0.1);">
+            <td><b>Total</b></td>
+            <td></td>
+            <td style="text-align:right;"><b style="color:#10B981;">$1,560,000</b></td>
+            <td style="text-align:right;"><b>100%</b></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #FBBF24; padding-left:14px;">
+      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">DD QUESTIONS FOR SELLER</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        <b style="color:#E5E9ED;">1.</b> When were these improvements completed? Need dates to assess warranty coverage and remaining useful life.<br>
+        <b style="color:#E5E9ED;">2.</b> Were permits pulled and inspections passed for the gas line work and maintenance building?<br>
+        <b style="color:#E5E9ED;">3.</b> Who was the general contractor? Do we have lien waivers on file?<br>
+        <b style="color:#E5E9ED;">4.</b> Are there any warranty documents (roof, HVAC, gas lines) that transfer with sale?<br>
+        <b style="color:#E5E9ED;">5.</b> Were any similar improvements made at Sunset Vista or La Vista? If not, why was Oasis prioritized?<br>
+        <b style="color:#E5E9ED;">6.</b> Is the $1.56M reflected in the seller&rsquo;s cost basis or will it be capitalized by the buyer?
+      </div>
+    </div>
+
+    <!-- ======= SECTION 2: PCA FINDINGS ======= -->
+    <div class="group-divider">
+      <div class="group-label">PCA Findings &mdash; Professional Condition Assessment</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #EF4444; padding-left:14px;">
+      <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">WHAT THE PCA FOUND</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        Third-party Property Condition Assessments were completed for all three communities in 2025. The overall portfolio is in <b style="color:#10B981;">reasonable condition</b> for the asset class, with <b style="color:#EF4444;">$52.5K in immediate repairs</b> needed (mostly Oasis roads) and <b style="color:#F59E0B;">$169.1K in 7-year capital items</b> (mostly the Sunset Vista clubhouse roof). The annual per-unit cost of $62.88 falls within the industry benchmark of $50&ndash;$75/pad/year.
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">PCA Capital Requirements by Property</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Lots</th>
+            <th style="text-align:right;">Immediate</th>
+            <th style="text-align:right;">1&ndash;3 Year</th>
+            <th style="text-align:right;">4&ndash;7 Year</th>
+            <th style="text-align:right;">Total</th>
+            <th style="text-align:right;">$/Lot/Yr</th>
+            <th>Priority Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:#E5E9ED;">Sunset Vista</b></td>
+            <td>206</td>
+            <td style="text-align:right;" class="orange">$7,900</td>
+            <td style="text-align:right;">$18,750</td>
+            <td style="text-align:right;">$76,588</td>
+            <td style="text-align:right;"><b>$103,238</b></td>
+            <td style="text-align:right;">$71.59</td>
+            <td class="dim">Clubhouse roof ($76.6K, 7-yr). Parking lot sealing ($7.9K immediate). Water heater replacement ($5.2K).</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b style="color:#EF4444;">Oasis</b></td>
+            <td>161</td>
+            <td style="text-align:right;" class="red"><b>$41,071</b></td>
+            <td style="text-align:right;">$32,500</td>
+            <td style="text-align:right;">$28,900</td>
+            <td style="text-align:right;"><b>$102,471</b></td>
+            <td style="text-align:right;">$90.94</td>
+            <td class="dim"><b style="color:#EF4444;">Roads in poor condition ($41.1K immediate).</b> Sewer camera inspection ($8.5K). ADA pathway ($5K).</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">La Vista</b></td>
+            <td>32</td>
+            <td style="text-align:right;" class="green">$3,500</td>
+            <td style="text-align:right;">$5,200</td>
+            <td style="text-align:right;">$7,188</td>
+            <td style="text-align:right;"><b>$15,888</b></td>
+            <td style="text-align:right;">$70.93</td>
+            <td class="dim">Fence repairs ($3.5K immediate). Signage ($2.5K). Minor drainage grading ($4.7K).</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>PORTFOLIO</b></td>
+            <td><b>399</b></td>
+            <td style="text-align:right;"><b class="red">$52,471</b></td>
+            <td style="text-align:right;"><b>$56,450</b></td>
+            <td style="text-align:right;"><b>$112,676</b></td>
+            <td style="text-align:right;"><b>$221,597</b></td>
+            <td style="text-align:right;"><b>$62.88</b></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- PCA PRIORITY MATRIX -->
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">PCA Critical Items &mdash; Ranked by Urgency</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">#</th>
+            <th>Item</th>
+            <th>Property</th>
+            <th style="text-align:right;">Est. Cost</th>
+            <th>Urgency</th>
+            <th>Category</th>
+            <th>Why It Matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b>1</b></td>
+            <td><b style="color:#EF4444;">Asphalt Roads &amp; Parking</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;"><b>$41,071</b></td>
+            <td><span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">IMMEDIATE</span></td>
+            <td>Preservation</td>
+            <td class="dim">Roads rated &ldquo;poor&rdquo; &mdash; safety risk, resident complaints, curb appeal. 79% of all immediate CapEx.</td>
+          </tr>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b>2</b></td>
+            <td><b style="color:#EF4444;">Sewer Camera Inspection</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;">$8,500</td>
+            <td><span style="background:rgba(239,68,68,0.15); color:#EF4444; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">IMMEDIATE</span></td>
+            <td>Compliance</td>
+            <td class="dim">Needed to assess sewer line condition before any road overlay. Unknown condition = unknown liability.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.06);">
+            <td><b>3</b></td>
+            <td><b style="color:#F59E0B;">Parking Lot Seal Coating</b></td>
+            <td>Sunset Vista</td>
+            <td style="text-align:right;">$7,900</td>
+            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">YEAR 1</span></td>
+            <td>Preservation</td>
+            <td class="dim">Preventive maintenance to extend parking surface life. Low cost, high ROI.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.06);">
+            <td><b>4</b></td>
+            <td><b style="color:#F59E0B;">ADA Pathway Improvements</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;">$5,000</td>
+            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">YEAR 1</span></td>
+            <td>Compliance</td>
+            <td class="dim">ADA issues flagged in PCA. Compliance is non-negotiable. Low cost to remediate.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.06);">
+            <td><b>5</b></td>
+            <td><b style="color:#F59E0B;">Water Heater Replacement</b></td>
+            <td>Sunset Vista</td>
+            <td style="text-align:right;">$5,200</td>
+            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">YEAR 1</span></td>
+            <td>Preservation</td>
+            <td class="dim">Clubhouse/common area water heater at end of useful life per PCA.</td>
+          </tr>
+          <tr style="background:rgba(245,158,11,0.06);">
+            <td><b>6</b></td>
+            <td><b style="color:#F59E0B;">Fence Repairs</b></td>
+            <td>La Vista</td>
+            <td style="text-align:right;">$3,500</td>
+            <td><span style="background:rgba(245,158,11,0.15); color:#F59E0B; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">YEAR 1</span></td>
+            <td>Preservation</td>
+            <td class="dim">Perimeter fencing in disrepair. Impacts security and curb appeal.</td>
+          </tr>
+          <tr>
+            <td><b>7</b></td>
+            <td><b style="color:#E5E9ED;">Clubhouse Roof Replacement</b></td>
+            <td>Sunset Vista</td>
+            <td style="text-align:right;">$76,588</td>
+            <td><span style="background:rgba(59,130,246,0.15); color:#3B82F6; padding:2px 8px; border-radius:4px; font-size:9px; font-weight:700;">3&ndash;7 YEAR</span></td>
+            <td>Preservation</td>
+            <td class="dim">Built 1973 &mdash; roof at end of useful life. Single largest CapEx item in portfolio. Budget now, execute when inspection confirms timeline.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= SECTION 3: SUGGESTED CAPEX IMPROVEMENTS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Suggested CapEx Improvements &mdash; Silver Lands Value-Add Plan</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #8B5CF6; padding-left:14px;">
+      <div style="font-size:11px; color:#8B5CF6; font-weight:700; margin-bottom:6px;">OUR APPROACH</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        Beyond the PCA-identified items, the Silver Lands team should evaluate the following value-add and operational improvements during the site visit. These are categorized using our standard framework: Revenue-Generating (increases rent or reduces vacancy), Preservation (protects existing NOI), Compliance (legally required), and Deferred Maintenance (inherited backlog). Items marked <b style="color:#FBBF24;">TBD</b> need site visit confirmation before budgeting.
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title" style="color:#10B981;">Revenue-Generating (Value-Add) &mdash; Highest Priority for Returns</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Property</th>
+            <th style="text-align:right;">Est. Cost</th>
+            <th>Expected Impact</th>
+            <th>Timing</th>
+            <th>Site Visit Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:#E5E9ED;">Lot Infill &mdash; Vacant Pad Activation</b></td>
+            <td>All 3</td>
+            <td style="text-align:right;">$5K&ndash;15K/lot</td>
+            <td class="green">+$615&ndash;654/mo per lot in rent</td>
+            <td>Year 1&ndash;2</td>
+            <td class="dim">Walk all 28 SV vacant lots, 9 OC vacant lots. Assess pad condition, utility hookups, access. Identify first 10 for infill.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">New Home Purchases (POH&rarr;TOH)</b></td>
+            <td>All 3</td>
+            <td style="text-align:right;">~$52.5K/home</td>
+            <td class="green">Model includes 50 homes ($2.625M)</td>
+            <td>Year 1&ndash;3</td>
+            <td class="dim">Confirm dealer pricing (Clayton/Cavco/Champion). Assess delivery access to all vacant lots. Check for transport restrictions.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Signage &amp; Curb Appeal</b></td>
+            <td>All 3</td>
+            <td style="text-align:right;">$15K&ndash;30K</td>
+            <td class="green">Reduced vacancy, stronger first impression</td>
+            <td>Month 1&ndash;3</td>
+            <td class="dim">Photo all entrance signage. Assess landscaping, lighting, mailbox areas. Identify quick wins under $5K.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Amenity Upgrades</b></td>
+            <td>SV + OC</td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td class="green">Justify rent increases, reduce turnover</td>
+            <td>Year 1&ndash;2</td>
+            <td class="dim">Inspect SV pool, OC clubhouse/community room. Assess playground condition. Identify amenity gaps vs. market comps ($600&ndash;900 lot rent range).</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">RUBS Implementation</b></td>
+            <td>All 3</td>
+            <td style="text-align:right;">$3K&ndash;5K</td>
+            <td class="green">$50&ndash;80/lot/mo utility recovery</td>
+            <td>Month 3&ndash;6</td>
+            <td class="dim">Verify current metering at each property. Assess sub-metering feasibility. Check CO AG Nov 2025 RUBS guidance compliance.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title" style="color:#F59E0B;">Preservation &amp; Deferred Maintenance &mdash; Protect NOI</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Property</th>
+            <th style="text-align:right;">Est. Cost</th>
+            <th>Risk if Deferred</th>
+            <th>Timing</th>
+            <th>Site Visit Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);">
+            <td><b style="color:#EF4444;">Road Overlay &amp; Patching</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;"><b>$41K+</b></td>
+            <td class="red">Safety liability, resident complaints, vacancy</td>
+            <td>Month 1&ndash;3</td>
+            <td class="dim">Drive every road at OC. Mark worst sections. Get 3 bids from local pavers. Determine if full overlay or targeted patching.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Sewer Line Assessment</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;">$8.5K</td>
+            <td class="red">Catastrophic failure = $50K+ emergency repair</td>
+            <td>Month 1</td>
+            <td class="dim">Camera inspect main sewer lines BEFORE road overlay to avoid tearing up new asphalt. This is sequencing-critical.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">SV Clubhouse Roof</b></td>
+            <td>Sunset Vista</td>
+            <td style="text-align:right;">$76.6K</td>
+            <td class="orange">Leak damage, insurance issues</td>
+            <td>Year 3&ndash;5</td>
+            <td class="dim">Get third-party roof inspection to refine timeline. Check for active leaks, interior water damage. Photograph condition.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">POH Renovation Pipeline</b></td>
+            <td>All 3</td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td class="orange">Below-market rents on 39 homes 20+ yrs old</td>
+            <td>Year 1&ndash;3</td>
+            <td class="dim">Grade all 146 POH homes A/B/C during walk. Flag homes needing HVAC, roof, skirting, or plumbing work. Identify first 10 for rehab.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Fencing &amp; Perimeter Security</b></td>
+            <td>LAV + OC</td>
+            <td style="text-align:right;">$10K&ndash;20K</td>
+            <td class="orange">Security, liability, appearance</td>
+            <td>Year 1</td>
+            <td class="dim">Walk full perimeter of LAV (PCA flagged $3.5K). Check OC perimeter. Assess whether full replacement or targeted repair.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title" style="color:#EF4444;">Compliance &amp; Safety &mdash; Non-Negotiable</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Property</th>
+            <th style="text-align:right;">Est. Cost</th>
+            <th>Regulatory Basis</th>
+            <th>Site Visit Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:#E5E9ED;">ADA Pathway Improvements</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;">$5,000</td>
+            <td class="dim">ADA Title III &mdash; flagged in PCA</td>
+            <td class="dim">Walk common areas with accessibility in mind. Note curb cuts, ramp slopes, door widths at clubhouse.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Fire Safety Equipment</b></td>
+            <td>All 3</td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td class="dim">CO fire code &mdash; extinguishers, smoke/CO detectors</td>
+            <td class="dim">Check clubhouse/common areas for fire extinguisher tags, emergency lighting, exit signs. Verify smoke/CO detectors in POH during walk.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Survey Encroachments</b></td>
+            <td>La Vista</td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td class="dim">Survey shows fence 4.3 ft + building 6.5 ft encroachment</td>
+            <td class="dim">Physically verify encroachment locations. Photograph. Determine if neighbor agreement or removal needed.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#E5E9ED;">Abandoned Home Removal</b></td>
+            <td>Oasis</td>
+            <td style="text-align:right;">$2K&ndash;5K/home</td>
+            <td class="dim">CO MHC Act &mdash; abandoned home provisions</td>
+            <td class="dim">PCA identified 4 abandoned/derelict homes at OC. Locate, photograph, assess cost to demo or remediate.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= SECTION 4: YEAR 1 CAPEX BUDGET ======= -->
+    <div class="group-divider">
+      <div class="group-label">Recommended Year 1 CapEx Budget &mdash; Draft</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #FBBF24; padding-left:14px;">
+      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">DRAFT &mdash; PENDING SITE VISIT CONFIRMATION</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        This budget is based on PCA findings and model assumptions only. It should be updated with actual conditions observed during the physical walkthrough. Items marked <b style="color:#FBBF24;">TBD</b> cannot be budgeted until the site visit is complete. The underwriting model includes $2.2M in total CapEx over 5 years; this Year 1 plan should fit within that envelope unless findings warrant a model update.
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Year 1 CapEx Budget by Property</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th style="text-align:right;">Sunset Vista</th>
+            <th style="text-align:right;">Oasis</th>
+            <th style="text-align:right;">La Vista</th>
+            <th style="text-align:right;">Portfolio Total</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:#10B981;">Revenue-Generating</b></td>
+            <td style="text-align:right;">$10,000</td>
+            <td style="text-align:right;">$8,000</td>
+            <td style="text-align:right;">$3,000</td>
+            <td style="text-align:right;"><b>$21,000</b></td>
+            <td class="dim">Signage, curb appeal, RUBS setup</td>
+          </tr>
+          <tr>
+            <td><b style="color:#F59E0B;">Preservation</b></td>
+            <td style="text-align:right;">$13,100</td>
+            <td style="text-align:right;">$49,571</td>
+            <td style="text-align:right;">$3,500</td>
+            <td style="text-align:right;"><b>$66,171</b></td>
+            <td class="dim">OC roads ($41K), SV seal coat ($7.9K), SV water heater ($5.2K), LAV fence ($3.5K)</td>
+          </tr>
+          <tr>
+            <td><b style="color:#EF4444;">Compliance &amp; Safety</b></td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td style="text-align:right;">$5,000</td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td style="text-align:right;"><b>$5,000+</b></td>
+            <td class="dim">OC ADA pathways confirmed. Fire safety &amp; LAV encroachments TBD.</td>
+          </tr>
+          <tr>
+            <td><b style="color:#8B5CF6;">Deferred Maintenance</b></td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td style="text-align:right;">$8,500</td>
+            <td style="text-align:right; color:#FBBF24;">TBD</td>
+            <td style="text-align:right;"><b>$8,500+</b></td>
+            <td class="dim">OC sewer camera ($8.5K). Full scope TBD after site visit POH grading.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06); border-top:1px solid rgba(255,255,255,0.1);">
+            <td><b>TOTAL YEAR 1</b></td>
+            <td style="text-align:right;"><b>$23,100+</b></td>
+            <td style="text-align:right;"><b>$71,071+</b></td>
+            <td style="text-align:right;"><b>$6,500+</b></td>
+            <td style="text-align:right;"><b style="color:#3B82F6;">$100,671+</b></td>
+            <td class="dim">Excluding home purchases ($2.625M modeled separately)</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.6;">
+        <b style="color:#3B82F6;">Model check:</b> Year 1 CapEx of ~$101K is well within the $2.2M 5-year budget ($440K/yr average). Even with TBD items, unlikely to exceed Year 1 allocation. The $2.625M home purchase program is budgeted separately in the model.
+      </div>
+    </div>
+
+    <!-- ======= SECTION 5: 5-YEAR OUTLOOK ======= -->
+    <div class="group-divider">
+      <div class="group-label">5-Year Capital Plan &mdash; High-Level Forecast</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th style="text-align:right;">Revenue-Generating</th>
+            <th style="text-align:right;">Preservation</th>
+            <th style="text-align:right;">Compliance</th>
+            <th style="text-align:right;">Deferred Maint.</th>
+            <th style="text-align:right;">Total</th>
+            <th>Key Projects</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b>Year 1</b></td>
+            <td style="text-align:right;">$21,000</td>
+            <td style="text-align:right;">$66,171</td>
+            <td style="text-align:right;">$5,000+</td>
+            <td style="text-align:right;">$8,500+</td>
+            <td style="text-align:right;"><b>$100,671+</b></td>
+            <td class="dim">OC roads, sewer camera, signage, RUBS, ADA. Stabilize and assess.</td>
+          </tr>
+          <tr>
+            <td><b>Year 2</b></td>
+            <td style="text-align:right;">$50,000</td>
+            <td style="text-align:right;">$40,000</td>
+            <td style="text-align:right;">$5,000</td>
+            <td style="text-align:right;">$25,000</td>
+            <td style="text-align:right;"><b>$120,000</b></td>
+            <td class="dim">Amenity upgrades, POH rehab pipeline begins, additional road work.</td>
+          </tr>
+          <tr>
+            <td><b>Year 3</b></td>
+            <td style="text-align:right;">$40,000</td>
+            <td style="text-align:right;">$80,000</td>
+            <td style="text-align:right;">$5,000</td>
+            <td style="text-align:right;">$15,000</td>
+            <td style="text-align:right;"><b>$140,000</b></td>
+            <td class="dim">SV clubhouse roof (if inspection accelerates). Continued POH rehab.</td>
+          </tr>
+          <tr>
+            <td><b>Year 4</b></td>
+            <td style="text-align:right;">$30,000</td>
+            <td style="text-align:right;">$60,000</td>
+            <td style="text-align:right;">$5,000</td>
+            <td style="text-align:right;">$10,000</td>
+            <td style="text-align:right;"><b>$105,000</b></td>
+            <td class="dim">Ongoing preservation. Parking lot resurfacing. Portfolio-wide drainage.</td>
+          </tr>
+          <tr>
+            <td><b>Year 5</b></td>
+            <td style="text-align:right;">$20,000</td>
+            <td style="text-align:right;">$50,000</td>
+            <td style="text-align:right;">$5,000</td>
+            <td style="text-align:right;">$10,000</td>
+            <td style="text-align:right;"><b>$85,000</b></td>
+            <td class="dim">Pre-disposition cosmetics if exit planned. Final deferred items.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06); border-top:1px solid rgba(255,255,255,0.1);">
+            <td><b>5-YEAR TOTAL</b></td>
+            <td style="text-align:right;"><b>$161,000</b></td>
+            <td style="text-align:right;"><b>$296,171</b></td>
+            <td style="text-align:right;"><b>$25,000</b></td>
+            <td style="text-align:right;"><b>$68,500</b></td>
+            <td style="text-align:right;"><b style="color:#3B82F6;">$550,671</b></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.6;">
+        <b style="color:#3B82F6;">Model alignment:</b> 5-year forecast of ~$551K is well within the $2.2M model CapEx budget, leaving ~$1.65M of headroom for home purchases, unexpected items, and reserve accumulation. Annual per-pad reserve of $500 &times; 399 lots = $199,500/year ($997,500 over 5 years) provides additional coverage.
+      </div>
+    </div>
+
+    <!-- ======= SECTION 6: SITE VISIT FINDINGS (BLANK TEMPLATE) ======= -->
+    <div class="group-divider">
+      <div class="group-label" style="color:#FBBF24;">Site Visit CapEx Findings &mdash; To Be Completed During Walk</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; border-left:3px solid #FBBF24; padding-left:14px;">
+      <div style="font-size:11px; color:#FBBF24; font-weight:700; margin-bottom:6px;">INSTRUCTIONS FOR THE TEAM</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        During the site visit, use this section as your checklist. For each property, walk through the items below and record actual conditions. Take photos of every flagged item. After the visit, this section will be updated with findings and the Year 1 budget above will be finalized.
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Sunset Vista &mdash; Site Visit CapEx Checklist</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">&#9744;</th>
+            <th>Inspection Item</th>
+            <th>What to Look For</th>
+            <th>PCA Flag?</th>
+            <th>Condition Found</th>
+            <th>Est. Cost</th>
+            <th>Photo?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&#9744;</td><td><b>Clubhouse roof</b></td><td class="dim">Active leaks, sagging, missing shingles, water stains inside</td><td class="orange">Yes &mdash; $76.6K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Parking lot surface</b></td><td class="dim">Cracking %, potholes, drainage pooling</td><td class="orange">Yes &mdash; $7.9K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Pool area</b></td><td class="dim">Equipment condition, deck surface, fence/gate, signage</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Common area water heater</b></td><td class="dim">Age plate, corrosion, temperature consistency</td><td class="orange">Yes &mdash; $5.2K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Entrance &amp; signage</b></td><td class="dim">Condition, visibility, branding opportunity</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Vacant lots (28)</b></td><td class="dim">Pad condition, utility stubs, access, grading</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>POH exterior walk (101 homes)</b></td><td class="dim">Skirting, siding, roof, slab condition. Grade A/B/C.</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Farm house / office</b></td><td class="dim">Structural integrity, HVAC, electrical</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">Oasis &mdash; Site Visit CapEx Checklist</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">&#9744;</th>
+            <th>Inspection Item</th>
+            <th>What to Look For</th>
+            <th>PCA Flag?</th>
+            <th>Condition Found</th>
+            <th>Est. Cost</th>
+            <th>Photo?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(239,68,68,0.06);"><td>&#9744;</td><td><b style="color:#EF4444;">Roads &amp; parking</b></td><td class="dim">Potholes, base failure, cracking %, drainage. Mark worst 5 sections.</td><td class="red">Yes &mdash; $41.1K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Sewer access points</b></td><td class="dim">Manhole condition, odor, visible backups</td><td class="orange">Yes &mdash; $8.5K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Gas system (seller&rsquo;s $1.145M)</b></td><td class="dim">Meter installations, PE line exposed points, regulator condition</td><td class="dim">No &mdash; seller-installed</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Clubhouse (seller&rsquo;s $350K)</b></td><td class="dim">Roof quality, stucco cracking, HVAC performance, flooring wear</td><td class="dim">No &mdash; seller-improved</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Maintenance shop (seller&rsquo;s $65K)</b></td><td class="dim">Structure, slab condition, door operation, storage adequacy</td><td class="dim">No &mdash; seller-built</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>ADA pathways</b></td><td class="dim">Curb cuts, ramp slopes, accessible routes to clubhouse</td><td class="orange">Yes &mdash; $5K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Abandoned homes (4 identified)</b></td><td class="dim">Location, condition, demo vs. salvage assessment</td><td class="dim">Referenced in PCA</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>POH exterior walk (38 homes)</b></td><td class="dim">Skirting, siding, roof, slab condition. Grade A/B/C.</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Boiler / heating system</b></td><td class="dim">Central boiler if still present. Age, capacity, compliance.</td><td class="dim">Flagged in risk tab</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Vacant lots (9)</b></td><td class="dim">Pad condition, utility stubs, access</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="section-title">La Vista &mdash; Site Visit CapEx Checklist</div>
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:30px;">&#9744;</th>
+            <th>Inspection Item</th>
+            <th>What to Look For</th>
+            <th>PCA Flag?</th>
+            <th>Condition Found</th>
+            <th>Est. Cost</th>
+            <th>Photo?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&#9744;</td><td><b>Perimeter fencing</b></td><td class="dim">Sections damaged, posts leaning, gate function</td><td class="orange">Yes &mdash; $3.5K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Survey encroachments</b></td><td class="dim">Fence 4.3 ft over lot line, building 6.5 ft over</td><td class="dim">Survey finding</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Entrance &amp; signage</b></td><td class="dim">Condition, visibility from road</td><td class="dim">PCA &mdash; $2.5K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Drainage &amp; grading</b></td><td class="dim">Pooling water, erosion, lot grading</td><td class="orange">PCA &mdash; $4.7K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>POH exterior walk (7 homes)</b></td><td class="dim">Skirting, siding, roof condition. Grade A/B/C.</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Vacant lots (4)</b></td><td class="dim">Pad condition, utility stubs, access</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- ======= SECTION 7: NEGOTIATION CONSIDERATIONS ======= -->
+    <div class="group-divider">
+      <div class="group-label">Negotiation &amp; Closing Considerations</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+      <div class="section" style="margin-bottom:0; border-left:3px solid #EF4444; padding-left:14px;">
+        <div style="font-size:11px; color:#EF4444; font-weight:700; margin-bottom:6px;">POTENTIAL SELLER CREDITS</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+          <b style="color:#E5E9ED;">Oasis Roads ($41K):</b> Strongest case for a seller credit or escrow holdback. PCA-documented, safety-related, and the seller had $1.56M to spend on other items but did not address roads. Ask: &ldquo;Why were roads skipped?&rdquo;<br><br>
+          <b style="color:#E5E9ED;">Sewer Camera ($8.5K):</b> Can argue this is a seller obligation to demonstrate infrastructure condition pre-sale. Standard DD request.<br><br>
+          <b style="color:#E5E9ED;">Abandoned Homes ($8K&ndash;20K):</b> Seller should remove or provide credit for 4 derelict homes at Oasis. These are their responsibility under CO MHC Act.
+        </div>
+      </div>
+      <div class="section" style="margin-bottom:0; border-left:3px solid #3B82F6; padding-left:14px;">
+        <div style="font-size:11px; color:#3B82F6; font-weight:700; margin-bottom:6px;">STRATEGIC DECISIONS NEEDED</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+          <b style="color:#E5E9ED;">1. OC Roads &mdash; Credit vs. Budget:</b> Do we push for a seller credit (risk souring relationship before loan assumption closes) or absorb into Year 1 CapEx?<br><br>
+          <b style="color:#E5E9ED;">2. SV Roof &mdash; Timing:</b> $76.6K replacement within 7 years per PCA. Do we budget Year 1 to get ahead, or defer to Year 3&ndash;5? Risk of leak damage vs. cash preservation.<br><br>
+          <b style="color:#E5E9ED;">3. Reserve Policy:</b> $500/pad/yr = $199.5K annual reserve. Is this sufficient given the 27% of POH fleet that&rsquo;s 20+ years old? Consider $600/pad for first 2 years.
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= SECTION 8: CAPEX TEAM ======= -->
+    <div class="group-divider">
+      <div class="group-label">CapEx Team &amp; Contacts</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px;">
+      <div class="scroll-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Responsibility</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><b style="color:#E5E9ED;">Chris Meriwether</b></td><td class="dim">VP Acquisitions &amp; Asset Mgmt</td><td class="dim"><a href="mailto:chris@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">chris@silverlandsmg.com</a></td><td class="dim">Strategy, prioritization, investor reporting</td></tr>
+          <tr><td><b style="color:#E5E9ED;">Sarge Wiebold</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:sarge@silverlands.com" style="color:#3B82F6; text-decoration:none;">sarge@silverlands.com</a></td><td class="dim">Project execution, contractor management</td></tr>
+          <tr><td><b style="color:#E5E9ED;">Drew Taft</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:drew@silverlands.com" style="color:#3B82F6; text-decoration:none;">drew@silverlands.com</a></td><td class="dim">Project execution, site supervision</td></tr>
+          <tr><td><b style="color:#E5E9ED;">Paul Bradshaw</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:paul@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">paul@silverlandsmg.com</a></td><td class="dim">Estimating, vendor coordination</td></tr>
+          <tr><td><b style="color:#E5E9ED;">Jose Torres</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:jose.torres@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">jose.torres@silverlandsmg.com</a></td><td class="dim">Field operations, inspections</td></tr>
+          <tr><td><b style="color:#E5E9ED;">Keiana</b></td><td class="dim">DD Team Lead</td><td class="dim">&mdash;</td><td class="dim">DD execution, CapEx tracking, lender documentation</td></tr>
+        </tbody>
+      </table>
       </div>
     </div>
 
@@ -11423,6 +12219,9 @@
   </button>
   <button class="dock-btn" onclick="goToTabByPage(9)" aria-label="Site Visit">
     <span class="dock-icon">🏠</span><span class="dock-label">Site Visit</span>
+  </button>
+  <button class="dock-btn" onclick="goToTabByPage(21)" aria-label="CapEx">
+    <span class="dock-icon">🔧</span><span class="dock-label">CapEx</span>
   </button>
 </div>
 
