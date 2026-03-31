@@ -1023,6 +1023,122 @@
       font-size: 9px;
       padding: 7px 10px;
     }
+
+    /* ===== UTILITIES TAB (page10) — MOBILE FIXES ===== */
+
+    /* KPI strip: ensure inline grid-template-columns:repeat(5,1fr) is overridden */
+    #tab-page10 .audit-kpi-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
+    }
+    #tab-page10 .audit-kpi-grid > div {
+      padding: 10px 12px !important;
+    }
+    #tab-page10 .audit-kpi-grid > div > div:nth-child(2) {
+      font-size: 18px !important;
+    }
+
+    /* Donut chart + bar chart grid: stack vertically */
+    #tab-page10 > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    /* Donut SVG: center and size for mobile */
+    #tab-page10 .mini-chart-row {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+    #tab-page10 .mini-chart-svg {
+      width: 120px !important;
+      height: 120px !important;
+    }
+    #tab-page10 .mini-chart-legend {
+      width: 100% !important;
+    }
+
+    /* Bar chart: taller bars for readability */
+    #tab-page10 .mini-bar-chart {
+      height: 100px !important;
+      gap: 16px !important;
+    }
+    #tab-page10 .mini-bar-label {
+      font-size: 10px !important;
+    }
+    #tab-page10 .mini-bar-val {
+      font-size: 11px !important;
+    }
+
+    /* T12 Cost by Property tables: reduce min-width so less scrolling needed */
+    #tab-page10 .tiles-grid .scroll-wrap .data-table,
+    #tab-page10 .section.scroll-wrap .scroll-wrap .data-table {
+      min-width: 340px !important;
+    }
+    #tab-page10 .tiles-grid .data-table td,
+    #tab-page10 .tiles-grid .data-table th {
+      font-size: 11px !important;
+      padding: 6px 8px !important;
+    }
+
+    /* Portfolio Cost by Utility Type: add data-label mobile labels */
+    #tab-page10 .tiles-grid .data-table {
+      min-width: 340px !important;
+    }
+
+    /* Monthly Utility Budget Expectations: reduce min-width */
+    #tab-page10 .util-budget-table {
+      min-width: 420px !important;
+    }
+    /* Ops Notes column: wrap text and smaller font */
+    #tab-page10 .util-budget-table th:last-child,
+    #tab-page10 .util-budget-table td:last-child {
+      min-width: 100px !important;
+      max-width: 160px !important;
+      font-size: 10px !important;
+      line-height: 1.4 !important;
+      white-space: normal !important;
+    }
+    /* Budget table property columns: compact */
+    #tab-page10 .util-budget-table td,
+    #tab-page10 .util-budget-table th {
+      padding: 6px 6px !important;
+      font-size: 11px !important;
+    }
+    /* Vendor analysis table: tighter layout */
+    #tab-page10 .section.scroll-wrap > .data-table {
+      min-width: 500px !important;
+    }
+
+    /* ===== FINANCIALS TAB (page3) — MOBILE FIXES ===== */
+
+    /* Revenue vs Expenses + Operating Margin chart grid: stack */
+    #tab-page3 > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+
+    /* Revenue chart bar area: proper height on mobile */
+    #tab-page3 .mini-bar-chart {
+      height: 100px !important;
+    }
+    #tab-page3 .mini-bar-chart .mini-bar-col {
+      min-width: 0 !important;
+    }
+    #tab-page3 .mini-bar-label {
+      font-size: 10px !important;
+    }
+
+    /* Seller FY2026 Budget assumption cards: stack */
+    #tab-page3 > div[style*="grid-template-columns:1fr 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+
+    /* Budget tables: reduce min-width for less horizontal scroll */
+    #tab-page3 .scroll-wrap .data-table {
+      min-width: 420px !important;
+    }
   }
 
   /* ===== FEATURE 6: GRADIENT HEADER SHIMMER ===== */
@@ -1327,6 +1443,27 @@
     .hero-row { grid-template-columns: 1fr !important; }
     .data-table { min-width: 400px; font-size: 9px; }
     .data-table th, .data-table td { padding: 5px 6px; }
+
+    /* Utilities KPI: single column on small screens */
+    #tab-page10 .audit-kpi-grid {
+      grid-template-columns: 1fr !important;
+    }
+    #tab-page10 .audit-kpi-grid > div > div:nth-child(2) {
+      font-size: 16px !important;
+    }
+
+    /* Utilities tables: tighter min-width */
+    #tab-page10 .data-table {
+      min-width: 320px !important;
+    }
+    #tab-page10 .util-budget-table {
+      min-width: 380px !important;
+    }
+
+    /* Financials: budget assumption cards already stacked via 768px rule */
+    #tab-page3 .data-table {
+      min-width: 380px !important;
+    }
   }
 </style>
 </head>
@@ -1461,7 +1598,7 @@
           <div class="dd-phase-dot">5</div>
           <div class="dd-phase-connector"></div>
           <div class="dd-phase-label">Loan Assumption</div>
-          <div class="dd-phase-pct">In Review</div>
+          <div class="dd-phase-pct">Forms Received</div>
         </div>
         <div class="dd-phase pending" onclick="goToTabByPage(19)" title="Go to Lease Audit">
           <div class="dd-phase-dot">6</div>
@@ -2874,7 +3011,9 @@
             <tr><td class="dim">Servicing Effective Date</td><td><b>October 31, 2025</b></td></tr>
             <tr><td class="dim">Prior Servicer</td><td><b class="dim">N/A &mdash; New origination</b></td></tr>
             <tr><td class="dim">Current Servicer</td><td><b>Midland Loan Services / PNC</b></td></tr>
+            <tr><td class="dim">Assumptions Email</td><td><b style="color:#3B82F6;">mlsassumptions@midlandls.com</b></td></tr>
             <tr><td class="dim">Hello Letter Dated</td><td><b>November 2025</b></td></tr>
+            <tr><td class="dim">Assumption Forms</td><td><b style="color:#00E676;">Received 3/31</b></td></tr>
           </tbody>
         </table>
       </div>
@@ -2933,9 +3072,9 @@
           <tr><td>1</td><td>Obtain loan documents from seller / servicer</td><td class="green"><b>Complete</b></td><td class="dim">Promissory Note, Loan Agreement (115+ pages), Hello Letter received</td></tr>
           <tr><td>2</td><td>Review loan covenants &amp; identify DD flags</td><td class="green"><b>Complete</b></td><td class="dim">Key flags: 3% mgmt fee cap, 1.15x lockbox, guarantor replacement, SBA UCC</td></tr>
           <tr><td>3</td><td>Confirm allocated loan amounts per property (Exhibit A)</td><td class="orange"><b>Pending</b></td><td class="dim">Need Exhibit A breakdown for Oasis, Sunset Country, La Vista</td></tr>
-          <tr><td>4</td><td>Determine assumption fee &amp; application requirements</td><td class="orange"><b>Pending</b></td><td class="dim">Typically 1% of UPB (~$219K). Must confirm with Midland/PNC.</td></tr>
-          <tr><td>5</td><td>Submit assumption application to servicer</td><td class="dim">Not Started</td><td class="dim">Requires seller coordination &mdash; buyer cannot contact servicer directly</td></tr>
-          <tr><td>6</td><td>Replacement guarantor qualification</td><td class="dim">Not Started</td><td class="dim">Net worth / liquidity requirements per CMBS standards</td></tr>
+          <tr><td>4</td><td>Determine assumption fee &amp; application requirements</td><td class="green"><b>Complete</b></td><td class="dim"><b style="color:#00E676;">&#10003; Received 3/31:</b> Midland Required Items checklists (Borrower + Assumptor), Credit Information Request Form, and Contact Sheets. Submit to <b>mlsassumptions@midlandls.com</b>. See full checklist below.</td></tr>
+          <tr><td>5</td><td>Submit assumption application to servicer</td><td class="orange"><b>In Progress</b></td><td class="dim">Requires seller coordination &mdash; buyer cannot contact servicer directly. All forms received 3/31. Must complete Assumptor checklist (15 items), Credit Request Form, and Contact Sheets before submission.</td></tr>
+          <tr><td>6</td><td>Replacement guarantor qualification</td><td class="orange"><b>In Progress</b></td><td class="dim">Credit Information Request Form received 3/31. All majority owners, managers, GPs, and proposed guarantors must complete form + provide 2 years tax returns, personal financial statements, and authorize credit pull (PNC/Midland).</td></tr>
           <tr><td>7</td><td>Negotiate management fee cap (3% &rarr; 5&ndash;6%)</td><td class="dim">Not Started</td><td class="dim">Critical for Silver Lands operations model</td></tr>
           <tr><td>8</td><td>Resolve Oasis SBA UCC filing</td><td class="dim">Not Started</td><td class="dim">Filing #20212123839 &mdash; determine nature and release requirements</td></tr>
           <tr><td>9</td><td>Servicer credit review &amp; approval</td><td class="dim">Not Started</td><td class="dim">60&ndash;90+ day timeline once application submitted</td></tr>
@@ -2945,6 +3084,127 @@
       </div>
       <div style="font-size:9px; color:#858D99; margin-top:8px; padding:8px; background:rgba(251,191,36,0.06); border-radius:6px; border:1px solid rgba(251,191,36,0.15);">
         <b style="color:#FBBF24;">&#9888; Critical Path:</b> CMBS assumptions typically take 60&ndash;90+ days from application. Seller must be POC with servicer (per Paige Newman, PNC). Closing timeline depends on servicer responsiveness and guarantor qualification. Must coordinate with inspection period extension if needed.
+      </div>
+    </div>
+
+    <!-- MIDLAND ASSUMPTION CHECKLISTS — RECEIVED 3/31 -->
+    <div class="group-divider">
+      <div class="group-label">Midland Assumption Package — Required Items <span style="color:#00E676; font-size:9px; font-weight:400;">RECEIVED 3/31</span></div>
+      <div class="group-line"></div>
+    </div>
+
+    <div style="font-size:10px; color:#858D99; margin-bottom:12px; margin-top:4px; line-height:1.6;">Source: Midland Loan Services &ldquo;Required Items and Contact Sheets&rdquo; + &ldquo;Credit Information Request Form&rdquo; (January 2026 edition). All documents must be submitted via email to <b style="color:#3B82F6;">mlsassumptions@midlandls.com</b>. USB/jump drives and Dropbox links are not accepted. <b style="color:#FBBF24;">Midland reserves the right to request additional information after review.</b></div>
+
+    <div class="tiles-grid" style="margin-bottom:0;">
+      <!-- BORROWER (SELLER) REQUIRED ITEMS -->
+      <div class="section">
+        <div class="section-title" style="color:#FBBF24;">Borrower (Seller) Required Items</div>
+        <div style="font-size:9px; color:#858D99; margin-bottom:8px;">Seller must complete and submit these items. Our team should track completion.</div>
+        <div class="scroll-wrap">
+        <table class="data-table" style="width:100%; min-width:380px;">
+          <thead><tr><th style="width:30px;">#</th><th>Required Item</th><th style="width:80px;">Status</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Seller Contact Information Sheet</td><td class="dim">Pending</td></tr>
+            <tr><td>2</td><td>Fully executed PSA including all amendments &amp; exhibits</td><td class="green"><b>Complete</b></td></tr>
+            <tr><td>3</td><td>Current organizational chart of Borrower</td><td class="dim">Pending</td></tr>
+            <tr><td>4</td><td>Current rent roll for all 3 properties</td><td class="green"><b>Complete</b></td></tr>
+            <tr><td>5</td><td>Operating income &amp; expense statements &mdash; YE 2025 + Q1 2026 (T12, certified)</td><td class="orange"><b>Partial</b></td></tr>
+            <tr><td>6</td><td>Current balance sheet for Borrower (all properties)</td><td class="dim">Pending</td></tr>
+            <tr><td>7</td><td>Current financial statement on all loan guarantors</td><td class="dim">Pending</td></tr>
+            <tr><td>8</td><td>Two most recent federal tax returns (all schedules) on all guarantors</td><td class="dim">Pending</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:6px;"><b style="color:#FBBF24;">Action:</b> Send checklist to Kris/Ben with deadline. Items 2 &amp; 4 already in data room. Item 5 partially available (T12 P&amp;L received, need certified statement + Q1 2026).</div>
+      </div>
+
+      <!-- ASSUMPTOR (BUYER) REQUIRED ITEMS -->
+      <div class="section">
+        <div class="section-title" style="color:#3B82F6;">Assumptor (Buyer) Required Items</div>
+        <div style="font-size:9px; color:#858D99; margin-bottom:8px;">Studio 168 / Silver Lands must complete and submit these items.</div>
+        <div class="scroll-wrap">
+        <table class="data-table" style="width:100%; min-width:380px;">
+          <thead><tr><th style="width:30px;">#</th><th>Required Item</th><th style="width:80px;">Status</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Assumptor Contact Information Sheet</td><td class="dim">Pending</td></tr>
+            <tr><td>2</td><td>Detailed org chart &mdash; all members, managers, % ownership, identify guarantors</td><td class="dim">Pending</td></tr>
+            <tr><td>3</td><td>Organization documents, amendments, good standing, authority to purchase</td><td class="dim">Pending</td></tr>
+            <tr><td>4</td><td>Sources of cash &mdash; purchase funds, repairs, TI, leasing commissions (with statements)</td><td class="dim">Pending</td></tr>
+            <tr><td>5</td><td>Personal financial statements / income statements &mdash; all majority owners, managers, GPs, guarantors + RE owned list</td><td class="dim">Pending</td></tr>
+            <tr><td>6</td><td>Two most recent federal tax returns (all schedules) &mdash; all majority owners, managers, GPs, guarantors</td><td class="dim">Pending</td></tr>
+            <tr><td>7</td><td><b style="color:#FBBF24;">Credit Information Request Forms</b> &mdash; all majority owners, managers, GPs, guarantors</td><td class="dim">Pending</td></tr>
+            <tr><td>8</td><td>12-month proforma operating statement + R&amp;M budget</td><td class="dim">Pending</td></tr>
+            <tr><td>9</td><td>Resume / bio on all majority owners, managers, GPs, guarantors + property list (location, type, units, time owned)</td><td class="dim">Pending</td></tr>
+            <tr><td>10</td><td>Proposed Property Management Agreement + fee structure</td><td class="dim">Pending</td></tr>
+            <tr><td>11</td><td>Property management company brochure + managed property list (location, type, units, time managed, historical occupancy)</td><td class="dim">Pending</td></tr>
+            <tr><td>12</td><td>Resume on Key Principal of proposed PM company</td><td class="dim">Pending</td></tr>
+            <tr><td style="color:#858D99;">13</td><td class="dim">Market sales comparisons (N/A per Midland)</td><td class="dim">N/A</td></tr>
+            <tr><td style="color:#858D99;">14</td><td class="dim">Market rent comparisons (N/A per Midland)</td><td class="dim">N/A</td></tr>
+            <tr><td style="color:#858D99;">15</td><td class="dim">Recent property photographs (N/A per Midland)</td><td class="dim">N/A</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:6px;"><b style="color:#EF4444;">Critical:</b> Items 5&ndash;7 required for <b>every</b> majority owner, manager, GP, and proposed guarantor. Credit form authorizes PNC to pull personal credit reports. Must coordinate with all principals.</div>
+      </div>
+    </div>
+
+    <!-- CREDIT INFORMATION REQUEST — KEY QUESTIONS -->
+    <div class="section" style="margin-bottom:14px; margin-top:14px;">
+      <div class="section-title">Credit Information Request — Key Disclosure Questions</div>
+      <div style="font-size:9px; color:#858D99; margin-bottom:8px;">Each proposed guarantor and majority owner must answer these questions. &ldquo;Yes&rdquo; answers require detailed written explanation. Form also authorizes PNC to obtain personal credit profiles from national credit bureaus.</div>
+      <div class="scroll-wrap">
+      <table class="data-table" style="width:100%; min-width:460px;">
+        <thead><tr><th style="width:30px;">#</th><th>Question</th><th style="width:80px; text-align:center;">Impact</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ever defaulted or been 30+ days delinquent on any loan over $10K?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+          <tr><td>2</td><td>Ever entered into or currently involved in loan workout / restructure?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+          <tr><td>3</td><td>Property foreclosed upon or deed-in-lieu in last 7 years?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+          <tr><td>4</td><td>Outstanding judgments?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+          <tr><td>5</td><td>Declared bankruptcy within past 7 years?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+          <tr><td>6</td><td>Party to a lawsuit?</td><td style="text-align:center;" class="orange"><b>Med</b></td></tr>
+          <tr><td>7</td><td>Obligated to pay alimony, child support, or separate maintenance?</td><td style="text-align:center;" class="dim">Low</td></tr>
+          <tr><td>8</td><td>Purchaser&rsquo;s gross revenues exceed $1M/year?</td><td style="text-align:center;" class="orange"><b>Med</b></td></tr>
+          <tr><td>9</td><td>Co-maker or endorser on a note?</td><td style="text-align:center;" class="dim">Low</td></tr>
+          <tr><td>10</td><td>Past due obligation owed to / insured by federal government agency?</td><td style="text-align:center;" class="orange"><b>Med</b></td></tr>
+          <tr><td>11</td><td>U.S. Citizen? (If no: resident alien or non-resident alien?)</td><td style="text-align:center;" class="dim">Info</td></tr>
+          <tr><td>12</td><td>Ever convicted of a felony?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+          <tr><td>13</td><td>Civil judgment or criminal action related to breach of fiduciary duty, fraud, misrepresentation, conversion, or turpitude?</td><td style="text-align:center;" class="red"><b>High</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="font-size:9px; color:#858D99; margin-top:6px;">Form also requires SSN/TIN, date of birth, and home address for each signatory. Must also provide personal information for Patriot Act / anti-money laundering compliance. Includes California CCPA privacy notice.</div>
+    </div>
+
+    <!-- CONTACT SHEETS SUMMARY -->
+    <div class="tiles-grid">
+      <div class="section">
+        <div class="section-title">Borrower Contact Sheet — Required Fields</div>
+        <div style="font-size:10px; color:#C9CDD3; line-height:1.7;">
+          &bull; <b>Seller Entity Name + Contact</b> (Saddleback Valley Communities / Rapid City Financial)<br>
+          &bull; <b>Seller Authorized Representative</b><br>
+          &bull; <b>Seller Legal Counsel</b> (law firm, attorney, contact info)<br>
+          &bull; <b>Seller Insurance Information</b> (carrier, agent, contact info)<br>
+          &bull; <b>Seller Guarantors</b> (currently Benjamin Braband)<br>
+          &bull; <b>Property Management Info</b> (current mgmt co, contact, fee)<br>
+          &bull; <b>Property Inspection Contact</b><br>
+          &bull; <b>1031 Exchange?</b> &mdash; must confirm with seller<br>
+          &bull; <b>Target closing date?</b> &mdash; must confirm with seller
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:6px;"><b style="color:#FBBF24;">Action:</b> Send blank Borrower Contact Sheet to Kris/Ben for completion.</div>
+      </div>
+      <div class="section">
+        <div class="section-title">Assumptor Contact Sheet — Required Fields</div>
+        <div style="font-size:10px; color:#C9CDD3; line-height:1.7;">
+          &bull; <b>Buyer Entity Name + Contact</b> (Studio 168 Capital / Silver Lands)<br>
+          &bull; <b>Buyer Authorized Representative</b><br>
+          &bull; <b>Buyer Legal Counsel</b> (law firm, attorney, contact info)<br>
+          &bull; <b>Buyer Insurance Information</b> (carrier, agent, contact info)<br>
+          &bull; <b>Proposed Replacement Guarantors</b> &mdash; <span style="color:#EF4444; font-weight:700;">critical — must identify now</span><br>
+          &bull; <b>Proposed Property Management Info</b> (Silver Lands Mgmt Group + fee structure)<br>
+          &bull; <b>1031 Exchange?</b><br>
+          &bull; <b>Target closing date?</b>
+        </div>
+        <div style="font-size:9px; color:#858D99; margin-top:6px;"><b style="color:#EF4444;">Action:</b> Complete Assumptor Contact Sheet internally. Identify replacement guarantor(s) and confirm with legal.</div>
       </div>
     </div>
 
@@ -2960,6 +3220,9 @@
         <div style="font-size:11px; color:#E5E9ED;">&#128196; <b>Promissory Note</b> &mdash; $21.9M, dated Oct 31, 2025, German American Capital Corporation</div>
         <div style="font-size:11px; color:#E5E9ED;">&#128196; <b>Loan Agreement</b> &mdash; 115+ pages, comprehensive CMBS terms, covenants, and exhibits</div>
         <div style="font-size:11px; color:#E5E9ED;">&#128196; <b>Hello Letter</b> &mdash; Midland/PNC servicing welcome, wire instructions, Loan #030512791</div>
+        <div style="font-size:11px; color:#E5E9ED;">&#128196; <b>Required Items Checklists</b> &mdash; Borrower (8 items) + Assumptor (15 items) &mdash; <span style="color:#00E676;">received 3/31</span></div>
+        <div style="font-size:11px; color:#E5E9ED;">&#128196; <b>Credit Information Request Form</b> &mdash; PNC/Midland Jan 2026 edition, 13 disclosure questions + credit authorization &mdash; <span style="color:#00E676;">received 3/31</span></div>
+        <div style="font-size:11px; color:#E5E9ED;">&#128196; <b>Contact Information Sheets</b> &mdash; Borrower + Assumptor + Additional Contacts templates &mdash; <span style="color:#00E676;">received 3/31</span></div>
         <div style="margin-top:10px;">
           <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" class="drive-link">
             <span class="link-icon">&#128193;</span><span class="link-label">Loan Docs Folder</span><span class="link-arrow">→</span></a>
@@ -2979,7 +3242,7 @@
 
     <div class="risk-item risk-high">
       <div class="risk-title">CMBS Loan Assumption — Servicer Communication Barrier</div>
-      <div class="risk-body">$21.9M CMBS loan at <b style="color:#FFF;">6.45% fixed</b> through German American Capital / Midland / PNC (Loan #030512791). Per Paige Newman (PNC), <b style="color:#FFF;">seller must be point of contact</b> for assumption process. Loan docs received 3/28 &mdash; key flags: <b style="color:#FBBF24;">3% management fee cap</b> (Silver Lands standard is 5&ndash;6%), <b style="color:#FBBF24;">lockbox trigger at 1.15x DSCR</b>, guarantor replacement required (current: Benjamin Braband). Assumption fee est. 1% of UPB (~$219K). <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a> See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a> for full analysis.</div>
+      <div class="risk-body">$21.9M CMBS loan at <b style="color:#FFF;">6.45% fixed</b> through German American Capital / Midland / PNC (Loan #030512791). Per Paige Newman (PNC), <b style="color:#FFF;">seller must be point of contact</b> for assumption process. Loan docs received 3/28 &mdash; key flags: <b style="color:#FBBF24;">3% management fee cap</b> (Silver Lands standard is 5&ndash;6%), <b style="color:#FBBF24;">lockbox trigger at 1.15x DSCR</b>, guarantor replacement required (current: Benjamin Braband). Assumption fee est. 1% of UPB (~$219K). <b style="color:#00E676;">UPDATE 3/31:</b> Midland Required Items checklists, Credit Information Request Form, and Contact Sheets received &mdash; 15 assumptor items required including credit authorization for all majority owners/GPs/guarantors, 2 years tax returns, personal financials, org docs, 12-month proforma, and PM agreement. Submit to mlsassumptions@midlandls.com. <a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">Loan Docs &rarr;</a> See <a href="#" onclick="document.getElementById('radio-page15').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Debt tab</a> for full checklists.</div>
       <span class="risk-tag tag-critical">CRITICAL — DEAL TIMELINE RISK</span>
     </div>
 
@@ -7040,7 +7303,7 @@
     <div class="section scroll-wrap" style="margin-bottom:14px;">
       <div class="section-title">Monthly Utility Budget Expectations by Property</div>
       <div class="scroll-wrap">
-      <table class="data-table" style="width:100%; min-width:580px;">
+      <table class="data-table util-budget-table" style="width:100%; min-width:580px;">
         <thead>
           <tr>
             <th style="white-space:nowrap;">Category</th>
@@ -7650,7 +7913,7 @@
         <div class="label">Due This Week</div>
       </div>
       <div class="kpi-card">
-        <div class="value orange">15</div>
+        <div class="value orange">20</div>
         <div class="label">Due Next Week</div>
       </div>
       <div class="kpi-card">
@@ -7662,7 +7925,7 @@
         <div class="label">Rent Roll / Survey</div>
       </div>
       <div class="kpi-card">
-        <div class="value" style="color:#3B82F6;">52</div>
+        <div class="value" style="color:#3B82F6;">57</div>
         <div class="label">Total Items</div>
       </div>
     </div>
@@ -7862,6 +8125,41 @@
             <td>Verify Clayton Bank &amp; Trust $3M lien release on SC005 — title shows "Released" but must confirm release was properly filed with Colorado DMV. No residual claims.</td>
             <td class="dim">Title/Lien</td>
             <td>Legal / Fidelity</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td><b style="color:#3B82F6;">CMBS ASSUMPTION (3/31):</b> Complete Assumptor Contact Information Sheet and send to mlsassumptions@midlandls.com. Identify replacement guarantor(s) for Midland/PNC review.</td>
+            <td class="dim">Debt</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td><b style="color:#3B82F6;">CMBS ASSUMPTION:</b> Collect Credit Information Request Forms from all majority owners, managers, GPs, and proposed guarantors. Each must authorize PNC credit pull + answer 13 disclosure questions + provide SSN, DOB, address.</td>
+            <td class="dim">Debt</td>
+            <td>Chris / Legal</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td><b style="color:#3B82F6;">CMBS ASSUMPTION:</b> Gather 2 most recent federal tax returns (all schedules) + personal financial statements for all majority owners, managers, GPs, and proposed guarantors.</td>
+            <td class="dim">Debt</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td><b style="color:#3B82F6;">CMBS ASSUMPTION:</b> Send Borrower Required Items checklist to Kris/Ben — seller must provide org chart, certified T12, balance sheet, guarantor financials &amp; tax returns. Items 2 &amp; 4 (PSA + rent roll) already in data room.</td>
+            <td class="dim">Debt</td>
+            <td>Chris / Kris</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td><b style="color:#3B82F6;">CMBS ASSUMPTION:</b> Prepare 12-month proforma operating statement + R&amp;M budget, org docs with good standing, sources of cash detail with bank statements, and proposed PM agreement with fee structure.</td>
+            <td class="dim">Debt</td>
+            <td>Chris</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
           </tr>
         </tbody>
