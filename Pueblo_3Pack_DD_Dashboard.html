@@ -870,6 +870,34 @@
     border-left-color: #3B82F6;
   }
   .qj-sub-item:hover::before { background: #3B82F6; }
+
+  /* Search result styles for sections & drive docs */
+  .qj-search-group-header {
+    font-size: 8px; font-weight: 700; color: #3B82F6; text-transform: uppercase;
+    letter-spacing: 1.5px; padding: 12px 14px 4px; border-top: 1px solid rgba(59,130,246,0.10);
+    margin-top: 4px;
+  }
+  .qj-search-result {
+    display: flex; align-items: center; gap: 8px; padding: 7px 14px;
+    font-size: 12px; color: #C9CDD3; cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+  }
+  .qj-search-result:hover { background: rgba(59,130,246,0.08); color: #E5E9ED; }
+  .qj-sr-icon { font-size: 13px; flex-shrink: 0; opacity: 0.6; width: 18px; text-align: center; }
+  .qj-sr-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .qj-sr-tab {
+    font-size: 9px; color: #5A6270; background: rgba(59,130,246,0.08);
+    padding: 1px 6px; border-radius: 4px; flex-shrink: 0; white-space: nowrap;
+  }
+  .qj-search-doc .qj-sr-icon { opacity: 0.8; }
+  .qj-search-doc:hover .qj-sr-tab { color: #3B82F6; }
+
+  /* Light theme overrides for search results */
+  .light-theme .qj-search-group-header { color: var(--accent) !important; border-color: var(--border-light) !important; }
+  .light-theme .qj-search-result { color: var(--text-secondary) !important; }
+  .light-theme .qj-search-result:hover { background: var(--bg-hover) !important; color: var(--text-primary) !important; }
+  .light-theme .qj-sr-tab { color: var(--text-muted) !important; background: rgba(37,99,235,0.06) !important; }
+
   .qj-item .qj-chevron {
     font-size: 8px; color: #3B4554; transition: transform 0.2s, color 0.12s;
     margin-left: auto;
@@ -13529,7 +13557,7 @@
     <button class="qj-close" onclick="closeQuickJump()" aria-label="Close">&times;</button>
   </div>
   <div class="qj-search-wrap">
-    <input class="qj-search" id="qjSearch" type="text" placeholder="Search tabs..." autocomplete="off">
+    <input class="qj-search" id="qjSearch" type="text" placeholder="Search tabs, sections, drive docs..." autocomplete="off">
   </div>
   <div class="qj-list" id="qjList"></div>
 </div>
@@ -13920,6 +13948,49 @@ setInterval(updateCountdown, 60000);
     return result;
   }
 
+  // Build search index for sections + drive docs (run once after DOM ready)
+  var _searchIndex = { sections: [], driveDocs: [] };
+  function buildSearchIndex() {
+    _searchIndex.sections = [];
+    _searchIndex.driveDocs = [];
+    qjTabs.forEach(function(t) {
+      var tabEl = document.getElementById('tab-page' + t.page);
+      if (!tabEl) return;
+      // Index sections
+      tabEl.querySelectorAll('.group-divider .group-label').forEach(function(lbl) {
+        var divider = lbl.closest('.group-divider');
+        if (divider) {
+          _searchIndex.sections.push({
+            text: lbl.textContent.trim(),
+            textLower: lbl.textContent.trim().toLowerCase(),
+            page: t.page,
+            tabName: t.name,
+            divider: divider
+          });
+        }
+      });
+      // Index drive docs (links with class drive-link or links to drive.google.com)
+      var driveLinks = tabEl.querySelectorAll('a.drive-link, a[href*="drive.google.com"]');
+      var seen = {};
+      driveLinks.forEach(function(a) {
+        var href = a.href;
+        var labelEl = a.querySelector('.link-label');
+        var label = labelEl ? labelEl.textContent.trim() : a.textContent.trim();
+        if (!label || label.length < 2) return;
+        var key = label + '|' + href;
+        if (seen[key]) return;
+        seen[key] = true;
+        _searchIndex.driveDocs.push({
+          label: label,
+          labelLower: label.toLowerCase(),
+          href: href,
+          page: t.page,
+          tabName: t.name
+        });
+      });
+    });
+  }
+
   // Navigate to a specific section: switch tab, expand only that section, collapse others
   function goToSection(pageNum, divider) {
     hideSubPanel();
@@ -14040,9 +14111,7 @@ setInterval(updateCountdown, 60000);
       wrapper.appendChild(item);
 
       if (hasSubMenu) {
-        // Hover: show side panel on desktop
         item.addEventListener('mouseenter', function() {
-          var self = this;
           var pg = t.page;
           var nm = t.name;
           clearTimeout(_qjHoverTimer);
@@ -14055,7 +14124,6 @@ setInterval(updateCountdown, 60000);
           clearTimeout(_qjHoverTimer);
         });
 
-        // Click/tap: navigate to tab and close sidebar
         item.onclick = function(e) {
           e.stopPropagation();
           hideSubPanel();
@@ -14080,7 +14148,63 @@ setInterval(updateCountdown, 60000);
       list.appendChild(wrapper);
     });
 
-    if (filtered.length === 0) {
+    // When searching, also show matching sections and drive docs
+    if (query && query.length >= 2) {
+      // Matching sections
+      var matchedSections = _searchIndex.sections.filter(function(s) {
+        return s.textLower.indexOf(query) !== -1;
+      });
+      // Matching drive docs
+      var matchedDocs = _searchIndex.driveDocs.filter(function(d) {
+        return d.labelLower.indexOf(query) !== -1;
+      });
+
+      if (matchedSections.length > 0) {
+        var secHeader = document.createElement('div');
+        secHeader.className = 'qj-search-group-header';
+        secHeader.textContent = 'Sections';
+        list.appendChild(secHeader);
+
+        matchedSections.forEach(function(sec) {
+          var item = document.createElement('div');
+          item.className = 'qj-search-result';
+          item.innerHTML = '<span class="qj-sr-icon">\u00A7</span>' +
+            '<span class="qj-sr-label">' + sec.text + '</span>' +
+            '<span class="qj-sr-tab">' + sec.tabName + '</span>';
+          item.onclick = function() {
+            goToSection(sec.page, sec.divider);
+          };
+          list.appendChild(item);
+        });
+      }
+
+      if (matchedDocs.length > 0) {
+        var docHeader = document.createElement('div');
+        docHeader.className = 'qj-search-group-header';
+        docHeader.textContent = 'Google Drive';
+        list.appendChild(docHeader);
+
+        matchedDocs.forEach(function(doc) {
+          var item = document.createElement('div');
+          item.className = 'qj-search-result qj-search-doc';
+          item.innerHTML = '<span class="qj-sr-icon">\uD83D\uDCC1</span>' +
+            '<span class="qj-sr-label">' + doc.label + '</span>' +
+            '<span class="qj-sr-tab">' + doc.tabName + '</span>';
+          item.onclick = function() {
+            window.open(doc.href, '_blank');
+            closeQuickJump();
+          };
+          list.appendChild(item);
+        });
+      }
+
+      if (filtered.length === 0 && matchedSections.length === 0 && matchedDocs.length === 0) {
+        var empty = document.createElement('div');
+        empty.style.cssText = 'padding:20px 16px; font-size:12px; color:#5A6270; text-align:center;';
+        empty.textContent = 'No results found';
+        list.appendChild(empty);
+      }
+    } else if (filtered.length === 0) {
       var empty = document.createElement('div');
       empty.style.cssText = 'padding:20px 16px; font-size:12px; color:#5A6270; text-align:center;';
       empty.textContent = 'No matching tabs';
@@ -14135,6 +14259,7 @@ setInterval(updateCountdown, 60000);
     _collapsiblesReady = true;
     setupCollapsibles();
     updateSectionJump();
+    buildSearchIndex();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCollapsibles);
