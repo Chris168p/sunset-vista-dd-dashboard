@@ -16,15 +16,376 @@
   * { margin: 0; padding: 0; box-sizing: border-box; touch-action: manipulation; }
   @page { size: 17in 22in; margin: 0.4in; }
   html { overflow-x: hidden; }
+
+  /* ===== THEME VARIABLES ===== */
+  :root {
+    --bg-page: #0A0E1A;
+    --bg-card: #111827;
+    --bg-sidebar: #0D1220;
+    --bg-hover: rgba(59,130,246,0.08);
+    --text-primary: #E5E9ED;
+    --text-secondary: #C9CDD3;
+    --text-muted: #858D99;
+    --text-dim: #5A6270;
+    --text-faint: #3B4554;
+    --accent: #3B82F6;
+    --accent-muted: #93B4F8;
+    --border-subtle: rgba(59,130,246,0.06);
+    --border-light: rgba(59,130,246,0.12);
+    --border-medium: rgba(59,130,246,0.15);
+    --green: #00E676;
+    --red: #EF4444;
+    --orange: #FBBF24;
+    --shadow: rgba(0,0,0,0.6);
+  }
+
+  html.light-theme {
+    --bg-page: #F3F4F6;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: #FFFFFF;
+    --bg-hover: rgba(59,130,246,0.06);
+    --text-primary: #1F2937;
+    --text-secondary: #374151;
+    --text-muted: #6B7280;
+    --text-dim: #9CA3AF;
+    --text-faint: #D1D5DB;
+    --accent: #2563EB;
+    --accent-muted: #60A5FA;
+    --border-subtle: rgba(0,0,0,0.05);
+    --border-light: rgba(0,0,0,0.08);
+    --border-medium: rgba(0,0,0,0.12);
+    --green: #16A34A;
+    --red: #DC2626;
+    --orange: #D97706;
+    --shadow: rgba(0,0,0,0.1);
+  }
+
   body {
-    background: #0A0E1A;
-    color: #E5E9ED;
+    background: var(--bg-page);
+    color: var(--text-primary);
     font-family: 'Inter', 'Segoe UI', sans-serif;
     min-height: 100vh;
     padding: 52px 24px 20px 24px;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
   }
+
+  /* ===== LIGHT THEME OVERRIDES — structural elements ===== */
+  .light-theme body { background: var(--bg-page); color: var(--text-primary); }
+
+  /* Section cards */
+  .light-theme .section,
+  .light-theme .kpi-card,
+  .light-theme div[style*="background:#111827"],
+  .light-theme div[style*="background: #111827"] {
+    background: var(--bg-card) !important;
+    border-color: var(--border-subtle) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* Tab bar */
+  .light-theme .tab-bar {
+    background: var(--bg-page) !important;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .light-theme .tab-label {
+    color: var(--text-muted) !important;
+    border-color: var(--border-light) !important;
+  }
+  .light-theme .tab-radio:checked + .tab-label {
+    color: var(--accent) !important;
+    background: rgba(37,99,235,0.08) !important;
+    border-color: rgba(37,99,235,0.3) !important;
+  }
+
+  /* Header */
+  .light-theme .header-left h1 { color: var(--text-primary) !important; }
+  .light-theme .header-left h1 span { color: var(--accent) !important; }
+  .light-theme .header-right .timestamp,
+  .light-theme .header-right .relative-timestamp,
+  .light-theme .date { color: var(--text-muted) !important; }
+
+  /* Tables */
+  .light-theme .data-table th {
+    background: var(--bg-page) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-light) !important;
+  }
+  .light-theme .data-table td {
+    border-color: var(--border-subtle) !important;
+    color: var(--text-secondary) !important;
+  }
+  .light-theme .data-table td.dim { color: var(--text-muted) !important; }
+  .light-theme .data-table td b { color: var(--text-primary) !important; }
+  .light-theme .data-table tr:hover { background: rgba(59,130,246,0.03) !important; }
+
+  /* Group dividers */
+  .light-theme .group-divider {
+    background: var(--bg-page) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+  }
+  .light-theme .group-label { color: var(--accent) !important; }
+  .light-theme .group-line { background: linear-gradient(90deg, rgba(37,99,235,0.3), transparent) !important; }
+  .light-theme .group-divider .chevron { color: var(--accent) !important; }
+
+  /* KPI cards & values */
+  .light-theme .kpi-strip .kpi-card {
+    background: var(--bg-card) !important;
+    border-color: var(--border-subtle) !important;
+  }
+  .light-theme .kpi-card .label { color: var(--text-muted) !important; }
+  .light-theme .kpi-card .value.white { color: var(--text-primary) !important; }
+
+  /* Hero cards, takeaways, prop-tables */
+  .light-theme .hero-card { background: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+  .light-theme .hero-sub { color: #4B5563 !important; }
+  .light-theme .hero-val.white { color: var(--text-primary) !important; }
+  .light-theme .takeaway { background: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+  .light-theme .takeaway-body { color: #4B5563 !important; }
+  .light-theme .takeaway-body b { color: var(--text-primary) !important; }
+  .light-theme .prop-table td { color: var(--text-secondary) !important; border-color: var(--border-subtle) !important; }
+  .light-theme .prop-table td:first-child { color: var(--text-primary) !important; }
+  .light-theme .section-title { color: var(--text-primary) !important; }
+  .light-theme .section-title::after { background: var(--border-light) !important; }
+
+  /* DD pipeline */
+  .light-theme .dd-pipeline-title { color: var(--text-muted) !important; }
+  .light-theme .dd-phase-label { color: var(--text-secondary) !important; }
+  .light-theme .dd-phase-pct { color: var(--text-muted) !important; }
+
+  /* Phase cards */
+  .light-theme .phase-card { background: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+
+  /* Map address links */
+  .light-theme .map-address a { color: var(--accent) !important; }
+
+  /* Quick stats bar */
+  .light-theme .quick-stats {
+    background: linear-gradient(90deg, rgba(37,99,235,0.06) 0%, rgba(37,99,235,0.02) 100%) !important;
+    border-color: rgba(37,99,235,0.15) !important;
+  }
+  .light-theme .stat-value { color: var(--text-primary) !important; }
+  .light-theme .stat-label { color: #4B5563 !important; }
+
+  /* Text color overrides for inline styles */
+  .light-theme .green, .light-theme .status-green { color: var(--green) !important; }
+  .light-theme .red { color: var(--red) !important; }
+  .light-theme .orange { color: var(--orange) !important; }
+  .light-theme .dim { color: #4B5563 !important; }
+  .light-theme .white { color: var(--text-primary) !important; }
+
+  /* Sidebar & overlays */
+  .light-theme .qj-sidebar,
+  .light-theme .qj-subpanel {
+    background: var(--bg-sidebar) !important;
+    border-color: var(--border-medium) !important;
+    box-shadow: 4px 0 24px var(--shadow) !important;
+  }
+  .light-theme .qj-item { color: var(--text-secondary) !important; }
+  .light-theme .qj-item:hover { background: var(--bg-hover) !important; color: var(--text-primary) !important; }
+  .light-theme .qj-item.active { color: var(--accent) !important; background: rgba(37,99,235,0.06) !important; }
+  .light-theme .qj-search {
+    background: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-light) !important;
+  }
+  .light-theme .qj-sub-item { color: var(--text-muted) !important; }
+  .light-theme .qj-sub-item:hover { color: var(--text-primary) !important; background: var(--bg-hover) !important; }
+
+  /* Bottom dock */
+  .light-theme .bottom-dock {
+    background: rgba(255,255,255,0.95) !important;
+    border-color: var(--border-medium) !important;
+    backdrop-filter: blur(12px);
+  }
+  .light-theme .dock-btn { color: var(--text-muted) !important; }
+  .light-theme .dock-btn.active { color: var(--accent) !important; }
+  .light-theme .dock-label { color: var(--text-muted) !important; }
+
+  /* Breadcrumb bar */
+  .light-theme .breadcrumb-bar {
+    background: rgba(243,244,246,0.95) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-light) !important;
+  }
+
+  /* Collapse bar */
+  .light-theme .collapse-bar button {
+    color: var(--text-muted) !important;
+    background: var(--bg-card) !important;
+    border-color: var(--border-light) !important;
+  }
+  .light-theme .collapse-bar button:hover {
+    color: var(--accent) !important;
+  }
+
+  /* Drive links */
+  .light-theme .drive-link {
+    background: var(--bg-card) !important;
+    border-color: var(--border-light) !important;
+    color: var(--text-secondary) !important;
+  }
+  .light-theme .drive-link:hover { border-color: var(--accent) !important; }
+
+  /* Footer */
+  .light-theme .footer { color: var(--text-dim) !important; background: transparent !important; }
+
+  /* Misc inline bg overrides */
+  .light-theme div[style*="background:#0A0E1A"],
+  .light-theme div[style*="background: #0A0E1A"] { background: var(--bg-page) !important; }
+  .light-theme div[style*="background:#1E222C"],
+  .light-theme div[style*="background: #1E222C"] { background: var(--bg-card) !important; }
+
+  /* White/near-white text → dark for light backgrounds */
+  .light-theme div[style*="color:#E5E9ED"],
+  .light-theme div[style*="color: #E5E9ED"],
+  .light-theme b[style*="color:#E5E9ED"],
+  .light-theme b[style*="color: #E5E9ED"],
+  .light-theme span[style*="color:#E5E9ED"],
+  .light-theme td[style*="color:#E5E9ED"] { color: var(--text-primary) !important; }
+  .light-theme div[style*="color:#FFFFFF"],
+  .light-theme span[style*="color:#FFFFFF"],
+  .light-theme b[style*="color:#FFFFFF"],
+  .light-theme td[style*="color:#FFFFFF"] { color: var(--text-primary) !important; }
+
+  /* Light grays → readable secondary/muted */
+  .light-theme div[style*="color:#C9CDD3"],
+  .light-theme div[style*="color: #C9CDD3"],
+  .light-theme span[style*="color:#C9CDD3"],
+  .light-theme td[style*="color:#C9CDD3"],
+  .light-theme b[style*="color:#C9CDD3"] { color: var(--text-secondary) !important; }
+  .light-theme div[style*="color:#C1C7CF"],
+  .light-theme span[style*="color:#C1C7CF"],
+  .light-theme td[style*="color:#C1C7CF"],
+  .light-theme b[style*="color:#C1C7CF"] { color: var(--text-secondary) !important; }
+  .light-theme div[style*="color:#B0B8C4"],
+  .light-theme span[style*="color:#B0B8C4"],
+  .light-theme td[style*="color:#B0B8C4"] { color: var(--text-muted) !important; }
+
+  /* Mid grays → stronger muted */
+  .light-theme div[style*="color:#858D99"],
+  .light-theme div[style*="color: #858D99"],
+  .light-theme span[style*="color:#858D99"],
+  .light-theme td[style*="color:#858D99"],
+  .light-theme b[style*="color:#858D99"] { color: #4B5563 !important; }
+  .light-theme div[style*="color:#5A6270"],
+  .light-theme span[style*="color:#5A6270"],
+  .light-theme td[style*="color:#5A6270"] { color: #6B7280 !important; }
+  .light-theme div[style*="color:#3B4554"],
+  .light-theme span[style*="color:#3B4554"] { color: #9CA3AF !important; }
+
+  /* Links in inline styles */
+  .light-theme a[style*="color:#E5E9ED"] { color: var(--text-primary) !important; }
+  .light-theme a[style*="color:#858D99"] { color: #4B5563 !important; }
+  .light-theme a[style*="color:#3B82F6"] { color: #2563EB !important; }
+
+  /* Light blue/purple accents → darker variants for contrast */
+  .light-theme span[style*="color:#93B4F8"],
+  .light-theme div[style*="color:#93B4F8"],
+  .light-theme b[style*="color:#93B4F8"] { color: #2563EB !important; }
+  .light-theme span[style*="color:#B794F6"],
+  .light-theme div[style*="color:#B794F6"] { color: #7C3AED !important; }
+  .light-theme span[style*="color:#8B5CF6"],
+  .light-theme div[style*="color:#8B5CF6"] { color: #6D28D9 !important; }
+  .light-theme span[style*="color:#A855F7"],
+  .light-theme div[style*="color:#A855F7"] { color: #7C3AED !important; }
+  .light-theme span[style*="color:#818CF8"],
+  .light-theme div[style*="color:#818CF8"] { color: #4F46E5 !important; }
+  .light-theme span[style*="color:#A78BFA"],
+  .light-theme div[style*="color:#A78BFA"] { color: #6D28D9 !important; }
+
+  /* Teal/cyan accents */
+  .light-theme span[style*="color:#5EEAD4"],
+  .light-theme div[style*="color:#5EEAD4"] { color: #0D9488 !important; }
+  .light-theme span[style*="color:#67E8F9"],
+  .light-theme div[style*="color:#67E8F9"] { color: #0891B2 !important; }
+  .light-theme span[style*="color:#06B6D4"],
+  .light-theme div[style*="color:#06B6D4"] { color: #0E7490 !important; }
+
+  /* Light green accents → darker */
+  .light-theme span[style*="color:#6EE7B7"],
+  .light-theme div[style*="color:#6EE7B7"] { color: #059669 !important; }
+
+  /* Pink accents */
+  .light-theme span[style*="color:#F9A8D4"],
+  .light-theme div[style*="color:#F9A8D4"] { color: #DB2777 !important; }
+  .light-theme span[style*="color:#EC4899"],
+  .light-theme div[style*="color:#EC4899"] { color: #BE185D !important; }
+
+  /* Amber/yellow — darken for readability on white */
+  .light-theme span[style*="color:#FBBF24"],
+  .light-theme div[style*="color:#FBBF24"],
+  .light-theme td[style*="color:#FBBF24"],
+  .light-theme b[style*="color:#FBBF24"] { color: #B45309 !important; }
+  .light-theme span[style*="color:#F59E0B"],
+  .light-theme div[style*="color:#F59E0B"],
+  .light-theme td[style*="color:#F59E0B"],
+  .light-theme b[style*="color:#F59E0B"] { color: #B45309 !important; }
+  .light-theme span[style*="color:#EAB308"],
+  .light-theme div[style*="color:#EAB308"] { color: #A16207 !important; }
+
+  /* Red — slightly darker for contrast */
+  .light-theme span[style*="color:#F87171"],
+  .light-theme div[style*="color:#F87171"] { color: #DC2626 !important; }
+
+  /* Green variants */
+  .light-theme span[style*="color:#22C55E"],
+  .light-theme div[style*="color:#22C55E"] { color: #16A34A !important; }
+  .light-theme span[style*="color:#10B981"],
+  .light-theme div[style*="color:#10B981"],
+  .light-theme td[style*="color:#10B981"],
+  .light-theme b[style*="color:#10B981"] { color: #059669 !important; }
+  .light-theme span[style*="color:#00E676"],
+  .light-theme div[style*="color:#00E676"],
+  .light-theme td[style*="color:#00E676"],
+  .light-theme b[style*="color:#00E676"] { color: var(--green) !important; }
+
+  /* Dark text on dark bg that becomes invisible on light card bg */
+  .light-theme div[style*="color:#1E222C"],
+  .light-theme span[style*="color:#1E222C"] { color: var(--text-primary) !important; }
+
+  /* Audit KPI grid cards */
+  .light-theme .audit-kpi-grid > div {
+    background: var(--bg-card) !important;
+    border-color: var(--border-subtle) !important;
+  }
+
+  /* Progress bar */
+  .light-theme .progress-bar-top { background: var(--accent) !important; }
+
+  /* Float nav */
+  .light-theme .float-nav { background: rgba(255,255,255,0.92) !important; border-color: var(--border-medium) !important; }
+  .light-theme .float-nav button { color: var(--text-muted) !important; }
+
+  /* Search overlay */
+  .light-theme .search-overlay { background: rgba(243,244,246,0.98) !important; }
+  .light-theme #searchInput { background: var(--bg-card) !important; color: var(--text-primary) !important; border-color: var(--border-light) !important; }
+
+  /* Risk tags keep their own colors */
+
+  /* Theme toggle */
+  .theme-toggle {
+    display: inline-flex; gap: 2px; background: rgba(59,130,246,0.06);
+    border: 1px solid rgba(59,130,246,0.12); border-radius: 8px; padding: 2px;
+    margin-left: 8px; vertical-align: middle;
+  }
+  .theme-toggle button {
+    font-size: 11px; padding: 3px 8px; border: none; border-radius: 6px;
+    cursor: pointer; background: transparent; color: #6B7280;
+    font-family: 'Inter', sans-serif; font-weight: 500; transition: all 0.15s;
+  }
+  .theme-toggle button.active {
+    background: rgba(59,130,246,0.15); color: #3B82F6;
+  }
+  .light-theme .theme-toggle {
+    background: rgba(0,0,0,0.04) !important;
+    border-color: rgba(0,0,0,0.08) !important;
+  }
+  .light-theme .theme-toggle button { color: #9CA3AF; }
+  .light-theme .theme-toggle button.active {
+    background: rgba(37,99,235,0.12); color: #2563EB;
+  }
+  /* ===== END THEME ===== */
 
   .page { max-width: 100%; margin: 0 auto; overflow-x: hidden; padding: 0 12px; }
   @media (min-width: 769px) { .page { padding: 0 20px; } }
@@ -159,10 +520,11 @@
   }
   .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(59,130,246,0.2); }
 
-  .group-divider { display: flex; align-items: center; gap: 14px; margin: 18px 0 14px 0;
-    position: sticky; top: 32px; z-index: 99; background: #0A0E1A; padding: 6px 0 6px 0;
+  .group-divider { display: flex; align-items: center; gap: 14px; margin: 28px 0 16px 0;
+    position: sticky; top: 32px; z-index: 99; background: #0A0E1A; padding: 10px 0 10px 0;
   }
-  .group-divider .group-label { font-size: 11px; font-weight: 800; color: #3B82F6; text-transform: uppercase; letter-spacing: 2.5px; white-space: nowrap; }
+  .group-divider .group-label { font-size: 14px; font-weight: 800; color: #3B82F6; text-transform: uppercase; letter-spacing: 2.5px; white-space: nowrap; }
+  .group-divider .group-label a { pointer-events: none; color: inherit !important; text-decoration: none !important; cursor: default; }
   .group-divider .group-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(59,130,246,0.4), transparent); }
 
   /* Breadcrumb trail */
@@ -363,8 +725,8 @@
   /* Group Divider with Collapsible Indicator */
   .group-divider { cursor: pointer; user-select: none; }
   .group-divider .chevron {
-    display: inline-flex; width: 14px; height: 14px; align-items: center; justify-content: center;
-    margin-right: 8px; font-size: 10px; color: #3B82F6; transition: transform 0.2s;
+    display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center;
+    margin-right: 8px; font-size: 13px; color: #3B82F6; transition: transform 0.2s;
   }
   .group-divider.collapsed .chevron { transform: rotate(-90deg); }
 
@@ -470,6 +832,59 @@
     transition: all 0.12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .qj-section-item:hover { background: rgba(59,130,246,0.06); color: #C9CDD3; }
+
+  /* Sub-menu: slide-out side panel */
+  .qj-item-wrap { position: relative; }
+  .qj-subpanel {
+    position: fixed; top: 0; bottom: 0; left: 280px; z-index: 10012;
+    width: 220px; background: #0A0E1A;
+    border-right: 1px solid rgba(59,130,246,0.15);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+    transform: translateX(-100%); opacity: 0;
+    transition: transform 0.2s ease, opacity 0.15s ease;
+    pointer-events: none; overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: #1E293B transparent;
+  }
+  .qj-subpanel.open {
+    transform: translateX(0); opacity: 1; pointer-events: auto;
+  }
+  .qj-subpanel-header {
+    font-size: 9px; font-weight: 700; color: #3B82F6; padding: 14px 14px 8px;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid rgba(59,130,246,0.10);
+    position: sticky; top: 0; background: #0A0E1A; z-index: 1;
+  }
+  .qj-sub-item {
+    padding: 8px 14px 8px 14px; font-size: 11px; color: #858D99; cursor: pointer;
+    transition: all 0.12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    position: relative; padding-left: 24px;
+    border-left: 2px solid transparent;
+  }
+  .qj-sub-item::before {
+    content: ''; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    width: 4px; height: 4px; border-radius: 50%; background: #3B4554;
+    transition: background 0.12s;
+  }
+  .qj-sub-item:hover {
+    background: rgba(59,130,246,0.08); color: #E5E9ED;
+    border-left-color: #3B82F6;
+  }
+  .qj-sub-item:hover::before { background: #3B82F6; }
+  .qj-item .qj-chevron {
+    font-size: 8px; color: #3B4554; transition: transform 0.2s, color 0.12s;
+    margin-left: auto;
+  }
+  .qj-item:hover .qj-chevron { color: #93B4F8; }
+  .qj-item.expanded .qj-chevron { transform: rotate(90deg); color: #3B82F6; }
+  .qj-item.expanded { background: rgba(59,130,246,0.06); }
+  @media (max-width: 768px) {
+    .qj-subpanel { left: 0; width: 100%; top: auto; bottom: 0; height: 45vh;
+      transform: translateY(100%); border-right: none;
+      border-top: 1px solid rgba(59,130,246,0.2);
+      border-radius: 16px 16px 0 0;
+    }
+    .qj-subpanel.open { transform: translateY(0); }
+  }
   .qj-trigger {
     position: fixed; top: 68px; left: 14px; z-index: 10001;
   }
@@ -564,7 +979,7 @@
       padding: 4px 0 !important;
       font-size: 10px;
     }
-    .group-divider .group-label { font-size: 9px !important; letter-spacing: 1.5px !important; }
+    .group-divider .group-label { font-size: 11px !important; letter-spacing: 1.5px !important; }
 
     /* Breadcrumb: adjust for mobile */
     .breadcrumb-bar {
@@ -1908,6 +2323,11 @@
           <div class="timestamp"><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PSA Effective: 3/20/2026</a> | Inspection Period Ends: TBD</div>
           <div class="relative-timestamp" id="relativeTimestamp">Updated just now</div>
         </div>
+        <div class="theme-toggle" id="themeToggle">
+          <button onclick="setTheme('light')" title="Light mode" id="themeLight">☀</button>
+          <button onclick="setTheme('auto')" title="Auto (time-based)" id="themeAuto" class="active">Auto</button>
+          <button onclick="setTheme('dark')" title="Dark mode" id="themeDark">☾</button>
+        </div>
         <button class="font-size-toggle" id="fontSizeToggle" onclick="cycleFontSize()" title="Toggle font size" aria-label="Toggle font size">A</button>
         <button class="search-icon-btn" id="searchBtn" onclick="openSearch()" title="Search" aria-label="Search tabs and content">🔍</button>
       </div>
@@ -2524,7 +2944,7 @@
 
     <!-- PROPERTY TAX ANALYSIS -->
     <div class="group-divider">
-      <div class="group-label"><a href="https://drive.google.com/drive/folders/1uhhNpBbKhBFESFQEFpoAOxZiNTyaeiL0?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">Property Tax History &amp; Reassessment Exposure</a></div>
+      <div class="group-label">Property Tax History &amp; Reassessment Exposure</div>
       <div class="group-line"></div>
     </div>
 
@@ -3362,7 +3782,7 @@
 
     <!-- LOAN OVERVIEW -->
     <div class="group-divider">
-      <div class="group-label"><a href="https://drive.google.com/drive/folders/17_N0XTEKGED3gt65ohxvR53KyfN3jO3i?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">CMBS Loan Overview</a></div>
+      <div class="group-label">CMBS Loan Overview</div>
       <div class="group-line"></div>
     </div>
 
@@ -4335,7 +4755,7 @@
     </div>
     <!-- MODEL CHANGES (moved to bottom) -->
     <div class="group-divider">
-      <div class="group-label">Model Changes &amp; <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Reconciliation</div>
+      <div class="group-label">Model Changes &amp; PSA Reconciliation</div>
       <div class="group-line"></div>
     </div>
 
@@ -6390,7 +6810,7 @@
 
     <!-- ZONING REPORTS — PZR ANALYSIS -->
     <div class="group-divider">
-      <div class="group-label"><a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">Zoning Reports</a> &mdash; PZR Analysis</div>
+      <div class="group-label">Zoning Reports &mdash; PZR Analysis</div>
       <div class="group-line"></div>
     </div>
 
@@ -11680,7 +12100,7 @@
       <div class="group-line"></div>
     </div>
     <div class="group-divider">
-      <div class="group-label">Deliverables Checklist — <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Schedule 7.1</div>
+      <div class="group-label">Deliverables Checklist — PSA Schedule 7.1</div>
       <div class="group-line"></div>
     </div>
 
@@ -11917,7 +12337,7 @@
 
     <!-- ADDITIONAL PSA DELIVERABLES -->
     <div class="group-divider">
-      <div class="group-label">Additional <a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA</a> Required Items</div>
+      <div class="group-label">Additional PSA Required Items</div>
       <div class="group-line"></div>
     </div>
 
@@ -13113,6 +13533,7 @@
   </div>
   <div class="qj-list" id="qjList"></div>
 </div>
+<div class="qj-subpanel" id="qjSubpanel"></div>
 
 <!-- JUMP-TO-SECTION DROPDOWN -->
 <div class="section-jump" id="sectionJump">
@@ -13486,10 +13907,94 @@ setInterval(updateCountdown, 60000);
     { page: 20, name: 'Value Add',     cat: 'Closing' }
   ];
 
+  // Helper: get section dividers for a tab page
+  function getSectionsForPage(pageNum) {
+    var tabEl = document.getElementById('tab-page' + pageNum);
+    if (!tabEl) return [];
+    var labels = tabEl.querySelectorAll('.group-divider .group-label');
+    var result = [];
+    labels.forEach(function(lbl) {
+      var divider = lbl.closest('.group-divider');
+      if (divider) result.push({ text: lbl.textContent, divider: divider });
+    });
+    return result;
+  }
+
+  // Navigate to a specific section: switch tab, expand only that section, collapse others
+  function goToSection(pageNum, divider) {
+    hideSubPanel();
+    closeQuickJump();
+    goToTabByPage(pageNum);
+    // Small delay to let tab switch render
+    setTimeout(function() {
+      var tabEl = document.getElementById('tab-page' + pageNum);
+      if (!tabEl) return;
+      // Collapse all sections on this tab
+      tabEl.querySelectorAll('.collapsible-content').forEach(function(c) { c.classList.add('collapsed'); });
+      tabEl.querySelectorAll('.group-divider[data-collapsible-id]').forEach(function(d) { d.classList.add('collapsed'); });
+      // Expand only the clicked section
+      var cId = divider.dataset.collapsibleId;
+      if (cId) {
+        var content = document.getElementById(cId);
+        if (content) content.classList.remove('collapsed');
+        divider.classList.remove('collapsed');
+      }
+      // Scroll to it
+      divider.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  }
+
+  var _qjHoverTimer = null;
+  var _qjExpandedPage = null;
+
+  // Show the sub-panel for a given tab page
+  function showSubPanel(pageNum, tabName) {
+    var panel = document.getElementById('qjSubpanel');
+    if (!panel) return;
+    var sections = getSectionsForPage(pageNum);
+    if (sections.length < 2) { hideSubPanel(); return; }
+
+    _qjExpandedPage = pageNum;
+    panel.innerHTML = '';
+
+    var header = document.createElement('div');
+    header.className = 'qj-subpanel-header';
+    header.textContent = tabName + ' Sections';
+    panel.appendChild(header);
+
+    sections.forEach(function(sec) {
+      var subItem = document.createElement('div');
+      subItem.className = 'qj-sub-item';
+      subItem.textContent = sec.text;
+      subItem.onclick = function(e) {
+        e.stopPropagation();
+        goToSection(pageNum, sec.divider);
+      };
+      panel.appendChild(subItem);
+    });
+
+    panel.classList.add('open');
+
+    // Highlight the active item
+    document.querySelectorAll('#qjList .qj-item').forEach(function(el) {
+      el.classList.toggle('expanded', parseInt(el.dataset.page) === pageNum);
+    });
+  }
+
+  function hideSubPanel() {
+    var panel = document.getElementById('qjSubpanel');
+    if (panel) panel.classList.remove('open');
+    _qjExpandedPage = null;
+    document.querySelectorAll('#qjList .qj-item.expanded').forEach(function(el) {
+      el.classList.remove('expanded');
+    });
+  }
+
   function buildQuickJump(filter) {
     var list = document.getElementById('qjList');
     if (!list) return;
     list.innerHTML = '';
+    hideSubPanel();
     var currentPage = tabOrder[getCurrentIndex()];
     var query = (filter || '').toLowerCase().trim();
 
@@ -13500,58 +14005,80 @@ setInterval(updateCountdown, 60000);
 
     // Build tab items
     filtered.forEach(function(t, i) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'qj-item-wrap';
+
       var item = document.createElement('div');
       item.className = 'qj-item' + (t.page === currentPage ? ' active' : '');
+      item.dataset.page = t.page;
 
       var key = document.createElement('span');
       key.className = 'qj-key';
-      key.textContent = String.fromCharCode(65 + i); // A, B, C...
+      key.textContent = String.fromCharCode(65 + i);
       item.appendChild(key);
 
       var label = document.createElement('span');
       label.textContent = t.name;
+      label.style.flex = '1';
       item.appendChild(label);
 
-      var arrow = document.createElement('span');
-      arrow.className = 'qj-arrow';
-      arrow.textContent = '\u203A';
-      item.appendChild(arrow);
+      var sections = getSectionsForPage(t.page);
+      var hasSubMenu = sections.length > 1;
 
-      item.onclick = function() {
-        goToTabByPage(t.page);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        closeQuickJump();
-      };
-      list.appendChild(item);
-    });
-
-    // Show sections for active tab
-    if (!query) {
-      var tabEl = document.getElementById('tab-page' + currentPage);
-      if (tabEl) {
-        var sections = tabEl.querySelectorAll('.group-label');
-        if (sections.length > 1) {
-          var activeTabName = '';
-          qjTabs.forEach(function(t) { if (t.page === currentPage) activeTabName = t.name; });
-
-          var secHeader = document.createElement('div');
-          secHeader.className = 'qj-section-header';
-          secHeader.textContent = activeTabName + ' Sections';
-          list.appendChild(secHeader);
-
-          sections.forEach(function(sec) {
-            var secItem = document.createElement('div');
-            secItem.className = 'qj-section-item';
-            secItem.textContent = sec.textContent;
-            secItem.onclick = function() {
-              sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              closeQuickJump();
-            };
-            list.appendChild(secItem);
-          });
-        }
+      if (hasSubMenu) {
+        var chevron = document.createElement('span');
+        chevron.className = 'qj-chevron';
+        chevron.textContent = '\u25B8';
+        item.appendChild(chevron);
+      } else {
+        var arrow = document.createElement('span');
+        arrow.className = 'qj-arrow';
+        arrow.textContent = '\u203A';
+        item.appendChild(arrow);
       }
-    }
+
+      wrapper.appendChild(item);
+
+      if (hasSubMenu) {
+        // Hover: show side panel on desktop
+        item.addEventListener('mouseenter', function() {
+          var self = this;
+          var pg = t.page;
+          var nm = t.name;
+          clearTimeout(_qjHoverTimer);
+          _qjHoverTimer = setTimeout(function() {
+            showSubPanel(pg, nm);
+          }, 150);
+        });
+
+        item.addEventListener('mouseleave', function() {
+          clearTimeout(_qjHoverTimer);
+        });
+
+        // Click/tap: navigate to tab and close sidebar
+        item.onclick = function(e) {
+          e.stopPropagation();
+          hideSubPanel();
+          goToTabByPage(t.page);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          closeQuickJump();
+        };
+      } else {
+        item.onclick = function() {
+          hideSubPanel();
+          goToTabByPage(t.page);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          closeQuickJump();
+        };
+
+        item.addEventListener('mouseenter', function() {
+          clearTimeout(_qjHoverTimer);
+          _qjHoverTimer = setTimeout(function() { hideSubPanel(); }, 150);
+        });
+      }
+
+      list.appendChild(wrapper);
+    });
 
     if (filtered.length === 0) {
       var empty = document.createElement('div');
@@ -13585,6 +14112,7 @@ setInterval(updateCountdown, 60000);
     var overlay = document.getElementById('qjOverlay');
     if (sidebar) sidebar.classList.remove('open');
     if (overlay) overlay.classList.remove('open');
+    hideSubPanel();
   };
 
   // Search filter
@@ -13698,24 +14226,24 @@ setInterval(updateCountdown, 60000);
   var _origBuildQJ = buildQuickJump;
   buildQuickJump = function(filter) {
     _origBuildQJ(filter);
-    // Add visited indicators
+    // Add visited indicators to each qj-item
     var items = document.querySelectorAll('#qjList .qj-item');
     items.forEach(function(item) {
-      // Find the page number from the item's onclick
       var existing = item.querySelector('.qj-visited');
       if (existing) return;
       var dot = document.createElement('span');
       dot.className = 'qj-visited';
-      // Insert before the arrow
-      var arrow = item.querySelector('.qj-arrow');
-      if (arrow) item.insertBefore(dot, arrow);
+      // Insert before chevron or arrow
+      var chevron = item.querySelector('.qj-chevron') || item.querySelector('.qj-arrow');
+      if (chevron) item.insertBefore(dot, chevron);
     });
 
-    // Now mark visited ones
+    // Mark visited ones by matching data-page attribute
     var allItems = document.querySelectorAll('#qjList .qj-item');
-    qjTabs.forEach(function(t, i) {
-      if (visitedTabs[t.page] && allItems[i]) {
-        var dot = allItems[i].querySelector('.qj-visited');
+    allItems.forEach(function(item) {
+      var page = parseInt(item.dataset.page);
+      if (page && visitedTabs[page]) {
+        var dot = item.querySelector('.qj-visited');
         if (dot) dot.classList.add('seen');
       }
     });
@@ -14239,6 +14767,70 @@ setInterval(updateCountdown, 60000);
 
 /* ===== DD PIPELINE CLICK NAVIGATION ===== */
 /* Already handled via onclick="goToTabByPage(X)" in HTML */
+
+/* ===== THEME SWITCHER ===== */
+(function() {
+  var _themeMode = 'auto'; // 'light', 'dark', 'auto'
+  var _autoInterval = null;
+
+  function isDaytime() {
+    var h = new Date().getHours();
+    return h >= 6 && h < 19; // 6 AM to 7 PM = light
+  }
+
+  function applyTheme(mode) {
+    _themeMode = mode;
+    var html = document.documentElement;
+    var isLight;
+
+    if (mode === 'light') {
+      isLight = true;
+    } else if (mode === 'dark') {
+      isLight = false;
+    } else {
+      // auto
+      isLight = isDaytime();
+    }
+
+    if (isLight) {
+      html.classList.add('light-theme');
+    } else {
+      html.classList.remove('light-theme');
+    }
+
+    // Update toggle buttons
+    var btns = { light: document.getElementById('themeLight'), auto: document.getElementById('themeAuto'), dark: document.getElementById('themeDark') };
+    Object.keys(btns).forEach(function(k) {
+      if (btns[k]) btns[k].classList.toggle('active', k === mode);
+    });
+
+    // Update meta theme-color
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', isLight ? '#F3F4F6' : '#0A0E1A');
+
+    // Store preference
+    try { localStorage.setItem('dd-theme', mode); } catch(e) {}
+  }
+
+  window.setTheme = function(mode) {
+    applyTheme(mode);
+
+    // If auto, set up periodic check
+    if (_autoInterval) clearInterval(_autoInterval);
+    if (mode === 'auto') {
+      _autoInterval = setInterval(function() { applyTheme('auto'); }, 60000); // check every minute
+    }
+  };
+
+  // Initialize on load
+  var saved = null;
+  try { saved = localStorage.getItem('dd-theme'); } catch(e) {}
+  var initial = saved || 'auto';
+  applyTheme(initial);
+  if (initial === 'auto') {
+    _autoInterval = setInterval(function() { applyTheme('auto'); }, 60000);
+  }
+})();
 
 </script>
 </body>
