@@ -526,6 +526,11 @@
   /* GRID LAYOUTS */
   .tiles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
   .tiles-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .prop-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+  .prop-cards > .section { display: flex; flex-direction: column; min-height: 0; }
+  .prop-cards > .section .prop-table { flex: 1; }
+  .prop-cards > .section .prop-table td { white-space: nowrap; font-size: 11px; }
+  @media (max-width: 768px) { .prop-cards { grid-template-columns: 1fr; gap: 10px; } }
   .tiles-grid-5 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 14px; }
 
   /* CARD & SECTION */
@@ -1988,10 +1993,10 @@
 
   /* ===== START HERE NAV GRID ===== */
   .nav-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px;
   }
   .nav-tile {
-    background: #111827; border-radius: 10px; padding: 16px 18px;
+    background: #111827; border-radius: 10px; padding: 22px 24px;
     border: 1px solid rgba(59,130,246,0.10); cursor: pointer;
     transition: all 0.2s ease; text-decoration: none; display: block;
   }
@@ -2000,13 +2005,13 @@
     transform: translateY(-1px); box-shadow: 0 2px 12px rgba(59,130,246,0.10);
   }
   .nav-tile-header {
-    display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
   }
   .nav-tile-name {
-    font-size: 15px; font-weight: 700; color: #E5E9ED; letter-spacing: 0.3px;
+    font-size: 20px; font-weight: 700; color: #E5E9ED; letter-spacing: 0.3px;
   }
   .nav-tile-badge {
-    font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+    font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 5px;
     text-transform: uppercase; letter-spacing: 0.5px;
   }
   .badge-green { background: rgba(0,230,118,0.15); color: #00E676; }
@@ -2015,13 +2020,13 @@
   .badge-blue { background: rgba(59,130,246,0.15); color: #3B82F6; }
   .badge-dim { background: rgba(133,141,153,0.15); color: #858D99; }
   .nav-tile-desc {
-    font-size: 11px; color: #858D99; line-height: 1.5; margin-top: 4px;
+    font-size: 12px; color: #858D99; line-height: 1.5; margin-top: 6px;
   }
   @media (max-width: 768px) {
     .nav-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .nav-tile { padding: 14px 14px; }
-    .nav-tile-name { font-size: 14px; }
-    .nav-tile-desc { font-size: 10px; }
+    .nav-tile { padding: 18px 18px; }
+    .nav-tile-name { font-size: 18px; }
+    .nav-tile-desc { font-size: 11px; }
   }
   @media (max-width: 480px) {
     .nav-grid { grid-template-columns: 1fr; }
@@ -2494,59 +2499,59 @@
     </div>
 
     <!-- PROPERTY SUMMARY CARDS (no category header, equal height) -->
-    <div class="tiles-grid-3" style="align-items:stretch; margin-bottom:18px;">
-      <div class="section" style="display:flex; flex-direction:column; height:100%;">
+    <div class="prop-cards">
+      <div class="section">
         <div class="section-title">Sunset Vista</div>
         <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 Red Creek Springs Rd</a></div>
-        <table class="prop-table" style="flex:1;">
-          <tr><td class="dim" style="white-space:nowrap;">Lots</td><td>206</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Occupancy</td><td class="orange">86.4% (178/206)</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">POH Count</td><td>101</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Lot Rent</td><td>$654/mo</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">T12 Revenue</td><td>$1.5M</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">T12 NOI</td><td>$956.4K</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Allocated Price</td><td>$19.5M</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Year Built</td><td>1973</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Phase 1</td><td class="green">Clean</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">PCA</td><td class="orange">$8.9K immediate</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Zoning</td><td class="orange">HR — Nonconforming</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Acreage</td><td>29.6 ac</td></tr>
+        <table class="prop-table">
+          <tr><td class="dim">Lots</td><td>206</td></tr>
+          <tr><td class="dim">Occupancy</td><td class="orange">86.4%</td></tr>
+          <tr><td class="dim">POH Count</td><td>101</td></tr>
+          <tr><td class="dim">Lot Rent</td><td>$654/mo</td></tr>
+          <tr><td class="dim">T12 Revenue</td><td>$1.5M</td></tr>
+          <tr><td class="dim">T12 NOI</td><td>$956.4K</td></tr>
+          <tr><td class="dim">Allocated Price</td><td>$19.5M</td></tr>
+          <tr><td class="dim">Year Built</td><td>1973</td></tr>
+          <tr><td class="dim">Phase 1</td><td class="green">Clean</td></tr>
+          <tr><td class="dim">PCA</td><td class="orange">$8.9K</td></tr>
+          <tr><td class="dim">Zoning</td><td class="orange">Nonconforming</td></tr>
+          <tr><td class="dim">Acreage</td><td>29.6 ac</td></tr>
         </table>
       </div>
-      <div class="section" style="display:flex; flex-direction:column; height:100%;">
+      <div class="section">
         <div class="section-title">Oasis</div>
         <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave</a></div>
-        <table class="prop-table" style="flex:1;">
-          <tr><td class="dim" style="white-space:nowrap;">Lots</td><td>161</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Occupancy</td><td class="green">95.0% (153/161)</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">POH Count</td><td>38</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Lot Rent</td><td>$615/mo</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">T12 Revenue</td><td>$1.1M</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">T12 NOI</td><td>$867.4K</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Allocated Price</td><td>$16.2M</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Year Built</td><td>1970</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Phase 1</td><td class="green">Clean</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">PCA</td><td class="red">$43.6K immediate</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Zoning</td><td class="green">R7 — Permitted</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Acreage</td><td>20.5 ac</td></tr>
+        <table class="prop-table">
+          <tr><td class="dim">Lots</td><td>161</td></tr>
+          <tr><td class="dim">Occupancy</td><td class="green">95.0%</td></tr>
+          <tr><td class="dim">POH Count</td><td>38</td></tr>
+          <tr><td class="dim">Lot Rent</td><td>$615/mo</td></tr>
+          <tr><td class="dim">T12 Revenue</td><td>$1.1M</td></tr>
+          <tr><td class="dim">T12 NOI</td><td>$867.4K</td></tr>
+          <tr><td class="dim">Allocated Price</td><td>$16.2M</td></tr>
+          <tr><td class="dim">Year Built</td><td>1970</td></tr>
+          <tr><td class="dim">Phase 1</td><td class="green">Clean</td></tr>
+          <tr><td class="dim">PCA</td><td class="red">$43.6K</td></tr>
+          <tr><td class="dim">Zoning</td><td class="green">R7 Permitted</td></tr>
+          <tr><td class="dim">Acreage</td><td>20.5 ac</td></tr>
         </table>
       </div>
-      <div class="section" style="display:flex; flex-direction:column; height:100%;">
+      <div class="section">
         <div class="section-title">La Vista</div>
         <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr</a></div>
-        <table class="prop-table" style="flex:1;">
-          <tr><td class="dim" style="white-space:nowrap;">Lots</td><td>32</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Occupancy</td><td class="green">90.6% (29/32)</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">POH Count</td><td>7</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Lot Rent</td><td>$572/mo</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">T12 Revenue</td><td>$237.0K</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">T12 NOI</td><td>$131.2K</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Allocated Price</td><td>$2.5M</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Year Built</td><td>1979</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Phase 1</td><td class="green">Clean</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">PCA</td><td class="green">$0 immediate</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Zoning</td><td class="green">R7 — Permitted</td></tr>
-          <tr><td class="dim" style="white-space:nowrap;">Acreage</td><td>6.25 ac</td></tr>
+        <table class="prop-table">
+          <tr><td class="dim">Lots</td><td>32</td></tr>
+          <tr><td class="dim">Occupancy</td><td class="green">90.6%</td></tr>
+          <tr><td class="dim">POH Count</td><td>7</td></tr>
+          <tr><td class="dim">Lot Rent</td><td>$572/mo</td></tr>
+          <tr><td class="dim">T12 Revenue</td><td>$237.0K</td></tr>
+          <tr><td class="dim">T12 NOI</td><td>$131.2K</td></tr>
+          <tr><td class="dim">Allocated Price</td><td>$2.5M</td></tr>
+          <tr><td class="dim">Year Built</td><td>1979</td></tr>
+          <tr><td class="dim">Phase 1</td><td class="green">Clean</td></tr>
+          <tr><td class="dim">PCA</td><td class="green">$0</td></tr>
+          <tr><td class="dim">Zoning</td><td class="green">R7 Permitted</td></tr>
+          <tr><td class="dim">Acreage</td><td>6.25 ac</td></tr>
         </table>
       </div>
     </div>
@@ -2555,14 +2560,13 @@
     <div style="margin-bottom:18px;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
         <div>
-          <div style="font-size:15px; font-weight:800; color:#3B82F6; letter-spacing:0.5px;">START HERE</div>
-          <div style="font-size:11px; color:#858D99; margin-top:2px;">Jump to any workstream. Status updated as of 3/31/2026.</div>
+          <div style="font-size:20px; font-weight:800; color:#3B82F6; letter-spacing:0.5px;">START HERE</div>
         </div>
         <div style="font-size:10px; color:#858D99; background:rgba(59,130,246,0.06); padding:5px 12px; border-radius:6px; border:1px solid rgba(59,130,246,0.10);">18 tabs &bull; 13,000+ lines</div>
       </div>
 
       <!-- ROW 1: DEAL MANAGEMENT -->
-      <div style="font-size:10px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; margin-top:6px;">Deal Management</div>
+      <div style="font-size:13px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px; margin-top:10px;">Deal Management</div>
       <div class="nav-grid" style="margin-bottom:12px;">
         <div class="nav-tile" onclick="goToTabByPage(13)">
           <div class="nav-tile-header"><span class="nav-tile-name">Deal Status</span><span class="nav-tile-badge badge-blue">Active</span></div>
@@ -2579,7 +2583,7 @@
       </div>
 
       <!-- ROW 2: FINANCIAL ANALYSIS -->
-      <div style="font-size:10px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Financial Analysis</div>
+      <div style="font-size:13px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;">Financial Analysis</div>
       <div class="nav-grid" style="margin-bottom:12px;">
         <div class="nav-tile" onclick="goToTabByPage(3)">
           <div class="nav-tile-header"><span class="nav-tile-name">Financials</span><span class="nav-tile-badge badge-green">Complete</span></div>
@@ -2596,7 +2600,7 @@
       </div>
 
       <!-- ROW 3: PROPERTY & OPERATIONS -->
-      <div style="font-size:10px; font-weight:700; color:#F59E0B; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Property &amp; Operations</div>
+      <div style="font-size:13px; font-weight:700; color:#F59E0B; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;">Property &amp; Operations</div>
       <div class="nav-grid" style="margin-bottom:12px;">
         <div class="nav-tile" onclick="goToTabByPage(12)">
           <div class="nav-tile-header"><span class="nav-tile-name">Tenants</span><span class="nav-tile-badge badge-green">Received</span></div>
@@ -2613,7 +2617,7 @@
       </div>
 
       <!-- ROW 4: DEBT, CAPEX, MARKET -->
-      <div style="font-size:10px; font-weight:700; color:#8B5CF6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Debt, CapEx &amp; Market</div>
+      <div style="font-size:13px; font-weight:700; color:#8B5CF6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;">Debt, CapEx &amp; Market</div>
       <div class="nav-grid" style="margin-bottom:12px;">
         <div class="nav-tile" onclick="goToTabByPage(15)">
           <div class="nav-tile-header"><span class="nav-tile-name">Debt / CMBS</span><span class="nav-tile-badge badge-orange">Forms Rec'd</span></div>
@@ -2630,7 +2634,7 @@
       </div>
 
       <!-- ROW 5: CLOSING & PRESENTATION -->
-      <div style="font-size:10px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Site Visit, Closing &amp; Presentation</div>
+      <div style="font-size:13px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;">Site Visit, Closing &amp; Presentation</div>
       <div class="nav-grid">
         <div class="nav-tile" onclick="goToTabByPage(9)">
           <div class="nav-tile-header"><span class="nav-tile-name">Site Visit</span><span class="nav-tile-badge badge-dim">Not Scheduled</span></div>
