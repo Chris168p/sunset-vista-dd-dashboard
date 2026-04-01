@@ -58,18 +58,20 @@
   .tab-radio { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
   .tab-bar {
     position: -webkit-sticky; position: sticky; top: 0; z-index: 9999;
-    background: #0A0E1A; display: flex; flex-wrap: wrap; gap: 6px;
-    padding: 10px 4px; margin-bottom: 18px;
+    background: #0A0E1A; display: flex; flex-wrap: nowrap; gap: 3px;
+    padding: 4px 4px; margin-bottom: 12px;
+    overflow-x: auto; scrollbar-width: none;
   }
+  .tab-bar::-webkit-scrollbar { display: none; }
   .tab-label {
     display: inline-flex; align-items: center; justify-content: center;
-    color: #93A1B0; font-family: 'Inter', sans-serif;
-    font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1px; padding: 10px 18px; cursor: pointer;
-    border: 1px solid rgba(59,130,246,0.20); border-radius: 50px;
-    background: rgba(59,130,246,0.06);
+    color: #6B7280; font-family: 'Inter', sans-serif;
+    font-size: 7px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.3px; padding: 3px 7px; cursor: pointer;
+    border: 1px solid rgba(59,130,246,0.08); border-radius: 50px;
+    background: transparent;
     transition: all 0.2s ease; white-space: nowrap;
-    min-height: 40px;
+    min-height: 20px; flex-shrink: 0;
   }
   .tab-label:hover { color: #E5E9ED; background: rgba(59,130,246,0.14); border-color: rgba(59,130,246,0.40); }
   .tab-content { display: none; }
@@ -156,9 +158,41 @@
   }
   .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(59,130,246,0.2); }
 
-  .group-divider { display: flex; align-items: center; gap: 14px; margin: 18px 0 14px 0; }
+  .group-divider { display: flex; align-items: center; gap: 14px; margin: 18px 0 14px 0;
+    position: sticky; top: 32px; z-index: 99; background: #0A0E1A; padding: 6px 0 6px 0;
+  }
   .group-divider .group-label { font-size: 11px; font-weight: 800; color: #3B82F6; text-transform: uppercase; letter-spacing: 2.5px; white-space: nowrap; }
   .group-divider .group-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(59,130,246,0.4), transparent); }
+
+  /* Breadcrumb trail */
+  .breadcrumb-bar {
+    position: sticky; top: 32px; z-index: 9998;
+    background: rgba(10,14,26,0.95); backdrop-filter: blur(8px);
+    padding: 4px 8px; font-size: 9px; color: #5A6270;
+    border-bottom: 1px solid rgba(59,130,246,0.06);
+    display: none; align-items: center; gap: 4px;
+    margin-bottom: 4px; font-family: 'Inter', sans-serif;
+  }
+  .breadcrumb-bar.show { display: flex; }
+  .breadcrumb-bar .bc-tab { color: #3B82F6; font-weight: 600; cursor: pointer; }
+  .breadcrumb-bar .bc-sep { color: #3B4554; margin: 0 2px; }
+  .breadcrumb-bar .bc-section { color: #858D99; }
+
+  /* Last-visited dot on A-Z sidebar */
+  .qj-item .qj-visited {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #22C55E; margin-left: auto; flex-shrink: 0;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .qj-item .qj-visited.seen { opacity: 1; }
+
+  /* Recent tabs in dock */
+  .dock-btn .dock-recent-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #3B82F6; position: absolute; top: 6px; right: 10px;
+    opacity: 0;
+  }
+  .dock-btn.has-recent .dock-recent-dot { opacity: 1; }
 
   /* KPIS */
   .kpi-strip { display: flex; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
@@ -342,41 +376,98 @@
     max-height: 0; opacity: 0; pointer-events: none;
   }
 
-  /* Alphabetical Tab Menu */
-  .tab-menu {
-    position: fixed; top: 68px; left: 14px; z-index: 10001;
-    display: flex; flex-direction: column; align-items: flex-start;
+  /* Quick-Jump Sidebar */
+  .qj-overlay {
+    position: fixed; inset: 0; z-index: 10010; background: rgba(0,0,0,0.55);
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
   }
-  .tab-menu-btn {
+  .qj-overlay.open { opacity: 1; pointer-events: auto; }
+  .qj-sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 10011;
+    width: 280px; background: #0D1220;
+    border-right: 1px solid rgba(59,130,246,0.15);
+    box-shadow: 4px 0 32px rgba(0,0,0,0.6);
+    transform: translateX(-100%); transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .qj-sidebar.open { transform: translateX(0); }
+  .qj-header {
+    padding: 16px 16px 12px; border-bottom: 1px solid rgba(59,130,246,0.12);
+    display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+  }
+  .qj-title { font-size: 13px; font-weight: 800; color: #3B82F6; letter-spacing: 0.5px; }
+  .qj-close {
+    width: 30px; height: 30px; border-radius: 8px; border: 1px solid rgba(59,130,246,0.20);
+    background: rgba(59,130,246,0.06); color: #93B4F8; font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .qj-close:hover { background: rgba(59,130,246,0.15); color: #fff; }
+  .qj-search-wrap {
+    padding: 8px 16px 10px; flex-shrink: 0;
+  }
+  .qj-search {
+    width: 100%; padding: 8px 12px; border-radius: 8px;
+    border: 1px solid rgba(59,130,246,0.20); background: rgba(59,130,246,0.06);
+    color: #E5E9ED; font-size: 12px; font-family: 'Inter', sans-serif;
+    outline: none; transition: border-color 0.15s;
+  }
+  .qj-search::placeholder { color: #5A6270; }
+  .qj-search:focus { border-color: #3B82F6; }
+  .qj-list {
+    flex: 1; overflow-y: auto; padding: 4px 0;
+    scrollbar-width: thin; scrollbar-color: rgba(59,130,246,0.2) transparent;
+  }
+  .qj-list::-webkit-scrollbar { width: 4px; }
+  .qj-list::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.25); border-radius: 4px; }
+  .qj-group-label {
+    font-size: 8px; font-weight: 700; color: #5A6270; text-transform: uppercase;
+    letter-spacing: 1.5px; padding: 12px 16px 4px; user-select: none;
+  }
+  .qj-item {
+    padding: 9px 16px 9px 20px; font-size: 12px; color: #C9CDD3; cursor: pointer;
+    display: flex; align-items: center; gap: 10px; transition: all 0.12s;
+    border-left: 3px solid transparent; position: relative;
+  }
+  .qj-item:hover { background: rgba(59,130,246,0.08); color: #FFFFFF; }
+  .qj-item.active {
+    color: #3B82F6; font-weight: 600; background: rgba(59,130,246,0.06);
+    border-left-color: #3B82F6;
+  }
+  .qj-item .qj-key {
+    font-size: 9px; color: #5A6270; min-width: 20px; text-align: center;
+    font-weight: 600; font-family: 'Inter', monospace;
+  }
+  .qj-item.active .qj-key { color: #3B82F6; }
+  .qj-item .qj-arrow {
+    margin-left: auto; font-size: 10px; color: #3B4554; transition: color 0.12s;
+  }
+  .qj-item:hover .qj-arrow { color: #93B4F8; }
+  .qj-divider {
+    height: 1px; background: rgba(59,130,246,0.08); margin: 6px 16px;
+  }
+  .qj-section-header {
+    font-size: 9px; font-weight: 700; color: #3B82F6; padding: 10px 16px 6px;
+    text-transform: uppercase; letter-spacing: 1px; border-top: 1px solid rgba(59,130,246,0.10);
+    margin-top: 4px;
+  }
+  .qj-section-item {
+    padding: 7px 16px 7px 28px; font-size: 11px; color: #858D99; cursor: pointer;
+    transition: all 0.12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .qj-section-item:hover { background: rgba(59,130,246,0.06); color: #C9CDD3; }
+  .qj-trigger {
+    position: fixed; top: 68px; left: 14px; z-index: 10001;
+  }
+  .qj-trigger-btn {
     width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(59,130,246,0.30);
     background: rgba(10,14,26,0.96); color: #93B4F8; font-size: 15px; font-weight: 700;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     transition: all 0.15s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    font-family: 'Inter', sans-serif;
   }
-  .tab-menu-btn:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
-  .tab-menu-dropdown {
-    position: absolute; top: 46px; left: 0; background: #0A0E1A;
-    border: 1px solid rgba(59,130,246,0.20); border-radius: 12px; overflow-y: auto;
-    max-height: 70vh; min-width: 220px; max-width: calc(100vw - 40px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,130,246,0.08);
-    display: none; flex-direction: column; padding: 6px 0;
-  }
-  .tab-menu-dropdown.open { display: flex; }
-  .tab-menu-item {
-    padding: 10px 16px; font-size: 12px; color: #C9CDD3; cursor: pointer;
-    border-bottom: 1px solid rgba(59,130,246,0.06); transition: background 0.15s;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .tab-menu-item:last-child { border-bottom: none; }
-  .tab-menu-item:hover, .tab-menu-item:active { background: rgba(59,130,246,0.12); color: #FFFFFF; }
-  .tab-menu-item.active { color: #3B82F6; font-weight: 600; }
-  .tab-menu-item .tab-menu-num {
-    font-size: 9px; color: #5A6270; min-width: 18px; text-align: center;
-    background: rgba(59,130,246,0.08); border-radius: 4px; padding: 2px 4px;
-    font-weight: 600;
-  }
-  .tab-menu-item.active .tab-menu-num { background: rgba(59,130,246,0.20); color: #3B82F6; }
+  .qj-trigger-btn:active { background: rgba(59,130,246,0.25); transform: scale(0.92); }
 
   /* Jump-to-Section Dropdown */
   .section-jump {
@@ -441,22 +532,45 @@
   /* RESPONSIVE ADJUSTMENTS */
   @media (max-width: 768px) {
     .back-to-top { width: 36px; height: 36px; font-size: 16px; }
-    .tab-menu { top: 60px; left: 8px; }
-    .tab-menu-btn { width: 34px; height: 34px; font-size: 13px; }
-    .tab-menu-dropdown { max-width: calc(100vw - 24px); min-width: 200px; max-height: 60vh; }
+    .qj-trigger { top: 60px; left: 8px; }
+    .qj-trigger-btn { width: 34px; height: 34px; font-size: 12px; }
+    .qj-sidebar { width: 260px; }
     .section-jump { top: 60px; right: 8px; }
     .section-jump-btn { width: 34px; height: 34px; font-size: 14px; }
     .section-jump-dropdown { max-width: calc(100vw - 24px); min-width: 200px; max-height: 50vh; }
     .bottom-dock { height: 54px; bottom: 10px; left: 8px; right: 8px; border-radius: 16px; }
-    .bottom-dock .dock-btn { width: 50px; }
-    .bottom-dock .dock-btn .dock-icon { font-size: 16px; }
-    .bottom-dock .dock-btn .dock-label { font-size: 7px; }
+    .bottom-dock .dock-btn { width: 44px; }
+    .bottom-dock .dock-btn .dock-icon { font-size: 15px; }
+    .bottom-dock .dock-btn .dock-label { font-size: 6px; letter-spacing: 0; }
     .tab-indicator { font-size: 8px; }
+
+    /* Sticky section headers: adjust top for mobile tab bar */
+    .group-divider {
+      top: 24px !important;
+      padding: 4px 0 !important;
+      font-size: 10px;
+    }
+    .group-divider .group-label { font-size: 9px !important; letter-spacing: 1.5px !important; }
+
+    /* Breadcrumb: adjust for mobile */
+    .breadcrumb-bar {
+      top: 24px !important;
+      font-size: 8px !important;
+      padding: 3px 8px !important;
+    }
+
+    /* Recent popup: full width on mobile */
+    #recentPopup {
+      left: 10px !important; right: 10px !important;
+      transform: none !important;
+      min-width: 0 !important;
+      bottom: 72px !important;
+    }
   }
 
   /* PRINT: Hide all floating UI */
   @media print {
-    .back-to-top, .tab-menu, .section-jump, .bottom-dock,
+    .back-to-top, .qj-trigger, .qj-sidebar, .qj-overlay, .section-jump, .bottom-dock, .breadcrumb-bar,
     .group-divider .chevron { display: none !important; }
   }
 
@@ -599,7 +713,7 @@
   @media (max-width: 768px) {
     body { padding: 8px 6px; }
 
-    /* === HEADER: compact single-line layout === */
+    /* === HEADER: clean minimal mobile === */
     .header {
       flex-direction: row !important;
       align-items: center !important;
@@ -610,7 +724,9 @@
     .header-left .subtitle { display: none; }
     .header-right .brand { display: none; }
     .header-right .date { font-size: 13px; margin-top: 0; }
-    .header-right .timestamp { font-size: 7px; }
+    .header-right .timestamp { display: none !important; }
+    .header-right .relative-timestamp { display: none !important; }
+    .header-right .font-size-toggle { display: none !important; }
     .accent-bar { margin-bottom: 6px !important; }
 
     /* === QUICK STATS: tight 2-col grid === */
@@ -946,7 +1062,9 @@
       padding: 10px 14px !important;
     }
 
-    /* ALL utilities tables: convert to stacked card layout */
+    /* ===== UTILITIES TAB: MOBILE CARD LAYOUT WITH LABELS ===== */
+
+    /* Base: all tables become stacked cards */
     #tab-page10 .data-table {
       display: block !important;
       width: 100% !important;
@@ -959,11 +1077,11 @@
     }
     #tab-page10 .data-table tr {
       display: block !important;
-      background: rgba(59,130,246,0.04);
-      border: 1px solid rgba(59,130,246,0.10);
-      border-radius: 8px;
-      padding: 10px 12px !important;
-      margin-bottom: 8px !important;
+      background: rgba(17,24,39,0.8);
+      border: 1px solid rgba(59,130,246,0.12);
+      border-radius: 10px;
+      padding: 12px 14px !important;
+      margin-bottom: 10px !important;
     }
     #tab-page10 .data-table tr:last-child {
       margin-bottom: 0 !important;
@@ -999,15 +1117,245 @@
       background: rgba(59,130,246,0.10) !important;
       border: 1px solid rgba(59,130,246,0.25) !important;
     }
-    /* Status badges (BLOCKED, PENDING, IN PROGRESS) */
-    #tab-page10 .data-table td.red,
-    #tab-page10 .data-table td.orange {
+
+    /*
+     * T12 COST BY PROPERTY TABLES (inside .tiles-grid)
+     * Columns: Provider | Service | T12 | Monthly Avg
+     * Make the dollar amounts LABELED so "8.7k / 723" becomes clear
+     */
+    #tab-page10 .tiles-grid .data-table tr {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2px 12px;
+      padding: 10px 14px !important;
+    }
+    /* Provider name: full width top row, bold */
+    #tab-page10 .tiles-grid .data-table tr td:nth-child(1) {
+      grid-column: 1 / -1;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #E5E9ED !important;
+      padding-bottom: 2px !important;
+    }
+    /* Service type: full width, smaller */
+    #tab-page10 .tiles-grid .data-table tr td:nth-child(2) {
+      grid-column: 1 / -1;
       font-size: 11px !important;
+      color: #858D99 !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid rgba(59,130,246,0.08) !important;
+      margin-bottom: 4px !important;
+    }
+    /* T12 amount: left column with label */
+    #tab-page10 .tiles-grid .data-table tr td:nth-child(3) {
+      font-size: 15px !important;
       font-weight: 700 !important;
-      margin-top: 2px;
+      color: #FFFFFF !important;
+    }
+    #tab-page10 .tiles-grid .data-table tr td:nth-child(3)::before {
+      content: "T12 Total  ";
+      font-size: 9px !important;
+      font-weight: 600;
+      color: #3B82F6;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    /* Monthly avg: right column with label */
+    #tab-page10 .tiles-grid .data-table tr td:nth-child(4) {
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      color: #93B4F8 !important;
+      text-align: right !important;
+    }
+    #tab-page10 .tiles-grid .data-table tr td:nth-child(4)::before {
+      content: "Per Month  ";
+      font-size: 9px !important;
+      font-weight: 600;
+      color: #5A6270;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 1px;
+      text-align: right;
+    }
+    /* Total rows inside tiles-grid: highlight */
+    #tab-page10 .tiles-grid .data-table tr[style*="background"] {
+      background: rgba(59,130,246,0.08) !important;
+      border: 1px solid rgba(59,130,246,0.20) !important;
+    }
+    #tab-page10 .tiles-grid .data-table tr[style*="background"] td:nth-child(3)::before {
+      content: "T12 TOTAL  ";
+      color: #60A5FA;
+    }
+    #tab-page10 .tiles-grid .data-table tr[style*="background"] td:nth-child(4)::before {
+      content: "MONTHLY  ";
+      color: #60A5FA;
     }
 
-    /* Section titles: readable */
+    /*
+     * PORTFOLIO COST BY UTILITY TYPE TABLE (4-col: Type | T12 | % | Monthly)
+     * This table is also inside .tiles-grid
+     * Identify by: first td is NOT .dim (it's the utility type name)
+     */
+
+    /*
+     * ACCOUNT NUMBERS TABLE (5-col: Provider | Type | Acct# | Address | T12)
+     * This is NOT in .tiles-grid — it's a direct child .section table
+     * The card layout from base rules works, but needs labels on amounts
+     */
+    #tab-page10 > .group-divider ~ .section .data-table tr td:last-child[style*="text-align:right"] {
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      margin-top: 4px !important;
+      padding-top: 4px !important;
+      border-top: 1px solid rgba(59,130,246,0.08) !important;
+    }
+    #tab-page10 > .group-divider ~ .section .data-table tr td:last-child[style*="text-align:right"]::before {
+      content: "T12 Cost: ";
+      font-size: 9px;
+      font-weight: 600;
+      color: #3B82F6;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /*
+     * VENDOR ANALYSIS TABLE (6-col: Category | Vendor | Payments | Total | Phone | Transfer)
+     * Inside .section.scroll-wrap
+     */
+    #tab-page10 .section.scroll-wrap > .data-table tr {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 10px;
+      padding: 10px 14px !important;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(1) {
+      font-size: 10px !important;
+      color: #858D99 !important;
+      grid-column: 1 / -1;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(2) {
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #E5E9ED !important;
+      grid-column: 1 / -1;
+      padding-bottom: 4px !important;
+      border-bottom: 1px solid rgba(59,130,246,0.08) !important;
+      margin-bottom: 2px !important;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(3)::before {
+      content: "Payments: ";
+      font-size: 9px; font-weight: 600; color: #5A6270; text-transform: uppercase;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(4) {
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(4)::before {
+      content: "Total Paid: ";
+      font-size: 9px; font-weight: 600; color: #3B82F6; text-transform: uppercase;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(5)::before {
+      content: "Phone: ";
+      font-size: 9px; font-weight: 600; color: #5A6270; text-transform: uppercase;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(6) {
+      font-weight: 600 !important;
+      text-align: right !important;
+    }
+    #tab-page10 .section.scroll-wrap > .data-table tr td:nth-child(6)::before {
+      content: "Status: ";
+      font-size: 9px; font-weight: 600; color: #5A6270; text-transform: uppercase;
+    }
+    /* Vendor category header rows */
+    #tab-page10 .section.scroll-wrap > .data-table tr td[colspan] {
+      grid-column: 1 / -1 !important;
+    }
+
+    /*
+     * MONTHLY BUDGET TABLE (.util-budget-table)
+     * 6-col: Category | SV | OC | LAV | Total | Ops Notes
+     * Convert to labeled cards
+     */
+    #tab-page10 .util-budget-table {
+      min-width: 0 !important;
+    }
+    #tab-page10 .util-budget-table tr {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px 8px;
+      padding: 12px 14px !important;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(1) {
+      grid-column: 1 / -1;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      color: #E5E9ED !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid rgba(59,130,246,0.10) !important;
+      margin-bottom: 2px !important;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(2)::before {
+      content: "SV";
+      display: block; font-size: 8px; font-weight: 700; color: #3B82F6;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1px;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(3)::before {
+      content: "OC";
+      display: block; font-size: 8px; font-weight: 700; color: #6366F1;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1px;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(4)::before {
+      content: "LAV";
+      display: block; font-size: 8px; font-weight: 700; color: #8B5CF6;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1px;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(2),
+    #tab-page10 .util-budget-table tr td:nth-child(3),
+    #tab-page10 .util-budget-table tr td:nth-child(4) {
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      text-align: left !important;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(5) {
+      font-size: 14px !important;
+      font-weight: 800 !important;
+      color: #60A5FA !important;
+      text-align: left !important;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(5)::before {
+      content: "TOTAL";
+      display: block; font-size: 8px; font-weight: 700; color: #60A5FA;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1px;
+    }
+    /* Ops notes: full width below */
+    #tab-page10 .util-budget-table tr td:nth-child(6) {
+      grid-column: 1 / -1;
+      font-size: 11px !important;
+      color: #858D99 !important;
+      line-height: 1.5 !important;
+      margin-top: 4px !important;
+      padding-top: 6px !important;
+      border-top: 1px solid rgba(59,130,246,0.06) !important;
+    }
+    #tab-page10 .util-budget-table tr td:nth-child(6)::before {
+      content: "Ops Note: ";
+      font-size: 9px; font-weight: 600; color: #F59E0B; text-transform: uppercase;
+    }
+
+    /*
+     * PROVIDER DIRECTORY TABLE (5-col: Provider | Service | Phone | Website | Payment Address)
+     */
+    #tab-page10 .section .data-table tr td:nth-child(1) b {
+      font-size: 13px !important;
+    }
+
+    /* Section titles */
     #tab-page10 .section-title {
       font-size: 13px !important;
       margin-bottom: 10px !important;
@@ -1021,7 +1369,7 @@
       line-height: 1.5 !important;
     }
 
-    /* Red flags / missing bills: bigger readable text */
+    /* Red flags text */
     #tab-page10 .tiles-grid > .section div[style*="font-size:11px"] {
       font-size: 13px !important;
     }
@@ -1033,13 +1381,13 @@
       margin-bottom: 16px !important;
     }
 
-    /* Ops notes footnotes: readable */
+    /* Ops notes footnotes */
     #tab-page10 .section > div[style*="font-size:9px"] {
       font-size: 11px !important;
       line-height: 1.6 !important;
     }
 
-    /* Google Drive links: stack vertically */
+    /* Drive links: stack */
     #tab-page10 div[style*="grid-template-columns: repeat(3"] {
       grid-template-columns: 1fr !important;
       gap: 6px !important;
@@ -1063,9 +1411,9 @@
       padding: 7px 10px;
     }
 
-    /* ===== UTILITIES TAB (page10) — MOBILE FIXES ===== */
+    /* ===== UTILITIES TAB (page10) — CHARTS & KPI MOBILE ===== */
 
-    /* KPI strip: ensure inline grid-template-columns:repeat(5,1fr) is overridden */
+    /* KPI strip: 2-col grid */
     #tab-page10 .audit-kpi-grid {
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 8px !important;
@@ -1077,76 +1425,59 @@
       font-size: 18px !important;
     }
 
-    /* Donut chart + bar chart grid: stack vertically */
+    /* Charts container: stack, add breathing room */
     #tab-page10 > div[style*="grid-template-columns:1fr 1fr"] {
       grid-template-columns: 1fr !important;
-      gap: 10px !important;
+      gap: 16px !important;
+      margin-top: 8px !important;
     }
 
-    /* Donut SVG: center and size for mobile */
+    /* Chart section titles: more space */
+    #tab-page10 .mini-chart-title {
+      font-size: 12px !important;
+      margin-bottom: 12px !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid rgba(59,130,246,0.10);
+    }
+
+    /* Donut SVG: center */
     #tab-page10 .mini-chart-row {
       flex-direction: column !important;
       align-items: center !important;
-      gap: 12px !important;
+      gap: 14px !important;
     }
     #tab-page10 .mini-chart-svg {
-      width: 120px !important;
-      height: 120px !important;
+      width: 130px !important;
+      height: 130px !important;
     }
     #tab-page10 .mini-chart-legend {
       width: 100% !important;
     }
 
-    /* Bar chart: taller bars for readability */
+    /* Bar chart: add space above, taller bars */
     #tab-page10 .mini-bar-chart {
-      height: 100px !important;
-      gap: 16px !important;
+      height: 110px !important;
+      gap: 20px !important;
+      margin-top: 6px !important;
     }
     #tab-page10 .mini-bar-label {
-      font-size: 10px !important;
+      font-size: 11px !important;
     }
     #tab-page10 .mini-bar-val {
-      font-size: 11px !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
     }
 
-    /* T12 Cost by Property tables: reduce min-width so less scrolling needed */
+    /* All tiles-grid data-tables and scroll-wrap tables: no min-width (card layout) */
     #tab-page10 .tiles-grid .scroll-wrap .data-table,
-    #tab-page10 .section.scroll-wrap .scroll-wrap .data-table {
-      min-width: 340px !important;
-    }
-    #tab-page10 .tiles-grid .data-table td,
-    #tab-page10 .tiles-grid .data-table th {
-      font-size: 11px !important;
-      padding: 6px 8px !important;
-    }
-
-    /* Portfolio Cost by Utility Type: add data-label mobile labels */
+    #tab-page10 .section.scroll-wrap .scroll-wrap .data-table,
     #tab-page10 .tiles-grid .data-table {
-      min-width: 340px !important;
+      min-width: 0 !important;
     }
 
-    /* Monthly Utility Budget Expectations: reduce min-width */
-    #tab-page10 .util-budget-table {
-      min-width: 420px !important;
-    }
-    /* Ops Notes column: wrap text and smaller font */
-    #tab-page10 .util-budget-table th:last-child,
-    #tab-page10 .util-budget-table td:last-child {
-      min-width: 100px !important;
-      max-width: 160px !important;
-      font-size: 10px !important;
-      line-height: 1.4 !important;
-      white-space: normal !important;
-    }
-    /* Budget table property columns: compact */
-    #tab-page10 .util-budget-table td,
-    #tab-page10 .util-budget-table th {
-      padding: 6px 6px !important;
-      font-size: 11px !important;
-    }
-    /* Vendor analysis table: tighter layout */
+    /* Vendor analysis table: no min-width, use card layout */
     #tab-page10 .section.scroll-wrap > .data-table {
-      min-width: 500px !important;
+      min-width: 0 !important;
     }
 
     /* ===== FINANCIALS TAB (page3) — MOBILE FIXES ===== */
@@ -1621,6 +1952,13 @@
     <label class="tab-label" for="radio-page20">Value Add</label>
     <label class="tab-label" for="radio-page8">Ops Handoff</label>
     <label class="tab-label" for="radio-page5">Investor Deck</label>
+  </div>
+
+  <!-- BREADCRUMB BAR -->
+  <div class="breadcrumb-bar" id="breadcrumbBar">
+    <span class="bc-tab" id="bcTab"></span>
+    <span class="bc-sep" id="bcSep">›</span>
+    <span class="bc-section" id="bcSection"></span>
   </div>
 
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
@@ -12609,10 +12947,22 @@
 <!-- BACK-TO-TOP BUTTON -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
-<!-- ALPHABETICAL TAB MENU -->
-<div class="tab-menu" id="tabMenu">
-  <button class="tab-menu-btn" onclick="toggleTabMenu()" aria-label="All tabs (A-Z)">A‑Z</button>
-  <div class="tab-menu-dropdown" id="tabMenuDropdown"></div>
+<!-- QUICK-JUMP SIDEBAR TRIGGER -->
+<div class="qj-trigger" id="qjTrigger">
+  <button class="qj-trigger-btn" onclick="toggleQuickJump()" aria-label="Quick Jump (A-Z)">A‑Z</button>
+</div>
+
+<!-- QUICK-JUMP SIDEBAR -->
+<div class="qj-overlay" id="qjOverlay" onclick="closeQuickJump()"></div>
+<div class="qj-sidebar" id="qjSidebar">
+  <div class="qj-header">
+    <span class="qj-title">QUICK JUMP</span>
+    <button class="qj-close" onclick="closeQuickJump()" aria-label="Close">&times;</button>
+  </div>
+  <div class="qj-search-wrap">
+    <input class="qj-search" id="qjSearch" type="text" placeholder="Search tabs..." autocomplete="off">
+  </div>
+  <div class="qj-list" id="qjList"></div>
 </div>
 
 <!-- JUMP-TO-SECTION DROPDOWN -->
@@ -12640,8 +12990,8 @@
   <button class="dock-btn" onclick="goToTabByPage(11)" aria-label="Action Items">
     <span class="dock-icon">📋</span><span class="dock-label">Actions</span>
   </button>
-  <button class="dock-btn" onclick="goToTabByPage(2)" aria-label="Docs">
-    <span class="dock-icon">📁</span><span class="dock-label">Docs</span>
+  <button class="dock-btn dock-recent-btn" id="dockRecentBtn" onclick="toggleRecentTabs()" aria-label="Recent" style="position:relative;">
+    <span class="dock-icon">🕐</span><span class="dock-label">Recent</span>
   </button>
   <button class="dock-btn" onclick="goToTabByPage(9)" aria-label="Site Visit">
     <span class="dock-icon">🏠</span><span class="dock-label">Site Visit</span>
@@ -12649,6 +12999,15 @@
   <button class="dock-btn" onclick="goToTabByPage(21)" aria-label="CapEx">
     <span class="dock-icon">🔧</span><span class="dock-label">CapEx</span>
   </button>
+</div>
+
+<!-- RECENT TABS POPUP -->
+<div id="recentPopup" style="position:fixed; bottom:80px; left:50%; transform:translateX(-50%); z-index:10010;
+  background:#0D1220; border:1px solid rgba(59,130,246,0.20); border-radius:12px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.7); padding:8px 0; min-width:200px;
+  display:none; flex-direction:column; font-family:'Inter',sans-serif;">
+  <div style="font-size:8px; font-weight:700; color:#5A6270; text-transform:uppercase; letter-spacing:1.5px; padding:6px 14px 4px;">Recently Viewed</div>
+  <div id="recentList"></div>
 </div>
 
 <script>
@@ -12688,12 +13047,15 @@ setInterval(updateCountdown, 60000);
   // Ordered list of visible tab page IDs (excludes hidden page18/changelog)
   var tabOrder = [1,13,11,3,6,16,15,12,7,10,17,14,9,21,4,20,8,5];
 
+  var _currentIdx = 0; // tracked index for reliable keyboard nav
+
   function getCurrentIndex() {
+    // Sync from DOM on first load or tab clicks
     for (var i = 0; i < tabOrder.length; i++) {
       var r = document.getElementById('radio-page' + tabOrder[i]);
-      if (r && r.checked) return i;
+      if (r && r.checked) { _currentIdx = i; return i; }
     }
-    return 0;
+    return _currentIdx;
   }
 
   function goToTab(idx) {
@@ -12701,8 +13063,18 @@ setInterval(updateCountdown, 60000);
     var r = document.getElementById('radio-page' + tabOrder[idx]);
     if (r) {
       r.checked = true;
+      _currentIdx = idx; // update tracked index immediately
       window.scrollTo(0, 0);
       updateNavLabel(idx);
+      // Scroll the active tab label into view horizontally only
+      var label = document.querySelector('.tab-label[for="radio-page' + tabOrder[idx] + '"]');
+      if (label) {
+        var bar = label.parentElement;
+        var labelLeft = label.offsetLeft;
+        var labelW = label.offsetWidth;
+        var barW = bar.offsetWidth;
+        bar.scrollTo({ left: labelLeft - (barW / 2) + (labelW / 2), behavior: 'smooth' });
+      }
     }
   }
 
@@ -12725,8 +13097,8 @@ setInterval(updateCountdown, 60000);
   }
 
   // Expose for button onclick
-  window.navPrev = function() { goToTab(getCurrentIndex() - 1); };
-  window.navNext = function() { goToTab(getCurrentIndex() + 1); };
+  window.navPrev = function() { goToTab(_currentIdx - 1); };
+  window.navNext = function() { goToTab(_currentIdx + 1); };
 
   // ===== SWIPE DETECTION =====
   var touchStartX = 0, touchStartY = 0, touchStartTime = 0;
@@ -12916,69 +13288,144 @@ setInterval(updateCountdown, 60000);
   window.toggleSectionJump = function() {
     var dropdown = document.getElementById('sectionJumpDropdown');
     if (dropdown) dropdown.classList.toggle('open');
-    // Close tab menu if open
-    var tabMenuDD = document.getElementById('tabMenuDropdown');
-    if (tabMenuDD) tabMenuDD.classList.remove('open');
+    // Close quick-jump sidebar if open
+    closeQuickJump();
   };
 
-  // ===== ALPHABETICAL TAB MENU =====
-  var tabMenuData = [
-    { page: 11, name: 'Actions' },
-    { page: 21, name: 'CapEx' },
-    { page: 13, name: 'Deal Status' },
-    { page: 15, name: 'Debt' },
-    { page: 3,  name: 'Financials' },
-    { page: 5,  name: 'Investor Deck' },
-    { page: 17, name: 'Market' },
-    { page: 8,  name: 'Ops Handoff' },
-    { page: 1,  name: 'Overview' },
-    { page: 14, name: 'Photos' },
-    { page: 7,  name: 'POH' },
-    { page: 16, name: 'Projections' },
-    { page: 4,  name: 'Risks' },
-    { page: 9,  name: 'Site Visit' },
-    { page: 12, name: 'Tenants' },
-    { page: 6,  name: 'Underwriting' },
-    { page: 10, name: 'Utilities' },
-    { page: 20, name: 'Value Add' }
+  // ===== QUICK-JUMP SIDEBAR =====
+  var qjTabs = [
+    { page: 11, name: 'Actions',       cat: 'Management' },
+    { page: 21, name: 'CapEx',         cat: 'Property' },
+    { page: 13, name: 'Deal Status',   cat: 'Management' },
+    { page: 15, name: 'Debt',          cat: 'Financial' },
+    { page: 3,  name: 'Financials',    cat: 'Financial' },
+    { page: 5,  name: 'Investor Deck', cat: 'Closing' },
+    { page: 17, name: 'Market',        cat: 'Property' },
+    { page: 8,  name: 'Ops Handoff',   cat: 'Closing' },
+    { page: 1,  name: 'Overview',      cat: 'Management' },
+    { page: 14, name: 'Photos',        cat: 'Property' },
+    { page: 7,  name: 'POH',           cat: 'Property' },
+    { page: 16, name: 'Projections',   cat: 'Financial' },
+    { page: 4,  name: 'Risks',         cat: 'Management' },
+    { page: 9,  name: 'Site Visit',    cat: 'Property' },
+    { page: 12, name: 'Tenants',       cat: 'Property' },
+    { page: 6,  name: 'Underwriting',  cat: 'Financial' },
+    { page: 10, name: 'Utilities',     cat: 'Property' },
+    { page: 20, name: 'Value Add',     cat: 'Closing' }
   ];
 
-  function buildTabMenu() {
-    var dropdown = document.getElementById('tabMenuDropdown');
-    if (!dropdown) return;
-    dropdown.innerHTML = '';
+  function buildQuickJump(filter) {
+    var list = document.getElementById('qjList');
+    if (!list) return;
+    list.innerHTML = '';
     var currentPage = tabOrder[getCurrentIndex()];
-    tabMenuData.forEach(function(t) {
+    var query = (filter || '').toLowerCase().trim();
+
+    // Filtered tabs
+    var filtered = qjTabs.filter(function(t) {
+      return !query || t.name.toLowerCase().indexOf(query) !== -1 || t.cat.toLowerCase().indexOf(query) !== -1;
+    });
+
+    // Build tab items
+    filtered.forEach(function(t, i) {
       var item = document.createElement('div');
-      item.className = 'tab-menu-item' + (t.page === currentPage ? ' active' : '');
-      var num = document.createElement('span');
-      num.className = 'tab-menu-num';
-      num.textContent = tabMenuData.indexOf(t) + 1;
-      item.appendChild(num);
-      var label = document.createTextNode(t.name);
+      item.className = 'qj-item' + (t.page === currentPage ? ' active' : '');
+
+      var key = document.createElement('span');
+      key.className = 'qj-key';
+      key.textContent = String.fromCharCode(65 + i); // A, B, C...
+      item.appendChild(key);
+
+      var label = document.createElement('span');
+      label.textContent = t.name;
       item.appendChild(label);
+
+      var arrow = document.createElement('span');
+      arrow.className = 'qj-arrow';
+      arrow.textContent = '\u203A';
+      item.appendChild(arrow);
+
       item.onclick = function() {
         goToTabByPage(t.page);
-        dropdown.classList.remove('open');
-        buildTabMenu(); // refresh active highlight
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        closeQuickJump();
       };
-      dropdown.appendChild(item);
+      list.appendChild(item);
+    });
+
+    // Show sections for active tab
+    if (!query) {
+      var tabEl = document.getElementById('tab-page' + currentPage);
+      if (tabEl) {
+        var sections = tabEl.querySelectorAll('.group-label');
+        if (sections.length > 1) {
+          var activeTabName = '';
+          qjTabs.forEach(function(t) { if (t.page === currentPage) activeTabName = t.name; });
+
+          var secHeader = document.createElement('div');
+          secHeader.className = 'qj-section-header';
+          secHeader.textContent = activeTabName + ' Sections';
+          list.appendChild(secHeader);
+
+          sections.forEach(function(sec) {
+            var secItem = document.createElement('div');
+            secItem.className = 'qj-section-item';
+            secItem.textContent = sec.textContent;
+            secItem.onclick = function() {
+              sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              closeQuickJump();
+            };
+            list.appendChild(secItem);
+          });
+        }
+      }
+    }
+
+    if (filtered.length === 0) {
+      var empty = document.createElement('div');
+      empty.style.cssText = 'padding:20px 16px; font-size:12px; color:#5A6270; text-align:center;';
+      empty.textContent = 'No matching tabs';
+      list.appendChild(empty);
+    }
+  }
+
+  window.toggleQuickJump = function() {
+    var sidebar = document.getElementById('qjSidebar');
+    var overlay = document.getElementById('qjOverlay');
+    if (!sidebar) return;
+    var isOpen = sidebar.classList.contains('open');
+    if (isOpen) {
+      closeQuickJump();
+    } else {
+      sidebar.classList.add('open');
+      if (overlay) overlay.classList.add('open');
+      var search = document.getElementById('qjSearch');
+      if (search) { search.value = ''; search.focus(); }
+      buildQuickJump('');
+      // Close section jump if open
+      var sjDD = document.getElementById('sectionJumpDropdown');
+      if (sjDD) sjDD.classList.remove('open');
+    }
+  };
+
+  window.closeQuickJump = function() {
+    var sidebar = document.getElementById('qjSidebar');
+    var overlay = document.getElementById('qjOverlay');
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('open');
+  };
+
+  // Search filter
+  var _qjSearchEl = document.getElementById('qjSearch');
+  if (_qjSearchEl) {
+    _qjSearchEl.addEventListener('input', function() {
+      buildQuickJump(this.value);
     });
   }
 
-  window.toggleTabMenu = function() {
-    var dropdown = document.getElementById('tabMenuDropdown');
-    if (!dropdown) return;
-    buildTabMenu(); // refresh before opening
-    dropdown.classList.toggle('open');
-    // Close section jump if open
-    var sjDD = document.getElementById('sectionJumpDropdown');
-    if (sjDD) sjDD.classList.remove('open');
-  };
-
-  // Refresh tab menu active state on tab change
-  document.querySelectorAll('.tab-radio').forEach(function(r) {
-    r.addEventListener('change', function() { buildTabMenu(); });
+  // Keyboard shortcut: Escape closes sidebar
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeQuickJump();
   });
 
   // Initialize collapsibles and jump sections on page load (run exactly once)
@@ -12996,17 +13443,166 @@ setInterval(updateCountdown, 60000);
   }
 
 
-  // Close dropdowns when clicking elsewhere
+  // Close section-jump dropdown when clicking elsewhere
   document.addEventListener('click', function(e) {
     var sectionJump = document.getElementById('sectionJump');
     if (sectionJump && !sectionJump.contains(e.target)) {
       var dropdown = document.getElementById('sectionJumpDropdown');
       if (dropdown) dropdown.classList.remove('open');
     }
-    var tabMenu = document.getElementById('tabMenu');
-    if (tabMenu && !tabMenu.contains(e.target)) {
-      var tmDD = document.getElementById('tabMenuDropdown');
-      if (tmDD) tmDD.classList.remove('open');
+  });
+
+  // ===== FEATURE: VISITED TABS TRACKING =====
+  var visitedTabs = {};
+  var recentTabHistory = [];
+
+  function trackTabVisit(pageNum) {
+    visitedTabs[pageNum] = Date.now();
+    // Add to recent history (dedup, keep last 5)
+    recentTabHistory = recentTabHistory.filter(function(p) { return p !== pageNum; });
+    recentTabHistory.unshift(pageNum);
+    if (recentTabHistory.length > 5) recentTabHistory.pop();
+  }
+  // Track initial tab
+  trackTabVisit(tabOrder[getCurrentIndex()]);
+
+  // Track on every tab change
+  document.querySelectorAll('.tab-radio').forEach(function(r) {
+    r.addEventListener('change', function() {
+      var page = tabOrder[getCurrentIndex()];
+      trackTabVisit(page);
+      updateBreadcrumb();
+    });
+  });
+
+  // ===== FEATURE: BREADCRUMB BAR =====
+  function updateBreadcrumb() {
+    var bar = document.getElementById('breadcrumbBar');
+    var bcTab = document.getElementById('bcTab');
+    var bcSep = document.getElementById('bcSep');
+    var bcSection = document.getElementById('bcSection');
+    if (!bar || !bcTab) return;
+
+    var page = tabOrder[getCurrentIndex()];
+    var name = tabNames[page] || '';
+    bcTab.textContent = name;
+
+    // Find the visible section based on scroll position
+    var tabEl = document.getElementById('tab-page' + page);
+    if (!tabEl) { bar.classList.add('show'); bcSep.style.display='none'; bcSection.textContent=''; return; }
+
+    var labels = tabEl.querySelectorAll('.group-label');
+    var currentSection = '';
+    var scrollTop = window.scrollY + 80; // offset for sticky headers
+    labels.forEach(function(label) {
+      var rect = label.getBoundingClientRect();
+      if (rect.top < 100) currentSection = label.textContent;
+    });
+
+    if (currentSection) {
+      bcSep.style.display = '';
+      bcSection.textContent = currentSection;
+    } else {
+      bcSep.style.display = 'none';
+      bcSection.textContent = '';
+    }
+    bar.classList.add('show');
+  }
+
+  // Update breadcrumb on scroll
+  var _bcThrottle = false;
+  window.addEventListener('scroll', function() {
+    if (_bcThrottle) return;
+    _bcThrottle = true;
+    requestAnimationFrame(function() {
+      updateBreadcrumb();
+      _bcThrottle = false;
+    });
+  });
+  updateBreadcrumb();
+
+  // ===== FEATURE: LAST-VIEWED IN A-Z SIDEBAR =====
+  // Patch buildQuickJump to add visited dots
+  var _origBuildQJ = buildQuickJump;
+  buildQuickJump = function(filter) {
+    _origBuildQJ(filter);
+    // Add visited indicators
+    var items = document.querySelectorAll('#qjList .qj-item');
+    items.forEach(function(item) {
+      // Find the page number from the item's onclick
+      var existing = item.querySelector('.qj-visited');
+      if (existing) return;
+      var dot = document.createElement('span');
+      dot.className = 'qj-visited';
+      // Insert before the arrow
+      var arrow = item.querySelector('.qj-arrow');
+      if (arrow) item.insertBefore(dot, arrow);
+    });
+
+    // Now mark visited ones
+    var allItems = document.querySelectorAll('#qjList .qj-item');
+    qjTabs.forEach(function(t, i) {
+      if (visitedTabs[t.page] && allItems[i]) {
+        var dot = allItems[i].querySelector('.qj-visited');
+        if (dot) dot.classList.add('seen');
+      }
+    });
+  };
+
+  // ===== FEATURE: RECENT TABS POPUP =====
+  window.toggleRecentTabs = function() {
+    var popup = document.getElementById('recentPopup');
+    if (!popup) return;
+    if (popup.style.display === 'flex') {
+      popup.style.display = 'none';
+      return;
+    }
+    var list = document.getElementById('recentList');
+    if (!list) return;
+    list.innerHTML = '';
+
+    if (recentTabHistory.length === 0) {
+      list.innerHTML = '<div style="padding:10px 14px;font-size:11px;color:#5A6270;">No tabs visited yet</div>';
+    } else {
+      recentTabHistory.forEach(function(page) {
+        var name = tabNames[page] || 'Tab ' + page;
+        var ago = '';
+        if (visitedTabs[page]) {
+          var secs = Math.floor((Date.now() - visitedTabs[page]) / 1000);
+          if (secs < 60) ago = 'just now';
+          else if (secs < 3600) ago = Math.floor(secs/60) + 'm ago';
+          else ago = Math.floor(secs/3600) + 'h ago';
+        }
+        var item = document.createElement('div');
+        item.style.cssText = 'padding:9px 14px;font-size:12px;color:#C9CDD3;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.12s;border-bottom:1px solid rgba(59,130,246,0.06);';
+        item.onmouseenter = function() { this.style.background='rgba(59,130,246,0.08)'; };
+        item.onmouseleave = function() { this.style.background=''; };
+        var nameSpan = document.createElement('span');
+        nameSpan.textContent = name;
+        nameSpan.style.fontWeight = '600';
+        item.appendChild(nameSpan);
+        if (ago) {
+          var agoSpan = document.createElement('span');
+          agoSpan.textContent = ago;
+          agoSpan.style.cssText = 'font-size:9px;color:#5A6270;';
+          item.appendChild(agoSpan);
+        }
+        item.onclick = function() {
+          goToTabByPage(page);
+          popup.style.display = 'none';
+        };
+        list.appendChild(item);
+      });
+    }
+    popup.style.display = 'flex';
+  };
+
+  // Close recent popup when clicking elsewhere
+  document.addEventListener('click', function(e) {
+    var popup = document.getElementById('recentPopup');
+    var btn = document.getElementById('dockRecentBtn');
+    if (popup && popup.style.display === 'flex' && !popup.contains(e.target) && btn && !btn.contains(e.target)) {
+      popup.style.display = 'none';
     }
   });
 
