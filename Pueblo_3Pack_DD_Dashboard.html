@@ -495,6 +495,15 @@
 
   /* Property Overview table header fix for light mode */
   .light-theme th[style*="color:#858D99"] { color: #4B5563 !important; }
+
+  /* Action Items accordion toggle cards */
+  .action-toggle { transition: all 0.2s; border: 1px solid transparent; }
+  .action-toggle:hover { border-color: rgba(59,130,246,0.3) !important; transform: translateY(-1px); }
+  .action-toggle.active { border-color: rgba(59,130,246,0.5) !important; box-shadow: 0 0 12px rgba(59,130,246,0.15); }
+  .light-theme .action-toggle:hover { border-color: rgba(37,99,235,0.3) !important; }
+  .light-theme .action-toggle.active { border-color: rgba(37,99,235,0.5) !important; box-shadow: 0 0 12px rgba(37,99,235,0.1); }
+  .action-section { animation: fadeSlide 0.25s ease; }
+  @keyframes fadeSlide { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
   /* ===== END THEME ===== */
 
   .page { max-width: 100%; margin: 0 auto; overflow-x: hidden; padding: 0 12px; }
@@ -5964,40 +5973,44 @@
 
     <!-- POH PORTFOLIO-WIDE ANALYSIS -->
     <div class="section" style="margin-bottom:14px;">
-      <div class="section-title">Portfolio POH Analysis — Bed/Bath Mix &amp; Rent Distribution</div>
+      <div class="section-title">Portfolio POH Analysis — Bed/Bath Mix &amp; Rent Distribution <span style="font-size:9px; color:#A78BFA; font-weight:400;">(196 Homes incl. 50 SVE)</span></div>
       <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
             <th>Configuration</th>
-            <th style="text-align:right;">Count</th>
+            <th style="text-align:right;">Community</th>
+            <th style="text-align:right;">SVE</th>
+            <th style="text-align:right;">Total</th>
             <th style="text-align:right;">% of Fleet</th>
             <th style="text-align:right;">Avg Rent</th>
-            <th style="text-align:right;">Min Rent</th>
-            <th style="text-align:right;">Max Rent</th>
+            <th style="text-align:right;">Min</th>
+            <th style="text-align:right;">Max</th>
             <th>Notes</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><b>2BD/1BA</b></td><td style="text-align:right;">11</td><td style="text-align:right;">7.5%</td><td style="text-align:right;">$427</td><td style="text-align:right;">$240</td><td style="text-align:right;">$596</td><td class="dim">Mostly 14x52–14x60, older singles</td></tr>
-          <tr><td><b>2BD/2BA</b></td><td style="text-align:right;">6</td><td style="text-align:right;">4.1%</td><td style="text-align:right;">$544</td><td style="text-align:right;">$395</td><td style="text-align:right;">$760</td><td class="dim">16x56 Legacy units (newer)</td></tr>
-          <tr><td><b>3BD/2BA (Single)</b></td><td style="text-align:right;">109</td><td style="text-align:right;">74.7%</td><td style="text-align:right;">$618</td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td class="dim">Core of the fleet — 14x66 to 16x76 <span style="color:#FBBF24; font-size:9px;">⚠ +2 OC units estimated</span></td></tr>
-          <tr><td><b>3BD/2BA (Double)</b></td><td style="text-align:right;">7</td><td style="text-align:right;">4.8%</td><td style="text-align:right;">$529</td><td style="text-align:right;">$246</td><td style="text-align:right;">$745</td><td class="dim">28x40 to 28x58 doublewides (SC only)</td></tr>
-          <tr><td><b>4BD/2BA</b></td><td style="text-align:right;">13</td><td style="text-align:right;">8.9%</td><td style="text-align:right;">$445</td><td style="text-align:right;">$245</td><td style="text-align:right;">$725</td><td class="dim">16x80 singles (mixed vintage)</td></tr>
-          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$587</b></td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td></td></tr>
+          <tr><td><b>2BD/1BA</b></td><td style="text-align:right;">11</td><td style="text-align:right; color:#A78BFA;">+25</td><td style="text-align:right;"><b>36</b></td><td style="text-align:right;">18.4%</td><td style="text-align:right;">$365</td><td style="text-align:right;">$100</td><td style="text-align:right;">$596</td><td class="dim">Community: older singles. SVE BV: 25 Legacy/Tru 2023 ($100–$521)</td></tr>
+          <tr><td><b>2BD/2BA</b></td><td style="text-align:right;">6</td><td style="text-align:right; color:#A78BFA;">+9</td><td style="text-align:right;"><b>15</b></td><td style="text-align:right;">7.7%</td><td style="text-align:right;">$544</td><td style="text-align:right;">$395</td><td style="text-align:right;">$760</td><td class="dim">Community: 16x56 Legacy. SVE FH: 9 vacant Legacy 2018–2022 ($0)</td></tr>
+          <tr><td><b>3BD/2BA (Single)</b></td><td style="text-align:right;">109</td><td style="text-align:right; color:#A78BFA;">+15</td><td style="text-align:right;"><b>124</b></td><td style="text-align:right;">63.3%</td><td style="text-align:right;">$618</td><td style="text-align:right;">$195</td><td style="text-align:right;">$820</td><td class="dim">Core of the fleet. SVE FH: 15 vacant Champion/Legacy 2018–2021 ($0)</td></tr>
+          <tr><td><b>3BD/2BA (Double)</b></td><td style="text-align:right;">7</td><td style="text-align:right; color:#A78BFA;">—</td><td style="text-align:right;"><b>7</b></td><td style="text-align:right;">3.6%</td><td style="text-align:right;">$529</td><td style="text-align:right;">$246</td><td style="text-align:right;">$745</td><td class="dim">28x40 to 28x58 doublewides (SC only)</td></tr>
+          <tr><td><b>4BD/2BA</b></td><td style="text-align:right;">13</td><td style="text-align:right; color:#A78BFA;">+1</td><td style="text-align:right;"><b>14</b></td><td style="text-align:right;">7.1%</td><td style="text-align:right;">$445</td><td style="text-align:right;">$245</td><td style="text-align:right;">$725</td><td class="dim">16x80 singles. SVE FH: FH-97 vacant Legacy 2018 ($0)</td></tr>
+          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right; color:#A78BFA;"><b>+50</b></td><td style="text-align:right;"><b>196</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$491</b></td><td style="text-align:right;">$100</td><td style="text-align:right;">$820</td><td class="dim">SVE FH 25 homes at $0 (all vacant) pulls avg down</td></tr>
         </tbody>
       </table>
       </div>
     </div>
 
     <div class="section" style="margin-bottom:14px;">
-      <div class="section-title">POH Age Distribution &amp; Condition Risk</div>
+      <div class="section-title">POH Age Distribution &amp; Condition Risk <span style="font-size:9px; color:#A78BFA; font-weight:400;">(196 Homes incl. 50 SVE)</span></div>
       <div class="scroll-wrap">
       <table class="data-table">
         <thead>
           <tr>
             <th>Vintage Tier</th>
-            <th style="text-align:right;">Count</th>
+            <th style="text-align:right;">Community</th>
+            <th style="text-align:right;">SVE</th>
+            <th style="text-align:right;">Total</th>
             <th style="text-align:right;">% of Fleet</th>
             <th style="text-align:right;">Avg Rent</th>
             <th>Condition Risk</th>
@@ -6005,18 +6018,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td><b>2020–2022</b> (Newest)</td><td style="text-align:right;">55</td><td style="text-align:right;">38.2%</td><td style="text-align:right;">$739</td><td class="green">Low</td><td class="dim">Standard</td></tr>
-          <tr><td><b>2019</b></td><td style="text-align:right;">3</td><td style="text-align:right;">2.1%</td><td style="text-align:right;">$690</td><td class="green">Low</td><td class="dim">Standard</td></tr>
-          <tr><td><b>2012–2013</b></td><td style="text-align:right;">17</td><td style="text-align:right;">11.8%</td><td style="text-align:right;">$487</td><td class="orange">Medium</td><td class="dim">HVAC, roof check</td></tr>
-          <tr><td><b>2009–2011</b></td><td style="text-align:right;">30</td><td style="text-align:right;">20.8%</td><td style="text-align:right;">$583</td><td class="orange">Medium</td><td class="orange">Priority — 15+ yrs old</td></tr>
-          <tr><td><b>2000–2005</b></td><td style="text-align:right;">22</td><td style="text-align:right;">15.3%</td><td style="text-align:right;">$476</td><td class="red">High</td><td class="red">Critical — 20+ yrs, full inspection</td></tr>
-          <tr><td><b>Pre-2000</b> (Oldest)</td><td style="text-align:right;">17</td><td style="text-align:right;">11.8%</td><td style="text-align:right;">$406</td><td class="red">High</td><td class="red">Critical — roof, skirting, plumbing, HVAC</td></tr>
-          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$587</b></td><td></td><td></td></tr>
+          <tr><td><b>2020–2023</b> (Newest)</td><td style="text-align:right;">55</td><td style="text-align:right; color:#A78BFA;">+35</td><td style="text-align:right;"><b>90</b></td><td style="text-align:right;">45.9%</td><td style="text-align:right;">$604</td><td class="green">Low</td><td class="dim">Standard. SVE: 25 BV (2023) + 3 FH (2022) + 6 FH (2021) + 1 FH (2020)</td></tr>
+          <tr><td><b>2018–2019</b></td><td style="text-align:right;">3</td><td style="text-align:right; color:#A78BFA;">+15</td><td style="text-align:right;"><b>18</b></td><td style="text-align:right;">9.2%</td><td style="text-align:right;">$690</td><td class="green">Low</td><td class="dim">Standard. SVE FH: 12 homes (2018) + 3 homes (2019) — all vacant</td></tr>
+          <tr><td><b>2012–2013</b></td><td style="text-align:right;">17</td><td style="text-align:right; color:#A78BFA;">—</td><td style="text-align:right;"><b>17</b></td><td style="text-align:right;">8.7%</td><td style="text-align:right;">$487</td><td class="orange">Medium</td><td class="dim">HVAC, roof check</td></tr>
+          <tr><td><b>2009–2011</b></td><td style="text-align:right;">30</td><td style="text-align:right; color:#A78BFA;">—</td><td style="text-align:right;"><b>30</b></td><td style="text-align:right;">15.3%</td><td style="text-align:right;">$583</td><td class="orange">Medium</td><td class="orange">Priority — 15+ yrs old</td></tr>
+          <tr><td><b>2000–2005</b></td><td style="text-align:right;">22</td><td style="text-align:right; color:#A78BFA;">—</td><td style="text-align:right;"><b>22</b></td><td style="text-align:right;">11.2%</td><td style="text-align:right;">$476</td><td class="red">High</td><td class="red">Critical — 20+ yrs, full inspection</td></tr>
+          <tr><td><b>Pre-2000</b> (Oldest)</td><td style="text-align:right;">17</td><td style="text-align:right; color:#A78BFA;">—</td><td style="text-align:right;"><b>17</b></td><td style="text-align:right;">8.7%</td><td style="text-align:right;">$406</td><td class="red">High</td><td class="red">Critical — roof, skirting, plumbing, HVAC</td></tr>
+          <tr style="background:rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right; color:#A78BFA;"><b>+50</b></td><td style="text-align:right;"><b>196</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$491</b></td><td></td><td></td></tr>
         </tbody>
       </table>
       </div>
       <div style="font-size:10px; color:#858D99; margin-top:8px; line-height:1.5;">
-        <b style="color:#00E676;">38% of fleet is 2020+ vintage</b> — relatively low maintenance risk. However, <b style="color:#EF4444;">27% of fleet (39 homes) is 20+ years old</b> and should be prioritized for physical inspection. These older homes average $441/mo rent vs $739 for newest, suggesting value-add upside through renovation or replacement. <b style="color:#FBBF24;">Personal Property Schedule received but essentially empty</b> — only lists "Ford Truck, Mower, Snake" with no VINs, locations, or values. Must be completed by seller before closing.
+        <b style="color:#00E676;">46% of fleet (90 homes) is 2020+ vintage</b> — relatively low maintenance risk. SVE adds 35 homes (2020–2023) to the newest tier, improving the overall age profile. However, <b style="color:#EF4444;">20% of fleet (39 homes) is 20+ years old</b> and should be prioritized for physical inspection. These older homes average $441/mo rent vs $604+ for newest, suggesting value-add upside through renovation or replacement. <b style="color:#A78BFA;">All 50 SVE homes are 2018–2023 vintage</b> — no SVE homes are in the high-risk age brackets. <b style="color:#FBBF24;">Personal Property Schedule received but essentially empty</b> — only lists "Ford Truck, Mower, Snake" with no VINs, locations, or values. Must be completed by seller before closing.
       </div>
     </div>
 
@@ -10987,27 +11000,27 @@
         <div class="group-line"></div>
       </div>
 
-      <!-- KPI STRIP -->
+      <!-- KPI STRIP — clickable accordion toggles -->
       <div class="kpi-strip">
         <div class="kpi-card">
           <div class="value green">10</div>
           <div class="label">Done / Resolved</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card action-toggle active" onclick="toggleActionSection('ai-due-week')" style="cursor:pointer;" title="Click to expand/collapse">
           <div class="value red">7</div>
-          <div class="label">Due This Week</div>
+          <div class="label">Due This Week ▾</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-due-next')" style="cursor:pointer;" title="Click to expand/collapse">
           <div class="value orange">23</div>
-          <div class="label">Due Next Week</div>
+          <div class="label">Due Next Week ▸</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-due-later')" style="cursor:pointer;" title="Click to expand/collapse">
           <div class="value white">17</div>
-          <div class="label">Due Later</div>
+          <div class="label">Due Later ▸</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-rent-survey')" style="cursor:pointer;" title="Click to expand/collapse">
           <div class="value" style="color:#8B5CF6;">12</div>
-          <div class="label">Rent Roll / Survey</div>
+          <div class="label">Rent Roll / Survey ▸</div>
         </div>
         <div class="kpi-card">
           <div class="value" style="color:#3B82F6;">67</div>
@@ -11017,6 +11030,7 @@
     </div>
 
     <!-- ======= DUE THIS WEEK (by 4/3) ======= -->
+    <div id="ai-due-week" class="action-section" style="display:block;">
     <div class="group-divider">
       <div class="group-label" style="color:#EF4444;">Due This Week — by 4/3</div>
       <div class="group-line"></div>
@@ -11103,7 +11117,10 @@
       </div>
     </div>
 
+    </div><!-- /ai-due-week -->
+
     <!-- ======= DUE NEXT WEEK (by 4/7) ======= -->
+    <div id="ai-due-next" class="action-section" style="display:none;">
     <div class="group-divider">
       <div class="group-label" style="color:#F59E0B;">Due Next Week — by 4/7</div>
       <div class="group-line"></div>
@@ -11323,7 +11340,10 @@
       </div>
     </div>
 
+    </div><!-- /ai-due-next -->
+
     <!-- ======= DUE WEEKS 2-3 (by 4/15) ======= -->
+    <div id="ai-due-later" class="action-section" style="display:none;">
     <div class="group-divider">
       <div class="group-label" style="color:#3B82F6;">Due Weeks 2–3 — by 4/15</div>
       <div class="group-line"></div>
@@ -11568,7 +11588,10 @@
       </table>
     </div>
 
+    </div><!-- /ai-due-later -->
+
     <!-- ======= RENT ROLL & SURVEY ACTION ITEMS (NEW) ======= -->
+    <div id="ai-rent-survey" class="action-section" style="display:none;">
     <div class="group-divider">
       <div class="group-label" style="color:#8B5CF6;">Rent Roll, Phase 1 &amp; Survey Action Items (NEW)</div>
       <div class="group-line"></div>
@@ -11675,6 +11698,8 @@
       </table>
       </div>
     </div>
+
+    </div><!-- /ai-rent-survey -->
 
   </div>
 
@@ -18576,6 +18601,36 @@ setInterval(updateCountdown, 60000);
     _autoInterval = setInterval(function() { applyTheme('auto'); }, 60000);
   }
 })();
+
+// Action Items accordion toggle
+function toggleActionSection(id) {
+  var section = document.getElementById(id);
+  if (!section) return;
+  var isOpen = section.style.display !== 'none';
+  // Close all action sections
+  var all = document.querySelectorAll('.action-section');
+  for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
+  // Deactivate all toggle cards
+  var cards = document.querySelectorAll('.action-toggle');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].classList.remove('active');
+    var lbl = cards[i].querySelector('.label');
+    if (lbl) lbl.textContent = lbl.textContent.replace('▾','▸');
+  }
+  // If was closed, open it; if was open, leave all closed
+  if (!isOpen) {
+    section.style.display = 'block';
+    // Find and activate the matching card
+    var card = document.querySelector('.action-toggle[onclick*="' + id + '"]');
+    if (card) {
+      card.classList.add('active');
+      var lbl = card.querySelector('.label');
+      if (lbl) lbl.textContent = lbl.textContent.replace('▸','▾');
+    }
+    // Smooth scroll to section
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 </script>
 </body>
