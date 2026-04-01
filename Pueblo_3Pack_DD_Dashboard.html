@@ -202,6 +202,23 @@
   .light-theme .dock-btn.active { color: var(--accent) !important; }
   .light-theme .dock-label { color: var(--text-muted) !important; }
 
+  /* Nav tiles (Start Here) */
+  .light-theme .nav-tile {
+    background: var(--bg-card) !important;
+    border-color: var(--border-subtle) !important;
+  }
+  .light-theme .nav-tile:hover {
+    border-color: rgba(37,99,235,0.3) !important;
+    background: rgba(37,99,235,0.04) !important;
+  }
+  .light-theme .nav-tile-name { color: var(--text-primary) !important; }
+  .light-theme .nav-tile-desc { color: var(--text-muted) !important; }
+  .light-theme .badge-green { background: rgba(22,163,74,0.12) !important; color: #15803D !important; }
+  .light-theme .badge-orange { background: rgba(217,119,6,0.12) !important; color: #B45309 !important; }
+  .light-theme .badge-red { background: rgba(220,38,38,0.12) !important; color: #DC2626 !important; }
+  .light-theme .badge-blue { background: rgba(37,99,235,0.10) !important; color: #2563EB !important; }
+  .light-theme .badge-dim { background: rgba(107,114,128,0.12) !important; color: #6B7280 !important; }
+
   /* Breadcrumb bar */
   .light-theme .breadcrumb-bar {
     background: rgba(243,244,246,0.95) !important;
@@ -520,8 +537,9 @@
   }
   .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(59,130,246,0.2); }
 
-  .group-divider { display: flex; align-items: center; gap: 14px; margin: 28px 0 16px 0;
+  .group-divider { display: flex; align-items: center; gap: 10px; margin: 28px 0 16px 0;
     position: sticky; top: 32px; z-index: 99; background: #0A0E1A; padding: 10px 0 10px 0;
+    min-height: 36px;
   }
   .group-divider .group-label { font-size: 14px; font-weight: 800; color: #3B82F6; text-transform: uppercase; letter-spacing: 2.5px; white-space: nowrap; }
   .group-divider .group-label a { pointer-events: none; color: inherit !important; text-decoration: none !important; cursor: default; }
@@ -723,10 +741,10 @@
   .float-nav:hover .tab-indicator { opacity: 1; }
 
   /* Group Divider with Collapsible Indicator */
-  .group-divider { cursor: pointer; user-select: none; }
+  .group-divider[data-collapsible-id] { cursor: pointer; user-select: none; }
   .group-divider .chevron {
-    display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center;
-    margin-right: 8px; font-size: 13px; color: #3B82F6; transition: transform 0.2s;
+    display: inline-flex; width: 14px; height: 14px; align-items: center; justify-content: center;
+    margin-right: 0; flex-shrink: 0; font-size: 11px; color: #3B82F6; transition: transform 0.2s;
   }
   .group-divider.collapsed .chevron { transform: rotate(-90deg); }
 
@@ -785,7 +803,7 @@
   .qj-search {
     width: 100%; padding: 8px 12px; border-radius: 8px;
     border: 1px solid rgba(59,130,246,0.20); background: rgba(59,130,246,0.06);
-    color: #E5E9ED; font-size: 12px; font-family: 'Inter', sans-serif;
+    color: #E5E9ED; font-size: 16px; font-family: 'Inter', sans-serif;
     outline: none; transition: border-color 0.15s;
   }
   .qj-search::placeholder { color: #5A6270; }
@@ -1970,10 +1988,10 @@
 
   /* ===== START HERE NAV GRID ===== */
   .nav-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;
   }
   .nav-tile {
-    background: #111827; border-radius: 10px; padding: 12px 14px;
+    background: #111827; border-radius: 10px; padding: 16px 18px;
     border: 1px solid rgba(59,130,246,0.10); cursor: pointer;
     transition: all 0.2s ease; text-decoration: none; display: block;
   }
@@ -1982,13 +2000,13 @@
     transform: translateY(-1px); box-shadow: 0 2px 12px rgba(59,130,246,0.10);
   }
   .nav-tile-header {
-    display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
   }
   .nav-tile-name {
-    font-size: 11px; font-weight: 700; color: #E5E9ED; letter-spacing: 0.3px;
+    font-size: 15px; font-weight: 700; color: #E5E9ED; letter-spacing: 0.3px;
   }
   .nav-tile-badge {
-    font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+    font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 4px;
     text-transform: uppercase; letter-spacing: 0.5px;
   }
   .badge-green { background: rgba(0,230,118,0.15); color: #00E676; }
@@ -1997,12 +2015,13 @@
   .badge-blue { background: rgba(59,130,246,0.15); color: #3B82F6; }
   .badge-dim { background: rgba(133,141,153,0.15); color: #858D99; }
   .nav-tile-desc {
-    font-size: 9px; color: #858D99; line-height: 1.4; margin-top: 2px;
+    font-size: 11px; color: #858D99; line-height: 1.5; margin-top: 4px;
   }
   @media (max-width: 768px) {
-    .nav-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-    .nav-tile { padding: 10px 12px; }
-    .nav-tile-name { font-size: 10px; }
+    .nav-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .nav-tile { padding: 14px 14px; }
+    .nav-tile-name { font-size: 14px; }
+    .nav-tile-desc { font-size: 10px; }
   }
   @media (max-width: 480px) {
     .nav-grid { grid-template-columns: 1fr; }
@@ -2426,136 +2445,7 @@
   <!-- ============================= PAGE 1: EXECUTIVE SUMMARY ============================= -->
   <div class="tab-content" id="tab-page1">
 
-    <!-- START HERE: NAVIGATION HUB -->
-    <div style="margin-bottom:18px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-        <div>
-          <div style="font-size:13px; font-weight:800; color:#3B82F6; letter-spacing:0.5px;">START HERE</div>
-          <div style="font-size:10px; color:#858D99; margin-top:2px;">Jump to any workstream. Status updated as of 3/31/2026.</div>
-        </div>
-        <div style="font-size:9px; color:#858D99; background:rgba(59,130,246,0.06); padding:4px 10px; border-radius:6px; border:1px solid rgba(59,130,246,0.10);">18 tabs &bull; 13,000+ lines</div>
-      </div>
-
-      <!-- ROW 1: DEAL MANAGEMENT -->
-      <div style="font-size:8px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px; margin-top:4px;">Deal Management</div>
-      <div class="nav-grid" style="margin-bottom:12px;">
-        <div class="nav-tile" onclick="goToTabByPage(13)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Deal Status</span><span class="nav-tile-badge badge-blue">Active</span></div>
-          <div class="nav-tile-desc">PSA tracker, data room status, deliverable checklist, document links</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(11)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Action Items</span><span class="nav-tile-badge badge-red">58 items</span></div>
-          <div class="nav-tile-desc">Master task list by week &mdash; DD requests, follow-ups, deadlines</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(4)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Red Flags &amp; Risks</span><span class="nav-tile-badge badge-red">4 critical</span></div>
-          <div class="nav-tile-desc">CMBS assumption, POH liens, title gaps, zoning nonconformity</div>
-        </div>
-      </div>
-
-      <!-- ROW 2: FINANCIAL ANALYSIS -->
-      <div style="font-size:8px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Financial Analysis</div>
-      <div class="nav-grid" style="margin-bottom:12px;">
-        <div class="nav-tile" onclick="goToTabByPage(3)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Financials</span><span class="nav-tile-badge badge-green">Complete</span></div>
-          <div class="nav-tile-desc">T12 P&amp;L, operating margins, seller budgets, expense analysis</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(6)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Underwriting</span><span class="nav-tile-badge badge-green">Complete</span></div>
-          <div class="nav-tile-desc">Model assumptions, returns, sensitivity, cap rate analysis</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(16)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Projections</span><span class="nav-tile-badge badge-blue">In Model</span></div>
-          <div class="nav-tile-desc">5-year pro forma, rent growth, occupancy ramp, NOI forecast</div>
-        </div>
-      </div>
-
-      <!-- ROW 3: PROPERTY & OPERATIONS -->
-      <div style="font-size:8px; font-weight:700; color:#F59E0B; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Property &amp; Operations</div>
-      <div class="nav-grid" style="margin-bottom:12px;">
-        <div class="nav-tile" onclick="goToTabByPage(12)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Tenants</span><span class="nav-tile-badge badge-green">Received</span></div>
-          <div class="nav-tile-desc">Rent roll, occupancy by property, lease audit, security deposits</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(7)">
-          <div class="nav-tile-header"><span class="nav-tile-name">POH (146 Homes)</span><span class="nav-tile-badge badge-orange">Liens Open</span></div>
-          <div class="nav-tile-desc">Title verification, bed/bath mix, age distribution, lien analysis</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(10)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Utilities</span><span class="nav-tile-badge badge-green">Analyzed</span></div>
-          <div class="nav-tile-desc">$485K T12 across 5 types, provider directory, red flags, RUBS</div>
-        </div>
-      </div>
-
-      <!-- ROW 4: DEBT, CAPEX, MARKET -->
-      <div style="font-size:8px; font-weight:700; color:#8B5CF6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Debt, CapEx &amp; Market</div>
-      <div class="nav-grid" style="margin-bottom:12px;">
-        <div class="nav-tile" onclick="goToTabByPage(15)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Debt / CMBS</span><span class="nav-tile-badge badge-orange">Forms Rec'd</span></div>
-          <div class="nav-tile-desc">$21.9M loan, Midland assumption checklists, covenants, guarantor</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(21)">
-          <div class="nav-tile-header"><span class="nav-tile-name">CapEx</span><span class="nav-tile-badge badge-red">Data Gap</span></div>
-          <div class="nav-tile-desc">PCA findings, Year 1 budget, 5-year plan, site visit checklists</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(17)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Market</span><span class="nav-tile-badge badge-green">Complete</span></div>
-          <div class="nav-tile-desc">Pueblo MSA, demographics, rent comps, supply/demand</div>
-        </div>
-      </div>
-
-      <!-- ROW 5: CLOSING & PRESENTATION -->
-      <div style="font-size:8px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">Site Visit, Closing &amp; Presentation</div>
-      <div class="nav-grid">
-        <div class="nav-tile" onclick="goToTabByPage(9)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Site Visit</span><span class="nav-tile-badge badge-dim">Not Scheduled</span></div>
-          <div class="nav-tile-desc">Inspection checklists, PCA walkthrough, photo requirements</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(14)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Photos</span><span class="nav-tile-badge badge-blue">Satellite</span></div>
-          <div class="nav-tile-desc">Property maps, aerial views, lot layouts</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(20)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Value Add</span><span class="nav-tile-badge badge-blue">Planned</span></div>
-          <div class="nav-tile-desc">Revenue initiatives, RUBS, rent bumps, infill, expense savings</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(8)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Ops Handoff</span><span class="nav-tile-badge badge-dim">Pre-Close</span></div>
-          <div class="nav-tile-desc">90-day transition plan, vendor transfers, staffing, systems</div>
-        </div>
-        <div class="nav-tile" onclick="goToTabByPage(5)">
-          <div class="nav-tile-header"><span class="nav-tile-name">Investor Deck</span><span class="nav-tile-badge badge-orange">Pending</span></div>
-          <div class="nav-tile-desc">LP presentation, deal summary, returns, risk factors</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ORIGINAL OVERVIEW CONTENT BELOW -->
-    <div class="group-divider">
-      <div class="group-label">Portfolio Overview</div>
-      <div class="group-line"></div>
-    </div>
-
-    <div class="hero-row">
-      <div class="hero-card">
-        <div class="hero-label">DD Completion</div>
-        <div class="hero-val green">67%</div>
-        <div class="hero-sub">18 of 27 deliverables received</div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-label">Files in Data Room</div>
-        <div class="hero-val white">370+</div>
-        <div class="hero-sub">Across 22 categories (A–V)</div>
-      </div>
-      <div class="takeaway">
-        <div class="takeaway-title">Status Overview</div>
-        <div class="takeaway-body">
-          <b><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA executed 3/20/2026.</a></b> Earnest money ($350K) fully deposited. Seller's data room contains <b>370+ documents</b> across 22 categories. Key items received: rent rolls, T12 P&Ls, 12 months bank statements, 2 years property taxes, 37 executed leases, 217 utility bills, ALTA surveys, Phase 1s, PCAs, site maps, insurance policies, personal property inventory, <span class="orange">POH titles (155 received for 146 POH / 131 matched — 15 units missing titles)</span>, <span class="green">zoning reports (3)</span>, <span class="green">vendor listing (160+ vendors)</span>, <span class="green">delinquency report (4.74%)</span>, <span class="red">OE CapEx records (REMOVED — wrong community)</span>. <b>Remaining gaps:</b> <span class="red">15 POH units missing titles (SC: 12, OC: 3)</span>, 6 categories still empty — Rent Manager export, MPOP registration, OTP compliance docs, litigation/code violations, permits, <b>Critical findings:</b> $1.1M+ active chattel liens on POH fleet (Legacy Housing past due, 21st Mortgage $979K, Clayton B&amp;T $3M released). SC zoning is Legal Nonconforming (12-mo abandonment rule). <b>CMBS loan assumption</b> ($21.9M at 6.45% fixed via German American Capital / Midland / PNC) &mdash; loan docs received 3/28. Key flags: 3% management fee cap, lockbox trigger at 1.15x DSCR, guarantor replacement required.
-        </div>
-      </div>
-    </div>
-
-    <!-- DD PROGRESS PIPELINE -->
+    <!-- DD PROGRESS PIPELINE (very top of Overview) -->
     <div class="dd-pipeline">
       <div class="dd-pipeline-title">Due Diligence Pipeline</div>
       <div class="dd-pipeline-track">
@@ -2603,63 +2493,190 @@
       </div>
     </div>
 
-    <!-- PROPERTY SUMMARY -->
+    <!-- PROPERTY SUMMARY CARDS (no category header, equal height) -->
+    <div class="tiles-grid-3" style="align-items:stretch; margin-bottom:18px;">
+      <div class="section" style="display:flex; flex-direction:column; height:100%;">
+        <div class="section-title">Sunset Vista</div>
+        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 Red Creek Springs Rd</a></div>
+        <table class="prop-table" style="flex:1;">
+          <tr><td class="dim" style="white-space:nowrap;">Lots</td><td>206</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Occupancy</td><td class="orange">86.4% (178/206)</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">POH Count</td><td>101</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Lot Rent</td><td>$654/mo</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">T12 Revenue</td><td>$1.5M</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">T12 NOI</td><td>$956.4K</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Allocated Price</td><td>$19.5M</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Year Built</td><td>1973</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Phase 1</td><td class="green">Clean</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">PCA</td><td class="orange">$8.9K immediate</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Zoning</td><td class="orange">HR — Nonconforming</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Acreage</td><td>29.6 ac</td></tr>
+        </table>
+      </div>
+      <div class="section" style="display:flex; flex-direction:column; height:100%;">
+        <div class="section-title">Oasis</div>
+        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave</a></div>
+        <table class="prop-table" style="flex:1;">
+          <tr><td class="dim" style="white-space:nowrap;">Lots</td><td>161</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Occupancy</td><td class="green">95.0% (153/161)</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">POH Count</td><td>38</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Lot Rent</td><td>$615/mo</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">T12 Revenue</td><td>$1.1M</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">T12 NOI</td><td>$867.4K</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Allocated Price</td><td>$16.2M</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Year Built</td><td>1970</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Phase 1</td><td class="green">Clean</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">PCA</td><td class="red">$43.6K immediate</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Zoning</td><td class="green">R7 — Permitted</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Acreage</td><td>20.5 ac</td></tr>
+        </table>
+      </div>
+      <div class="section" style="display:flex; flex-direction:column; height:100%;">
+        <div class="section-title">La Vista</div>
+        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr</a></div>
+        <table class="prop-table" style="flex:1;">
+          <tr><td class="dim" style="white-space:nowrap;">Lots</td><td>32</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Occupancy</td><td class="green">90.6% (29/32)</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">POH Count</td><td>7</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Lot Rent</td><td>$572/mo</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">T12 Revenue</td><td>$237.0K</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">T12 NOI</td><td>$131.2K</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Allocated Price</td><td>$2.5M</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Year Built</td><td>1979</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Phase 1</td><td class="green">Clean</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">PCA</td><td class="green">$0 immediate</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Zoning</td><td class="green">R7 — Permitted</td></tr>
+          <tr><td class="dim" style="white-space:nowrap;">Acreage</td><td>6.25 ac</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- START HERE: NAVIGATION HUB -->
+    <div style="margin-bottom:18px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <div>
+          <div style="font-size:15px; font-weight:800; color:#3B82F6; letter-spacing:0.5px;">START HERE</div>
+          <div style="font-size:11px; color:#858D99; margin-top:2px;">Jump to any workstream. Status updated as of 3/31/2026.</div>
+        </div>
+        <div style="font-size:10px; color:#858D99; background:rgba(59,130,246,0.06); padding:5px 12px; border-radius:6px; border:1px solid rgba(59,130,246,0.10);">18 tabs &bull; 13,000+ lines</div>
+      </div>
+
+      <!-- ROW 1: DEAL MANAGEMENT -->
+      <div style="font-size:10px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; margin-top:6px;">Deal Management</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(13)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Deal Status</span><span class="nav-tile-badge badge-blue">Active</span></div>
+          <div class="nav-tile-desc">PSA tracker, data room status, deliverable checklist, document links</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(11)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Action Items</span><span class="nav-tile-badge badge-red">58 items</span></div>
+          <div class="nav-tile-desc">Master task list by week &mdash; DD requests, follow-ups, deadlines</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(4)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Red Flags &amp; Risks</span><span class="nav-tile-badge badge-red">4 critical</span></div>
+          <div class="nav-tile-desc">CMBS assumption, POH liens, title gaps, zoning nonconformity</div>
+        </div>
+      </div>
+
+      <!-- ROW 2: FINANCIAL ANALYSIS -->
+      <div style="font-size:10px; font-weight:700; color:#10B981; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Financial Analysis</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(3)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Financials</span><span class="nav-tile-badge badge-green">Complete</span></div>
+          <div class="nav-tile-desc">T12 P&amp;L, operating margins, seller budgets, expense analysis</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(6)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Underwriting</span><span class="nav-tile-badge badge-green">Complete</span></div>
+          <div class="nav-tile-desc">Model assumptions, returns, sensitivity, cap rate analysis</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(16)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Projections</span><span class="nav-tile-badge badge-blue">In Model</span></div>
+          <div class="nav-tile-desc">5-year pro forma, rent growth, occupancy ramp, NOI forecast</div>
+        </div>
+      </div>
+
+      <!-- ROW 3: PROPERTY & OPERATIONS -->
+      <div style="font-size:10px; font-weight:700; color:#F59E0B; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Property &amp; Operations</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(12)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Tenants</span><span class="nav-tile-badge badge-green">Received</span></div>
+          <div class="nav-tile-desc">Rent roll, occupancy by property, lease audit, security deposits</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(7)">
+          <div class="nav-tile-header"><span class="nav-tile-name">POH (146 Homes)</span><span class="nav-tile-badge badge-orange">Liens Open</span></div>
+          <div class="nav-tile-desc">Title verification, bed/bath mix, age distribution, lien analysis</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(10)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Utilities</span><span class="nav-tile-badge badge-green">Analyzed</span></div>
+          <div class="nav-tile-desc">$485K T12 across 5 types, provider directory, red flags, RUBS</div>
+        </div>
+      </div>
+
+      <!-- ROW 4: DEBT, CAPEX, MARKET -->
+      <div style="font-size:10px; font-weight:700; color:#8B5CF6; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Debt, CapEx &amp; Market</div>
+      <div class="nav-grid" style="margin-bottom:12px;">
+        <div class="nav-tile" onclick="goToTabByPage(15)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Debt / CMBS</span><span class="nav-tile-badge badge-orange">Forms Rec'd</span></div>
+          <div class="nav-tile-desc">$21.9M loan, Midland assumption checklists, covenants, guarantor</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(21)">
+          <div class="nav-tile-header"><span class="nav-tile-name">CapEx</span><span class="nav-tile-badge badge-red">Data Gap</span></div>
+          <div class="nav-tile-desc">PCA findings, Year 1 budget, 5-year plan, site visit checklists</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(17)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Market</span><span class="nav-tile-badge badge-green">Complete</span></div>
+          <div class="nav-tile-desc">Pueblo MSA, demographics, rent comps, supply/demand</div>
+        </div>
+      </div>
+
+      <!-- ROW 5: CLOSING & PRESENTATION -->
+      <div style="font-size:10px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;">Site Visit, Closing &amp; Presentation</div>
+      <div class="nav-grid">
+        <div class="nav-tile" onclick="goToTabByPage(9)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Site Visit</span><span class="nav-tile-badge badge-dim">Not Scheduled</span></div>
+          <div class="nav-tile-desc">Inspection checklists, PCA walkthrough, photo requirements</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(14)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Photos</span><span class="nav-tile-badge badge-blue">Satellite</span></div>
+          <div class="nav-tile-desc">Property maps, aerial views, lot layouts</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(20)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Value Add</span><span class="nav-tile-badge badge-blue">Planned</span></div>
+          <div class="nav-tile-desc">Revenue initiatives, RUBS, rent bumps, infill, expense savings</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(8)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Ops Handoff</span><span class="nav-tile-badge badge-dim">Pre-Close</span></div>
+          <div class="nav-tile-desc">90-day transition plan, vendor transfers, staffing, systems</div>
+        </div>
+        <div class="nav-tile" onclick="goToTabByPage(5)">
+          <div class="nav-tile-header"><span class="nav-tile-name">Investor Deck</span><span class="nav-tile-badge badge-orange">Pending</span></div>
+          <div class="nav-tile-desc">LP presentation, deal summary, returns, risk factors</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORIGINAL OVERVIEW CONTENT BELOW -->
     <div class="group-divider">
-      <div class="group-label">Portfolio Summary</div>
+      <div class="group-label">Portfolio Overview</div>
       <div class="group-line"></div>
     </div>
 
-    <div class="tiles-grid-3">
-      <div class="section">
-        <div class="section-title">Sunset Vista</div>
-        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 Red Creek Springs Rd, Pueblo, CO</a></div>
-        <table class="prop-table">
-          <tr><td class="dim">Lots</td><td>206</td></tr>
-          <tr><td class="dim">Occupancy</td><td class="orange">86.4% (178/206)</td></tr>
-          <tr><td class="dim">POH Count</td><td>101</td></tr>
-          <tr><td class="dim">Lot Rent</td><td>$654/mo</td></tr>
-          <tr><td class="dim">T12 Revenue</td><td>$1.5M</td></tr>
-          <tr><td class="dim">T12 NOI</td><td>$956.4K</td></tr>
-          <tr><td class="dim">Allocated Price</td><td>$19.5M</td></tr>
-          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Phase 1</a></td><td class="green">Clean — No RECs</td></tr>
-          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PCA</a></td><td class="orange">$8.9K immediate</td></tr>
-          <tr><td class="dim">Zoning</td><td class="orange">HR — Legal Nonconforming</td></tr>
-          <tr><td class="dim">Acreage</td><td>29.6 ac (208 pads per PZR)</td></tr>
-        </table>
+    <div class="hero-row">
+      <div class="hero-card">
+        <div class="hero-label">DD Completion</div>
+        <div class="hero-val green">67%</div>
+        <div class="hero-sub">18 of 27 deliverables received</div>
       </div>
-      <div class="section">
-        <div class="section-title">Oasis</div>
-        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave, Pueblo, CO</a></div>
-        <table class="prop-table">
-          <tr><td class="dim">Lots</td><td>161</td></tr>
-          <tr><td class="dim">Occupancy</td><td class="green">95.0% (153/161)</td></tr>
-          <tr><td class="dim">POH Count</td><td>38</td></tr>
-          <tr><td class="dim">Lot Rent</td><td>$615/mo</td></tr>
-          <tr><td class="dim">T12 Revenue</td><td>$1.1M</td></tr>
-          <tr><td class="dim">T12 NOI</td><td>$867.4K</td></tr>
-          <tr><td class="dim">Allocated Price</td><td>$16.2M</td></tr>
-          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Phase 1</a></td><td class="green">Clean — No RECs</td></tr>
-          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PCA</a></td><td class="red">$43.6K immediate</td></tr>
-          <tr><td class="dim">Zoning</td><td class="green">R7 — Permitted by Right</td></tr>
-          <tr><td class="dim">Acreage</td><td>20.5 ac (161 pads per PZR)</td></tr>
-        </table>
+      <div class="hero-card">
+        <div class="hero-label">Files in Data Room</div>
+        <div class="hero-val white">370+</div>
+        <div class="hero-sub">Across 22 categories (A–V)</div>
       </div>
-      <div class="section">
-        <div class="section-title">La Vista</div>
-        <div class="map-address">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr, Pueblo, CO</a></div>
-        <table class="prop-table">
-          <tr><td class="dim">Lots</td><td>32</td></tr>
-          <tr><td class="dim">Occupancy</td><td class="green">90.6% (29/32)</td></tr>
-          <tr><td class="dim">POH Count</td><td>7</td></tr>
-          <tr><td class="dim">Lot Rent</td><td>$572/mo</td></tr>
-          <tr><td class="dim">T12 Revenue</td><td>$237.0K</td></tr>
-          <tr><td class="dim">T12 NOI</td><td>$131.2K</td></tr>
-          <tr><td class="dim">Allocated Price</td><td>$2.5M</td></tr>
-          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">Phase 1</a></td><td class="green">Clean — No RECs</td></tr>
-          <tr><td class="dim"><a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PCA</a></td><td class="green">$0 immediate</td></tr>
-          <tr><td class="dim">Zoning</td><td class="green">R7 — Permitted by Right</td></tr>
-          <tr><td class="dim">Acreage</td><td>6.25 ac (32 pads per PZR)</td></tr>
-        </table>
+      <div class="takeaway">
+        <div class="takeaway-title">Status Overview</div>
+        <div class="takeaway-body">
+          <b><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#E5E9ED; text-decoration:none;">PSA executed 3/20/2026.</a></b> Earnest money ($350K) fully deposited. Seller's data room contains <b>370+ documents</b> across 22 categories. Key items received: rent rolls, T12 P&Ls, 12 months bank statements, 2 years property taxes, 37 executed leases, 217 utility bills, ALTA surveys, Phase 1s, PCAs, site maps, insurance policies, personal property inventory, <span class="orange">POH titles (155 received for 146 POH / 131 matched — 15 units missing titles)</span>, <span class="green">zoning reports (3)</span>, <span class="green">vendor listing (160+ vendors)</span>, <span class="green">delinquency report (4.74%)</span>, <span class="red">OE CapEx records (REMOVED — wrong community)</span>. <b>Remaining gaps:</b> <span class="red">15 POH units missing titles (SC: 12, OC: 3)</span>, 6 categories still empty — Rent Manager export, MPOP registration, OTP compliance docs, litigation/code violations, permits, <b>Critical findings:</b> $1.1M+ active chattel liens on POH fleet (Legacy Housing past due, 21st Mortgage $979K, Clayton B&amp;T $3M released). SC zoning is Legal Nonconforming (12-mo abandonment rule). <b>CMBS loan assumption</b> ($21.9M at 6.45% fixed via German American Capital / Midland / PNC) &mdash; loan docs received 3/28. Key flags: 3% management fee cap, lockbox trigger at 1.15x DSCR, guarantor replacement required.
+        </div>
       </div>
     </div>
 
@@ -2729,6 +2746,18 @@
           <tr><td class="dim">Critical Item</td><td class="red">Oasis roads — $41.1K</td></tr>
           <tr><td class="dim">Planning Item</td><td class="orange">SC roof — $76.6K (7-yr)</td></tr>
         </table>
+      </div>
+    </div>
+
+    <!-- ENVIRONMENTAL DOCUMENT LINKS -->
+    <div class="section" style="margin-bottom:14px; padding:14px 18px;">
+      <div style="font-size:11px; font-weight:700; color:#3B82F6; margin-bottom:10px;">&#128194; Document Links</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:8px;">
+        <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); border-radius:8px; text-decoration:none; font-size:10px; font-weight:600; color:#93B4F8; transition:all 0.2s;">&#128196; Phase 1</a>
+        <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); border-radius:8px; text-decoration:none; font-size:10px; font-weight:600; color:#93B4F8; transition:all 0.2s;">&#128196; PCA Reports</a>
+        <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); border-radius:8px; text-decoration:none; font-size:10px; font-weight:600; color:#93B4F8; transition:all 0.2s;">&#128196; Zoning Reports</a>
+        <a href="https://drive.google.com/drive/folders/1mwsE8dHIf7iVUx8hNufI4GULnG_TK9_q?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); border-radius:8px; text-decoration:none; font-size:10px; font-weight:600; color:#93B4F8; transition:all 0.2s;">&#128196; ALTA Survey</a>
+        <a href="https://drive.google.com/drive/folders/14mUkkfQXNFv1qYEnYzLeJG758Y-qNqyo?usp=drive_link" target="_blank" style="display:flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); border-radius:8px; text-decoration:none; font-size:10px; font-weight:600; color:#93B4F8; transition:all 0.2s;">&#128196; Site Maps</a>
       </div>
     </div>
 
@@ -11548,6 +11577,103 @@
       </table>
     </div>
 
+    <!-- MASTER DD CALENDAR -->
+    <div class="group-divider">
+      <div class="group-label">Master DD Calendar</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div class="section" style="margin-bottom:14px; padding:18px 20px;">
+      <!-- APRIL 2026 -->
+      <div style="font-size:13px; font-weight:800; color:#3B82F6; margin-bottom:12px; text-transform:uppercase; letter-spacing:1px;">April 2026</div>
+      <div class="dd-cal-grid" style="display:grid; grid-template-columns:80px 1fr; gap:0;">
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#3B82F6;">Tue 4/1</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#E5E9ED; margin-bottom:3px;"><b style="color:#3B82F6;">Sunset Vista Final Review</b> &mdash; Zoom 10&ndash;11 AM MDT</div>
+          <div style="font-size:12px; color:#FBBF24; margin-top:3px;">Title Commitments expected from FNF (Grace Wilson)</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#EF4444;">Thu 4/3</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#EF4444; font-weight:700; margin-bottom:3px;">CONTRACTUAL: Seller DD Materials Deadline (PSA &sect;7.1)</div>
+          <div style="font-size:10px; color:#858D99;">10 business days from Effective Date. Also triggers survey delivery (PSA &sect;5).</div>
+          <div style="font-size:12px; color:#EF4444; font-weight:700; margin-top:6px;">CONTRACTUAL: Loan Assumption Application Due (PSA &sect;8.3)</div>
+          <div style="font-size:10px; color:#858D99;">Complete application to Midland/PNC. At Buyer&rsquo;s sole cost.</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#FBBF24;">Fri 4/10</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#FBBF24;">Internal: All remaining seller DD materials received</div>
+          <div style="font-size:12px; color:#FBBF24; margin-top:3px;">Internal: Financial DD deep dive complete (bank recon, T12, lease review)</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#858D99;">~4/20</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#C9CDD3;">Legal &amp; Regulatory Review Complete</div>
+          <div style="font-size:10px; color:#858D99;">Title clear, OTP compliance confirmed, zoning verified.</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#858D99;">~4/28</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#C9CDD3;">DD Approval Package to Investment Committee</div>
+          <div style="font-size:10px; color:#858D99;">Final go/no-go recommendation memo.</div>
+        </div>
+      </div>
+
+      <!-- MAY 2026 -->
+      <div style="font-size:13px; font-weight:800; color:#3B82F6; margin:20px 0 12px; text-transform:uppercase; letter-spacing:1px;">May 2026</div>
+      <div class="dd-cal-grid" style="display:grid; grid-template-columns:80px 1fr; gap:0;">
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#FBBF24;">~5/18</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#FBBF24; font-weight:700;">DD / Inspection Period Expires</div>
+          <div style="font-size:10px; color:#858D99;">45 days from DD Commencement Date (PSA &sect;7.1). Buyer may terminate for any reason before this date.</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#EF4444;">5/19</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#EF4444; font-weight:700;">CONTRACTUAL: Loan Assumption Period Expires (PSA &sect;8.9)</div>
+          <div style="font-size:10px; color:#858D99;">60 days from Effective Date. Must have written Midland/PNC approval by this date or either party may terminate.</div>
+        </div>
+      </div>
+
+      <!-- JULY+ 2026 -->
+      <div style="font-size:13px; font-weight:800; color:#3B82F6; margin:20px 0 12px; text-transform:uppercase; letter-spacing:1px;">July &ndash; September 2026</div>
+      <div class="dd-cal-grid" style="display:grid; grid-template-columns:80px 1fr; gap:0;">
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#00E676;">7/17</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#00E676; font-weight:700;">Earliest Possible Closing Date (PSA &sect;15.1)</div>
+          <div style="font-size:10px; color:#858D99;">120 days from Effective Date. Actual close = later of: 30 days after DD/OTP expiration, or 5 business days after Loan Assumption Period.</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#858D99;">TBD</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#FBBF24;">OTP 120-Day Period Expires</div>
+          <div style="font-size:10px; color:#858D99;">Closing cannot occur before OTP expiration. Must confirm when OTP notices were sent.</div>
+        </div>
+
+        <div class="cal-date" style="padding:10px 0; font-size:13px; font-weight:800; color:#858D99;">TBD</div>
+        <div style="padding:10px 0 10px 14px;">
+          <div style="font-size:12px; color:#00E676; font-weight:700;">TARGET CLOSE &mdash; Est. July&ndash;Sept 2026</div>
+          <div style="font-size:10px; color:#858D99;">Extension available for $50K non-refundable deposit (15-day). Ultimate termination: 3/20/2027.</div>
+        </div>
+      </div>
+
+      <!-- UNSCHEDULED -->
+      <div style="font-size:13px; font-weight:800; color:#FBBF24; margin:20px 0 12px; text-transform:uppercase; letter-spacing:1px;">Unscheduled</div>
+      <div class="dd-cal-grid" style="display:grid; grid-template-columns:80px 1fr; gap:0;">
+        <div class="cal-date" style="padding:10px 0; border-bottom:1px solid rgba(59,130,246,0.08); font-size:13px; font-weight:800; color:#FBBF24;">TBD</div>
+        <div style="padding:10px 0 10px 14px; border-bottom:1px solid rgba(59,130,246,0.08);">
+          <div style="font-size:12px; color:#FBBF24; font-weight:700;">Site Visit &mdash; All 3 Properties</div>
+          <div style="font-size:10px; color:#858D99;">Physical inspection, POH assessment. Seller prefers Mon&ndash;Wed. Coordinate with Jeff and team.</div>
+        </div>
+        <div class="cal-date" style="padding:10px 0; font-size:13px; font-weight:800; color:#FBBF24;">TBD</div>
+        <div style="padding:10px 0 10px 14px;">
+          <div style="font-size:12px; color:#FBBF24;">Investor Package / Capital Raise Launch</div>
+          <div style="font-size:10px; color:#858D99;">Pending DD completion and IC approval.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- RECENT COMMUNICATIONS -->
     <div class="group-divider">
       <div class="group-label">Recent Communications</div>
@@ -11603,77 +11729,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <!-- PROPERTY COMPARISON MATRIX -->
-    <div class="group-divider">
-      <div class="group-label">Property Comparison Matrix</div>
-      <div class="group-line"></div>
-    </div>
-    <div class="prop-matrix" style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px;">
-      <!-- LA VISTA -->
-      <div class="section" style="border-top:3px solid #00E676;">
-        <div style="font-size:13px; font-weight:800; color:#00E676; margin-bottom:2px;">La Vista</div>
-        <div class="map-address" style="margin-bottom:8px;">&#128205; <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank">3333 Starlite Dr, Pueblo, CO</a></div>
-        <table class="prop-table" style="width:100%;">
-          <tbody>
-            <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
-            <tr><td class="dim">Spaces</td><td><b>97</b></td></tr>
-            <tr><td class="dim">Occupied</td><td><b>87</b></td></tr>
-            <tr><td class="dim">Occupancy</td><td><b class="green">89.7%</b></td></tr>
-            <tr><td class="dim">Avg Lot Rent</td><td><b>$485</b></td></tr>
-            <tr><td class="dim">Market Rent</td><td><b>$550+</b></td></tr>
-            <tr><td class="dim">Rent Upside</td><td><b class="green">~$65/mo</b></td></tr>
-            <tr><td class="dim">POH Count</td><td><b>12</b></td></tr>
-            <tr><td class="dim">Condition</td><td><b class="green">B+</b></td></tr>
-            <tr><td class="dim">Roads</td><td><b class="green">Fair-Good</b></td></tr>
-            <tr><td class="dim">Key Risk</td><td class="dim">Tree overhang</td></tr>
-            <tr><td class="dim">Est. Y1 NOI</td><td><b>$320K</b></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- OASIS -->
-      <div class="section" style="border-top:3px solid #FBBF24;">
-        <div style="font-size:13px; font-weight:800; color:#FBBF24; margin-bottom:2px;">Oasis</div>
-        <div class="map-address" style="margin-bottom:8px;">&#128205; <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank">2221 S Prairie Ave, Pueblo, CO</a></div>
-        <table class="prop-table" style="width:100%;">
-          <tbody>
-            <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
-            <tr><td class="dim">Spaces</td><td><b>50</b></td></tr>
-            <tr><td class="dim">Occupied</td><td><b>39</b></td></tr>
-            <tr><td class="dim">Occupancy</td><td><b class="orange">78.0%</b></td></tr>
-            <tr><td class="dim">Avg Lot Rent</td><td><b>$460</b></td></tr>
-            <tr><td class="dim">Market Rent</td><td><b>$525+</b></td></tr>
-            <tr><td class="dim">Rent Upside</td><td><b class="green">~$65/mo</b></td></tr>
-            <tr><td class="dim">POH Count</td><td><b>8</b></td></tr>
-            <tr><td class="dim">Condition</td><td><b class="orange">C+</b></td></tr>
-            <tr><td class="dim">Roads</td><td><b class="orange">Poor-Fair</b></td></tr>
-            <tr><td class="dim">Key Risk</td><td class="dim">Deferred maint</td></tr>
-            <tr><td class="dim">Est. Y1 NOI</td><td><b>$155K</b></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- SUNSET COURTYARD -->
-      <div class="section" style="border-top:3px solid #EF4444;">
-        <div style="font-size:13px; font-weight:800; color:#EF4444; margin-bottom:2px;">Sunset Courtyard</div>
-        <div class="map-address" style="margin-bottom:8px;">&#128205; <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank">5000 &amp; 5100 Red Creek Springs Rd, Pueblo, CO</a></div>
-        <table class="prop-table" style="width:100%;">
-          <tbody>
-            <tr><td class="dim">Type</td><td><b>MHC</b></td></tr>
-            <tr><td class="dim">Spaces</td><td><b>61</b></td></tr>
-            <tr><td class="dim">Occupied</td><td><b>52</b></td></tr>
-            <tr><td class="dim">Occupancy</td><td><b class="orange">85.2%</b></td></tr>
-            <tr><td class="dim">Avg Lot Rent</td><td><b>$475</b></td></tr>
-            <tr><td class="dim">Market Rent</td><td><b>$540+</b></td></tr>
-            <tr><td class="dim">Rent Upside</td><td><b class="green">~$65/mo</b></td></tr>
-            <tr><td class="dim">POH Count</td><td><b>6</b></td></tr>
-            <tr><td class="dim">Condition</td><td><b class="red">C</b></td></tr>
-            <tr><td class="dim">Roads</td><td><b class="red">Poor</b></td></tr>
-            <tr><td class="dim">Key Risk</td><td class="dim">Road/drainage</td></tr>
-            <tr><td class="dim">Est. Y1 NOI</td><td><b>$195K</b></td></tr>
-          </tbody>
-        </table>
-      </div>
     </div>
 
     <!-- CMBS ASSUMPTION TRACKER -->
@@ -13557,7 +13612,7 @@
     <button class="qj-close" onclick="closeQuickJump()" aria-label="Close">&times;</button>
   </div>
   <div class="qj-search-wrap">
-    <input class="qj-search" id="qjSearch" type="text" placeholder="Search tabs, sections, drive docs..." autocomplete="off">
+    <input class="qj-search" id="qjSearch" type="text" placeholder="Search tabs, drive docs..." autocomplete="off">
   </div>
   <div class="qj-list" id="qjList"></div>
 </div>
@@ -13593,9 +13648,6 @@
   </button>
   <button class="dock-btn" onclick="goToTabByPage(9)" aria-label="Site Visit">
     <span class="dock-icon">🏠</span><span class="dock-label">Site Visit</span>
-  </button>
-  <button class="dock-btn" onclick="goToTabByPage(21)" aria-label="CapEx">
-    <span class="dock-icon">🔧</span><span class="dock-label">CapEx</span>
   </button>
 </div>
 
@@ -14148,35 +14200,12 @@ setInterval(updateCountdown, 60000);
       list.appendChild(wrapper);
     });
 
-    // When searching, also show matching sections and drive docs
+    // When searching, also show matching drive docs
     if (query && query.length >= 2) {
-      // Matching sections
-      var matchedSections = _searchIndex.sections.filter(function(s) {
-        return s.textLower.indexOf(query) !== -1;
-      });
       // Matching drive docs
       var matchedDocs = _searchIndex.driveDocs.filter(function(d) {
         return d.labelLower.indexOf(query) !== -1;
       });
-
-      if (matchedSections.length > 0) {
-        var secHeader = document.createElement('div');
-        secHeader.className = 'qj-search-group-header';
-        secHeader.textContent = 'Sections';
-        list.appendChild(secHeader);
-
-        matchedSections.forEach(function(sec) {
-          var item = document.createElement('div');
-          item.className = 'qj-search-result';
-          item.innerHTML = '<span class="qj-sr-icon">\u00A7</span>' +
-            '<span class="qj-sr-label">' + sec.text + '</span>' +
-            '<span class="qj-sr-tab">' + sec.tabName + '</span>';
-          item.onclick = function() {
-            goToSection(sec.page, sec.divider);
-          };
-          list.appendChild(item);
-        });
-      }
 
       if (matchedDocs.length > 0) {
         var docHeader = document.createElement('div');
@@ -14198,7 +14227,7 @@ setInterval(updateCountdown, 60000);
         });
       }
 
-      if (filtered.length === 0 && matchedSections.length === 0 && matchedDocs.length === 0) {
+      if (filtered.length === 0 && matchedDocs.length === 0) {
         var empty = document.createElement('div');
         empty.style.cssText = 'padding:20px 16px; font-size:12px; color:#5A6270; text-align:center;';
         empty.textContent = 'No results found';
@@ -14237,6 +14266,17 @@ setInterval(updateCountdown, 60000);
     if (sidebar) sidebar.classList.remove('open');
     if (overlay) overlay.classList.remove('open');
     hideSubPanel();
+    // Blur search input to dismiss mobile keyboard and reset zoom
+    var search = document.getElementById('qjSearch');
+    if (search) search.blur();
+    // Force viewport reset on iOS
+    var vp = document.querySelector('meta[name="viewport"]');
+    if (vp) {
+      vp.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
+      setTimeout(function() {
+        vp.setAttribute('content', 'width=device-width, initial-scale=1.0');
+      }, 100);
+    }
   };
 
   // Search filter
