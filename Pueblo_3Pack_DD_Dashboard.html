@@ -425,6 +425,76 @@
   .light-theme .theme-toggle button.active {
     background: rgba(37,99,235,0.12); color: #2563EB;
   }
+  /* SVE Homes cards */
+  .card {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  /* Light theme: SVE Homes section */
+  .light-theme .card {
+    background: var(--bg-card) !important;
+    border-color: var(--border-subtle) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .light-theme div[style*="color:#A78BFA"],
+  .light-theme span[style*="color:#A78BFA"],
+  .light-theme td[style*="color:#A78BFA"] { color: #6D28D9 !important; }
+  .light-theme div[style*="border-color:#A78BFA"] { border-color: #7C3AED !important; }
+  .light-theme div[style*="border-left:3px solid #A78BFA"] { border-left-color: #7C3AED !important; }
+
+  /* SVE BD/BA breakdown card inner backgrounds */
+  .light-theme div[style*="background:#0D1117"] { background: #F3F4F6 !important; border-color: #D1D5DB !important; }
+
+  /* SVE table row backgrounds */
+  .light-theme tr[style*="background:#1A1D24"],
+  .light-theme td[style*="background:#1A1D24"] { background: #F9FAFB !important; }
+  .light-theme tr[style*="background:#1E2128"],
+  .light-theme td[style*="background:#1E2128"],
+  .light-theme thead tr[style*="background:#1E2128"] { background: #F3F4F6 !important; }
+  .light-theme tr[style*="border-bottom:1px solid #1E2128"] { border-color: #E5E7EB !important; }
+  .light-theme tr[style*="border-bottom:1px solid #2A2F38"] { border-color: #D1D5DB !important; }
+  .light-theme td[style*="border-bottom:1px solid #2A2F38"],
+  .light-theme th[style*="border-bottom:1px solid #2A2F38"] { border-color: #D1D5DB !important; }
+  .light-theme div[style*="border-bottom:1px solid #2A2F38"] { border-color: #D1D5DB !important; }
+  .light-theme tr[style*="border-top:2px solid #A78BFA"] { border-color: #7C3AED !important; }
+
+  /* SVE badge pill overrides */
+  .light-theme span[style*="background:#064E3B"] { background: rgba(22,163,74,0.12) !important; color: #15803D !important; }
+  .light-theme span[style*="background:#7F1D1D"] { background: rgba(220,38,38,0.12) !important; color: #DC2626 !important; }
+  .light-theme span[style*="background:#374151"] { background: rgba(107,114,128,0.12) !important; color: #6B7280 !important; }
+
+  /* SVE inline text colors for light mode */
+  .light-theme td[style*="color:#8B95A5"] { color: #6B7280 !important; }
+  .light-theme sup[style*="color:#FBBF24"] { color: #B45309 !important; }
+
+  /* Utility infrastructure boxes (Property Overview) */
+  .util-box {
+    background: #111827;
+    border-radius: 8px;
+    padding: 12px 16px;
+    border-left: 3px solid #00E676;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .util-box:hover { background: #1a2332; }
+  .util-title { font-size: 12px; font-weight: 700; color: #E5E9ED; }
+  .util-sub { font-size: 10px; color: #858D99; }
+
+  .light-theme .util-box {
+    background: var(--bg-card) !important;
+    border-color: var(--border-subtle);
+    border-left: 3px solid var(--green) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .light-theme .util-box:hover { background: #F3F4F6 !important; }
+  .light-theme .util-title { color: var(--text-primary) !important; }
+  .light-theme .util-sub { color: var(--text-muted) !important; }
+
+  /* Property Overview table header fix for light mode */
+  .light-theme th[style*="color:#858D99"] { color: #4B5563 !important; }
   /* ===== END THEME ===== */
 
   .page { max-width: 100%; margin: 0 auto; overflow-x: hidden; padding: 0 12px; }
@@ -3091,6 +3161,91 @@
       </div>
     </div>
 
+    <!-- 3b. PROPERTY OVERVIEW TABLE — STATIC -->
+    <div style="margin-bottom:20px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; padding:0 4px;">
+        <div>
+          <div style="font-size:16px; font-weight:800; color:#E5E9ED;">Property Overview</div>
+          <div style="font-size:10px; color:#858D99; margin-top:2px;">Sunset Vista Estates Portfolio &nbsp;|&nbsp; Pueblo, CO &nbsp;|&nbsp; Pueblo County</div>
+        </div>
+        <div style="font-size:10px; font-weight:700; color:#858D99; text-transform:uppercase; letter-spacing:1px;">STUDIO 168<br><span style="font-size:7px; letter-spacing:3px; color:#5A6270;">PRODUCTIONS</span></div>
+      </div>
+      <div style="background:#111827; border-radius:10px; padding:2px; border:1px solid rgba(133,141,153,0.12); overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse; font-size:12px;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(133,141,153,0.15);">
+              <th style="padding:12px 14px; text-align:left; font-size:10px; font-weight:600; color:#858D99; text-transform:uppercase; letter-spacing:0.5px;">Property</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">Sites</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">Occupied</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">Occ %</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">POH</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">TOH</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">Lot Rent</th>
+              <th style="padding:12px 14px; text-align:center; font-size:10px; font-weight:600; color:#858D99;">Home Rent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(133,141,153,0.08);">
+              <td style="padding:12px 14px; font-weight:600; color:#E5E9ED;">Sunset Country Estates</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">206</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">178</td>
+              <td style="padding:12px 14px; text-align:center; color:#FBBF24; font-weight:600;">86%</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">101</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">77</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">$654</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">$634</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(133,141,153,0.08); background:rgba(255,255,255,0.01);">
+              <td style="padding:12px 14px; font-weight:600; color:#E5E9ED;">Oasis MCC</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">161</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">153</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">95%</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">38</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">115</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">$615</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">$494</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(133,141,153,0.08);">
+              <td style="padding:12px 14px; font-weight:600; color:#E5E9ED;">La Vista</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">32</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">29</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">91%</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">7</td>
+              <td style="padding:12px 14px; text-align:center; color:#E5E9ED;">22</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">$572</td>
+              <td style="padding:12px 14px; text-align:center; color:#00E676; font-weight:600;">$380</td>
+            </tr>
+            <tr style="background:rgba(249,115,22,0.06);">
+              <td style="padding:12px 14px; font-weight:800; color:#F97316;">Portfolio Total</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">399</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">360</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">90%</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">146</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">214</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">$632</td>
+              <td style="padding:12px 14px; text-align:center; font-weight:800; color:#F97316;">$585</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- UTILITY INFRASTRUCTURE BOXES -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px;">
+        <div class="util-box" onclick="document.getElementById('radio-page10').checked=true; window.scrollTo(0,0);">
+          <div class="util-title">Water</div>
+          <div class="util-sub">Public / Metered</div>
+        </div>
+        <div class="util-box" onclick="document.getElementById('radio-page10').checked=true; window.scrollTo(0,0);">
+          <div class="util-title">Sewer</div>
+          <div class="util-sub">Public &mdash; Bill-Back Upside</div>
+        </div>
+        <div class="util-box" onclick="document.getElementById('radio-page10').checked=true; window.scrollTo(0,0);">
+          <div class="util-title">Roads</div>
+          <div class="util-sub">Asphalt (Replacement Budgeted)</div>
+        </div>
+      </div>
+    </div>
+
     <!-- 4. NOI CHART + OCCUPANCY PROGRESS BARS (2-COLUMN) -->
     <div class="ov-section-2col">
       <div style="width:55%; padding-right:20px;">
@@ -4939,6 +5094,250 @@
       <span class="risk-tag tag-medium">MEDIUM — OCCUPANCY / REVENUE</span>
     </div>
 
+    <!-- ═══════════════════ DD PRIORITY RISK ASSESSMENT ═══════════════════ -->
+    <div class="group-divider">
+      <div class="group-label" style="color:#EF4444;">&#9888; DD Priority Risk Assessment &mdash; 6 Key Categories</div>
+      <div class="group-line"></div>
+    </div>
+
+    <!-- RISK MATRIX SUMMARY TABLE -->
+    <div class="section" style="margin-bottom:18px;">
+      <div style="padding:10px 14px 6px; font-size:11px; font-weight:600; color:#E5E9ED; border-bottom:1px solid #2A2F38;">
+        Quick Scan &mdash; Portfolio-Level DD Risk Matrix
+      </div>
+      <div class="scroll-wrap">
+      <table class="data-table" style="font-size:11px;">
+        <thead>
+          <tr>
+            <th style="width:26px;">#</th>
+            <th>Risk Category</th>
+            <th style="width:80px; text-align:center;">Severity</th>
+            <th>Key Finding</th>
+            <th style="width:120px; text-align:right;">Est. $ Impact</th>
+            <th style="width:100px; text-align:center;">DD Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td style="font-weight:600;">Cash Requirements at Close</td>
+            <td style="text-align:center;"><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td>$39.7M purchase + $219K assumption fee + closing costs + reserves. Total equity call TBD pending lender terms.</td>
+            <td style="text-align:right; font-weight:600; color:#EF4444;">$14&ndash;16M+</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high" style="font-size:9px;">IN PROGRESS</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td style="font-weight:600;">POH Repairs &amp; Condition</td>
+            <td style="text-align:center;"><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td>199 POH across portfolio + 50 SVE homes. 25 FH homes 100% vacant (condition unknown). No physical inspections completed.</td>
+            <td style="text-align:right; font-weight:600; color:#EF4444;">$500K&ndash;$2M+</td>
+            <td style="text-align:center;"><span class="risk-tag" style="background:rgba(239,68,68,0.15); color:#EF4444; font-size:9px;">NOT STARTED</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td style="font-weight:600;">Needed CapEx</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high">HIGH</span></td>
+            <td>PCA flagged $52.5K immediate, $221.6K over 7 years. Model budgets $2.2M/5yr. Seller CapEx docs are for wrong property.</td>
+            <td style="text-align:right; font-weight:600; color:#FBBF24;">$52.5K&ndash;$2.2M</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high" style="font-size:9px;">IN PROGRESS</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td style="font-weight:600;">Property Tax Reassessment</td>
+            <td style="text-align:center;"><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td>Pueblo County will reassess at $39.7M. Tax exposure: $95K&ndash;$774K/yr depending on residential vs. commercial classification.</td>
+            <td style="text-align:right; font-weight:600; color:#EF4444;">$95K&ndash;$774K/yr</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high" style="font-size:9px;">IN PROGRESS</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td style="font-weight:600;">Occupancy Verification</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high">HIGH</span></td>
+            <td>SC at 86.4% (28 vacant lots). T12/rent roll discrepancy (169 vs 178). 30 lots with unknown type. SVE: 26 of 50 homes vacant.</td>
+            <td style="text-align:right; font-weight:600; color:#FBBF24;">$220K+/yr</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high" style="font-size:9px;">IN PROGRESS</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td style="font-weight:600;">Lease Restrictions</td>
+            <td style="text-align:center;"><span class="risk-tag tag-high">HIGH</span></td>
+            <td>CMBS 3% mgmt fee cap. SC nonconforming zoning (12-mo abandonment). CO OTP 120-day requirement. Only 37 of 399 leases reviewed.</td>
+            <td style="text-align:right; font-weight:600; color:#FBBF24;">TBD</td>
+            <td style="text-align:center;"><span class="risk-tag" style="background:rgba(239,68,68,0.15); color:#EF4444; font-size:9px;">NOT STARTED</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- DETAILED RISK CARD 1: CASH REQUIREMENTS -->
+    <div class="risk-item risk-high" style="border-left:4px solid #EF4444; margin-bottom:12px;">
+      <div class="risk-title" style="font-size:14px;">1. Cash Requirements at Close</div>
+      <span class="risk-tag tag-critical" style="margin-bottom:10px;">CRITICAL &mdash; FINANCIAL / LIQUIDITY</span>
+      <div class="risk-body" style="line-height:2.0;">
+        <b style="color:#3B82F6;">Current Finding:</b> Total cash required at close is not yet fully quantified. Known components:<br>
+        <div style="display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:8px 0 8px 16px; font-size:11px;">
+          <span>Purchase Price (PSA)</span><span style="text-align:right; font-weight:600;">$39,700,000</span>
+          <span>CMBS Assumption Fee (est. 1% UPB)</span><span style="text-align:right; font-weight:600;">$219,000</span>
+          <span>SVE POH Seller Carry (BOS #1 + #2)</span><span style="text-align:right; font-weight:600;">$1,300,000</span>
+          <span>Unpaid 2025 Property Taxes (proration)</span><span style="text-align:right; font-weight:600;">$31,831</span>
+          <span>Legacy Housing Lien Payoff (OC, matured)</span><span style="text-align:right; font-weight:600;">~$134,000</span>
+          <span>Closing Costs (title, legal, escrow)</span><span style="text-align:right; color:#FBBF24;">TBD</span>
+          <span>Insurance Premium Deposits</span><span style="text-align:right; color:#FBBF24;">TBD</span>
+          <span>Operating Reserves / Working Capital</span><span style="text-align:right; color:#FBBF24;">TBD</span>
+          <span>Lender Required Reserves</span><span style="text-align:right; color:#FBBF24;">TBD</span>
+          <span style="color:#EF4444; font-weight:600;">21st Mortgage Lien (SC106, if separate)</span><span style="text-align:right; color:#EF4444; font-weight:600;">$979,000?</span>
+        </div>
+        <b style="color:#EF4444;">Estimated $ Impact:</b> Equity requirement estimated at $14&ndash;16M+ depending on CMBS assumption terms, reserve requirements, and whether the 21st Mortgage lien is part of the CMBS or a standalone obligation. UW model shows $2.2M CapEx budget over 5 years requiring further cash deployment post-close.<br><br>
+        <b style="color:#00E676;">Recommended DD Actions:</b><br>
+        <span style="margin-left:16px; display:block; line-height:2.0;">
+          1. Finalize CMBS assumption application by <b style="color:#EF4444;">4/3/2026</b> &mdash; confirms debt service, reserve escrows, and assumption costs<br>
+          2. Obtain lien payoff letters from Legacy Housing Corp and clarify 21st Mortgage lien status<br>
+          3. Request title company closing cost estimate from Fidelity National<br>
+          4. Model 3 scenarios: best case (all liens resolved at seller's cost), base case (buyer absorbs legacy liens), worst case (commercial tax assessment + full lien exposure)<br>
+          5. Confirm SVE POH seller carry note terms &mdash; do monthly payments begin Day 1 post-close?
+        </span><br>
+        <b style="color:#8B95A5;">Responsible:</b> Chris / Jeff / Legal &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b style="color:#8B95A5;">Deadline:</b> <span style="color:#EF4444; font-weight:600;">4/7/2026</span>
+      </div>
+    </div>
+
+    <!-- DETAILED RISK CARD 2: POH REPAIRS -->
+    <div class="risk-item risk-high" style="border-left:4px solid #EF4444; margin-bottom:12px;">
+      <div class="risk-title" style="font-size:14px;">2. POH Repairs &amp; Condition Assessment</div>
+      <span class="risk-tag tag-critical" style="margin-bottom:10px;">CRITICAL &mdash; PHYSICAL / FINANCIAL</span>
+      <div class="risk-body" style="line-height:2.0;">
+        <b style="color:#3B82F6;">Current Finding:</b> The portfolio includes 199 POH homes across the 3 communities plus 50 SVE homes (25 Big Valley + 25 Forest Hollow). <b style="color:#EF4444;">No physical home inspections have been completed.</b> Key concerns:<br>
+        <div style="margin:8px 0 8px 16px; font-size:11px; line-height:2.0;">
+          &bull; <b style="color:#EF4444;">25 Forest Hollow homes are 100% vacant</b> &mdash; condition completely unknown, all built 2018&ndash;2022 (Legacy/Champion). Full rehab scope TBD.<br>
+          &bull; 25 Big Valley homes: 22 occupied, 2 in eviction, 1 vacant. $11,063 total past due. Models range from 2/1 (765&ndash;896 sqft).<br>
+          &bull; BV home D-17 not on rent roll &mdash; may be offline for repairs or non-revenue generating.<br>
+          &bull; UW model includes $2.625M &ldquo;Home Purchases&rdquo; budget (50 POH @ $52,500) not in PSA.<br>
+          &bull; 15 POH units across SC/OC missing titles &mdash; condition of untitled homes especially concerning.
+        </div>
+        <b style="color:#EF4444;">Estimated $ Impact:</b> Without physical inspections, repair exposure is highly uncertain. Conservative range: $5K&ndash;$15K per home for occupied units (HVAC, plumbing, roofing, skirting), $15K&ndash;$40K per vacant unit needing full turn. At 50 SVE homes: <b style="color:#FFF;">$250K&ndash;$2M+ potential exposure</b>. The 199 portfolio POH add further unknown liability.<br><br>
+        <b style="color:#00E676;">Recommended DD Actions:</b><br>
+        <span style="margin-left:16px; display:block; line-height:2.0;">
+          1. Schedule physical inspection of <b>all 50 SVE homes</b> during site visit &mdash; grade each A/B/C/D with photo documentation<br>
+          2. Walk all 25 Forest Hollow vacant units &mdash; assess rehab scope, HVAC condition, roof/plumbing, turnover cost per unit<br>
+          3. Inspect 199 portfolio POH homes &mdash; at minimum sample 20% (40 units) across all 3 communities<br>
+          4. Verify D-17 status in person &mdash; is the home physically present? What condition?<br>
+          5. Engage licensed HUD inspector or contractor for repair cost estimates on worst-condition units<br>
+          6. Model repair budget at 3 tiers: light ($5K), moderate ($15K), heavy ($35K) per home
+        </span><br>
+        <b style="color:#8B95A5;">Responsible:</b> Chris / Jeff / CapEx &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b style="color:#8B95A5;">Deadline:</b> <span style="color:#EF4444; font-weight:600;">Site Visit (target 4/10/2026)</span>
+      </div>
+    </div>
+
+    <!-- DETAILED RISK CARD 3: NEEDED CAPEX -->
+    <div class="risk-item risk-high" style="border-left:4px solid #FBBF24; margin-bottom:12px;">
+      <div class="risk-title" style="font-size:14px;">3. Needed Capital Expenditures</div>
+      <span class="risk-tag tag-high" style="margin-bottom:10px;">HIGH &mdash; PHYSICAL / FINANCIAL</span>
+      <div class="risk-body" style="line-height:2.0;">
+        <b style="color:#3B82F6;">Current Finding:</b> Three data sources paint an incomplete picture:<br>
+        <div style="margin:8px 0 8px 16px; font-size:11px; line-height:2.0;">
+          &bull; <b style="color:#EF4444;">PCA Reports:</b> $52.5K immediate need (79% = Oasis roads at $41.1K). $221.6K total over 7 years ($62.88/unit/yr). SC roof resolved (new 2022).<br>
+          &bull; <b style="color:#3B82F6;">UW Model:</b> $2.2M CapEx budget over 5 years. $500/pad/year reserve target across 399 lots.<br>
+          &bull; <b style="color:#EF4444;">Seller CapEx Records:</b> WRONG COMMUNITY. Seller provided CapEx data for a different property. <b style="color:#FFF;">No verified seller CapEx history for these 3 properties.</b><br>
+          &bull; <b style="color:#FBBF24;">Seller Claim:</b> Ben Braband stated $50K+ spent on OC center-road paving; disputes PCA &ldquo;poor condition&rdquo; finding.
+        </div>
+        <b style="color:#EF4444;">Estimated $ Impact:</b> Immediate need: $52.5K (PCA). Year 1 budget: ~$440K ($2.2M &divide; 5). Key unknowns: deferred maintenance on infrastructure (water/sewer lines, electrical), road condition beyond OC, and whether seller&rsquo;s $50K claim is substantiated.<br><br>
+        <b style="color:#00E676;">Recommended DD Actions:</b><br>
+        <span style="margin-left:16px; display:block; line-height:2.0;">
+          1. Obtain correct seller CapEx documentation for all 3 Pueblo communities &mdash; <b style="color:#EF4444;">still outstanding</b><br>
+          2. Verify Oasis road conditions on site &mdash; PCA vs seller claim differ materially ($41K repair vs &ldquo;recently paved&rdquo;)<br>
+          3. Inspect all infrastructure: water mains, sewer lines, electrical panels, gas lines (if applicable)<br>
+          4. Review SC water usage spikes (Nov $14.3K, Dec $11.9K at OC) &mdash; potential underground leak = unplanned CapEx<br>
+          5. Request warranty documentation for any seller-completed improvements<br>
+          6. Finalize Year 1 CapEx budget post-site-visit &mdash; distinguish immediate safety items from value-add projects
+        </span><br>
+        <b style="color:#8B95A5;">Responsible:</b> Chris / Jeff / CapEx &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b style="color:#8B95A5;">Deadline:</b> <span style="color:#FBBF24; font-weight:600;">4/10/2026 (post site visit)</span>
+      </div>
+    </div>
+
+    <!-- DETAILED RISK CARD 4: PROPERTY TAX -->
+    <div class="risk-item risk-high" style="border-left:4px solid #EF4444; margin-bottom:12px;">
+      <div class="risk-title" style="font-size:14px;">4. Property Tax Reassessment Exposure</div>
+      <span class="risk-tag tag-critical" style="margin-bottom:10px;">CRITICAL &mdash; FINANCIAL / REGULATORY</span>
+      <div class="risk-body" style="line-height:2.0;">
+        <b style="color:#3B82F6;">Current Finding:</b> Pueblo County will reassess all parcels upon the $39.7M sale. Historical precedent: both SC and OC experienced 400&ndash;600% tax increases after the last sale. Three reassessment scenarios:<br>
+        <div style="display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:8px 0 8px 16px; font-size:11px;">
+          <span>Ratio Method (current effective rate)</span><span style="text-align:right; font-weight:600; color:#00E676;">$95,000/yr</span>
+          <span>Residential Classification (6.7%)</span><span style="text-align:right; font-weight:600; color:#FBBF24;">$178,900/yr</span>
+          <span>Commercial Classification (29%)</span><span style="text-align:right; font-weight:600; color:#EF4444;">$774,200/yr</span>
+        </div>
+        Additionally, $31,831 in 2025 property taxes remain unpaid across SC and OC. CRS 39-1-102 states MHC land should be assessed as residential, but this has not been confirmed on each parcel.<br><br>
+        <b style="color:#EF4444;">Estimated $ Impact:</b> Swing of <b style="color:#FFF;">$95K to $774K per year</b> in ongoing operating expense depending on classification. At commercial rates, this would reduce NOI by ~$680K/yr vs. current tax basis &mdash; materially impacting DSCR and returns. UW model should stress-test all 3 scenarios.<br><br>
+        <b style="color:#00E676;">Recommended DD Actions:</b><br>
+        <span style="margin-left:16px; display:block; line-height:2.0;">
+          1. <b style="color:#EF4444;">Confirm assessment classification with Pueblo County Assessor</b> (719) 583-6000 &mdash; look up each parcel&rsquo;s actual use code. <span style="color:#FBBF24;">Assigned to Keiana, due 3/31 &mdash; OVERDUE</span><br>
+          2. Obtain written opinion from CO tax counsel confirming residential classification under CRS 39-1-102<br>
+          3. Model tax reassessment in all 3 scenarios in the underwriting model (already started 3/30)<br>
+          4. Negotiate tax proration at closing to ensure seller pays full 2025 tax liability ($31.8K)<br>
+          5. Request 5-year tax payment history from county &mdash; verify no prior liens or delinquencies beyond known $31.8K<br>
+          6. Evaluate whether a tax protest/appeal is viable if reassessed at commercial rates
+        </span><br>
+        <b style="color:#8B95A5;">Responsible:</b> Keiana / Chris / Tax Counsel &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b style="color:#8B95A5;">Deadline:</b> <span style="color:#EF4444; font-weight:600;">4/3/2026 (before DD period starts)</span>
+      </div>
+    </div>
+
+    <!-- DETAILED RISK CARD 5: OCCUPANCY VERIFICATION -->
+    <div class="risk-item risk-high" style="border-left:4px solid #FBBF24; margin-bottom:12px;">
+      <div class="risk-title" style="font-size:14px;">5. Occupancy Verification</div>
+      <span class="risk-tag tag-high" style="margin-bottom:10px;">HIGH &mdash; OPERATIONAL / REVENUE</span>
+      <div class="risk-body" style="line-height:2.0;">
+        <b style="color:#3B82F6;">Current Finding:</b> Multiple occupancy data points conflict and require physical verification:<br>
+        <div style="display:grid; grid-template-columns:auto 1fr auto auto; gap:2px 12px; margin:8px 0 8px 16px; font-size:11px;">
+          <span style="font-weight:600;">Property</span><span style="font-weight:600;">Source</span><span style="font-weight:600; text-align:right;">Occupied</span><span style="font-weight:600; text-align:right;">Vacancy</span>
+          <span>Sunset Vista (SC)</span><span>Rent Roll</span><span style="text-align:right;">178 / 206</span><span style="text-align:right; color:#EF4444;">13.6%</span>
+          <span>Sunset Vista (SC)</span><span style="color:#FBBF24;">T12 P&amp;L (conflict)</span><span style="text-align:right; color:#FBBF24;">169 / 206</span><span style="text-align:right; color:#EF4444;">18.0%</span>
+          <span>Oasis (OC)</span><span>Rent Roll</span><span style="text-align:right;">133 / 140</span><span style="text-align:right; color:#00E676;">5.0%</span>
+          <span>La Vista (LAV)</span><span>Rent Roll</span><span style="text-align:right;">48 / 53</span><span style="text-align:right; color:#FBBF24;">9.4%</span>
+          <span style="color:#A78BFA;">SVE Homes (POH)</span><span>Rent Roll</span><span style="text-align:right; color:#EF4444;">22 / 50</span><span style="text-align:right; color:#EF4444;">56.0%</span>
+        </div>
+        <b style="color:#EF4444;">Key Gaps:</b> SC T12 vs rent roll discrepancy = 9 lots (~$71K/yr revenue). 30 lots portfolio-wide have unknown type (POH/TOH/LTO). SVE FH homes 100% vacant with no lease-up timeline. SC has the weakest occupancy &mdash; is this structural or management-driven?<br><br>
+        <b style="color:#EF4444;">Estimated $ Impact:</b> SC vacant lots alone represent <b style="color:#FFF;">~$220K/yr</b> in unrealized lot revenue at $654/mo. SVE vacant homes (26 units) represent additional lost rent + rehab cost before revenue generation.<br><br>
+        <b style="color:#00E676;">Recommended DD Actions:</b><br>
+        <span style="margin-left:16px; display:block; line-height:2.0;">
+          1. Walk every vacant lot at SC (28 lots) &mdash; classify each as pad-ready, needs-work, or non-leasable<br>
+          2. Reconcile T12 vs rent roll occupancy at SC &mdash; request Rent Manager occupancy trend report for trailing 12 months<br>
+          3. Verify all 50 SVE homes physically present on their lots &mdash; confirm unit numbers match rent roll/Monday.com<br>
+          4. Classify all 30 unknown-type lots as POH, TOH, or LTO using Rent Manager access (granted 3/31)<br>
+          5. Request lease-up history from seller: how many move-ins vs. move-outs per month over the past 12 months?<br>
+          6. Model occupancy ramp: what fill rate is needed to hit underwriting NOI, and is it achievable given market conditions?
+        </span><br>
+        <b style="color:#8B95A5;">Responsible:</b> Chris / Jeff / PM Team &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b style="color:#8B95A5;">Deadline:</b> <span style="color:#FBBF24; font-weight:600;">4/10/2026 (site visit) + ongoing</span>
+      </div>
+    </div>
+
+    <!-- DETAILED RISK CARD 6: LEASE RESTRICTIONS -->
+    <div class="risk-item risk-high" style="border-left:4px solid #FBBF24; margin-bottom:12px;">
+      <div class="risk-title" style="font-size:14px;">6. Lease Restrictions &amp; Regulatory Constraints</div>
+      <span class="risk-tag tag-high" style="margin-bottom:10px;">HIGH &mdash; LEGAL / OPERATIONAL</span>
+      <div class="risk-body" style="line-height:2.0;">
+        <b style="color:#3B82F6;">Current Finding:</b> Multiple lease and regulatory constraints limit operational flexibility post-close:<br>
+        <div style="margin:8px 0 8px 16px; font-size:11px; line-height:2.0;">
+          &bull; <b style="color:#EF4444;">CMBS 3% Management Fee Cap:</b> Loan docs cap PM fee at 3% of revenue. Silver Lands standard is 5&ndash;6%. This creates a structural undercharging of ~$56K&ndash;$85K/yr that must be absorbed or restructured post-refinance.<br>
+          &bull; <b style="color:#EF4444;">SC Nonconforming Zoning:</b> Sunset Vista operates under Legal Nonconforming status (Certificate #98-152, HR zone). If MHP use discontinued for 12 consecutive months, status is permanently lost. Cannot expand or intensify.<br>
+          &bull; <b style="color:#FBBF24;">Colorado OTP (120-Day Notice):</b> CRS § 38-12-200.1 requires 120-day notice to homeowners. Seller is responsible per PSA §14. OTP documentation folder still empty &mdash; notices reportedly going out via courier 4/2&ndash;4/3.<br>
+          &bull; <b style="color:#FBBF24;">Only 37 of 399 Leases Reviewed:</b> Seller provided 37 executed leases. Remaining 320+ tenant lease files have not been reviewed for non-standard terms, rent escalation clauses, or assignment restrictions.<br>
+          &bull; <b style="color:#8B95A5;">Flat Rent Structure:</b> No POH/TOH differentiation. All lots charged same rent regardless of home ownership type &mdash; limits ability to capture POH premium income separately.<br>
+          &bull; <b style="color:#8B95A5;">CMBS Lockbox Trigger:</b> DSCR below 1.15x triggers lockbox. Current portfolio DSCR is 2.01x (comfortable), but any significant NOI decline could approach trigger territory.
+        </div>
+        <b style="color:#EF4444;">Estimated $ Impact:</b> The 3% PM fee cap alone costs $56K&ndash;$85K/yr in management efficiency. OTP non-compliance could delay or void closing entirely. Nonconforming zoning risk is existential for SC if occupancy drops below critical mass.<br><br>
+        <b style="color:#00E676;">Recommended DD Actions:</b><br>
+        <span style="margin-left:16px; display:block; line-height:2.0;">
+          1. Review all 37 executed leases for non-standard terms, rent escalation provisions, and assignment/transfer clauses<br>
+          2. Request remaining lease files from seller &mdash; at minimum sample 10% of unleased tenants via Rent Manager<br>
+          3. Confirm OTP notices sent and properly served by 4/3 &mdash; obtain courier confirmation / proof of service<br>
+          4. Engage CO real estate counsel to confirm nonconforming use protection strategy for SC<br>
+          5. Model PM fee impact: quantify the 3% cap vs. 5% market rate over the hold period. Evaluate fee structure workarounds (asset management fee, consulting fee) that comply with CMBS docs<br>
+          6. Review CMBS loan docs for all restrictive covenants: transfer restrictions, reserve requirements, reporting obligations, consent requirements for lease modifications
+        </span><br>
+        <b style="color:#8B95A5;">Responsible:</b> Chris / Legal / Jeff &nbsp;&nbsp;&bull;&nbsp;&nbsp; <b style="color:#8B95A5;">Deadline:</b> <span style="color:#FBBF24; font-weight:600;">4/10/2026</span>
+      </div>
+    </div>
+
     <!-- IMMEDIATE ACTION ITEMS -->
     <div class="group-divider">
       <div class="group-label">Immediate Action Items</div>
@@ -5436,27 +5835,28 @@
     <!-- POH HERO STATS -->
     <div class="kpi-strip">
       <div class="kpi-card">
-        <div class="value white">146</div>
+        <div class="value white">196</div>
         <div class="label">Total POH</div>
+        <div style="font-size:8px; color:#858D99; margin-top:2px;">146 + 50 SVE</div>
       </div>
       <div class="kpi-card">
-        <div class="value white">$85K</div>
+        <div class="value white">$99K</div>
         <div class="label">Monthly Income</div>
       </div>
       <div class="kpi-card">
-        <div class="value white">$1M</div>
+        <div class="value white">$1.2M</div>
         <div class="label">Annual Income</div>
       </div>
       <div class="kpi-card">
-        <div class="value white">$587</div>
+        <div class="value white">$531</div>
         <div class="label">Avg Rent / Home</div>
       </div>
       <div class="kpi-card">
-        <div class="value white">$5.9M</div>
+        <div class="value white">$8.5M</div>
         <div class="label">Acquisition Cost</div>
       </div>
       <div class="kpi-card">
-        <div class="value green">17.2%</div>
+        <div class="value green">14.0%</div>
         <div class="label">Gross Yield</div>
       </div>
     </div>
@@ -5532,18 +5932,31 @@
             <td style="text-align:right;">$28.6K</td>
             <td style="text-align:right;" class="green">16.0%</td>
           </tr>
+          <tr style="border-left:3px solid #8B5CF6;">
+            <td><b style="color:#8B5CF6;">SVE Homes</b></td>
+            <td style="text-align:right;">50</td>
+            <td style="text-align:right;">$14.8K</td>
+            <td style="text-align:right;">$177.6K</td>
+            <td style="text-align:right;">$370</td>
+            <td style="text-align:right;">TBD</td>
+            <td style="text-align:right;">TBD</td>
+            <td style="text-align:right;">2022</td>
+            <td style="text-align:right;">$2.63M</td>
+            <td style="text-align:right;">$52.5K</td>
+            <td style="text-align:right;" class="orange">6.8%</td>
+          </tr>
           <tr style="background: rgba(59,130,246,0.06);">
             <td><b>PORTFOLIO</b></td>
-            <td style="text-align:right;"><b>146</b></td>
-            <td style="text-align:right;"><b>$84.5K</b></td>
-            <td style="text-align:right;"><b>$1.0M</b></td>
-            <td style="text-align:right;"><b>$587</b></td>
+            <td style="text-align:right;"><b>196</b></td>
+            <td style="text-align:right;"><b>$99.3K</b></td>
+            <td style="text-align:right;"><b>$1.2M</b></td>
+            <td style="text-align:right;"><b>$531</b></td>
             <td style="text-align:right;">$195</td>
             <td style="text-align:right;">$820</td>
-            <td style="text-align:right;">2013</td>
-            <td style="text-align:right;"><b>$5.9M</b></td>
-            <td style="text-align:right;"><b>$41.0K</b></td>
-            <td style="text-align:right;" class="green"><b>17.2%</b></td>
+            <td style="text-align:right;">2015</td>
+            <td style="text-align:right;"><b>$8.5M</b></td>
+            <td style="text-align:right;"><b>$43.5K</b></td>
+            <td style="text-align:right;" class="green"><b>14.0%</b></td>
           </tr>
         </tbody>
       </table>
@@ -5923,6 +6336,937 @@
       </div>
     </div>
 
+    <!-- ═══════════════════ SVE HOMES — 50 HOMES (25 Big Valley + 25 Forest Hollow) ═══════════════════ -->
+    <div class="group-divider" style="margin-top:32px;">
+      <div class="group-label" style="color:#A78BFA;">&#9670; SVE Homes &mdash; 50 Homes (25 Big Valley + 25 Forest Hollow)</div>
+      <div class="group-line" style="border-color:#A78BFA;"></div>
+    </div>
+
+    <!-- SVE Homes Deal Terms -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px;">
+      <div class="card" style="border-left:3px solid #A78BFA;">
+        <div style="font-size:12px; color:#A78BFA; font-weight:600; margin-bottom:10px;">BILL OF SALE #1 &mdash; Aug 15, 2024</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px;">
+          <div><span style="color:#8B95A5;">Seller:</span> <span style="color:#E5E9ED;">Big Valley Homes 168</span></div>
+          <div><span style="color:#8B95A5;">Buyer:</span> <span style="color:#E5E9ED;">Miami Homes 186, LLC</span></div>
+          <div><span style="color:#8B95A5;">Homes:</span> <span style="color:#E5E9ED;">5 &mdash; Legacy S-1256-21A (2023)</span></div>
+          <div><span style="color:#8B95A5;">Purchase Price:</span> <span style="color:#00E676; font-weight:600;">$300,000</span></div>
+          <div><span style="color:#8B95A5;">Down Payment:</span> <span style="color:#E5E9ED;">$100,000 (33%)</span></div>
+          <div><span style="color:#8B95A5;">Seller Note:</span> <span style="color:#FBBF24;">$200K @ 7%, 20yr, $1,551/mo</span></div>
+          <div><span style="color:#8B95A5;">Avg/Home:</span> <span style="color:#E5E9ED;">$60,000</span></div>
+          <div><span style="color:#8B95A5;">Lots:</span> <span style="color:#E5E9ED;">E9, F12, F14, F21, G20</span></div>
+        </div>
+      </div>
+      <div class="card" style="border-left:3px solid #A78BFA;">
+        <div style="font-size:12px; color:#A78BFA; font-weight:600; margin-bottom:10px;">BILL OF SALE #2 &mdash; Dec 15, 2023</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px;">
+          <div><span style="color:#8B95A5;">Seller:</span> <span style="color:#E5E9ED;">Big Valley 168</span></div>
+          <div><span style="color:#8B95A5;">Buyer:</span> <span style="color:#E5E9ED;">Miami Homes 186, LLC</span></div>
+          <div><span style="color:#8B95A5;">Homes:</span> <span style="color:#E5E9ED;">20 &mdash; 10 Legacy + 10 Tru</span></div>
+          <div><span style="color:#8B95A5;">Purchase Price:</span> <span style="color:#00E676; font-weight:600;">$1,000,000</span></div>
+          <div><span style="color:#8B95A5;">Down Payment:</span> <span style="color:#E5E9ED;">$400,000 (40%)</span></div>
+          <div><span style="color:#8B95A5;">Seller Note:</span> <span style="color:#FBBF24;">$600K @ 7%, 20yr, maturity Dec 2043</span></div>
+          <div><span style="color:#8B95A5;">Avg/Home:</span> <span style="color:#E5E9ED;">$50,000</span></div>
+          <div><span style="color:#8B95A5;">Models:</span> <span style="color:#E5E9ED;">C-1656-21FKA &amp; 14562A</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVE Homes Combined Summary KPIs -->
+    <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:18px;">
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#A78BFA;">50</div>
+        <div style="font-size:10px; color:#8B95A5;">Total Homes</div>
+        <div style="font-size:9px; color:#8B95A5;">25 BV + 25 FH</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#00E676;">$1.3M</div>
+        <div style="font-size:10px; color:#8B95A5;">BV Purchase (BOS)</div>
+        <div style="font-size:9px; color:#FBBF24;">FH: No BOS yet</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#E5E9ED;">$26K</div>
+        <div style="font-size:10px; color:#8B95A5;">Avg/Home (BOS only)</div>
+        <div style="font-size:9px; color:#8B95A5;">$1.3M &divide; 50</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#EF4444;">22</div>
+        <div style="font-size:10px; color:#8B95A5;">Occupied</div>
+        <div style="font-size:9px; color:#EF4444;">2 Evict &bull; 26 Vacant</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#3B82F6;">$333</div>
+        <div style="font-size:10px; color:#8B95A5;">Avg Rent/Paying</div>
+        <div style="font-size:9px; color:#8B95A5;">$6,993/mo &bull; 21 paying</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#FBBF24;">$100&ndash;$521</div>
+        <div style="font-size:10px; color:#8B95A5;">BV Rent Range</div>
+        <div style="font-size:9px; color:#8B95A5;">Market: $421&ndash;$591</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#00E676;">$495</div>
+        <div style="font-size:10px; color:#8B95A5;">BV Avg Market Rent</div>
+        <div style="font-size:9px; color:#FBBF24;">33% above in-place avg</div>
+      </div>
+      <div class="card" style="text-align:center; padding:12px 8px;">
+        <div style="font-size:22px; font-weight:700; color:#EF4444;">$10,814</div>
+        <div style="font-size:10px; color:#8B95A5;">Total Past Due</div>
+        <div style="font-size:9px; color:#EF4444;">BV only &bull; $515 avg</div>
+      </div>
+    </div>
+
+    <!-- SVE Rent Analysis Card -->
+    <div class="card" style="margin-bottom:18px; padding:14px 16px;">
+      <div style="font-size:12px; font-weight:600; color:#A78BFA; margin-bottom:10px;">SVE Home Rent Analysis (50 Homes)</div>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
+        <div style="background:#0D1117; border-radius:8px; padding:12px; border:1px solid #1F2937;">
+          <div style="font-size:10px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Big Valley (25 Homes)</div>
+          <div style="font-size:10.5px; color:#C9CDD3; line-height:1.8;">
+            <b style="color:#E5E9ED;">In-Place Rents:</b> $100&ndash;$521/mo &bull; Avg $333 &bull; 21 paying<br>
+            <b style="color:#00E676;">Market Rents:</b> $421&ndash;$591/mo &bull; Avg $495/mo<br>
+            <b style="color:#FBBF24;">Loss-to-Lease:</b> ~$162/home/mo avg ($495 &minus; $333)<br>
+            <b style="color:#E5E9ED;">Monthly Revenue:</b> $6,993 actual vs $12,375 at market<br>
+            <b style="color:#EF4444;">Past Due:</b> $10,814 total &bull; 3 tenants at $0 rent &bull; D-17 not on rent roll<br>
+            <b style="color:#8B95A5;">Upside:</b> $5,382/mo ($64.6K/yr) if all 25 homes at avg market rent
+          </div>
+        </div>
+        <div style="background:#0D1117; border-radius:8px; padding:12px; border:1px solid #1F2937;">
+          <div style="font-size:10px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Forest Hollow (25 Homes)</div>
+          <div style="font-size:10.5px; color:#C9CDD3; line-height:1.8;">
+            <b style="color:#EF4444;">In-Place Rents:</b> ALL 25 VACANT &mdash; $0 revenue<br>
+            <b style="color:#8B95A5;">FH Entity Comp Rents:</b> $205&ndash;$788/mo &bull; Avg $410 (82 paying of 110 total FH homes)<br>
+            <b style="color:#FBBF24;">No BOS:</b> Purchase price/terms for FH 25 unknown<br>
+            <b style="color:#E5E9ED;">Projected Revenue (if leased):</b> $10,250/mo at $410 avg &bull; $123K/yr<br>
+            <b style="color:#EF4444;">Rehab Required:</b> All 25 homes need condition assessment &mdash; turn costs unknown<br>
+            <b style="color:#8B95A5;">Upside:</b> $123K/yr incremental revenue once leased, less rehab CapEx
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVE Homes BD/BA Breakdown -->
+    <div class="card" style="margin-bottom:18px; padding:14px 16px;">
+      <div style="font-size:12px; font-weight:600; color:#A78BFA; margin-bottom:10px;">Bed/Bath Breakdown (50 Homes)</div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px;">
+        <div style="text-align:center; background:#0D1117; border-radius:8px; padding:10px 6px; border:1px solid #1F2937;">
+          <div style="font-size:20px; font-weight:700; color:#3B82F6;">25</div>
+          <div style="font-size:11px; color:#E5E9ED; font-weight:600;">2 BD / 1 BA</div>
+          <div style="font-size:9px; color:#8B95A5;">All Big Valley &bull; 50%</div>
+        </div>
+        <div style="text-align:center; background:#0D1117; border-radius:8px; padding:10px 6px; border:1px solid #1F2937;">
+          <div style="font-size:20px; font-weight:700; color:#3B82F6;">9</div>
+          <div style="font-size:11px; color:#E5E9ED; font-weight:600;">2 BD / 2 BA</div>
+          <div style="font-size:9px; color:#8B95A5;">Forest Hollow &bull; 18%</div>
+        </div>
+        <div style="text-align:center; background:#0D1117; border-radius:8px; padding:10px 6px; border:1px solid #1F2937;">
+          <div style="font-size:20px; font-weight:700; color:#00E676;">15</div>
+          <div style="font-size:11px; color:#E5E9ED; font-weight:600;">3 BD / 2 BA</div>
+          <div style="font-size:9px; color:#8B95A5;">Forest Hollow &bull; 30%</div>
+        </div>
+        <div style="text-align:center; background:#0D1117; border-radius:8px; padding:10px 6px; border:1px solid #1F2937;">
+          <div style="font-size:20px; font-weight:700; color:#FBBF24;">1</div>
+          <div style="font-size:11px; color:#E5E9ED; font-weight:600;">4 BD / 2 BA</div>
+          <div style="font-size:9px; color:#8B95A5;">FH-97 &bull; 2%</div>
+        </div>
+      </div>
+      <div style="font-size:10px; color:#8B95A5; margin-top:8px;">Source: Legacy/Tru/Champion model numbers decoded (last 2 digits = BD/BA) &times; manufacturer specs. Rent Manager BD/BA field largely blank.</div>
+    </div>
+
+    <!-- SVE Homes 25-Home Inventory Table -->
+    <div class="card" style="padding:0; overflow-x:auto;">
+      <div style="padding:12px 16px 8px; border-bottom:1px solid #2A2F38;">
+        <span style="font-size:13px; font-weight:600; color:#A78BFA;">Comprehensive Home Inventory</span>
+        <span style="font-size:11px; color:#8B95A5; margin-left:8px;">Source: Bill of Sales &times; Monday.com Title Tracker &times; Rent Roll (4/1/2026)</span>
+      </div>
+      <table style="width:100%; border-collapse:collapse; font-size:11px;">
+        <thead>
+          <tr style="background:#1E2128; color:#8B95A5; font-size:10px; text-transform:uppercase; letter-spacing:0.5px;">
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">#</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Lot</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Serial</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Mfg</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Model</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Yr</th>
+            <th style="padding:8px 6px; text-align:center; border-bottom:1px solid #2A2F38;">BD/BA</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Tenant</th>
+            <th style="padding:8px 6px; text-align:center; border-bottom:1px solid #2A2F38;">Status</th>
+            <th style="padding:8px 6px; text-align:right; border-bottom:1px solid #2A2F38;">Rent</th>
+            <th style="padding:8px 6px; text-align:right; border-bottom:1px solid #2A2F38;">Past Due</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Title Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- BOS #1: 5 Legacy S-1256-21A homes -->
+          <tr style="background:#1A1D24;"><td colspan="13" style="padding:6px 8px; font-size:10px; font-weight:600; color:#A78BFA; border-bottom:1px solid #2A2F38;">BOS #1 &mdash; 5 Homes &mdash; $300K &mdash; Legacy S-1256-21A (Aug 2024)</td></tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">1</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">E-09</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119132</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">S-1256-21A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Celia Vela</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$521</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$213</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">2</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-12</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119134</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">S-1256-21A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Mayra E. Guerrero</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">($200)</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">3</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-14</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119130</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">S-1256-21A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Orlando Alegria</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#7F1D1D; color:#EF4444; padding:2px 8px; border-radius:10px; font-size:10px;">Evict/LTO</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$265</td>
+            <td style="padding:6px; text-align:right; color:#EF4444; font-weight:600;">$2,522</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">4</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-21</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119135</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">S-1256-21A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Nancy Lopez</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$521</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$700</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #2A2F38;">
+            <td style="padding:6px; color:#8B95A5;">5</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">G-20</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119138</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">S-1256-21A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Edward Hernandez</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$255</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$255</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <!-- BOS #2: 10 Legacy C-1656-21FKA homes -->
+          <tr style="background:#1A1D24;"><td colspan="13" style="padding:6px 8px; font-size:10px; font-weight:600; color:#A78BFA; border-bottom:1px solid #2A2F38;">BOS #2 &mdash; 10 Legacy Homes &mdash; C-1656-21FKA (Dec 2023)</td></tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">6</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-10</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119118</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Nayely Santamaria</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#7F1D1D; color:#EF4444; padding:2px 8px; border-radius:10px; font-size:10px;">Evict</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$275</td>
+            <td style="padding:6px; text-align:right; color:#EF4444; font-weight:600;">$843</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">7</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">G-05</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119101</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Ofelia Ricker</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">LTO</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$260</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$416</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">8</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">G-09</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119102</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Roberto De La Rosa</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$491</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">9</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">G-17</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119098</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Jose Lopez</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$235</td>
+            <td style="padding:6px; text-align:right; color:#EF4444;">$686</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">10</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">G-21</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119099</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Derrick Almanza</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$491</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$285</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">11</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">H-06</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119120</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Jesse L. Castilleja</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$491</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$538</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">12</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">H-14</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119117</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Destany Chavez</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$285</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">13</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">H-22</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119116</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Manuel Silva Jr</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$250</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">14</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">LO26</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119119</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Jimmy Susberry</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$235</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$235</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #2A2F38; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">15</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">MR-10</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L119100</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1656-21FKA</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Rocky Solano</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$301</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <!-- BOS #2: 10 Tru 14562A homes -->
+          <tr style="background:#1A1D24;"><td colspan="13" style="padding:6px 8px; font-size:10px; font-weight:600; color:#A78BFA; border-bottom:1px solid #2A2F38;">BOS #2 &mdash; 10 Tru Homes &mdash; 14562A (Dec 2023)</td></tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">16</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">D-13</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017268</td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Dalia Palomin</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$486</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$364</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">17</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">D-14</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017284</td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Mikayelah Ramos</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">18</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">D-17</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017291</td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Not on Rent Roll</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Unknown</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; color:#00E676; font-size:10px;">Certified Statement</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">19</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">D-19</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017288</td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Leticia Garcia</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">LTO</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$360</td>
+            <td style="padding:6px; text-align:right; color:#EF4444; font-weight:600;">$921</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">20</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">E-07</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017668<sup style="color:#FBBF24;">*</sup></td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Noelia Z Domingue</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">LTO</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$486</td>
+            <td style="padding:6px; text-align:right; color:#EF4444; font-weight:600;">$1,317</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">21</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">E-12</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017047</td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Luz M. Lerma</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$175</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$560</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">22</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">E-19</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017650<sup style="color:#FBBF24;">*</sup></td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Darren Hernandez</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$225</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$225</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">23</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-09</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017664<sup style="color:#FBBF24;">*</sup></td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Guadalupe Tapia</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$100</td>
+            <td style="padding:6px; text-align:right; color:#FBBF24;">$256</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">24</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-13</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017659<sup style="color:#FBBF24;">*</sup></td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Juan M. Vela</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">($50)</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #2A2F38; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">25</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">F-15</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">BEL017656<sup style="color:#FBBF24;">*</sup></td>
+            <td style="padding:6px; color:#E5E9ED;">Tru</td>
+            <td style="padding:6px; color:#8B95A5;">14562A</td>
+            <td style="padding:6px; color:#8B95A5;">2023</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/1</td>
+            <td style="padding:6px; color:#E5E9ED;">Delia Rodriguez</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#064E3B; color:#00E676; padding:2px 8px; border-radius:10px; font-size:10px;">Current</span></td>
+            <td style="padding:6px; text-align:right; color:#E5E9ED;">$285</td>
+            <td style="padding:6px; text-align:right; color:#EF4444;">$729</td>
+            <td style="padding:6px; color:#FBBF24; font-size:10px;">Need to Transfer</td>
+          </tr>
+          <!-- TOTALS -->
+          <tr style="background:#1E2128; font-weight:600; border-top:2px solid #A78BFA;">
+            <td colspan="7" style="padding:8px 6px; color:#A78BFA;">BIG VALLEY (25 Homes)</td>
+            <td style="padding:8px 6px; color:#8B95A5; font-size:10px;">22 Occ / 2 Evict / 1 Unk</td>
+            <td style="padding:8px 6px;"></td>
+            <td style="padding:8px 6px; text-align:right; color:#E5E9ED;">$6,993</td>
+            <td style="padding:8px 6px; text-align:right; color:#EF4444;">$11,063</td>
+            <td style="padding:8px 6px; color:#FBBF24; font-size:10px;">24 Need Transfer / 1 Certified</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FOREST HOLLOW HOMES INVENTORY (25 Homes) -->
+    <div class="card" style="padding:0; overflow-x:auto; margin-top:18px;">
+      <div style="padding:12px 16px 8px; border-bottom:1px solid #2A2F38;">
+        <span style="font-size:13px; font-weight:600; color:#A78BFA;">Forest Hollow Homes Inventory</span>
+        <span style="font-size:11px; color:#8B95A5; margin-left:8px;">Source: Monday.com Title Tracker &times; Rent Roll (4/1/2026) &mdash; Entity: Montecarlo Homes LLC / Forest Hollow Homes 168, LLC</span>
+      </div>
+      <table style="width:100%; border-collapse:collapse; font-size:11px;">
+        <thead>
+          <tr style="background:#1E2128; color:#8B95A5; font-size:10px; text-transform:uppercase; letter-spacing:0.5px;">
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">#</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Lot</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Serial</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Mfg</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Model</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Yr</th>
+            <th style="padding:8px 6px; text-align:center; border-bottom:1px solid #2A2F38;">BD/BA</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Tenant</th>
+            <th style="padding:8px 6px; text-align:center; border-bottom:1px solid #2A2F38;">Status</th>
+            <th style="padding:8px 6px; text-align:right; border-bottom:1px solid #2A2F38;">Rent</th>
+            <th style="padding:8px 6px; text-align:right; border-bottom:1px solid #2A2F38;">Past Due</th>
+            <th style="padding:8px 6px; text-align:left; border-bottom:1px solid #2A2F38;">Title Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">26</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-10</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L113344</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">27</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-17</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L113356</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">28</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-19</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">125000HA006011A</td>
+            <td style="padding:6px; color:#E5E9ED;">Champion</td>
+            <td style="padding:6px; color:#8B95A5;">19-CS1672C</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">29</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-20</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">125000HA006592A</td>
+            <td style="padding:6px; color:#E5E9ED;">Champion</td>
+            <td style="padding:6px; color:#8B95A5;">19-CS1672C</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">30</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-24</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">125000HA005541A</td>
+            <td style="padding:6px; color:#E5E9ED;">Champion</td>
+            <td style="padding:6px; color:#8B95A5;">19-CA1672C</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">31</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-25</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">125000HB004358A</td>
+            <td style="padding:6px; color:#E5E9ED;">Champion</td>
+            <td style="padding:6px; color:#8B95A5;">19-CS1672C</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">32</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-36</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L30869</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">33</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-38</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L30868</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">34</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-58</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L113293</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1672-32D</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">35</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-60</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L113289</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1672-32D</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">36</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-72</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L114559</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2019</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">37</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-82</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L114557</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2019</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">38</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-84</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L114096</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32F</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">39</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-97</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L210115</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1880-42A</td>
+            <td style="padding:6px; color:#8B95A5;">2018</td>
+            <td style="padding:6px; text-align:center; color:#FBBF24; font-size:10px;">4/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">No Status</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">40</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-101</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L114564</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2019</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">41</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-118</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L211932</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2021</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">42</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-120</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L212409</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2022</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">43</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-126</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L211933</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2021</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">44</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-127</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L213124</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2022</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">45</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-129</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L211937</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2021</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">46</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-131</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L211931</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2021</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">47</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-137</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L211149</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2020</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128;">
+            <td style="padding:6px; color:#8B95A5;">48</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-138</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L213125</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">H-1660-22A</td>
+            <td style="padding:6px; color:#8B95A5;">2022</td>
+            <td style="padding:6px; text-align:center; color:#3B82F6; font-size:10px;">2/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1E2128; background:#1A1D24;">
+            <td style="padding:6px; color:#8B95A5;">49</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-139</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L117120</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2021</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <tr style="border-bottom:1px solid #2A2F38;">
+            <td style="padding:6px; color:#8B95A5;">50</td>
+            <td style="padding:6px; color:#E5E9ED; font-weight:600;">FH-140</td>
+            <td style="padding:6px; color:#8B95A5; font-size:10px;">L117122</td>
+            <td style="padding:6px; color:#E5E9ED;">Legacy</td>
+            <td style="padding:6px; color:#8B95A5;">C-1680-32Q</td>
+            <td style="padding:6px; color:#8B95A5;">2021</td>
+            <td style="padding:6px; text-align:center; color:#00E676; font-size:10px;">3/2</td>
+            <td style="padding:6px; color:#8B95A5; font-style:italic;">Vacant</td>
+            <td style="padding:6px; text-align:center;"><span style="background:#374151; color:#8B95A5; padding:2px 8px; border-radius:10px; font-size:10px;">Vacant</span></td>
+            <td style="padding:6px; text-align:right; color:#8B95A5;">&mdash;</td>
+            <td style="padding:6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:6px; color:#3B82F6; font-size:10px;">Statement of Ownership</td>
+          </tr>
+          <!-- FH TOTALS -->
+          <tr style="background:#1E2128; font-weight:600; border-top:2px solid #A78BFA;">
+            <td colspan="7" style="padding:8px 6px; color:#A78BFA;">FOREST HOLLOW (25 Homes)</td>
+            <td style="padding:8px 6px; color:#8B95A5; font-size:10px;">0 Occ / 25 Vacant</td>
+            <td style="padding:8px 6px;"></td>
+            <td style="padding:8px 6px; text-align:right; color:#8B95A5;">$0</td>
+            <td style="padding:8px 6px; text-align:right; color:#00E676;">$0</td>
+            <td style="padding:8px 6px; color:#3B82F6; font-size:10px;">19 Statement / 6 No Status</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SVE Homes Analysis Notes -->
+    <div class="card" style="margin-top:14px; border-left:3px solid #FBBF24;">
+      <div style="font-size:12px; font-weight:600; color:#FBBF24; margin-bottom:8px;">&#9888; SVE Homes &mdash; DD Flags &amp; Notes</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.8;">
+        <b style="color:#EF4444;">Serial Number Discrepancy:</b> 5 Tru homes (marked with <sup style="color:#FBBF24;">*</sup>) show BEL017xxx on the Bill of Sale but BEL019xxx on Monday.com Title Tracker. Last 3 digits match exactly (650&#8594;650, 656&#8594;656, 659&#8594;659, 664&#8594;664, 668&#8594;668). Likely a transcription error in the BOS &mdash; verify against physical title plates at inspection.<br>
+        <b style="color:#EF4444;">D-17 (BEL017291) Not on Rent Roll:</b> This unit does not appear in the 4/1/2026 Rent Manager export. May be non-revenue, under renovation, or differently named. Only home with &ldquo;Certified Statement of Ownership&rdquo; title status &mdash; all others need transfer.<br>
+        <b style="color:#EF4444;">2 Active Evictions:</b> F-14 (Orlando Alegria, $2,522 past due, 12 lates) and F-10 (Nayely Santamaria, $843 past due). Both are BOS homes with significant delinquency.<br>
+        <b style="color:#FBBF24;">High Delinquency:</b> $11,063 total past due across 25 homes ($443/home avg). Worst offenders: F-14 ($2,522), E-07 ($1,317), D-19 ($921), F-10 ($843), F-15 ($729), F-21 ($700).<br>
+        <b style="color:#3B82F6;">Seller Carry Debt:</b> $800K total seller notes (BOS#1 $200K + BOS#2 $600K) at 7% interest, 20-year terms. Combined debt service ~$6,200/mo against $6,993 in-place rent. DSCR = 1.13x &mdash; thin margin.<br>
+        <b style="color:#A78BFA;">Forest Hollow &mdash; 100% Vacant:</b> All 25 FH homes are Vacant-Unrented per the 4/1/2026 Rent Manager export ($0 revenue, $0 past due). These homes generate zero income today &mdash; full lease-up required post-closing.<br>
+        <b style="color:#A78BFA;">Forest Hollow &mdash; No Bill of Sale:</b> No BOS has been executed for the 25 FH homes yet. Ownership entity on Monday.com = &ldquo;Forest Hollow Homes 168, LLC&rdquo; (Montecarlo Homes LLC in Rent Manager). Purchase price, seller carry terms, and transfer structure TBD.<br>
+        <b style="color:#FBBF24;">Forest Hollow Title Status:</b> 19 of 25 FH homes show &ldquo;Statement of Ownership&rdquo; on Monday.com; 6 have no title status recorded. None show &ldquo;Title Need to Transfer&rdquo; &mdash; clarify whether these titles are already in buyer&rsquo;s name or if transfer is pending.
+      </div>
+    </div>
+
     <!-- POH LIEN ANALYSIS — CRITICAL DD FINDING -->
     <div class="group-divider">
       <div class="group-label" style="color:#EF4444;">&#9888; POH Lien Analysis &mdash; Critical DD Finding (3/30)</div>
@@ -6060,8 +7404,11 @@
             <tr><td><b>Shoobie</b></td><td style="text-align:right;">2</td><td style="text-align:right;">1.4%</td><td style="text-align:right;">$1.4K</td><td class="dim">SC lots 19 & 208</td></tr>
             <tr><td><b>GSI</b></td><td style="text-align:right;">1</td><td style="text-align:right;">0.7%</td><td style="text-align:right;">$635</td><td class="dim">SC lot 18</td></tr>
             <tr><td><b>GR</b></td><td style="text-align:right;">1</td><td style="text-align:right;">0.7%</td><td style="text-align:right;">$295</td><td class="dim">SC lot 22</td></tr>
-            <tr><td><b>MB</b></td><td style="text-align:right;">1</td><td style="text-align:right;">0.7%</td><td style="text-align:right;">$245</td><td class="dim">SC lot 127</td></tr>
-            <tr style="background: rgba(59,130,246,0.06);"><td><b>TOTAL</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$84.5K</b></td><td></td></tr>
+            <tr><td><b>MB</b></td><td style="text-align:right;">1</td><td style="text-align:right;">0.5%</td><td style="text-align:right;">$245</td><td class="dim">SC lot 127</td></tr>
+            <tr style="background: rgba(59,130,246,0.06);"><td><b>Community Subtotal</b></td><td style="text-align:right;"><b>146</b></td><td style="text-align:right;"><b>74.5%</b></td><td style="text-align:right;"><b>$84.5K</b></td><td></td></tr>
+            <tr style="background: rgba(139,92,246,0.06);"><td><b style="color:#A78BFA;">SVE &mdash; BV (Miami Homes 168)</b></td><td style="text-align:right; color:#A78BFA;">25</td><td style="text-align:right;">12.8%</td><td style="text-align:right; color:#A78BFA;">$7.0K</td><td class="dim">21 paying ($100&ndash;$521). Mkt avg $495. 3 at $0 + 1 off roll.</td></tr>
+            <tr style="background: rgba(239,68,68,0.06);"><td><b style="color:#EF4444;">SVE &mdash; FH (Montecarlo)</b></td><td style="text-align:right; color:#EF4444;">25</td><td style="text-align:right;">12.8%</td><td style="text-align:right; color:#EF4444;">$0</td><td class="dim">All 25 vacant. FH comps: $205&ndash;$788, avg $410.</td></tr>
+            <tr style="background: rgba(0,230,118,0.06);"><td><b>TOTAL (All POH)</b></td><td style="text-align:right;"><b>196</b></td><td style="text-align:right;"><b>100%</b></td><td style="text-align:right;"><b>$91.5K</b></td><td class="dim">Excl. FH lease-up upside (~$10.3K/mo at $410 avg)</td></tr>
           </tbody>
         </table>
       </div>
@@ -6110,19 +7457,37 @@
             <td colspan="4"><b class="green">INCOME — CONFIRMED</b></td>
           </tr>
           <tr>
-            <td class="dim" style="padding-left:16px;">Gross POH Rental Income (Monthly)</td>
+            <td class="dim" style="padding-left:16px;">Gross POH Rental Income (Monthly) &mdash; 146 Community</td>
             <td style="text-align:right;">$84.5K</td>
             <td class="dim">POH Schedule 3/5/2026</td>
             <td class="green">Confirmed</td>
           </tr>
           <tr>
-            <td class="dim" style="padding-left:16px;">Gross POH Rental Income (Annual)</td>
-            <td style="text-align:right;">$1.0M</td>
-            <td class="dim">POH Schedule × 12</td>
+            <td style="padding-left:16px; color:#A78BFA;">+ SVE BV Income (Monthly) &mdash; 25 Homes</td>
+            <td style="text-align:right; color:#A78BFA;">$7.0K</td>
+            <td class="dim">21 paying, $100&ndash;$521, avg $333. Market avg $495.</td>
+            <td class="green">Confirmed (Rent Roll 4/1)</td>
+          </tr>
+          <tr>
+            <td style="padding-left:16px; color:#EF4444;">+ SVE FH Income (Monthly) &mdash; 25 Homes</td>
+            <td style="text-align:right; color:#EF4444;">$0</td>
+            <td class="dim">All 25 vacant. FH entity comps: $205&ndash;$788, avg $410.</td>
+            <td class="red">$0 &mdash; All Vacant</td>
+          </tr>
+          <tr style="background: rgba(139,92,246,0.06);">
+            <td style="padding-left:16px;"><b>Total POH Rental Income (Monthly) &mdash; 196 Homes</b></td>
+            <td style="text-align:right;"><b>$91.5K</b></td>
+            <td class="dim">$84.5K community + $7.0K SVE BV + $0 SVE FH</td>
             <td class="green">Confirmed</td>
           </tr>
           <tr>
-            <td class="dim" style="padding-left:16px;">All 146 homes status</td>
+            <td class="dim" style="padding-left:16px;">Gross POH Rental Income (Annual) &mdash; 196 Homes</td>
+            <td style="text-align:right;">$1.098M</td>
+            <td class="dim">$91.5K &times; 12. Excludes FH lease-up upside ($123K/yr).</td>
+            <td class="green">Confirmed</td>
+          </tr>
+          <tr>
+            <td class="dim" style="padding-left:16px;">All 146 community homes status</td>
             <td style="text-align:right;">100% Rented</td>
             <td class="dim">POH Schedule — all show "Rented"</td>
             <td class="green">Confirmed</td>
@@ -6214,9 +7579,9 @@
             <td colspan="4"><b class="green">POH NOI CALCULATION (USING MODEL DATA)</b></td>
           </tr>
           <tr>
-            <td class="dim" style="padding-left:16px;">Gross POH Income (146 existing homes)</td>
-            <td style="text-align:right;">$1.0M</td>
-            <td class="dim">POH Schedule confirmed</td>
+            <td class="dim" style="padding-left:16px;">Gross POH Income (196 homes incl. SVE)</td>
+            <td style="text-align:right;">$1.098M</td>
+            <td class="dim">$84.5K community + $7.0K SVE BV &times; 12. FH at $0 (all vacant).</td>
             <td class="green">Confirmed</td>
           </tr>
           <tr>
@@ -6226,9 +7591,9 @@
             <td class="green">Calculated</td>
           </tr>
           <tr style="background: rgba(0,230,118,0.06);">
-            <td style="padding-left:16px;"><b>Implied POH NOI (Existing 146 Homes)</b></td>
-            <td style="text-align:right;"><b class="green">$836.3K</b></td>
-            <td class="dim">82.5% margin — above industry typical (55-65%)</td>
+            <td style="padding-left:16px;"><b>Implied POH NOI (196 Homes incl. SVE)</b></td>
+            <td style="text-align:right;"><b class="green">$920.3K</b></td>
+            <td class="dim">$1.098M income &minus; $177.7K expenses. SVE BV adds $84K/yr. FH adds $0 until leased.</td>
             <td class="green">Calculated</td>
           </tr>
           <tr>
@@ -6321,8 +7686,8 @@
       </div>
       <div class="hero-box">
         <div class="hero-label">POH to Manage</div>
-        <div class="hero-value" style="color:#8B5CF6;">146</div>
-        <div class="hero-sub">Until TOH conversion completes</div>
+        <div class="hero-value" style="color:#8B5CF6;">196</div>
+        <div class="hero-sub">146 community + 50 SVE</div>
       </div>
       <div class="hero-box">
         <div class="hero-label">Yr 1 NOI Target</div>
@@ -6388,9 +7753,9 @@
           <div style="font-size:11px; color:#C1C7CF; line-height:1.8;">
             <b style="color:#E5E9ED;">Security Deposits</b> &mdash; Reconcile deposit ledger vs lease files for all 346 tenants. Per PSA &sect;4.3, buyer gets credit at closing for unapplied deposits.<br>
             <b style="color:#E5E9ED;">Lease File Inventory</b> &mdash; Confirm all 37 POH leases + lot leases received. Flag the 3 leases (SC 183, 190, 203) with "utilities included" language for immediate attention.<br>
-            <b style="color:#E5E9ED;">Closing Binder</b> &mdash; Verify receipt of all 18 seller deliverables per PSA &sect;15.2. Title policy, deeds, bills of sale, assignments, Certificates of Title for 146 homes.<br>
+            <b style="color:#E5E9ED;">Closing Binder</b> &mdash; Verify receipt of all 18 seller deliverables per PSA &sect;15.2. Title policy, deeds, bills of sale, assignments, Certificates of Title for 146 community homes + 50 SVE home titles.<br>
             <b style="color:#E5E9ED;">Emergency Contacts</b> &mdash; Set up after-hours maintenance line. Identify emergency plumber, electrician, HVAC in Pueblo area.<br>
-            <b style="color:#E5E9ED;">Insurance Activation</b> &mdash; Confirm Silver Lands portfolio policy covers all 3 communities effective Day 1. Verify adequate coverage on 146 POH units.
+            <b style="color:#E5E9ED;">Insurance Activation</b> &mdash; Confirm Silver Lands portfolio policy covers all 3 communities effective Day 1. Verify adequate coverage on 196 POH units (146 community + 50 SVE).
           </div>
         </div>
       </div>
@@ -6499,7 +7864,7 @@
             </tr>
             <tr style="background:rgba(239,68,68,0.04);">
               <td style="text-align:center;"><b style="color:#EF4444;">Close +30d</b></td>
-              <td class="dim">Grade all 146 POH homes A/B/C. Walk every unit with CapEx. Identify first 10 for sale listing.</td>
+              <td class="dim">Grade all 196 POH homes A/B/C (146 community + 50 SVE). Walk every unit with CapEx. Identify first 10 for sale listing.</td>
               <td style="text-align:center;"><span style="background:rgba(139,92,246,0.15); color:#B794F6; padding:2px 6px; border-radius:4px; font-size:9px; font-weight:700;">POH</span></td>
               <td class="dim">Grading report complete. "A" homes identified.</td>
             </tr>
@@ -6621,7 +7986,7 @@
             <span style="font-size:9px; color:#858D99;">CapEx + Finance</span>
           </div>
           <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
-            We're targeting 40 home sales in Year 1 across 146 POH units. The question is pricing and how we make it accessible. Pueblo's median household income is ~$45K &mdash; most residents can't qualify for traditional financing. <b style="color:#E5E9ED;">Do we lean into seller financing through the Private Credit Facility SPE, partner with 21st Mortgage for chattel loans, or run a rent-to-own program? What's the minimum acceptable sale price vs. speed of conversion?</b>
+            We're targeting 40 home sales in Year 1 across 196 POH units (146 community + 50 SVE). The question is pricing and how we make it accessible. Pueblo's median household income is ~$45K &mdash; most residents can't qualify for traditional financing. <b style="color:#E5E9ED;">Do we lean into seller financing through the Private Credit Facility SPE, partner with 21st Mortgage for chattel loans, or run a rent-to-own program? What's the minimum acceptable sale price vs. speed of conversion?</b>
           </div>
         </div>
 
@@ -6654,7 +8019,7 @@
             <span style="font-size:9px; color:#858D99;">Finance + CPA</span>
           </div>
           <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
-            PSA &sect;10 gives us flexibility to allocate between real and personal property on a community-by-community basis. If we can't agree with seller, each party allocates independently. <b style="color:#E5E9ED;">How aggressively do we allocate to personal property (homes) for accelerated depreciation? Do we engage a cost segregation firm pre-close, or handle it with the CPA post-close? What's the tax strategy for the 146 homes we plan to sell?</b>
+            PSA &sect;10 gives us flexibility to allocate between real and personal property on a community-by-community basis. If we can't agree with seller, each party allocates independently. <b style="color:#E5E9ED;">How aggressively do we allocate to personal property (homes) for accelerated depreciation? Do we engage a cost segregation firm pre-close, or handle it with the CPA post-close? What's the tax strategy for the 196 homes we plan to sell?</b>
           </div>
         </div>
 
@@ -6731,7 +8096,7 @@
             &bull; ADA compliance fixes (OC parking, SC ramp)<br>
             &bull; Abandoned home removal (9 units across portfolio)<br>
             &bull; Community signage &amp; curb appeal upgrades<br>
-            &bull; POH home grading complete (A/B/C all 146 homes)<br>
+            &bull; POH home grading complete (A/B/C all 196 homes)<br>
             &bull; First 10 "A grade" homes listed for sale
           </div>
         </div>
@@ -7147,15 +8512,194 @@
         </div>
       </div>
       <div class="section" style="margin-bottom:0; border-left: 3px solid #EF4444; padding-left: 12px;">
-        <div style="font-size: 11px; color: #EF4444; font-weight: 700; margin-bottom: 6px;">TOP PRIORITIES &mdash; WHAT TO LOOK FOR</div>
+        <div style="font-size: 11px; color: #EF4444; font-weight: 700; margin-bottom: 6px;">TOP 7 PRIORITIES &mdash; NON-NEGOTIABLE</div>
         <div style="font-size: 11px; color: #C9CDD3; line-height: 1.8;">
-          <b style="color:#E5E9ED;">Roads &amp; Asphalt</b> &mdash; Potholes, alligatoring, drainage. OC is worst ($41K).<br>
-          <b style="color:#E5E9ED;">Abandoned Homes (9)</b> &mdash; Secured? Hazmat risk? Removal vs rehab cost.<br>
-          <b style="color:#E5E9ED;">Vacant Lots (53)</b> &mdash; Walk every lot. Hookups intact? Pad condition?<br>
-          <b style="color:#E5E9ED;">ADA Compliance</b> &mdash; Zero accessible parking at OC (PZR confirmed). Ramp issues at SC.<br>
-          <b style="color:#EF4444;">SC Nonconforming Use</b> &mdash; Cert #98-152. Cannot expand. 12-mo vacancy = permanent loss of MHP use.<br>
-          <b style="color:#E5E9ED;">Tree Hazards</b> &mdash; Dead branches over power lines at all 3 properties.
+          <b style="color:#EF4444;">A.</b> <b style="color:#E5E9ED;">Meet Local Contractors</b> &mdash; GC, paving, plumber, electrician, HVAC, arborist. Get real bids on-site.<br>
+          <b style="color:#EF4444;">B.</b> <b style="color:#E5E9ED;">Inspect ALL 249 POH</b> &mdash; Grade every home A/B/C/D. 25 FH vacant homes = highest priority.<br>
+          <b style="color:#EF4444;">C.</b> <b style="color:#E5E9ED;">Infrastructure Deep-Dive</b> &mdash; Roads, water, sewer, electric. Walk with contractors.<br>
+          <b style="color:#FBBF24;">D.</b> <b style="color:#E5E9ED;">Interview Onsite Staff</b> &mdash; Kim (PM) and Curtis (Maint). Hidden issues, retention decision.<br>
+          <b style="color:#FBBF24;">E.</b> <b style="color:#E5E9ED;">Casual Resident Interviews</b> &mdash; 5&ndash;10 per park. Ground-truth the numbers.<br>
+          <b style="color:#FBBF24;">F.</b> <b style="color:#E5E9ED;">City &amp; Municipal Relations</b> &mdash; Assessor, Planning, Code Enforcement, Fire, Water. No hostile relations.<br>
+          <b style="color:#3B82F6;">G.</b> <b style="color:#E5E9ED;">Shop Competing Parks</b> &mdash; Secret shop every MHC in Pueblo. Validate rent assumptions.
         </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ SITE VISIT PRIORITY OBJECTIVES ═══════════════════ -->
+    <div class="group-divider">
+      <div class="group-label" style="color:#EF4444;">&#9733; #1 Priority Objectives &mdash; Must Complete On-Site</div>
+      <div class="group-line"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px;">
+
+      <!-- PRIORITY A: CONTRACTOR MEETINGS -->
+      <div class="section" style="margin-bottom:0; border-top:3px solid #EF4444; padding:14px;">
+        <div style="font-size:10px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">A. Meet Local Contractors</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+          <b style="color:#E5E9ED;">Goal:</b> Establish relationships with 3&ndash;5 reliable local contractors for Day 1 post-close execution. Get real bids &mdash; not estimates.<br><br>
+          <b style="color:#FBBF24;">Walk the properties with them:</b><br>
+          &bull; <b style="color:#E5E9ED;">General contractor</b> &mdash; scope POH rehab, skirting, decks, siding. Get per-unit rehab pricing for light/moderate/heavy turns<br>
+          &bull; <b style="color:#E5E9ED;">Asphalt/paving</b> &mdash; walk OC roads together ($41K PCA estimate). Get competing bid on-site. Verify seller&rsquo;s $50K claim<br>
+          &bull; <b style="color:#E5E9ED;">Plumber</b> &mdash; assess sewer/water line condition. Camera scope main lines if possible. Quote leak investigation for OC water spikes<br>
+          &bull; <b style="color:#E5E9ED;">Electrician</b> &mdash; inspect pedestals, meter bases, panel conditions across all 3 parks<br>
+          &bull; <b style="color:#E5E9ED;">HVAC</b> &mdash; assess OC boiler (rated FAIR, $8.5K PCA). Get replacement timeline and quote<br>
+          &bull; <b style="color:#E5E9ED;">Tree service / arborist</b> &mdash; hazard trees near power lines at all 3. Get removal quote for cottonwoods at SC<br><br>
+          <b style="color:#8B95A5;">Pre-Visit:</b> Ask Kris/Ben for their current vendor contacts. Cross-reference with <a href="https://drive.google.com/drive/folders/1B8JQd0knv7ZPwvzqRbOXlaKB21MTX3jE?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">vendor list (Folder H)</a>. Also source 2&ndash;3 independent contractors via local referrals or HomeAdvisor/Angi for competing bids.
+        </div>
+      </div>
+
+      <!-- PRIORITY B: PHYSICAL INSPECTION — ALL POH -->
+      <div class="section" style="margin-bottom:0; border-top:3px solid #EF4444; padding:14px;">
+        <div style="font-size:10px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">B. Inspect ALL POH Homes</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+          <b style="color:#E5E9ED;">Goal:</b> Grade every POH home A/B/C/D with photo documentation. No exceptions &mdash; walk every single unit.<br><br>
+          <b style="color:#FBBF24;">Scope (249 total POH):</b><br>
+          &bull; <b style="color:#A78BFA;">50 SVE Homes</b> &mdash; 25 BV (22 occupied, 2 evict, 1 vacant) + 25 FH (<b style="color:#EF4444;">all vacant</b>). FH condition completely unknown &mdash; these are the highest priority<br>
+          &bull; <b style="color:#E5E9ED;">199 Portfolio POH</b> &mdash; SC ~101, OC ~72, LAV ~26. Walk every home exterior at minimum; enter all vacant units<br>
+          &bull; <b style="color:#EF4444;">9 Abandoned Homes</b> (SC: 5, OC: 4) &mdash; removal vs rehab decision on each<br><br>
+          <b style="color:#FBBF24;">Per-Home Checklist:</b><br>
+          &bull; Roof condition (shingles, ponding, leaks)<br>
+          &bull; Skirting (intact, damaged, missing)<br>
+          &bull; HVAC (operational, age, type)<br>
+          &bull; Plumbing (active leaks, water heater age)<br>
+          &bull; Electrical (panel condition, visible hazards)<br>
+          &bull; Interior (if accessible): floors, walls, appliances, mold<br>
+          &bull; Exterior: siding, windows, doors, steps/deck condition<br><br>
+          <b style="color:#8B95A5;">Deliverable:</b> A/B/C/D grade sheet with photos. Feed into rehab budget model. Identify first 10 homes for sale listing.
+        </div>
+      </div>
+
+      <!-- PRIORITY C: INFRASTRUCTURE INSPECTION -->
+      <div class="section" style="margin-bottom:0; border-top:3px solid #EF4444; padding:14px;">
+        <div style="font-size:10px; font-weight:700; color:#EF4444; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">C. Infrastructure Deep-Dive</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+          <b style="color:#E5E9ED;">Goal:</b> Verify condition of all roads, water, sewer, electric, and common area infrastructure with contractor walk-throughs.<br><br>
+          <b style="color:#FBBF24;">Roads &amp; Paving:</b><br>
+          &bull; OC: $41.1K PCA vs seller claims $50K+ spent. <b style="color:#E5E9ED;">Walk entire OC road system with paving contractor</b><br>
+          &bull; SC: $2.4K immediate + $77K sealcoat<br>
+          &bull; LAV: Appears good per PCA &mdash; verify<br><br>
+          <b style="color:#FBBF24;">Water / Sewer:</b><br>
+          &bull; OC water spikes: Nov $14.3K / Dec $11.9K (vs $7&ndash;8K normal). Possible underground leak<br>
+          &bull; SC water swings $15K&ndash;$31K. Farm house meter billing separately<br>
+          &bull; Camera scope main sewer lines if contractor available<br><br>
+          <b style="color:#FBBF24;">Electrical:</b><br>
+          &bull; Inspect pedestals at all 3 parks<br>
+          &bull; Meter base conditions, grounding<br>
+          &bull; External cords/cables on homes = fire hazard<br><br>
+          <b style="color:#FBBF24;">Common Areas:</b><br>
+          &bull; SC: pool, clubhouse (new roof 2022), playground, farm house<br>
+          &bull; OC: pavilion, fire pit, blue building, boiler<br>
+          &bull; LAV: minimal &mdash; verify no unpermitted structures
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px;">
+
+      <!-- PRIORITY D: ONSITE STAFF INTERVIEWS -->
+      <div class="section" style="margin-bottom:0; border-top:3px solid #FBBF24; padding:14px;">
+        <div style="font-size:10px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">D. Interview Onsite Staff</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+          <b style="color:#E5E9ED;">Goal:</b> Assess operational capabilities, identify hidden issues, evaluate who to retain post-close.<br><br>
+          <b style="color:#FBBF24;">Key Personnel:</b><br>
+          &bull; <b style="color:#E5E9ED;">Kim</b> &mdash; Property Manager (OC/SC). Daily operations, rent collection, maintenance coordination, vendor relationships, resident issues<br>
+          &bull; <b style="color:#E5E9ED;">Curtis Maldonado</b> &mdash; Maintenance (LAV). (719) 564-1352. Physical condition knowledge, work order backlog, infrastructure history<br><br>
+          <b style="color:#FBBF24;">Questions to Ask:</b><br>
+          &bull; What are the top 3 maintenance issues right now?<br>
+          &bull; Which homes/lots have recurring problems?<br>
+          &bull; How many work orders are open? What&rsquo;s the avg response time?<br>
+          &bull; Which vendors do they rely on most? Any vendor issues?<br>
+          &bull; What&rsquo;s turnover been like this year? Move-ins vs move-outs?<br>
+          &bull; Any resident disputes, legal issues, or code complaints?<br>
+          &bull; What would they fix first if budget was unlimited?<br>
+          &bull; Do they know about the sale? What are their concerns?<br><br>
+          <b style="color:#8B95A5;">Note:</b> Assess whether Kim and Curtis are keepers. Their institutional knowledge is invaluable for transition.
+        </div>
+      </div>
+
+      <!-- PRIORITY E: RESIDENT INTERVIEWS -->
+      <div class="section" style="margin-bottom:0; border-top:3px solid #FBBF24; padding:14px;">
+        <div style="font-size:10px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">E. Casual Resident Interviews</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+          <b style="color:#E5E9ED;">Goal:</b> Ground-truth the numbers. Residents know things that don&rsquo;t show up on rent rolls or P&amp;Ls.<br><br>
+          <b style="color:#FBBF24;">Approach:</b> Walk the community. Stop and chat with anyone outside. Keep it casual &mdash; &ldquo;Hi, we&rsquo;re looking at the property &mdash; how do you like living here?&rdquo;<br><br>
+          <b style="color:#FBBF24;">What to Listen For:</b><br>
+          &bull; <b style="color:#E5E9ED;">Management quality</b> &mdash; Are they responsive? Do they fix things? Are they fair?<br>
+          &bull; <b style="color:#E5E9ED;">Safety concerns</b> &mdash; Crime, drugs, problematic neighbors, areas they avoid<br>
+          &bull; <b style="color:#E5E9ED;">Infrastructure complaints</b> &mdash; Water pressure, sewer backups, road conditions, power outages<br>
+          &bull; <b style="color:#E5E9ED;">Community vibe</b> &mdash; Sense of pride? Or neglect? Do people take care of their lots?<br>
+          &bull; <b style="color:#E5E9ED;">Turnover drivers</b> &mdash; Why do people leave? Where do they go? What would make them stay?<br>
+          &bull; <b style="color:#E5E9ED;">Rent fairness</b> &mdash; Do they think rent is reasonable? Any recent increases? Pushback?<br>
+          &bull; <b style="color:#E5E9ED;">Vacancy context</b> &mdash; Do they know why lots/homes are vacant? How long have they been empty?<br><br>
+          <b style="color:#8B95A5;">Target:</b> Talk to 5&ndash;10 residents per property. Mix of long-term and newer tenants. Different sections of each park. Take notes immediately after each conversation.
+        </div>
+      </div>
+
+      <!-- PRIORITY F: CITY / MUNICIPAL RELATIONS -->
+      <div class="section" style="margin-bottom:0; border-top:3px solid #FBBF24; padding:14px;">
+        <div style="font-size:10px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">F. City &amp; Municipal Relations</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+          <b style="color:#E5E9ED;">Goal:</b> Confirm no hostile relationships, open violations, or pending enforcement actions. Introduce ourselves as the incoming ownership group.<br><br>
+          <b style="color:#FBBF24;">Meetings to Schedule:</b><br>
+          &bull; <b style="color:#E5E9ED;">Pueblo County Planning &amp; Zoning</b> &mdash; Confirm SC nonconforming certificate (#98-152) is current and in good standing. Ask about any complaints or enforcement history. Inquire about MHP regulations<br>
+          &bull; <b style="color:#E5E9ED;">City of Pueblo Code Enforcement</b> &mdash; OC and LAV are city jurisdiction. Any open violations? Complaints on file? Pending inspections?<br>
+          &bull; <b style="color:#E5E9ED;">Pueblo County Assessor</b> &mdash; (719) 583-6000. Confirm parcel classifications (residential vs commercial). Discuss reassessment methodology at $39.7M. <span style="color:#EF4444; font-weight:600;">Keiana task &mdash; OVERDUE</span><br>
+          &bull; <b style="color:#E5E9ED;">Fire Marshal / Fire District</b> &mdash; Any fire code violations on record? Extinguisher recert status. Access road compliance<br>
+          &bull; <b style="color:#E5E9ED;">Board of Water Works</b> &mdash; Request meter read history for all 3 properties. Discuss OC water spikes. Ask about infrastructure condition from their side<br><br>
+          <b style="color:#FBBF24;">Tone:</b> Introduce Silver Lands as the incoming operator. We intend to invest, improve, and be a good community partner. Ask what they need from us. Build goodwill &mdash; we will need these relationships.<br><br>
+          <b style="color:#8B95A5;">Pre-Visit:</b> Call ahead to schedule. Bring property addresses, parcel numbers, and business cards.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRIORITY G: PHYSICAL MARKET SURVEY (COMP SHOPPING) -->
+    <div class="section" style="margin-bottom:16px; border-top:3px solid #3B82F6; padding:14px;">
+      <div style="font-size:10px; font-weight:700; color:#3B82F6; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">G. Physical Market Survey &mdash; Shop Competing Parks</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:1.9;">
+        <b style="color:#E5E9ED;">Goal:</b> Physically visit every competing MHC in the Pueblo market. Secret shop them. Compare rent, condition, management, and curb appeal to our 3 properties. This is how you validate (or invalidate) the underwriting rent assumptions.<br><br>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <b style="color:#FBBF24;">How to Shop a Park:</b><br>
+            &bull; Drive in as a prospective resident &mdash; &ldquo;I&rsquo;m looking for a lot / home to rent&rdquo;<br>
+            &bull; Ask for their current lot rent, POH rent, and home purchase prices<br>
+            &bull; Ask about deposits, lease terms, pet policies, utilities included<br>
+            &bull; Ask about availability &mdash; how many vacancies? Wait list?<br>
+            &bull; Ask about amenities &mdash; pool, laundry, playground, community room<br>
+            &bull; Take note of curb appeal, road condition, home quality, maintenance level<br>
+            &bull; Is the office professional? Is staff friendly and responsive?<br>
+            &bull; Would you want to live here? How does it compare to our properties?
+          </div>
+          <div>
+            <b style="color:#FBBF24;">Parks to Visit (from rent survey):</b><br>
+            &bull; <b style="color:#E5E9ED;">Pueblo Grande Village</b> &mdash; Largest comp. What are their lot rents?<br>
+            &bull; <b style="color:#E5E9ED;">Pueblo West MHP</b> &mdash; West side market. Different demographic?<br>
+            &bull; <b style="color:#E5E9ED;">El Camino MHP</b> &mdash; Closest to OC<br>
+            &bull; <b style="color:#E5E9ED;">Desert Sands / Sun Valley</b> &mdash; Older communities &mdash; how do they compare?<br>
+            &bull; <b style="color:#E5E9ED;">Any park with &ldquo;For Rent&rdquo; or &ldquo;Homes Available&rdquo; signage</b><br><br>
+            <b style="color:#8B95A5;">Deliverable:</b> Comp survey sheet with: park name, lot rent, POH rent, occupancy estimate, condition rating (1&ndash;5), amenities, notes. Use this to validate market rent assumptions in UW model. See <a href="#" onclick="document.getElementById('radio-page100').checked=true; window.scrollTo(0,0); return false;" style="color:#3B82F6; text-decoration:none; font-weight:700;">Market tab</a> for existing desktop rent comps.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SITE VISIT SCHEDULE TEMPLATE -->
+    <div class="section" style="margin-bottom:16px; border-left:3px solid #8B5CF6; padding-left:14px;">
+      <div style="font-size:11px; color:#8B5CF6; font-weight:700; margin-bottom:6px;">SUGGESTED 2-DAY SITE VISIT SCHEDULE</div>
+      <div style="font-size:11px; color:#C9CDD3; line-height:2.0;">
+        <b style="color:#E5E9ED;">Day 1 &mdash; Properties + Contractors</b><br>
+        7:00 AM &mdash; Meet at Sunset Vista. Walk entire property with contractor(s). Inspect all SC POH exteriors. Interview Kim. Chat with residents.<br>
+        11:00 AM &mdash; Drive to Oasis. Walk roads with paving contractor (PCA vs seller claim). Inspect boiler, common areas, OC POH. 4 abandoned homes.<br>
+        3:00 PM &mdash; La Vista. Survey encroachments. Meet Curtis. Walk all lots. Quick and clean.<br>
+        5:00 PM &mdash; Debrief. Compile Day 1 notes. Prioritize Day 2 follow-ups.<br><br>
+        <b style="color:#E5E9ED;">Day 2 &mdash; Market Survey + Municipal + SVE Homes</b><br>
+        7:00 AM &mdash; Pueblo County Assessor &amp; Planning/Zoning. City Code Enforcement. Board of Water Works. Fire Marshal.<br>
+        10:00 AM &mdash; Shop 4&ndash;6 competing parks. Physical rent comp survey.<br>
+        1:00 PM &mdash; Return to SVE locations. Walk all 50 SVE homes (25 BV + 25 FH). Grade and photograph each. This is the money &mdash; take your time.<br>
+        4:00 PM &mdash; Follow-up inspections on anything flagged Day 1. Photograph worst-condition items for seller credit negotiation.<br>
+        6:00 PM &mdash; Final debrief. Draft preliminary site visit findings. Identify items requiring seller response before DD period starts.
       </div>
     </div>
 
@@ -7456,6 +9000,23 @@
       </div>
     </div>
 
+    <!-- ZONING vs TAX CLASSIFICATION SUMMARY -->
+    <div class="section" style="margin-bottom: 14px; border-left: 4px solid #3B82F6; padding-left: 12px; background:rgba(59,130,246,0.04);">
+      <div style="font-size: 11px; color: #3B82F6; font-weight: 700; margin-bottom: 8px;">CLASSIFICATION SUMMARY &mdash; ZONING &amp; TAX ASSESSMENT</div>
+      <div style="font-size: 10.5px; color: #C9CDD3; line-height: 1.8;">
+        <b style="color:#00E676;">Zoning Classification: ALL RESIDENTIAL</b><br>
+        All three properties are zoned residential. SC is zoned HR (Mixed Residential High Density) under Pueblo County &mdash; operates as legal nonconforming (Cert #98-152). OC and LAV are both zoned R7 (Mobile Home Residential) under City of Pueblo &mdash; MHP permitted by right. <b style="color:#E5E9ED;">None are zoned commercial.</b><br><br>
+        <b style="color:#EF4444;">Tax Assessment Classification: UNCONFIRMED</b> <span style="color:#EF4444; font-weight:700;">&mdash; OVERDUE</span><br>
+        Colorado CRS 39-1-102 states MHC land shall be assessed at the <b style="color:#E5E9ED;">residential rate (6.7%)</b>, not the commercial rate (29%). However, the actual assessment classification on each parcel has <b style="color:#EF4444;">not been confirmed</b> with Pueblo County Assessor. This is the single highest-impact open DD item &mdash; the difference between residential and commercial assessment is <b style="color:#FFF;">~$595K/yr in property tax expense</b> at a $39.7M basis.<br>
+        <div style="display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:8px 0 4px 16px; font-size:11px;">
+          <span>Ratio Method (current effective)</span><span style="text-align:right; font-weight:600; color:#00E676;">$95,000/yr</span>
+          <span>Residential (6.7%) &mdash; expected per CRS 39-1-102</span><span style="text-align:right; font-weight:600; color:#FBBF24;">$178,900/yr</span>
+          <span>Commercial (29%) &mdash; worst case</span><span style="text-align:right; font-weight:600; color:#EF4444;">$774,200/yr</span>
+        </div>
+        <b style="color:#FBBF24;">Action:</b> Keiana to call Pueblo County Assessor (719) 583-6000 and confirm the use code on every parcel. Due 3/31 &mdash; <span style="color:#EF4444; font-weight:700;">OVERDUE</span>. Escalate immediately.
+      </div>
+    </div>
+
     <!-- SC NONCONFORMING WARNING -->
     <div class="section" style="margin-bottom: 14px; border-left: 3px solid #EF4444; padding-left: 12px; background:rgba(239,68,68,0.04);">
       <div style="font-size: 11px; color: #EF4444; font-weight: 700; margin-bottom: 6px;">&#9888; SUNSET VISTA &mdash; LEGAL NONCONFORMING USE (CRITICAL)</div>
@@ -7507,6 +9068,18 @@
             <td><span style="color:#EF4444;">Legal Nonconforming</span></td>
             <td><span style="color:#22C55E;">Permitted by Right</span></td>
             <td><span style="color:#22C55E;">Permitted by Right</span></td>
+          </tr>
+          <tr>
+            <td><b>Land Use Class</b></td>
+            <td><span style="color:#22C55E;">Residential</span></td>
+            <td><span style="color:#22C55E;">Residential</span></td>
+            <td><span style="color:#22C55E;">Residential</span></td>
+          </tr>
+          <tr>
+            <td><b>Tax Assessment</b></td>
+            <td><span style="color:#EF4444; font-weight:700;">UNCONFIRMED</span></td>
+            <td><span style="color:#EF4444; font-weight:700;">UNCONFIRMED</span></td>
+            <td><span style="color:#EF4444; font-weight:700;">UNCONFIRMED</span></td>
           </tr>
           <tr>
             <td><b>Acreage</b></td>
@@ -7696,7 +9269,7 @@
         <b style="color:#E5E9ED;">Curtis Maldonado</b> &mdash; Maintenance (LAV) &mdash; (719) 564-1352
       </div>
       <div style="font-size: 10px; color: #858D99; margin-top: 8px; line-height: 1.6;">
-        <b style="color:#8B5CF6;">Bring:</b> PCA photos &middot; Lot maps &middot; Survey plats (LAV) &middot; PZR zoning reports (all 3) &middot; Cert #98-152 &amp; Var #98-01 (SC) &middot; Tape measure &middot; Camera &middot; This dashboard
+        <b style="color:#8B5CF6;">Bring:</b> PCA photos &middot; Lot maps &middot; Survey plats (LAV) &middot; PZR zoning reports (all 3) &middot; Cert #98-152 &amp; Var #98-01 (SC) &middot; Tape measure &middot; Camera &middot; Clipboard + POH grading sheets &middot; Comp survey forms &middot; Business cards &middot; Contractor contact list &middot; This dashboard
       </div>
     </div>
 
@@ -8059,7 +9632,7 @@
             <td style="text-align:right; color:#FBBF24;">TBD</td>
             <td class="orange">Below-market rents on 39 homes 20+ yrs old</td>
             <td>Year 1&ndash;3</td>
-            <td class="dim">Grade all 146 POH homes A/B/C during walk. Flag homes needing HVAC, roof, skirting, or plumbing work. Identify first 10 for rehab.</td>
+            <td class="dim">Grade all 196 POH homes A/B/C during walk (146 community + 50 SVE). Flag homes needing HVAC, roof, skirting, or plumbing work. Identify first 10 for rehab.</td>
           </tr>
           <tr>
             <td><b style="color:#E5E9ED;">Fencing &amp; Perimeter Security</b></td>
@@ -12741,6 +14314,109 @@
   <!-- ============================= PAGE 5: INVESTOR DECK ============================= -->
   <div class="tab-content" id="tab-page5">
 
+    <!-- ═══════════════════ STATIC: DEAL KPIs ═══════════════════ -->
+    <div style="margin-bottom:20px;">
+      <div style="font-size:9px; font-weight:600; color:#858D99; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; padding-left:2px;">Sunset Vista Estates Portfolio &nbsp;&bull;&nbsp; Stabilized MHC portfolio with immediate upside and multiple paths to value creation</div>
+
+      <!-- KPI ROW 1: Return Metrics -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:10px;">
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(249,115,22,0.25);">
+          <div style="font-size:32px; font-weight:900; color:#F97316;">18%</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Net IRR</div>
+          <div style="font-size:9px; color:#858D99;">Project-Level</div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(249,115,22,0.25);">
+          <div style="font-size:32px; font-weight:900; color:#F97316;">2.2x</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Equity Multiple</div>
+          <div style="font-size:9px; color:#858D99;">MOIC</div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(249,115,22,0.25);">
+          <div style="font-size:32px; font-weight:900; color:#F97316;">7%</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Year 1 Cash Yield</div>
+          <div style="font-size:9px; color:#858D99;">Cash-on-Cash</div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(249,115,22,0.25);">
+          <div style="font-size:32px; font-weight:900; color:#F97316;">80%</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Year 1 Depreciation</div>
+          <div style="font-size:9px; color:#858D99;">Tax Benefit</div>
+        </div>
+      </div>
+
+      <!-- KPI ROW 2: Deal Metrics -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px;">
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(133,141,153,0.15);">
+          <div style="font-size:28px; font-weight:900; color:#E5E9ED;">$40.3M</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Purchase Price</div>
+          <div style="font-size:9px; color:#858D99;">399 Lots</div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(133,141,153,0.15);">
+          <div style="font-size:28px; font-weight:900; color:#E5E9ED;">$26.7M</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Total Equity</div>
+          <div style="font-size:9px; color:#858D99;">95% LP / 5% GP</div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(133,141,153,0.15);">
+          <div style="font-size:28px; font-weight:900; color:#E5E9ED;">$80,475</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Price Per Lot</div>
+          <div style="font-size:9px; color:#858D99;">Below Market Basis</div>
+        </div>
+        <div style="background:#111827; border-radius:10px; padding:16px 12px; text-align:center; border:1px solid rgba(133,141,153,0.15);">
+          <div style="font-size:28px; font-weight:900; color:#E5E9ED;">5 Yrs</div>
+          <div style="font-size:11px; font-weight:600; color:#E5E9ED; margin-top:2px;">Hold Period</div>
+          <div style="font-size:9px; color:#858D99;">Target Investment Timeline</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ STATIC: INVESTMENT THESIS & KEY HIGHLIGHTS ═══════════════════ -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+
+      <!-- INVESTMENT THESIS -->
+      <div style="background:#111827; border-radius:12px; padding:20px 22px; border:1px solid rgba(133,141,153,0.12);">
+        <div style="font-size:14px; font-weight:800; color:#E5E9ED; margin-bottom:14px;">Investment Thesis</div>
+        <div style="font-size:11px; color:#C9CDD3; line-height:2.0;">
+          &bull; &nbsp;High-quality MHC portfolio at below-market basis with immediate infill upside (25 vacant lots)<br>
+          &bull; &nbsp;Stable cash flow from 91% occupancy with majority tenant-owned homes<br>
+          &bull; &nbsp;Multiple value creation levers including rent growth, POH conversion, and operational efficiencies<br>
+          &bull; &nbsp;Located along the I-25 corridor with strong demographic and infrastructure tailwinds<br>
+          &bull; &nbsp;Conservative capital structure with in-place cash flow and downside protection (54% LTV, stable occupancy)
+        </div>
+      </div>
+
+      <!-- KEY HIGHLIGHTS -->
+      <div style="background:#111827; border-radius:12px; padding:20px 22px; border:1px solid rgba(133,141,153,0.12);">
+        <div style="font-size:14px; font-weight:800; color:#E5E9ED; margin-bottom:14px;">Key Highlights</div>
+        <div style="font-size:11px; line-height:1.6;">
+
+          <div style="margin-bottom:10px;">
+            <div style="font-size:11px; font-weight:700; color:#F97316;">Attractive Basis &amp; Immediate Upside</div>
+            <div style="color:#858D99;">25 vacant lots and POH lease-up provide near-term NOI growth</div>
+          </div>
+
+          <div style="margin-bottom:10px;">
+            <div style="font-size:11px; font-weight:700; color:#F97316;">Durable Cash Flow Profile</div>
+            <div style="color:#858D99;">91% occupancy with heavy tenant-owned mix &mdash; lower expense burden</div>
+          </div>
+
+          <div style="margin-bottom:10px;">
+            <div style="font-size:11px; font-weight:700; color:#F97316;">Multiple Value Creation Levers</div>
+            <div style="color:#858D99;">Infill, rent growth, POH conversion, and CapEx improvements</div>
+          </div>
+
+          <div style="margin-bottom:10px;">
+            <div style="font-size:11px; font-weight:700; color:#F97316;">Tax Efficiency</div>
+            <div style="color:#858D99;">Significant Year 1 depreciation enhances after-tax returns</div>
+          </div>
+
+          <div>
+            <div style="font-size:11px; font-weight:700; color:#F97316;">Favorable In-Place Financing</div>
+            <div style="color:#858D99;">Assumable CMBS debt (6.45% IO) with no requalification required</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ EXISTING: DECK UPDATE TRACKER ═══════════════════ -->
     <div class="group-divider">
       <div class="group-label">Investor Deck &mdash; Required Updates</div>
       <div class="group-line"></div>
@@ -12807,7 +14483,7 @@
             <td><span class="risk-tag tag-critical">1</span></td>
             <td><b>Total POH Count</b></td>
             <td style="color:#EF4444; font-weight:700; text-decoration: line-through;">156 homes</td>
-            <td style="color:#00E676; font-weight:700;">146 homes</td>
+            <td style="color:#00E676; font-weight:700;">196 homes</td>
             <td class="dim">Seller sold 11 homes between LOI and PSA. Price adjusted accordingly.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
@@ -12828,8 +14504,8 @@
             <td><span class="risk-tag tag-critical">4</span></td>
             <td><b>Return Metrics (IRR / MOIC / CoC)</b></td>
             <td style="color:#EF4444; font-weight:700; text-decoration: line-through;">LOI-era projections</td>
-            <td style="color:#FBBF24; font-weight:700;">TBD &mdash; awaiting model</td>
-            <td class="dim">Must be recalculated with updated price, POH count, and tax assumptions.</td>
+            <td style="color:#00E676; font-weight:700;">18% IRR / 2.2x / 7% CoC</td>
+            <td class="dim">Per UW model. Validate post-DD with updated tax, CapEx, and occupancy assumptions.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><span class="risk-tag tag-critical">5</span></td>
@@ -12883,7 +14559,7 @@
         </div>
         <div style="padding:12px 14px; background:rgba(59,130,246,0.06); border-left:3px solid #3B82F6; border-radius:6px;">
           <div style="font-size:12px; font-weight:700; color:#E5E9ED; margin-bottom:4px;">Depreciation Basis Allocation</div>
-          <div style="font-size:11px; color:#858D99; line-height:1.5;">146 POH + land + improvements. Cost seg opportunity needs analysis.</div>
+          <div style="font-size:11px; color:#858D99; line-height:1.5;">196 POH (146 community + 50 SVE) + land + improvements. Cost seg opportunity needs analysis.</div>
         </div>
         <div style="padding:12px 14px; background:rgba(59,130,246,0.06); border-left:3px solid #3B82F6; border-radius:6px;">
           <div style="font-size:12px; font-weight:700; color:#E5E9ED; margin-bottom:4px;">Rent Growth Assumptions</div>
@@ -14063,7 +15739,7 @@
             <td><a href="https://drive.google.com/drive/folders/1MAD22wNuzlatQfSHJ1lqckeyeg7Yf6nN" target="_blank" style="color:#67E8F9; text-decoration:none;">POH Inventory &amp; Title Verification</a></td>
             <td><span class="status-badge badge-received">RECEIVED</span></td>
             <td class="green">1</td>
-            <td class="dim">Clean title confirmed for all 146 homes across 6 entities.</td>
+            <td class="dim">Clean title confirmed for 146 community homes across 6 entities + 50 SVE homes (24 BV need transfer, 25 FH title status TBD).</td>
           </tr>
           <!-- 03 LEGAL & LEASES (Z-AA) — Teal #14B8A6 -->
           <tr style="background:rgba(20,184,166,0.04); border-left: 2px solid rgba(20,184,166,0.40);">
@@ -14371,8 +16047,8 @@
       </div>
       <div class="hero-box">
         <div class="hero-label">POH &rarr; TOH Conversions</div>
-        <div class="hero-value" style="color:#8B5CF6;">146</div>
-        <div class="hero-sub">101 SV &bull; 38 OC &bull; 7 LAV</div>
+        <div class="hero-value" style="color:#8B5CF6;">196</div>
+        <div class="hero-sub">101 SV &bull; 38 OC &bull; 7 LAV &bull; 50 SVE</div>
       </div>
       <div class="hero-box">
         <div class="hero-label">Utility Recovery Gap</div>
@@ -14533,7 +16209,7 @@
 
     <div class="section" style="margin-bottom:10px; padding:16px 18px;">
       <div style="font-size:11px; color:#858D99; margin-bottom:10px; line-height:1.6;">
-        The portfolio carries <b style="color:#8B5CF6;">146 park-owned homes</b> that require ongoing maintenance, insurance, and turnover capital. Converting POH to TOH reduces operating burden, shifts maintenance to residents, and improves the cap rate profile for eventual exit. PSA Section 10 allows flexible purchase price allocation between real and personal property &mdash; maximize depreciation on homes pre-conversion.
+        The portfolio carries <b style="color:#8B5CF6;">196 park-owned homes</b> (146 community + 50 SVE) that require ongoing maintenance, insurance, and turnover capital. Converting POH to TOH reduces operating burden, shifts maintenance to residents, and improves the cap rate profile for eventual exit. PSA Section 10 allows flexible purchase price allocation between real and personal property &mdash; maximize depreciation on homes pre-conversion.
       </div>
       <div class="scroll-wrap" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
         <table class="data-table" style="min-width:750px;">
@@ -14608,7 +16284,7 @@
         <div style="background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.20); border-radius:6px; padding:10px;">
           <div style="font-size:9px; color:#3B82F6; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Team Action</div>
           <div style="font-size:11px; color:#C1C7CF; margin-top:4px; line-height:1.7;">
-            &bull; <b>Ops:</b> Grade all 146 homes (A/B/C condition) during site visit<br>
+            &bull; <b>Ops:</b> Grade all 196 homes (A/B/C condition) during site visit<br>
             &bull; <b>CapEx:</b> Budget $3K&ndash;$5K per home make-ready for sale<br>
             &bull; <b>Finance:</b> Set up Private Credit Facility SPE for seller financing<br>
             &bull; <b>Legal:</b> Prepare bill of sale templates &amp; title transfer docs
@@ -14895,7 +16571,7 @@
             <tr>
               <td><b style="color:#8B5CF6;">POH Conversion</b></td>
               <td style="text-align:center;">CapEx + Finance</td>
-              <td>All 146 homes graded A/B/C; sale pricing set</td>
+              <td>All 196 homes graded A/B/C; sale pricing set</td>
               <td>First 10 homes listed for sale</td>
               <td style="text-align:center;">Close + 60d</td>
             </tr>
@@ -15319,8 +16995,8 @@
     <div class="landing-kpis">
       <div class="landing-kpi"><div class="landing-kpi-value">399</div><div class="landing-kpi-label">Total Lots</div></div>
       <div class="landing-kpi"><div class="landing-kpi-value orange">87%</div><div class="landing-kpi-label">Occupancy</div></div>
-      <div class="landing-kpi"><div class="landing-kpi-value">146</div><div class="landing-kpi-label">POH Count</div></div>
-      <div class="landing-kpi"><div class="landing-kpi-value orange">$485K</div><div class="landing-kpi-label">Utility Spend (T12)</div></div>
+      <div class="landing-kpi"><div class="landing-kpi-value">196</div><div class="landing-kpi-label">POH Count</div></div>
+      <div class="landing-kpi" onclick="drillIn(10, 300)" style="cursor:pointer;" title="View Utilities Tab"><div class="landing-kpi-value orange">$485K</div><div class="landing-kpi-label">Utility Spend (T12)</div></div>
     </div>
     <div class="landing-progress">
       <span class="landing-progress-label">Category Completion</span>
@@ -15339,7 +17015,7 @@
         <div class="landing-card-meta">Last updated: 3/28/2026</div>
       </div>
       <div class="landing-card" onclick="drillIn(7, 300)">
-        <div class="landing-card-header"><span class="landing-card-name">POH (146 Homes)</span><span class="landing-card-badge badge-orange">Liens Open</span></div>
+        <div class="landing-card-header"><span class="landing-card-name">POH (196 Homes)</span><span class="landing-card-badge badge-orange">Liens Open</span></div>
         <div class="landing-card-desc">Title verification, bed/bath mix, age distribution, lien analysis</div>
         <div class="landing-card-meta">Last updated: 4/1/2026</div>
       </div>
