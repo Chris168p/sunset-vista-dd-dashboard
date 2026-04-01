@@ -26,7 +26,8 @@
     -webkit-text-size-adjust: 100%;
   }
 
-  .page { max-width: 100%; margin: 0 auto; overflow-x: hidden; }
+  .page { max-width: 100%; margin: 0 auto; overflow-x: hidden; padding: 0 12px; }
+  @media (min-width: 769px) { .page { padding: 0 20px; } }
 
   /* HEADER */
   .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
@@ -375,6 +376,19 @@
   .collapsible-content.collapsed {
     max-height: 0; opacity: 0; pointer-events: none;
   }
+
+  /* Expand/Collapse All Bar */
+  .collapse-bar {
+    display: flex; gap: 6px; justify-content: flex-end; margin-bottom: 8px; padding: 0 2px;
+  }
+  .collapse-bar button {
+    font-size: 9px; font-weight: 600; font-family: 'Inter', sans-serif;
+    color: #6B7280; background: rgba(59,130,246,0.06);
+    border: 1px solid rgba(59,130,246,0.12); border-radius: 6px;
+    padding: 4px 10px; cursor: pointer; transition: all 0.15s;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .collapse-bar button:hover { color: #3B82F6; background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.3); }
 
   /* Quick-Jump Sidebar */
   .qj-overlay {
@@ -1888,7 +1902,7 @@
     </div>
     <div class="header-right">
       <div class="brand">Silver Lands Management Group</div>
-      <div class="date">March 30, 2026</div>
+      <div class="date">March 31, 2026</div>
       <div style="display: flex; align-items: center; gap: 12px;">
         <div style="text-align: right;">
           <div class="timestamp"><a href="https://drive.google.com/drive/folders/106KTwsgf2lUV_xX93xqJLHaYpQOnUmrC?usp=drive_link" target="_blank" style="color:#858D99; text-decoration:none;">PSA Effective: 3/20/2026</a> | Inspection Period Ends: TBD</div>
@@ -8358,15 +8372,15 @@
     <!-- KPI STRIP -->
     <div class="kpi-strip">
       <div class="kpi-card">
-        <div class="value green">2</div>
-        <div class="label">Done</div>
+        <div class="value green">10</div>
+        <div class="label">Done / Resolved</div>
       </div>
       <div class="kpi-card">
-        <div class="value red">13</div>
+        <div class="value red">7</div>
         <div class="label">Due This Week</div>
       </div>
       <div class="kpi-card">
-        <div class="value orange">21</div>
+        <div class="value orange">23</div>
         <div class="label">Due Next Week</div>
       </div>
       <div class="kpi-card">
@@ -8378,14 +8392,14 @@
         <div class="label">Rent Roll / Survey</div>
       </div>
       <div class="kpi-card">
-        <div class="value" style="color:#3B82F6;">58</div>
+        <div class="value" style="color:#3B82F6;">67</div>
         <div class="label">Total Items</div>
       </div>
     </div>
 
     <!-- ======= DUE THIS WEEK (by 3/31) ======= -->
     <div class="group-divider">
-      <div class="group-label" style="color:#EF4444;">Due This Week — by 3/31</div>
+      <div class="group-label" style="color:#EF4444;">Due This Week — by 4/3</div>
       <div class="group-line"></div>
     </div>
 
@@ -8425,10 +8439,10 @@
           </tr>
           <tr>
             <td>4</td>
-            <td>Verify Oasis insurance coverage — review <a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">K folder policies</a> for coverage allocation by property (shows $0 on T12)</td>
+            <td><span class="green">&#10003; POLICIES RECEIVED 3/31:</span> Jon Austin (Acrisure) sent SC package + POH + umbrella + loss runs, OC package + loss runs, LAV package + umbrella + loss runs. <b style="color:#FBBF24;">Premium allocations for OC &amp; LAV pending</b> (master policy &mdash; underwriter request submitted). Johanna Hill (jhill@acrisure.com) added for buyer replacement quotes. <a href="https://drive.google.com/drive/folders/1lG_ksGwzNLLfXAjw27bhSCcsyWOgExRG?usp=drive_link" target="_blank" style="color:#3B82F6; text-decoration:none;">K folder &rarr;</a></td>
             <td class="dim">Insurance</td>
-            <td>Chris</td>
-            <td><span class="risk-tag tag-high">HIGH</span></td>
+            <td>Chris / Jon</td>
+            <td><span class="risk-tag tag-high" style="background:rgba(251,191,36,0.15); color:#FBBF24; border-color:rgba(251,191,36,0.4);">PARTIAL</span></td>
           </tr>
           <tr>
             <td>5</td>
@@ -8439,10 +8453,10 @@
           </tr>
           <tr>
             <td>6</td>
-            <td>Request seller's POH-specific maintenance expense history (not broken out on T12 P&Ls)</td>
+            <td><span class="green">&#10003; POH OP STATEMENTS RECEIVED 3/30:</span> Ben provided POH P&amp;Ls (includes Oakwood overlap &mdash; ~150 additional homes). Use charge breakdown detail (attached 3/31) + expense ratio approach to isolate SC/OC/LAV. Charge type = RCFR, filter units RCFLAVXXX / RCFOCXXX / RCFSCXXX. <b style="color:#FBBF24;">Analysis in progress.</b></td>
             <td class="dim">POH</td>
-            <td>Chris / Kris</td>
-            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-high" style="background:rgba(251,191,36,0.15); color:#FBBF24; border-color:rgba(251,191,36,0.4);">PARTIAL</span></td>
           </tr>
           <tr>
             <td>7</td>
@@ -8519,17 +8533,17 @@
           </tr>
           <tr>
             <td>11</td>
-            <td>Investigate OC water spike — Nov $14,279 / Dec $11,930 (vs $7–8K normal). Usage hit 1.87M gal. Request meter read history from Board of Water Works.</td>
+            <td><span class="orange">&#9888; PARTIALLY EXPLAINED:</span> OC water spike — Ben says the <i>dollar</i> doubling (Nov $14K vs $7K normal) is cash-basis timing (unposted prior payment inflated the bill). <b style="color:#EF4444;">However, the usage spike to 1.87M gallons in Dec (vs 500–800K normal) is NOT explained by accounting timing.</b> That&rsquo;s a physical consumption anomaly &mdash; possible leak, meter error, or irrigation event. Still need meter read history from Board of Water Works to confirm cause and verify it&rsquo;s resolved.</td>
             <td class="dim">Utilities</td>
             <td>Chris</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
           </tr>
           <tr>
             <td>12</td>
-            <td>Request SV water meter read history from Board of Water Works — bills swing $15K–$31K. Verify double-bill months.</td>
+            <td><s>Request SV water meter read history — bills swing $15K–$31K.</s> <span class="green">RESOLVED 3/31:</span> Ben confirmed cash-basis timing issue, same as OC. Also clarified: farmhouse meter ($60–$137/mo) is a contiguous 1-acre parcel with a small farmhouse &mdash; potential future expansion of ~12 lots (requires entitlement).</td>
             <td class="dim">Utilities</td>
             <td>Chris</td>
-            <td><span class="risk-tag tag-high">HIGH</span></td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">RESOLVED</span></td>
           </tr>
           <tr>
             <td>13</td>
@@ -8561,10 +8575,10 @@
           </tr>
           <tr>
             <td>17</td>
-            <td>Investigate SV farm house water meter — separate billing $60–$137/mo. Confirm if property included in sale.</td>
+            <td><s>Investigate SV farm house water meter — $60–$137/mo.</s> <span class="green">RESOLVED 3/31:</span> Ben confirmed &mdash; contiguous 1-acre parcel with small farmhouse, sometimes rented. Potential expansion site (~12 lots, requires entitlement). Park essentially surrounds it.</td>
             <td class="dim">Utilities</td>
             <td>Chris</td>
-            <td><span class="risk-tag tag-medium">MEDIUM</span></td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">RESOLVED</span></td>
           </tr>
           <tr>
             <td>18</td>
@@ -8621,6 +8635,69 @@
             <td class="dim">CapEx</td>
             <td>Chris / Kris</td>
             <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>26</td>
+            <td><b style="color:#3B82F6;">NEW 3/31 &mdash; LENDER CHECKLIST:</b> Henny Heisler (Princeton Capital) sent Required Items &amp; Contact Sheets (.xls) + CMBS Credit Information Request Form (.docx). Chris/Keiana/Matt to review and return completed items. <b style="color:#FBBF24;">Upload to Google Drive.</b></td>
+            <td class="dim">Debt</td>
+            <td>Chris / Keiana</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>27</td>
+            <td><b style="color:#3B82F6;">NEW 3/31 &mdash; TITLE COMMITMENTS:</b> FNF Colorado office did not deliver by EOD 3/31. Grace Wilson confirmed expected morning 4/1. Follow up if not received by noon.</td>
+            <td class="dim">Title</td>
+            <td>Matt / Grace</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td>28</td>
+            <td><span class="green">&#10003; RENT MANAGER ACCESS GRANTED 3/31:</span> Ben provided live Rent Manager login. License: sbvc-m4. Pull AR aging, resident history, ledger cards for T12 reconciliation. Begin financial DD deep dive.</td>
+            <td class="dim">Financial</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td>29</td>
+            <td><span class="green">&#10003; PERSONAL PROPERTY SCHEDULE RECEIVED 3/31:</span> Ben sent PSA Schedule 10 (LAV, OC, SC personal property). <b style="color:#FBBF24;">Upload to Google Drive.</b></td>
+            <td class="dim">Legal</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td>30</td>
+            <td><span class="green">&#10003; SC CLUBHOUSE ROOF CONFIRMED 3/31:</span> Ben confirmed brand new roof installed June 2022, ~$25K. Contractor invoice (Hornet Roofing) provided. PCA &ldquo;end-of-useful-life&rdquo; flag invalid &mdash; roof is only 4 years old.</td>
+            <td class="dim">PCA</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td>31</td>
+            <td><span class="green">&#10003; OASIS ROADS CLARIFIED 3/31:</span> Ben confirmed $50K spent on center-road paving (strip repair). Disputes PCA drainage claim. Remaining: some potholes and cracking. Confirm on site visit.</td>
+            <td class="dim">PCA</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td>32</td>
+            <td><span class="green">&#10003; SECURITY DEPOSITS CONFIRMED 3/31:</span> 39% showing $0 is accurate. Seller only charges deposits on POH tenants, not lot-lease-only. No Rent Manager entry gap.</td>
+            <td class="dim">Financial</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-critical" style="background:rgba(0,230,118,0.15); color:#00E676; border-color:rgba(0,230,118,0.4);">DONE</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>33</td>
+            <td><b style="color:#3B82F6;">NEW 3/31 &mdash; SUNSET VISTA FINAL REVIEW:</b> Zoom meeting Wed 4/1, 10&ndash;11 AM MDT. Invited by Sage Damiano. Prep: compile all outstanding SV items, PCA flags, and value-add observations.</td>
+            <td class="dim">Meeting</td>
+            <td>Chris</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>34</td>
+            <td><b style="color:#3B82F6;">NEW 3/31 &mdash; UPLOAD FILES TO GOOGLE DRIVE:</b> Insurance policies (SC package, SC POH, SC umbrella, SC loss runs, OC package, OC loss runs, LAV package, LAV umbrella, LAV loss runs), lender checklist + CMBS credit form, personal property schedule, charge breakdown detail, SC roof invoice, waste invoices.</td>
+            <td class="dim">Admin</td>
+            <td>Chris / Keiana</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
           </tr>
         </tbody>
       </table>
@@ -10819,9 +10896,9 @@
         <div id="inspection-subtext" style="font-size:9px; color:#858D99; margin-top:2px;">45 days from Sched. 7.1 delivery — commencement date pending</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
-        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Request</div>
-        <div style="font-size:18px; font-weight:900; color:#00E676;">Acknowledged</div>
-        <div style="font-size:9px; color:#858D99; margin-top:2px;">Kris replied 3/29 &mdash; shared w/ Ben</div>
+        <div style="font-size:8px; font-weight:700; color:#00E676; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">DD Responses</div>
+        <div style="font-size:18px; font-weight:900; color:#00E676;">Received</div>
+        <div style="font-size:9px; color:#858D99; margin-top:2px;">Ben replied 3/31 w/ docs + answers</div>
       </div>
       <div style="background:#111827; border-radius:10px; padding:14px 16px; border:1px solid rgba(59,130,246,0.12); text-align:center;">
         <div style="font-size:8px; font-weight:700; color:#FBBF24; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px;">CMBS Assumption</div>
@@ -10913,17 +10990,39 @@
             <td class="green">COMPLETE</td>
             <td class="dim">Kris confirmed receipt, shared with Ben (seller&rsquo;s principal). Kris flagged no estoppel language in PSA &mdash; Chris corrected: estoppel required under Loan Agreement &sect;4.18 (lender covenant), not PSA. Site visit dates requested by Kris (prefers Mon&ndash;Wed).</td>
           </tr>
+          <tr style="background:rgba(0,230,118,0.04);">
+            <td><b>3/30/2026</b></td>
+            <td>Materials Review &amp; Site Visit Scheduling</td>
+            <td class="green">COMPLETE</td>
+            <td class="dim">Sunset Vista Materials review meeting held. Keiana: titles in progress (full box processed over weekend), inspections calendared. CDL updated to TBD for DD/inspection periods per PSA &sect;7.1. Chris replied to Ben&rsquo;s DD responses with new items (roads, roof, water, deposits, deck railings, HVAC, LTO, personal property).</td>
+          </tr>
           <tr style="background: rgba(251,191,36,0.06);">
-            <td><b class="orange">3/30/2026</b></td>
-            <td class="orange"><b>TODAY &mdash; Materials Review &amp; Site Visit Scheduling</b></td>
+            <td><b class="orange">3/31/2026</b></td>
+            <td class="orange"><b>TODAY &mdash; Major DD Progress Across All Workstreams</b></td>
             <td class="orange">IN PROGRESS</td>
-            <td class="dim">Review Sunset Vista Materials meeting at 4 PM (Kristen, Jeff B, Jeff M, Sage, Tommy, Chris). Keiana task update received &mdash; titles in progress, inspections calendared. Site visit dates TBD (coordinate with Kris).</td>
+            <td class="dim"><b style="color:#00E676;">Insurance:</b> Jon Austin (Acrisure) responded same day &mdash; SC package, POH, umbrella, loss runs received. OC package + loss runs received. LAV package, umbrella, loss runs received. Premium allocations for OC/LAV pending (master policy). Johanna Hill added for buyer replacement quotes.<br>
+            <b style="color:#00E676;">Seller DD:</b> Ben provided Rent Manager access (live login), POH charge breakdown detail, SC roof invoice ($25K, June 2022), waste invoices, personal property schedule (PSA Sched. 10). Water spikes confirmed as cash-basis timing &mdash; not actual usage. Security deposits: lot-only tenants don&rsquo;t pay deposits (confirmed). MPOP evidence now in Drive.<br>
+            <b style="color:#FBBF24;">Lender:</b> Henny Heisler (Princeton Capital) sent CMBS lender checklist + credit info request form to Chris/Keiana/Matt.<br>
+            <b style="color:#FBBF24;">Title:</b> FNF CO office did not deliver commitments by EOD &mdash; Grace Wilson confirms expected morning 4/1.<br>
+            <b style="color:#3B82F6;">Meeting:</b> Sunset Vista Final Review scheduled Wed 4/1 10&ndash;11 AM MDT (Zoom, invited by Sage Damiano).</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b class="blue" style="color:#3B82F6;">4/1/2026</b></td>
+            <td><b style="color:#3B82F6;">Sunset Vista Final Review &mdash; Zoom</b></td>
+            <td style="color:#3B82F6;">SCHEDULED</td>
+            <td class="dim">Wed 10&ndash;11 AM MDT. Invited by Sage Damiano. Review SV-specific DD findings, PCA flags, and value-add items.</td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td><b class="blue" style="color:#3B82F6;">4/1/2026</b></td>
+            <td><b style="color:#3B82F6;">Title Commitments Expected from FNF</b></td>
+            <td style="color:#FBBF24;">EXPECTED</td>
+            <td class="dim">Grace Wilson confirmed CO office will deliver by morning 4/1. Follow up if not received by noon.</td>
           </tr>
           <tr style="background:rgba(251,191,36,0.06);">
             <td><b>TBD</b></td>
             <td>Confirm site visit dates &mdash; <span class="orange">NOT YET CONFIRMED</span></td>
             <td class="orange">PENDING</td>
-            <td class="dim">Coordinate with Derek and team. Kris prefers Mon&ndash;Wed. Awaiting final date confirmation.</td>
+            <td class="dim">Coordinate with Jeff and team. Kris prefers Mon&ndash;Wed. Awaiting final date confirmation.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><b class="red">4/3/2026</b></td>
@@ -12904,6 +13003,56 @@
             <td><b style="color:#E5E9ED;">CDL update:</b> Integrated Critical Dates Letter (GF# 9001312600125). New contractual deadlines: Seller DD Materials 4/3 (PSA &sect;7.1), Loan Assumption App 4/3 (PSA &sect;8.3), Title Commitment 3/25 (PSA &sect;5), Loan Assumption Period 5/19 (PSA &sect;8.9), Earliest Close 7/17 (PSA &sect;15.1, 120-day floor). DD period = 45 days from Sched. 7.1 delivery (not yet commenced). Extension option: $50K for 15 days. Ultimate termination: 3/20/2027.</td>
             <td class="dim">Deal Status, CMBS Tracker</td>
           </tr>
+          <!-- v2.2 — Navigation Overhaul -->
+          <tr style="border-left: 2px solid rgba(59,130,246,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge badge-in-progress">v2.2</span></td>
+            <td><b style="color:#E5E9ED;">Navigation overhaul:</b> Quick-jump A&ndash;Z sidebar with search, section anchors, and visited-tab dots. Tab bubbles reduced to minimal single-row breadcrumb-style (7px, no-wrap, auto-scroll). Sticky section headers. Breadcrumb bar shows current section on scroll. Recent Tabs dock button (last 5 visited with timestamps). Bottom dock updated. Keyboard nav race condition fixed (Value Add tab skipping). Mobile-proofed all new features at 768px breakpoint.</td>
+            <td class="dim">All</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(59,130,246,0.5);">
+            <td class="dim">3/30/2026</td>
+            <td><span class="status-badge badge-in-progress">v2.2</span></td>
+            <td><b style="color:#E5E9ED;">Mobile fixes:</b> Cleaned up mobile header (hid timestamp, PSA dates, font toggle). Utilities tab mobile card layout completely rebuilt with CSS <code style="color:#93B4F8; background:rgba(59,130,246,0.1); padding:1px 4px; border-radius:3px; font-size:10px;">::before</code> pseudo-element labels on every data cell (T12 Total, Per Month, SV/OC/LAV/Total, Payments, Phone, Status, etc.) across 5 table types.</td>
+            <td class="dim">All, Utilities</td>
+          </tr>
+          <!-- v2.3 — Email Integration & DD Progress Update -->
+          <tr style="border-left: 2px solid rgba(0,230,118,0.5);">
+            <td class="dim">3/31/2026</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.3);">v2.3</span></td>
+            <td><b style="color:#E5E9ED;">Major DD progress from 8 email threads:</b> Dashboard date updated to 3/31. Deal Status timeline: 3/30 marked COMPLETE, new 3/31 row with full activity breakdown (insurance, seller DD, lender, title, meeting). DD Request KPI changed from &ldquo;Acknowledged&rdquo; to &ldquo;Received&rdquo; (Ben replied with docs). Added Sunset Vista Final Review (4/1 Zoom) and Title Commitments Expected (4/1) to timeline.</td>
+            <td class="dim">Deal Status</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(0,230,118,0.5);">
+            <td class="dim">3/31/2026</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.3);">v2.3</span></td>
+            <td><b style="color:#E5E9ED;">Insurance DD (Jon Austin / Acrisure):</b> Item 4 updated to PARTIAL &mdash; all 3 property policies, loss runs, and umbrellas received (SC separate policy, OC &amp; LAV on master). Premium allocations for OC/LAV pending from underwriter. Johanna Hill added for buyer replacement coverage quotes.</td>
+            <td class="dim">Action Items</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(0,230,118,0.5);">
+            <td class="dim">3/31/2026</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.3);">v2.3</span></td>
+            <td><b style="color:#E5E9ED;">Seller DD responses (Ben Braband):</b> POH op statements updated to PARTIAL (Oakwood overlap, use charge breakdown + expense ratio). Rent Manager live access granted. SC clubhouse roof confirmed new (June 2022, $25K). OC roads: $50K paving done, disputes drainage. Security deposits: lot-only = $0 (confirmed). Farmhouse meter explained (expansion parcel). Personal property schedule received (PSA Sched. 10). 9 new action items added, 7 marked DONE/RESOLVED.</td>
+            <td class="dim">Action Items</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(0,230,118,0.5);">
+            <td class="dim">3/31/2026</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.3);">v2.3</span></td>
+            <td><b style="color:#E5E9ED;">OC water spike partially explained:</b> Ben confirmed dollar-amount doubling is cash-basis timing (unposted payment), but <b style="color:#EF4444;">1.87M gallon usage spike (vs 500&ndash;800K normal) remains unexplained</b>. Item kept at HIGH priority &mdash; still need meter read history from Board of Water Works to rule out leak or meter error.</td>
+            <td class="dim">Action Items</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(0,230,118,0.5);">
+            <td class="dim">3/31/2026</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.3);">v2.3</span></td>
+            <td><b style="color:#E5E9ED;">Lender DD (Princeton Capital):</b> Henny Heisler sent CMBS lender checklist (Required Items &amp; Contact Sheets.xls) + Credit Information Request Form (.docx). New CRITICAL action item added. Title commitments from FNF delayed to morning 4/1 (Grace Wilson confirmed).</td>
+            <td class="dim">Action Items</td>
+          </tr>
+          <tr style="border-left: 2px solid rgba(0,230,118,0.5);">
+            <td class="dim">3/31/2026</td>
+            <td><span class="status-badge" style="background:rgba(0,230,118,0.15); color:#00E676; border:1px solid rgba(0,230,118,0.3);">v2.3</span></td>
+            <td><b style="color:#E5E9ED;">KPI strip updated:</b> Done/Resolved: 10 (was 2). Due This Week header updated to &ldquo;by 4/3&rdquo;. Total items: 67 (was 58). File upload action item added &mdash; 21 files from email attachments need Google Drive upload (insurance policies, loss runs, lender docs, personal property schedule, invoices).</td>
+            <td class="dim">Action Items</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -12918,7 +13067,7 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    CONFIDENTIAL — Studio 168 / Silver Lands Management Group — Sunset Vista Due Diligence Dashboard — Updated March 30, 2026 <br>
+    CONFIDENTIAL — Studio 168 / Silver Lands Management Group — Sunset Vista Due Diligence Dashboard — Updated March 31, 2026 <br>
     Prepared by Chris Meriwether, VP of Acquisitions & Asset Management
   </div>
 
@@ -13193,11 +13342,17 @@ setInterval(updateCountdown, 60000);
       var dividers = tabEl.querySelectorAll('.group-divider');
       if (dividers.length < 2) return;
 
+      // Add expand/collapse all bar before first divider
+      var collapseBar = document.createElement('div');
+      collapseBar.className = 'collapse-bar';
+      collapseBar.innerHTML = '<button onclick="expandAllSections(' + pageNum + ')">&#9654; Expand All</button><button onclick="collapseAllSections(' + pageNum + ')">&#9660; Collapse All</button>';
+      dividers[0].parentNode.insertBefore(collapseBar, dividers[0]);
+
       // Wrap content between dividers in collapsible containers
       dividers.forEach(function(divider, i) {
         var nextDivider = i < dividers.length - 1 ? dividers[i + 1] : null;
         var container = document.createElement('div');
-        container.className = 'collapsible-content';
+        container.className = 'collapsible-content collapsed'; // START COLLAPSED
         container.id = 'collapsible-' + pageNum + '-' + i;
 
         var current = divider.nextSibling;
@@ -13214,6 +13369,9 @@ setInterval(updateCountdown, 60000);
         chevron.textContent = '▾';
         divider.insertBefore(chevron, divider.firstChild);
 
+        // Start divider in collapsed state
+        divider.classList.add('collapsed');
+
         // Tap anywhere on the header to toggle
         divider.dataset.collapsibleId = 'collapsible-' + pageNum + '-' + i;
         divider.addEventListener('click', function() {
@@ -13227,6 +13385,20 @@ setInterval(updateCountdown, 60000);
       });
     });
   }
+
+  window.expandAllSections = function(pageNum) {
+    var tabEl = document.getElementById('tab-page' + pageNum);
+    if (!tabEl) return;
+    tabEl.querySelectorAll('.collapsible-content.collapsed').forEach(function(c) { c.classList.remove('collapsed'); });
+    tabEl.querySelectorAll('.group-divider.collapsed').forEach(function(d) { d.classList.remove('collapsed'); });
+  };
+
+  window.collapseAllSections = function(pageNum) {
+    var tabEl = document.getElementById('tab-page' + pageNum);
+    if (!tabEl) return;
+    tabEl.querySelectorAll('.collapsible-content').forEach(function(c) { c.classList.add('collapsed'); });
+    tabEl.querySelectorAll('.group-divider[data-collapsible-id]').forEach(function(d) { d.classList.add('collapsed'); });
+  };
 
   // ===== FEATURE 6: BOTTOM TAB DOCK =====
   var dockPages = [1, 13, 11, 2, 9];
