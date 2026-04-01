@@ -2901,8 +2901,8 @@
     <div class="stat-item"><div class="stat-label">Total Lots</div><div class="stat-value white">399</div></div>
     <div class="stat-item"><div class="stat-label">Park-Owned Homes</div><div class="stat-value white">196</div></div>
     <div class="stat-item"><div class="stat-label">Portfolio Occupancy</div><div class="stat-value green">90%</div></div>
-    <div class="stat-item"><div class="stat-label">T12 NOI</div><div class="stat-value white">$2.11M</div></div>
-    <div class="stat-item"><div class="stat-label">Days Remaining</div><div class="stat-value orange">TBD</div></div>
+    <div class="stat-item"><div class="stat-label">T12 NOI</div><div class="stat-value white">$2.1M</div></div>
+    <div class="stat-item"><div class="stat-label">Days Remaining</div><div class="stat-value orange" id="dock-days-remaining">~153</div></div>
     <div class="stat-item"><div class="stat-label">Earnest Money</div><div class="stat-value green">$350K Deposited</div></div>
   </div>
 
@@ -3038,8 +3038,8 @@
       <div style="width:45%; padding-left:20px;">
         <!-- Countdown Header -->
         <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
-          <div style="font-size:44px; font-weight:900; color:#3B82F6;">~153</div>
-          <div style="font-size:12px; color:#858D99;">Days to Est. Close</div>
+          <div id="closing-countdown" style="font-size:44px; font-weight:900; color:#3B82F6;">~153</div>
+          <div style="font-size:12px; color:#858D99;">Days to Est. Close<br><span style="font-size:9px; color:#858D99;">(Target: Sept 1, 2026)</span></div>
         </div>
 
         <!-- Quick Stats Row -->
@@ -3048,7 +3048,7 @@
             <div style="font-size:18px; font-weight:800; color:#EF4444; cursor:pointer;" onclick="drillIn(4, 100)">4</div>
             <div style="font-size:9px; color:#858D99; margin-top:2px;">Red Flags</div>
           </div>
-          <div style="background:#111827; border-radius:8px; padding:10px; text-align:center; border:1px solid rgba(59,130,246,0.06);">
+          <div style="background:#111827; border-radius:8px; padding:10px; text-align:center; border:1px solid rgba(59,130,246,0.06); cursor:pointer;" onclick="drillIn(11, 100)">
             <div style="font-size:18px; font-weight:800; color:#FBBF24;">58</div>
             <div style="font-size:9px; color:#858D99; margin-top:2px;">Action Items</div>
           </div>
@@ -3164,7 +3164,7 @@
         <div class="ov-kpi-label">Total Lots</div>
       </div>
       <div class="ov-kpi-card">
-        <div class="ov-kpi-value green">$2.11M</div>
+        <div class="ov-kpi-value green">$2.1M</div>
         <div class="ov-kpi-label">NOI</div>
         <div style="font-size:9px; color:#858D99; margin-top:4px;">$1.96M + $150K Homes</div>
       </div>
@@ -3263,7 +3263,7 @@
         <svg width="100%" height="140" viewBox="0 0 380 140" style="min-width:240px;">
           <!-- Background grid line for portfolio NOI -->
           <line x1="0" y1="45" x2="380" y2="45" stroke="#1F2937" stroke-width="1" stroke-dasharray="2,2"/>
-          <text x="385" y="49" font-size="9" fill="#858D99">$2.11M NOI</text>
+          <text x="385" y="49" font-size="9" fill="#858D99">$2.1M NOI</text>
 
           <!-- Sunset Country -->
           <g>
@@ -3307,7 +3307,7 @@
             <text x="160" y="13" fill="#C9CDD3">SVE Homes</text>
           </g>
         </svg>
-        <div style="text-align:center; font-size:9px; color:#858D99; margin-top:8px;">Portfolio NOI Total: $2.11M (incl. SVE Homes)</div>
+        <div style="text-align:center; font-size:9px; color:#858D99; margin-top:8px;">Portfolio NOI Total: $2.1M (incl. SVE Homes)</div>
       </div>
 
       <div style="width:45%; padding-left:20px;">
@@ -4697,7 +4697,7 @@
           <tr>
             <td><b>Section 4.18</b></td>
             <td><b class="white">Estoppel Statement</b></td>
-            <td class="dim">Loan covenant requiring borrower estoppels. <b style="color:#00E676;">&#10003; CONFIRMED:</b> Estoppel requirement is <b>only</b> in the CMBS Loan Agreement (Section 4.18), <b>not</b> in the PSA. PSA Section 7 covers Inspection Contingencies only. Full-text search of 77-page PSA returned zero &ldquo;estoppel&rdquo; hits.</td>
+            <td class="dim">Loan covenant requiring borrower estoppels. <b style="color:#00E676;">&#10003; CONFIRMED:</b> Estoppel requirement is <b>only</b> in the CMBS Loan Agreement (Section 4.18), <b>not</b> in the PSA. PSA Section 7 covers Inspection Contingencies only. Full-text search of 77-page PSA returned zero &ldquo;estoppel&rdquo; hits. <b style="color:#FBBF24;">UPDATE 4/1:</b> Seller says not necessary &mdash; likely correct. Preparing templates as contingency in case Midland/PNC requests during assumption (unlikely).</td>
           </tr>
           <tr>
             <td><b>Article 7</b></td>
@@ -8039,11 +8039,11 @@
         <!-- Discussion 8 -->
         <div style="border-left:3px solid #A855F7; padding:12px 14px; background:rgba(139,92,246,0.04); border-radius:0 8px 8px 0;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <div style="font-size:11px; color:#A855F7; font-weight:700;">8. SC Clubhouse Roof &mdash; Year 1 or Defer?</div>
+            <div style="font-size:11px; color:#A855F7; font-weight:700;">8. SC Clubhouse Roof &mdash; <span style="color:#00E676;">RESOLVED</span></div>
             <span style="font-size:9px; color:#858D99;">CapEx + Finance</span>
           </div>
           <div style="font-size:11px; color:#C1C7CF; line-height:1.7;">
-            PCA says the Sunset Vista clubhouse roof (built 1973) is at end of life. $77K replacement within 7 years &mdash; single largest CapEx item in the portfolio. <b style="color:#E5E9ED;">Do we budget this Year 1 to get ahead of it, or defer to Year 3&ndash;5 and patch in the meantime? If we defer, what's the risk of a failure during that window? Does the condition affect insurance coverage?</b>
+            <b style="color:#00E676;">UPDATE 3/31:</b> Seller confirmed <b style="color:#E5E9ED;">NEW roof installed June 2022</b> by Hornet Roofing for $25K (invoice attached). PCA flag is <b style="color:#00E676;">outdated</b> &mdash; the $77K replacement is no longer needed. <b style="color:#E5E9ED;">Verify condition on site visit.</b> Original PCA note: built 1973, end of life, $77K replacement within 7 years.
           </div>
         </div>
 
@@ -9926,9 +9926,9 @@
         <tbody>
           <tr style="background:rgba(239,68,68,0.06);"><td>&#9744;</td><td><b style="color:#EF4444;">Roads &amp; parking</b></td><td class="dim">Potholes, base failure, cracking %, drainage. Mark worst 5 sections.</td><td class="red">Yes &mdash; $41.1K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
           <tr><td>&#9744;</td><td><b>Sewer access points</b></td><td class="dim">Manhole condition, odor, visible backups</td><td class="orange">Yes &mdash; $8.5K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
-          <tr><td>&#9744;</td><td><b>Gas system (seller&rsquo;s $1.145M)</b></td><td class="dim">Meter installations, PE line exposed points, regulator condition</td><td class="dim">No &mdash; seller-installed</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
-          <tr><td>&#9744;</td><td><b>Clubhouse (seller&rsquo;s $350K)</b></td><td class="dim">Roof quality, stucco cracking, HVAC performance, flooring wear</td><td class="dim">No &mdash; seller-improved</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
-          <tr><td>&#9744;</td><td><b>Maintenance shop (seller&rsquo;s $65K)</b></td><td class="dim">Structure, slab condition, door operation, storage adequacy</td><td class="dim">No &mdash; seller-built</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Gas system</b></td><td class="dim">Meter installations, PE line exposed points, regulator condition</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Clubhouse</b></td><td class="dim">Roof quality, stucco cracking, HVAC performance, flooring wear</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
+          <tr><td>&#9744;</td><td><b>Maintenance shop</b></td><td class="dim">Structure, slab condition, door operation, storage adequacy</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
           <tr><td>&#9744;</td><td><b>ADA pathways</b></td><td class="dim">Curb cuts, ramp slopes, accessible routes to clubhouse</td><td class="orange">Yes &mdash; $5K</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
           <tr><td>&#9744;</td><td><b>Abandoned homes (4 identified)</b></td><td class="dim">Location, condition, demo vs. salvage assessment</td><td class="dim">Referenced in PCA</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
           <tr><td>&#9744;</td><td><b>POH exterior walk (38 homes)</b></td><td class="dim">Skirting, siding, roof, slab condition. Grade A/B/C.</td><td class="dim">No</td><td style="color:#FBBF24;">___________</td><td style="color:#FBBF24;">$_______</td><td>&#9744;</td></tr>
@@ -10014,6 +10014,7 @@
           <tr><td><b style="color:#E5E9ED;">Drew Taft</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:drew@silverlands.com" style="color:#3B82F6; text-decoration:none;">drew@silverlands.com</a></td><td class="dim">Project execution, site supervision</td></tr>
           <tr><td><b style="color:#E5E9ED;">Paul Bradshaw</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:paul@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">paul@silverlandsmg.com</a></td><td class="dim">Estimating, vendor coordination</td></tr>
           <tr><td><b style="color:#E5E9ED;">Jose Torres</b></td><td class="dim">CapEx</td><td class="dim"><a href="mailto:jose.torres@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">jose.torres@silverlandsmg.com</a></td><td class="dim">Field operations, inspections</td></tr>
+          <tr><td><b style="color:#E5E9ED;">Derek Wilson</b></td><td class="dim">COO / CapEx Oversight</td><td class="dim"><a href="mailto:derek@silverlandsmg.com" style="color:#3B82F6; text-decoration:none;">derek@silverlandsmg.com</a></td><td class="dim">Operations oversight, CapEx approval, site visit coordination</td></tr>
           <tr><td><b style="color:#E5E9ED;">Keiana</b></td><td class="dim">DD Team Lead</td><td class="dim">&mdash;</td><td class="dim">DD execution, CapEx tracking, lender documentation</td></tr>
         </tbody>
       </table>
@@ -11003,7 +11004,7 @@
       <!-- KPI STRIP — clickable accordion toggles -->
       <div class="kpi-strip">
         <div class="kpi-card">
-          <div class="value green">10</div>
+          <div class="value green">11</div>
           <div class="label">Done / Resolved</div>
         </div>
         <div class="kpi-card action-toggle active" onclick="toggleActionSection('ai-due-week')" style="cursor:pointer;" title="Click to expand/collapse">
@@ -11011,7 +11012,7 @@
           <div class="label">Due This Week ▾</div>
         </div>
         <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-due-next')" style="cursor:pointer;" title="Click to expand/collapse">
-          <div class="value orange">23</div>
+          <div class="value orange">30</div>
           <div class="label">Due Next Week ▸</div>
         </div>
         <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-due-later')" style="cursor:pointer;" title="Click to expand/collapse">
@@ -11023,7 +11024,7 @@
           <div class="label">Rent Roll / Survey ▸</div>
         </div>
         <div class="kpi-card">
-          <div class="value" style="color:#3B82F6;">67</div>
+          <div class="value" style="color:#3B82F6;">74</div>
           <div class="label">Total Items</div>
         </div>
       </div>
@@ -11279,12 +11280,12 @@
             <td>Chris / Keiana</td>
             <td><span class="risk-tag tag-critical">CRITICAL</span></td>
           </tr>
-          <tr style="background:rgba(59,130,246,0.06);">
+          <tr style="background:rgba(0,230,118,0.04);">
             <td>27</td>
-            <td><b style="color:#3B82F6;">NEW 3/31 &mdash; TITLE COMMITMENTS:</b> FNF Colorado office did not deliver by EOD 3/31. Grace Wilson confirmed expected morning 4/1. Follow up if not received by noon.</td>
+            <td><span class="green">&#10003; TITLE COMMITMENTS RECEIVED 4/1:</span> Grace Wilson (Fidelity National Title) delivered title commitments. <b style="color:#FBBF24;">Outstanding items list expected EOD 4/1 &mdash; review immediately upon receipt.</b></td>
             <td class="dim">Title</td>
             <td>Matt / Grace</td>
-            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+            <td><span class="risk-tag tag-high" style="background:rgba(251,191,36,0.15); color:#FBBF24; border-color:rgba(251,191,36,0.4);">REVIEW</span></td>
           </tr>
           <tr style="background:rgba(0,230,118,0.04);">
             <td>28</td>
@@ -11333,6 +11334,55 @@
             <td><b style="color:#3B82F6;">NEW 3/31 &mdash; UPLOAD FILES TO GOOGLE DRIVE:</b> Insurance policies (SC package, SC POH, SC umbrella, SC loss runs, OC package, OC loss runs, LAV package, LAV umbrella, LAV loss runs), lender checklist + CMBS credit form, personal property schedule, charge breakdown detail, SC roof invoice, waste invoices.</td>
             <td class="dim">Admin</td>
             <td>Chris / Keiana</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>35</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; LENDER CHECKLIST + CMBS CREDIT FORM:</b> Henny Heisler (Princeton Capital) sent lender due diligence checklist and CMBS Credit Info Request Form 3/31. Complete and return ASAP &mdash; required for assumption application.</td>
+            <td class="dim">Debt</td>
+            <td>Chris / Tommy</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>36</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; CONFIRM OTP NOTICES DELIVERED:</b> OTP notices going out via seller&rsquo;s counsel courier Thu/Fri 4/3&ndash;4/4. Confirm delivery and collect proof of service.</td>
+            <td class="dim">Legal</td>
+            <td>Matt / Kris</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>37</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; REVIEW LTO CONTRACTS:</b> Seller delivering LTO (Lease-to-Own) contracts ETA Wed 4/1. Review terms, pricing, conversion timeline, and interaction with POH strategy.</td>
+            <td class="dim">Legal</td>
+            <td>Chris / Matt</td>
+            <td><span class="risk-tag tag-high">HIGH</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>38</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; REVIEW PERMITS &amp; LICENSES:</b> Seller delivering permits and licenses ETA Wed 4/1. Verify all required operating permits, zoning approvals, and MH dealer licenses are current.</td>
+            <td class="dim">Legal</td>
+            <td>Keiana</td>
+            <td><span class="risk-tag tag-medium">MEDIUM</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>39</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; REVIEW TITLE COMMITMENT:</b> FNF delivered title commitments 4/1. Review for exceptions, liens, easements, and any title defects. Outstanding items list coming EOD.</td>
+            <td class="dim">Title</td>
+            <td>Matt / Chris</td>
+            <td><span class="risk-tag tag-critical">CRITICAL</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>40</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; ESTOPPEL PREP (CONTINGENCY):</b> Seller says estoppels not necessary &mdash; likely correct. However, CMBS Loan &sect;4.18 is a lender covenant. Prepare estoppel templates now so we&rsquo;re ready if Midland/PNC requests them during assumption. Unlikely but worth being prepared.</td>
+            <td class="dim">Legal</td>
+            <td>Matt / Chris</td>
+            <td><span class="risk-tag tag-medium">MEDIUM</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.06);">
+            <td>41</td>
+            <td><b style="color:#3B82F6;">NEW 4/1 &mdash; CONFIRM SITE VISIT DATES:</b> Target week of 4/13 (Mon&ndash;Wed). Confirm with Kris/Ben by 4/4. Coordinate Derek, CapEx team, and inspectors.</td>
+            <td class="dim">Site Visit</td>
+            <td>Chris / Derek</td>
             <td><span class="risk-tag tag-high">HIGH</span></td>
           </tr>
         </tbody>
@@ -14747,17 +14797,17 @@
             <td style="color:#3B82F6;">SCHEDULED</td>
             <td class="dim">Wed 10&ndash;11 AM MDT. Invited by Sage Damiano. Review SV-specific DD findings, PCA flags, and value-add items.</td>
           </tr>
-          <tr style="background:rgba(59,130,246,0.06);">
-            <td><b class="blue" style="color:#3B82F6;">4/1/2026</b></td>
-            <td><b style="color:#3B82F6;">Title Commitments Expected from FNF</b></td>
-            <td style="color:#FBBF24;">EXPECTED</td>
-            <td class="dim">Grace Wilson confirmed CO office will deliver by morning 4/1. Follow up if not received by noon.</td>
+          <tr style="background:rgba(0,230,118,0.06);">
+            <td><b style="color:#00E676;">4/1/2026</b></td>
+            <td><b style="color:#00E676;">Title Commitments Delivered by FNF</b></td>
+            <td class="green">RECEIVED</td>
+            <td class="dim">Grace Wilson (Fidelity National Title) delivered title commitments 4/1. Outstanding items list expected EOD.</td>
           </tr>
           <tr style="background:rgba(251,191,36,0.06);">
-            <td><b>TBD</b></td>
-            <td>Confirm site visit dates &mdash; <span class="orange">NOT YET CONFIRMED</span></td>
+            <td><b class="orange">4/13&ndash;4/15</b></td>
+            <td>Site Visit &mdash; <span class="orange">TARGET DATES (UNCONFIRMED)</span></td>
             <td class="orange">PENDING</td>
-            <td class="dim">Coordinate with Jeff and team. Kris prefers Mon&ndash;Wed. Awaiting final date confirmation.</td>
+            <td class="dim">Mon 4/13 through Wed 4/15. Coordinating with Derek and Kris. Kris prefers Mon&ndash;Wed. Awaiting final confirmation.</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><b class="red">4/3/2026</b></td>
@@ -14784,10 +14834,10 @@
             <td class="dim">Bank statement reconciliation, T12 audit, lease review complete.</td>
           </tr>
           <tr>
-            <td><b class="orange">TBD</b></td>
+            <td><b class="orange">4/13&ndash;4/15</b></td>
             <td>Site Visit &mdash; All 3 Properties</td>
-            <td class="orange">NOT SCHEDULED</td>
-            <td class="dim">Physical inspection of all 3 properties, POH condition assessment. Pending date confirmation.</td>
+            <td class="orange">TARGET (UNCONFIRMED)</td>
+            <td class="dim">Physical inspection of all 3 properties, POH condition assessment. Target: Mon 4/13 through Wed 4/15. Awaiting final confirmation from seller.</td>
           </tr>
           <tr style="background: rgba(251,191,36,0.06);">
             <td><b class="orange">TBD</b></td>
@@ -15109,10 +15159,10 @@
           </tr>
           <tr style="background:rgba(251,191,36,0.06);">
             <td><b>Site Visit Scheduling</b></td>
-            <td class="dim">Dates not yet confirmed &mdash; coordinating with Derek and Kris (prefers Mon&ndash;Wed)</td>
-            <td class="dim">3/30</td>
+            <td class="dim">Target: week of 4/13 (Mon&ndash;Wed). Coordinating with Derek and Kris. Not yet confirmed by seller.</td>
+            <td class="dim">4/1</td>
             <td><span class="status-badge badge-partial">PENDING</span></td>
-            <td class="dim">Follow up with Kris on available dates</td>
+            <td class="dim">Confirm dates with Kris/Ben by 4/4</td>
           </tr>
           <tr style="background:rgba(239,68,68,0.06);">
             <td><b>Seller DD Materials (PSA &sect;7.1)</b></td>
@@ -15128,12 +15178,12 @@
             <td><span class="status-badge badge-not-received">ACTION</span></td>
             <td class="dim">Send drafts or update &amp; send</td>
           </tr>
-          <tr style="background:rgba(0,230,118,0.04);">
+          <tr style="background:rgba(251,191,36,0.06);">
             <td><b>Estoppel Clarification</b></td>
-            <td class="dim">Chris confirmed: Loan &sect;4.18 covenant, not PSA. Kris acknowledged.</td>
-            <td class="dim">3/29</td>
-            <td><span class="status-badge badge-received">RESOLVED</span></td>
-            <td class="dim">Coordinate timing with CMBS assumption</td>
+            <td class="dim">Loan &sect;4.18 covenant, not PSA. Seller says estoppels &ldquo;not necessary&rdquo; &mdash; likely correct, but prepare templates in case lender requires them during assumption. Unlikely to be enforced.</td>
+            <td class="dim">3/31</td>
+            <td><span class="status-badge badge-partial">LOW PRIORITY</span></td>
+            <td class="dim">Have estoppel templates ready; only deploy if lender requests during CMBS assumption</td>
           </tr>
           <tr style="background:rgba(0,230,118,0.04);">
             <td><b>PP Allocations / OTP</b></td>
@@ -16931,9 +16981,9 @@
     </div>
     <div class="landing-kpis">
       <div class="landing-kpi"><div class="landing-kpi-value orange">67%</div><div class="landing-kpi-label">DD Completion</div></div>
-      <div class="landing-kpi"><div class="landing-kpi-value red">58</div><div class="landing-kpi-label">Action Items</div></div>
-      <div class="landing-kpi"><div class="landing-kpi-value red">4</div><div class="landing-kpi-label">Critical Red Flags</div></div>
-      <div class="landing-kpi"><div class="landing-kpi-value orange">TBD</div><div class="landing-kpi-label">Days Remaining</div></div>
+      <div class="landing-kpi" style="cursor:pointer;" onclick="drillIn(11, 100)"><div class="landing-kpi-value red">58</div><div class="landing-kpi-label">Action Items</div></div>
+      <div class="landing-kpi" style="cursor:pointer;" onclick="drillIn(4, 100)"><div class="landing-kpi-value red">4</div><div class="landing-kpi-label">Critical Red Flags</div></div>
+      <div class="landing-kpi"><div class="landing-kpi-value orange" id="deal-mgmt-days">TBD</div><div class="landing-kpi-label">Days Remaining</div></div>
     </div>
     <div class="landing-progress">
       <span class="landing-progress-label">Category Completion</span>
@@ -17268,12 +17318,31 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 60000);
 
+// ===== CLOSING COUNTDOWN (Est. Sept 1, 2026) =====
+function updateClosingCountdown() {
+  var target = new Date('2026-09-01T00:00:00');
+  var now = new Date();
+  var diff = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+  var el1 = document.getElementById('closing-countdown');
+  var el2 = document.getElementById('dock-days-remaining');
+  var txt = diff > 0 ? '~' + diff : 'PAST DUE';
+  var color = diff > 90 ? '#3B82F6' : diff > 30 ? '#FBBF24' : '#EF4444';
+  var el3 = document.getElementById('deal-mgmt-days');
+  if (el1) { el1.textContent = txt; el1.style.color = color; }
+  if (el2) { el2.textContent = txt; el2.style.color = color; }
+  if (el3) { el3.textContent = txt; el3.style.color = color; }
+}
+updateClosingCountdown();
+setInterval(updateClosingCountdown, 3600000);
+
 // ===== TAB NAVIGATION: SWIPE + FLOATING BUTTONS =====
 (function() {
   // Ordered list of visible tab page IDs (excludes hidden page18/changelog)
   var tabOrder = [1,100,200,300,400,500,13,22,23,11,3,6,16,15,12,7,10,17,14,9,21,4,20,8,5];
 
   var _currentIdx = 0; // tracked index for reliable keyboard nav
+  var _navHistory = [0]; // history stack for swipe-back
+  var _isGoingBack = false; // flag to prevent pushing during back navigation
 
   function getCurrentIndex() {
     // Sync from DOM on first load or tab clicks
@@ -17284,10 +17353,15 @@ setInterval(updateCountdown, 60000);
     return _currentIdx;
   }
 
-  function goToTab(idx) {
+  function goToTab(idx, skipHistory) {
     if (idx < 0 || idx >= tabOrder.length) return;
     var r = document.getElementById('radio-page' + tabOrder[idx]);
     if (r) {
+      // Push current position to history before navigating (unless going back)
+      if (!skipHistory && !_isGoingBack && _currentIdx !== idx) {
+        _navHistory.push(_currentIdx);
+        if (_navHistory.length > 50) _navHistory.shift(); // cap history size
+      }
       r.checked = true;
       _currentIdx = idx; // update tracked index immediately
       window.scrollTo(0, 0);
@@ -17301,6 +17375,16 @@ setInterval(updateCountdown, 60000);
         var barW = bar.offsetWidth;
         bar.scrollTo({ left: labelLeft - (barW / 2) + (labelW / 2), behavior: 'smooth' });
       }
+    }
+  }
+
+  function goBack() {
+    if (_navHistory.length > 1) {
+      _isGoingBack = true;
+      _navHistory.pop(); // remove current
+      var prevIdx = _navHistory[_navHistory.length - 1];
+      goToTab(prevIdx, true);
+      _isGoingBack = false;
     }
   }
 
@@ -17364,8 +17448,8 @@ setInterval(updateCountdown, 60000);
       // Swipe left → next tab
       navNext();
     } else {
-      // Swipe right → prev tab
-      navPrev();
+      // Swipe right → go back to previous screen
+      goBack();
     }
   }, { passive: true });
 
@@ -17375,7 +17459,13 @@ setInterval(updateCountdown, 60000);
   // Update label when tabs change via click
   document.querySelectorAll('.tab-radio').forEach(function(r) {
     r.addEventListener('change', function() {
-      updateNavLabel(getCurrentIndex());
+      var newIdx = getCurrentIndex();
+      // Push to history when user clicks a tab directly
+      if (!_isGoingBack && _navHistory[_navHistory.length - 1] !== newIdx) {
+        _navHistory.push(newIdx);
+        if (_navHistory.length > 50) _navHistory.shift();
+      }
+      updateNavLabel(newIdx);
       updateSectionJump();
     });
   });
@@ -18602,34 +18692,32 @@ setInterval(updateCountdown, 60000);
   }
 })();
 
-// Action Items accordion toggle
+// Action Items accordion toggle — auto-expand on click
 function toggleActionSection(id) {
   var section = document.getElementById(id);
   if (!section) return;
-  var isOpen = section.style.display !== 'none';
-  // Close all action sections
+  var wasOpen = section.style.display !== 'none';
+  // Update all sections and cards in one pass
   var all = document.querySelectorAll('.action-section');
-  for (var i = 0; i < all.length; i++) { all[i].style.display = 'none'; }
-  // Deactivate all toggle cards
   var cards = document.querySelectorAll('.action-toggle');
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].classList.remove('active');
-    var lbl = cards[i].querySelector('.label');
-    if (lbl) lbl.textContent = lbl.textContent.replace('▾','▸');
-  }
-  // If was closed, open it; if was open, leave all closed
-  if (!isOpen) {
-    section.style.display = 'block';
-    // Find and activate the matching card
-    var card = document.querySelector('.action-toggle[onclick*="' + id + '"]');
-    if (card) {
-      card.classList.add('active');
-      var lbl = card.querySelector('.label');
-      if (lbl) lbl.textContent = lbl.textContent.replace('▸','▾');
+  for (var i = 0; i < all.length; i++) {
+    if (all[i].id === id && !wasOpen) {
+      all[i].style.display = 'block';
+    } else {
+      all[i].style.display = 'none';
     }
-    // Smooth scroll to section
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  for (var i = 0; i < cards.length; i++) {
+    var lbl = cards[i].querySelector('.label');
+    if (cards[i].getAttribute('onclick').indexOf(id) !== -1 && !wasOpen) {
+      cards[i].classList.add('active');
+      if (lbl) lbl.textContent = lbl.textContent.replace('▸','▾');
+    } else {
+      cards[i].classList.remove('active');
+      if (lbl) lbl.textContent = lbl.textContent.replace('▾','▸');
+    }
+  }
+  if (!wasOpen) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 </script>
