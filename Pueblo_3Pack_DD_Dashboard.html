@@ -951,9 +951,9 @@
   .ov-prop-map-hero {
     height: 80px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
   }
-  .ov-prop-map-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.3) brightness(0.55) contrast(1.2) sepia(0.15) hue-rotate(180deg); transition: filter 0.5s ease; }
-  .ov-prop-card:hover .ov-prop-map-hero img { filter: saturate(0.5) brightness(0.65) contrast(1.15) sepia(0.1) hue-rotate(180deg); }
-  .ov-prop-map-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,14,26,0.1) 0%, rgba(10,14,26,0.75) 100%); }
+  .ov-prop-map-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.7) brightness(0.85) contrast(1.05); transition: filter 0.5s ease; }
+  .ov-prop-card:hover .ov-prop-map-hero img { filter: saturate(0.85) brightness(0.95) contrast(1.05); }
+  .ov-prop-map-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,14,26,0.05) 0%, rgba(10,14,26,0.45) 100%); }
   .ov-prop-header {
     display: flex; align-items: center; justify-content: space-between;
     padding: 14px 16px 10px; position: relative;
@@ -3522,7 +3522,12 @@
       <!-- Sunset Vista -->
       <div class="ov-prop-card" style="border-top:3px solid #EF4444;">
         <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank" class="ov-prop-map-hero" style="text-decoration:none; -webkit-tap-highlight-color:transparent;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6859" alt="">
+          <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12612/6859" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12612/6860" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6859" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6860" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
           <div style="position:relative;z-index:1;display:flex;align-items:center;gap:6px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span style="font-size:9px;color:#FFF;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);">5000 Red Creek Springs Rd</span>
@@ -3569,7 +3574,12 @@
       <!-- Oasis -->
       <div class="ov-prop-card" style="border-top:3px solid #00E676;">
         <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank" class="ov-prop-map-hero" style="text-decoration:none; -webkit-tap-highlight-color:transparent;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6865" alt="">
+          <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12605/6864" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12605/6865" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6864" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6865" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
           <div style="position:relative;z-index:1;display:flex;align-items:center;gap:6px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span style="font-size:9px;color:#FFF;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);">2221 S Prairie Ave</span>
@@ -3616,7 +3626,12 @@
       <!-- La Vista -->
       <div class="ov-prop-card" style="border-top:3px solid #FBBF24;">
         <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank" class="ov-prop-map-hero" style="text-decoration:none; -webkit-tap-highlight-color:transparent;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6863" alt="">
+          <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12608/6862" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12608/6863" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6862" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6863" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
           <div style="position:relative;z-index:1;display:flex;align-items:center;gap:6px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span style="font-size:9px;color:#FFF;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);">3333 Starlite Dr</span>

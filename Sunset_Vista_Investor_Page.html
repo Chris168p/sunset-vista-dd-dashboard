@@ -424,11 +424,11 @@ body { background: var(--bg); }
 }
 /* Style satellite tile images inside maps */
 .map-container img, .prop-map img {
-  filter: saturate(0.3) brightness(0.6) contrast(1.2) sepia(0.15) hue-rotate(180deg);
+  filter: saturate(0.7) brightness(0.9) contrast(1.05);
   transition: filter 0.5s ease;
 }
 .map-container:hover img, .prop-map:hover img {
-  filter: saturate(0.5) brightness(0.7) contrast(1.15) sepia(0.1) hue-rotate(180deg);
+  filter: saturate(0.85) brightness(1.0) contrast(1.05);
 }
 
 .map-overlay {
@@ -1678,7 +1678,7 @@ body { background: var(--bg); }
         <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3152/1715" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
         <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3152/1716" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,13,18,0.3) 0%,rgba(10,14,26,0.55) 50%,rgba(10,13,18,0.4) 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,13,18,0.15) 0%,rgba(10,14,26,0.25) 50%,rgba(10,13,18,0.2) 100%);"></div>
       <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="opacity:0.8;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <div style="font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:2px; text-transform:uppercase; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,0.6);">View on Google Maps</div>
@@ -1694,8 +1694,13 @@ body { background: var(--bg); }
       <!-- SUNSET COUNTRY -->
       <div class="prop-card reveal reveal-delay-1">
         <a href="https://www.google.com/maps/place/38.228,-104.636/@38.228,-104.636,15z" target="_blank" class="prop-map" style="position:relative; overflow:hidden; text-decoration:none; -webkit-tap-highlight-color:transparent;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6859" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,26,0.25) 0%,rgba(10,14,26,0.6) 100%);"></div>
+          <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12612/6859" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12612/6860" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6859" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6860" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,26,0.05) 0%,rgba(10,14,26,0.35) 100%);"></div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="position:relative;z-index:1;opacity:0.9;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </a>
         <div class="prop-info">
@@ -1719,8 +1724,13 @@ body { background: var(--bg); }
       <!-- OASIS -->
       <div class="prop-card reveal reveal-delay-2">
         <a href="https://www.google.com/maps/place/38.288,-104.574/@38.288,-104.574,15z" target="_blank" class="prop-map" style="position:relative; overflow:hidden; text-decoration:none; -webkit-tap-highlight-color:transparent;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6865" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,26,0.25) 0%,rgba(10,14,26,0.6) 100%);"></div>
+          <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12605/6864" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12605/6865" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6864" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6865" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,26,0.05) 0%,rgba(10,14,26,0.35) 100%);"></div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="position:relative;z-index:1;opacity:0.9;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </a>
         <div class="prop-info">
@@ -1744,8 +1754,13 @@ body { background: var(--bg); }
       <!-- LA VISTA -->
       <div class="prop-card reveal reveal-delay-3">
         <a href="https://www.google.com/maps/place/38.260,-104.597/@38.260,-104.597,15z" target="_blank" class="prop-map" style="position:relative; overflow:hidden; text-decoration:none; -webkit-tap-highlight-color:transparent;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6863" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,26,0.25) 0%,rgba(10,14,26,0.6) 100%);"></div>
+          <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12608/6862" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12608/6863" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6862" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6863" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,26,0.05) 0%,rgba(10,14,26,0.35) 100%);"></div>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="position:relative;z-index:1;opacity:0.9;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </a>
         <div class="prop-info">
