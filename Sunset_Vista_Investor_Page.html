@@ -1018,6 +1018,336 @@ body { background: var(--bg); }
   .contacts-row { flex-direction: column; gap: 20px; }
   .prop-stats { grid-template-columns: 1fr 1fr; }
 }
+
+/* ═══════════════════════════════════════
+   SECTION: ROI CALCULATOR
+   ═══════════════════════════════════════ */
+.calc-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.calc-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.calc-slider-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.calc-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--bg-elevated) 0%);
+  outline: none;
+  cursor: pointer;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 12px rgba(232,152,94,0.4);
+  cursor: grab;
+}
+.calc-slider::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 12px rgba(232,152,94,0.4);
+  cursor: grab;
+}
+.calc-amount {
+  font-size: 32px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--orange), var(--orange-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 150px;
+  text-align: right;
+}
+.calc-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.calc-result-card {
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all .3s ease;
+}
+.calc-result-card:hover { border-color: rgba(232,152,94,0.3); transform: translateY(-2px); }
+.calc-result-num {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text-white);
+  margin-bottom: 4px;
+}
+.calc-result-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.calc-result-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════
+   SECTION: ASSET CLASS COMPARISON
+   ═══════════════════════════════════════ */
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.compare-col {
+  text-align: center;
+  padding: 24px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.compare-col:hover { border-color: rgba(255,255,255,0.10); transform: translateY(-3px); }
+.compare-col.highlight {
+  border-color: var(--orange);
+  background: linear-gradient(180deg, rgba(232,152,94,0.08), var(--bg-card));
+}
+.compare-col.highlight::before {
+  content: 'THIS DEAL';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 4px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: var(--orange);
+  color: #000;
+}
+.compare-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+.compare-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.compare-stat {
+  margin-bottom: 12px;
+}
+.compare-stat-num {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-white);
+}
+.compare-stat-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.compare-bar-track {
+  height: 6px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+.compare-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  animation: wipe 1.2s ease both;
+}
+
+/* ═══════════════════════════════════════
+   SECTION: 5-YEAR TIMELINE
+   ═══════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--orange), var(--blue), var(--green), #8B5CF6, var(--orange-bright));
+  transform: translateX(-50%);
+}
+.tl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.tl-item:nth-child(even) { flex-direction: row-reverse; }
+.tl-item:nth-child(even) .tl-card { text-align: right; }
+.tl-side {
+  flex: 1;
+}
+.tl-dot {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 3px solid;
+  background: var(--bg);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: transform .3s ease;
+}
+.tl-item:hover .tl-dot { transform: translateX(-50%) scale(1.3); }
+.tl-card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  transition: all .3s ease;
+}
+.tl-card:hover { border-color: rgba(255,255,255,0.10); }
+.tl-year {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.tl-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+.tl-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.tl-kpi {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════
+   SECTION: TRACK RECORD
+   ═══════════════════════════════════════ */
+.track-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.track-kpi {
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all .4s ease;
+}
+.track-kpi:hover { border-color: rgba(232,152,94,0.3); transform: translateY(-3px); }
+.track-kpi-num {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+.track-kpi-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.track-kpi-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+.track-principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.track-principle {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  text-align: center;
+  transition: all .3s ease;
+}
+.track-principle:hover { border-color: rgba(255,255,255,0.10); transform: translateY(-2px); }
+.track-principle-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.track-principle-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+.track-principle-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* RESPONSIVE for new sections */
+@media (max-width: 1024px) {
+  .compare-grid { grid-template-columns: repeat(3, 1fr); }
+  .track-kpis { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .calc-results { grid-template-columns: repeat(2, 1fr); }
+  .calc-slider-row { flex-direction: column; align-items: stretch; }
+  .calc-amount { text-align: center; }
+  .compare-grid { grid-template-columns: 1fr 1fr; }
+  .timeline::before { left: 20px; }
+  .tl-item, .tl-item:nth-child(even) { flex-direction: column; padding-left: 48px; gap: 0; }
+  .tl-item:nth-child(even) .tl-card { text-align: left; }
+  .tl-dot { left: 20px; }
+  .tl-side { display: none; }
+  .track-principles { grid-template-columns: 1fr; }
+  .track-kpis { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .calc-results { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 <body>
@@ -1092,7 +1422,7 @@ body { background: var(--bg); }
       </div>
       <div class="metric-card reveal reveal-delay-2">
         <div class="metric-num">$26.5M</div>
-        <div class="metric-label">Total LP Equity</div>
+        <div class="metric-label">Total Equity</div>
         <div class="metric-sub">$150K Minimum Investment</div>
       </div>
       <div class="metric-card reveal reveal-delay-3">
@@ -1239,11 +1569,11 @@ body { background: var(--bg); }
       <div class="chart-card">
         <div class="chart-card-title">Cash-on-Cash Return</div>
         <div class="bar-chart">
-          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7.0%</div><div class="bar" style="height:78%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 1</div></div>
-          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7.6%</div><div class="bar" style="height:84%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 2</div></div>
-          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">8.1%</div><div class="bar" style="height:90%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 3</div></div>
-          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">8.6%</div><div class="bar" style="height:95%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 4</div></div>
-          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">9.0%</div><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--orange-bright),var(--orange));"></div><div class="bar-label">Year 5</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7%</div><div class="bar" style="height:78%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 1</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7%</div><div class="bar" style="height:78%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 2</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7%</div><div class="bar" style="height:78%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 3</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">8%</div><div class="bar" style="height:89%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 4</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">9%</div><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--orange-bright),var(--orange));"></div><div class="bar-label">Year 5</div></div>
         </div>
         <div class="chart-footer">
           <span style="color:var(--text-muted);">8% Preferred Return</span>
@@ -1261,15 +1591,17 @@ body { background: var(--bg); }
           <div class="donut-ring">
             <svg viewBox="0 0 120 120">
               <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="14"/>
+              <!-- Equity arc: 54.75% of 301.6 = 165.1, dashoffset target = 136.5 -->
               <circle cx="60" cy="60" r="48" fill="none" stroke="url(#grad-equity)" stroke-width="14" stroke-linecap="round"
-                stroke-dasharray="301.6" style="--target:135.7; transform:rotate(-90deg); transform-origin:center;"
+                stroke-dasharray="301.6" style="--target:136.5; transform:rotate(-90deg); transform-origin:center;"
                 stroke-dashoffset="301.6">
-                <animate attributeName="stroke-dashoffset" from="301.6" to="135.7" dur="1.5s" fill="freeze" begin="0.5s" calcMode="spline" keySplines="0.22 1 0.36 1"/>
+                <animate attributeName="stroke-dashoffset" from="301.6" to="136.5" dur="1.5s" fill="freeze" begin="0.5s" calcMode="spline" keySplines="0.22 1 0.36 1"/>
               </circle>
+              <!-- Debt arc: 45.25% of 301.6 = 136.5, dashoffset target = 165.1 -->
               <circle cx="60" cy="60" r="48" fill="none" stroke="url(#grad-debt)" stroke-width="14" stroke-linecap="round"
-                stroke-dasharray="301.6" style="transform:rotate(105deg); transform-origin:center;"
+                stroke-dasharray="301.6" style="transform:rotate(107deg); transform-origin:center;"
                 stroke-dashoffset="301.6">
-                <animate attributeName="stroke-dashoffset" from="301.6" to="165.9" dur="1.2s" fill="freeze" begin="0.8s" calcMode="spline" keySplines="0.22 1 0.36 1"/>
+                <animate attributeName="stroke-dashoffset" from="301.6" to="165.1" dur="1.2s" fill="freeze" begin="0.8s" calcMode="spline" keySplines="0.22 1 0.36 1"/>
               </circle>
               <defs>
                 <linearGradient id="grad-equity" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8985E"/><stop offset="100%" stop-color="#F4A96A"/></linearGradient>
@@ -1277,14 +1609,14 @@ body { background: var(--bg); }
               </defs>
             </svg>
             <div class="donut-center">
-              <div class="donut-center-num">$40.8M</div>
+              <div class="donut-center-num">$48.4M</div>
               <div class="donut-center-label">Total Capital</div>
             </div>
           </div>
           <div class="donut-legend">
             <div class="donut-legend-item">
               <div class="donut-legend-dot" style="background:linear-gradient(135deg,var(--orange),var(--orange-bright));"></div>
-              <span class="donut-legend-label">LP Equity</span>
+              <span class="donut-legend-label">Total Equity</span>
               <span class="donut-legend-value">$26.5M</span>
             </div>
             <div class="donut-legend-item">
@@ -1295,7 +1627,7 @@ body { background: var(--bg); }
             <div class="donut-legend-item">
               <div class="donut-legend-dot" style="background:var(--text-dim);"></div>
               <span class="donut-legend-label">GP Co-Investment (5%+)</span>
-              <span class="donut-legend-value">Included</span>
+              <span class="donut-legend-value">Included in Equity</span>
             </div>
           </div>
         </div>
@@ -1417,6 +1749,279 @@ body { background: var(--bg); }
 </section>
 
 <!-- ═══════════════════════════════════════════
+     5-YEAR BUSINESS PLAN TIMELINE
+     ═══════════════════════════════════════════ -->
+<section class="section-pad" style="background:linear-gradient(180deg, var(--bg) 0%, #0D1016 50%, var(--bg) 100%);">
+  <div class="container-narrow">
+    <div class="reveal">
+      <div class="section-label">Execution Roadmap</div>
+      <h2 class="section-title">Five-Year <span class="serif" style="font-style:italic;">Business Plan</span></h2>
+      <p class="section-subtitle">A disciplined, phased approach to maximizing risk-adjusted returns while preserving downside protection at every stage.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="timeline reveal">
+      <!-- YEAR 1 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-year" style="color:var(--orange);">Year 1 — Stabilize &amp; Onboard</div>
+          <div class="tl-title">Operational Takeover &amp; Revenue Foundation</div>
+          <div class="tl-desc">Complete 90-day property onboarding. Implement Silver Lands management systems. Begin lot rent adjustments to market. Launch utility recapture billing. Establish resident communication channels.</div>
+          <div class="tl-kpi" style="background:rgba(232,152,94,0.12); color:var(--orange);">Target: 7% CoC &bull; 92% Occupancy</div>
+        </div>
+        <div class="tl-dot" style="border-color:var(--orange);"></div>
+        <div class="tl-side"></div>
+      </div>
+
+      <!-- YEAR 2 -->
+      <div class="tl-item">
+        <div class="tl-side"></div>
+        <div class="tl-dot" style="border-color:var(--blue);"></div>
+        <div class="tl-card">
+          <div class="tl-year" style="color:var(--blue);">Year 2 — Infill &amp; Optimize</div>
+          <div class="tl-title">Active Lot Fill &amp; Expense Reduction</div>
+          <div class="tl-desc">Begin infilling 15 vacant lots with new or relocated homes. Execute Phase 1 POH-to-TOH conversions. Achieve full utility recapture across portfolio. Complete Phase 1 capital improvements.</div>
+          <div class="tl-kpi" style="background:rgba(74,144,217,0.12); color:var(--blue);">Target: 7% CoC &bull; 95% Occupancy</div>
+        </div>
+      </div>
+
+      <!-- YEAR 3 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-year" style="color:var(--green);">Year 3 — Maximize NOI</div>
+          <div class="tl-title">Full Stabilization &amp; Cash Flow Peak</div>
+          <div class="tl-desc">Complete remaining infill. Achieve market-rate rents across all communities. Finish POH conversion program. Portfolio operating at peak efficiency with 35%+ NOI growth from acquisition basis.</div>
+          <div class="tl-kpi" style="background:rgba(91,185,140,0.12); color:var(--green);">Target: 7% CoC &bull; 95% Occupancy</div>
+        </div>
+        <div class="tl-dot" style="border-color:var(--green);"></div>
+        <div class="tl-side"></div>
+      </div>
+
+      <!-- YEAR 4 -->
+      <div class="tl-item">
+        <div class="tl-side"></div>
+        <div class="tl-dot" style="border-color:#8B5CF6;"></div>
+        <div class="tl-card">
+          <div class="tl-year" style="color:#8B5CF6;">Year 4 — Harvest &amp; Optimize</div>
+          <div class="tl-title">Peak Cash Flow &amp; Long-Term Positioning</div>
+          <div class="tl-desc">Maximize investor distributions from fully stabilized operations. Evaluate refinance opportunities to reduce cost of debt or return capital. Continue driving operational efficiencies across all three communities.</div>
+          <div class="tl-kpi" style="background:rgba(139,92,246,0.12); color:#8B5CF6;">Target: 8% CoC &bull; 95% Occupancy</div>
+        </div>
+      </div>
+
+      <!-- YEAR 5 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-year" style="color:var(--orange-bright);">Year 5 — Refinance &amp; Return Capital</div>
+          <div class="tl-title">Refinance to Return Investor Capital</div>
+          <div class="tl-desc">Execute cash-out refinance at stabilized NOI to return a significant portion of investor equity. Portfolio continues generating strong distributions as a long-term hold with materially reduced basis.</div>
+          <div class="tl-kpi" style="background:rgba(244,169,106,0.12); color:var(--orange-bright);">Target: 2.1x MOIC &bull; 18% Net IRR</div>
+        </div>
+        <div class="tl-dot" style="border-color:var(--orange-bright);"></div>
+        <div class="tl-side"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     INTERACTIVE ROI CALCULATOR
+     ═══════════════════════════════════════════ -->
+<section class="section-pad">
+  <div class="container-narrow">
+    <div class="reveal">
+      <div class="section-label">Model Your Returns</div>
+      <h2 class="section-title">Interactive Investment <span class="serif" style="font-style:italic;">Calculator</span></h2>
+      <p class="section-subtitle">Drag the slider to see projected returns at your investment level. Based on current underwriting assumptions.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="calc-wrapper reveal">
+      <div class="calc-slider-row">
+        <label for="investSlider">Investment Amount</label>
+        <input type="range" id="investSlider" class="calc-slider" min="150000" max="2000000" step="25000" value="500000">
+        <div class="calc-amount" id="calcAmount">$500K</div>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result-card">
+          <div class="calc-result-num" id="calcYr1Dist" style="color:var(--orange);">$35,000</div>
+          <div class="calc-result-label">Year 1 Distributions</div>
+          <div class="calc-result-sub" id="calcYr1Sub">7% Cash-on-Cash</div>
+        </div>
+        <div class="calc-result-card">
+          <div class="calc-result-num" id="calc5yrCash" style="color:var(--green);">$190,000</div>
+          <div class="calc-result-label">5-Year Cash Flow</div>
+          <div class="calc-result-sub">Cumulative distributions</div>
+        </div>
+        <div class="calc-result-card">
+          <div class="calc-result-num" id="calcTotal" style="color:var(--text-white);">$1.05M</div>
+          <div class="calc-result-label">Total Return</div>
+          <div class="calc-result-sub" id="calcMoic">2.1x MOIC</div>
+        </div>
+        <div class="calc-result-card">
+          <div class="calc-result-num" id="calcIrr" style="background:linear-gradient(135deg,var(--orange),var(--orange-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">18%</div>
+          <div class="calc-result-label">Net IRR</div>
+          <div class="calc-result-sub">After fees & promote</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:20px; font-size:10px; color:var(--text-dim);">Projections based on current underwriting assumptions. Actual results may vary. Not a guarantee of future performance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ASSET CLASS COMPARISON
+     ═══════════════════════════════════════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Performance Context</div>
+      <h2 class="section-title">How MHC Compares to <span class="serif" style="font-style:italic;">Other Asset Classes</span></h2>
+      <p class="section-subtitle">Manufactured housing communities have consistently outperformed traditional real estate and public market benchmarks on a risk-adjusted basis.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="compare-grid reveal">
+      <div class="compare-col highlight" style="padding-top:36px;">
+        <span class="compare-icon">&#127969;</span>
+        <div class="compare-name">Sunset Vista MHC</div>
+        <div class="compare-stat">
+          <div class="compare-stat-num" style="color:var(--orange);">18%</div>
+          <div class="compare-stat-label">Projected IRR</div>
+        </div>
+        <div class="compare-stat">
+          <div class="compare-stat-num" style="font-size:16px;">2.1x</div>
+          <div class="compare-stat-label">MOIC</div>
+        </div>
+        <div class="compare-bar-track">
+          <div class="compare-bar-fill" style="width:100%;background:linear-gradient(90deg,var(--orange),var(--orange-bright));"></div>
+        </div>
+      </div>
+
+      <div class="compare-col">
+        <span class="compare-icon">&#127970;</span>
+        <div class="compare-name">Traditional Multifamily</div>
+        <div class="compare-stat">
+          <div class="compare-stat-num">12%</div>
+          <div class="compare-stat-label">Avg IRR</div>
+        </div>
+        <div class="compare-stat">
+          <div class="compare-stat-num" style="font-size:16px;">1.6x</div>
+          <div class="compare-stat-label">MOIC</div>
+        </div>
+        <div class="compare-bar-track">
+          <div class="compare-bar-fill" style="width:67%;background:linear-gradient(90deg,var(--blue),var(--blue-light));"></div>
+        </div>
+      </div>
+
+      <div class="compare-col">
+        <span class="compare-icon">&#128200;</span>
+        <div class="compare-name">S&amp;P 500</div>
+        <div class="compare-stat">
+          <div class="compare-stat-num">10%</div>
+          <div class="compare-stat-label">Avg Annual Return</div>
+        </div>
+        <div class="compare-stat">
+          <div class="compare-stat-num" style="font-size:16px;">1.5x</div>
+          <div class="compare-stat-label">5-Year Multiple</div>
+        </div>
+        <div class="compare-bar-track">
+          <div class="compare-bar-fill" style="width:56%;background:linear-gradient(90deg,var(--green),var(--green-light));"></div>
+        </div>
+      </div>
+
+      <div class="compare-col">
+        <span class="compare-icon">&#128230;</span>
+        <div class="compare-name">Self-Storage</div>
+        <div class="compare-stat">
+          <div class="compare-stat-num">13%</div>
+          <div class="compare-stat-label">Avg IRR</div>
+        </div>
+        <div class="compare-stat">
+          <div class="compare-stat-num" style="font-size:16px;">1.7x</div>
+          <div class="compare-stat-label">MOIC</div>
+        </div>
+        <div class="compare-bar-track">
+          <div class="compare-bar-fill" style="width:72%;background:linear-gradient(90deg,#8B5CF6,#A78BFA);"></div>
+        </div>
+      </div>
+
+      <div class="compare-col">
+        <span class="compare-icon">&#127975;</span>
+        <div class="compare-name">10-Yr Treasury</div>
+        <div class="compare-stat">
+          <div class="compare-stat-num">4.3%</div>
+          <div class="compare-stat-label">Current Yield</div>
+        </div>
+        <div class="compare-stat">
+          <div class="compare-stat-num" style="font-size:16px;">1.2x</div>
+          <div class="compare-stat-label">5-Year Multiple</div>
+        </div>
+        <div class="compare-bar-track">
+          <div class="compare-bar-fill" style="width:24%;background:linear-gradient(90deg,#64748B,#94A3B8);"></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:16px; font-size:10px; color:var(--text-dim);">Sources: NCREIF, Bloomberg, Dataquest MHC Index. Multifamily and self-storage represent 5-year value-add benchmarks. Past performance is not indicative of future results.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TRACK RECORD
+     ═══════════════════════════════════════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Studio 168 <span class="serif" style="font-style:italic;">Track Record</span></h2>
+      <p class="section-subtitle">A vertically integrated sponsor with institutional discipline and operator-level execution across the manufactured housing sector.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="track-kpis reveal">
+      <div class="track-kpi">
+        <div class="track-kpi-num" style="color:var(--orange);">~10,000</div>
+        <div class="track-kpi-label">Units</div>
+        <div class="track-kpi-sub">Across multiple states</div>
+      </div>
+      <div class="track-kpi">
+        <div class="track-kpi-num" style="color:var(--text-white);">$460M+</div>
+        <div class="track-kpi-label">Portfolio Value</div>
+        <div class="track-kpi-sub">Assets under management</div>
+      </div>
+      <div class="track-kpi">
+        <div class="track-kpi-num" style="color:var(--green);">5+</div>
+        <div class="track-kpi-label">Years Operating</div>
+        <div class="track-kpi-sub">Proven MHC track record</div>
+      </div>
+      <div class="track-kpi">
+        <div class="track-kpi-num" style="color:var(--blue);">46</div>
+        <div class="track-kpi-label">Active Communities</div>
+        <div class="track-kpi-sub">Nationwide portfolio</div>
+      </div>
+    </div>
+
+    <div class="track-principles reveal">
+      <div class="track-principle">
+        <div class="track-principle-icon">&#128737;&#65039;</div>
+        <div class="track-principle-title">Vertically Integrated</div>
+        <div class="track-principle-text">In-house property management through Silver Lands Management Group. Full control of operations, maintenance, leasing, and resident experience from day one.</div>
+      </div>
+      <div class="track-principle">
+        <div class="track-principle-icon">&#129309;</div>
+        <div class="track-principle-title">Aligned Incentives</div>
+        <div class="track-principle-text">GP co-invests 5%+ of equity in every deal. 8% preferred return to LPs before any GP promote. We eat what we cook.</div>
+      </div>
+      <div class="track-principle">
+        <div class="track-principle-icon">&#128202;</div>
+        <div class="track-principle-title">Institutional Process</div>
+        <div class="track-principle-text">Rigorous 5-phase due diligence framework. Institutional-grade reporting. Monthly distributions and quarterly investor updates with full financial transparency.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
      TERMS
      ═══════════════════════════════════════════ -->
 <section class="section-pad">
@@ -1454,11 +2059,17 @@ body { background: var(--bg); }
     <div class="reveal">
       <div class="section-label">Get Started</div>
       <h2 class="cta-title">Ready to <span class="serif" style="font-style:italic;">Invest?</span></h2>
-      <p class="cta-text">Download the full investor deck for detailed financials, property photography, market analysis, and risk disclosures.</p>
+      <p class="cta-text">Review the full investor deck below for detailed financials, property photography, market analysis, and risk disclosures.</p>
+
+      <!-- EMBEDDED INVESTOR DECK (native PDF) -->
+      <div style="max-width:960px; margin:0 auto 32px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#111418;">
+        <embed src="Sunset_Vista_Investor_Deck.pdf" type="application/pdf" width="100%" height="700" style="display:block;">
+      </div>
+
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank" class="btn-primary">
+        <a href="Sunset_Vista_Investor_Deck.pdf" target="_blank" class="btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Investor Deck
+          Download Full Deck
         </a>
         <a href="mailto:kkealer@s168p.com?subject=Sunset%20Vista%20Estates%20-%20Investment%20Inquiry" class="btn-secondary">Schedule a Call</a>
       </div>
@@ -1510,6 +2121,55 @@ document.addEventListener('DOMContentLoaded', function() {
     el.style.animation = 'countUp .6s ease both';
     el.style.animationDelay = (0.5 + Math.random() * 0.3) + 's';
   });
+
+  // ═══ ROI CALCULATOR ═══
+  var slider = document.getElementById('investSlider');
+  if (slider) {
+    var cocRates = [0.07, 0.07, 0.07, 0.08, 0.09];
+    var moic = 2.1;
+    var irr = 18;
+
+    function fmt(n) {
+      if (n >= 1000000) return '$' + (n/1000000).toFixed(2) + 'M';
+      if (n >= 1000) return '$' + Math.round(n/1000).toLocaleString() + 'K';
+      return '$' + Math.round(n).toLocaleString();
+    }
+    function fmtFull(n) {
+      return '$' + Math.round(n).toLocaleString();
+    }
+
+    function updateCalc() {
+      var amt = parseInt(slider.value);
+      // Display amount
+      var amtStr = amt >= 1000000 ? '$' + (amt/1000000).toFixed(2) + 'M' : '$' + Math.round(amt/1000) + 'K';
+      document.getElementById('calcAmount').textContent = amtStr;
+
+      // Year 1 distributions
+      var yr1 = amt * cocRates[0];
+      document.getElementById('calcYr1Dist').textContent = fmtFull(yr1);
+      document.getElementById('calcYr1Sub').textContent = Math.round(cocRates[0]*100) + '% Cash-on-Cash';
+
+      // 5-year cumulative cash flow
+      var cumCash = 0;
+      for (var i = 0; i < cocRates.length; i++) cumCash += amt * cocRates[i];
+      document.getElementById('calc5yrCash').textContent = fmt(cumCash);
+
+      // Total return (MOIC)
+      var totalReturn = amt * moic;
+      document.getElementById('calcTotal').textContent = fmt(totalReturn);
+      document.getElementById('calcMoic').textContent = moic + 'x MOIC';
+
+      // IRR
+      document.getElementById('calcIrr').textContent = irr + '%';
+
+      // Update slider gradient
+      var pct = ((amt - 150000) / (2000000 - 150000)) * 100;
+      slider.style.background = 'linear-gradient(90deg, #E8985E ' + pct + '%, #1A1E24 ' + pct + '%)';
+    }
+
+    slider.addEventListener('input', updateCalc);
+    updateCalc(); // initialize
+  }
 });
 </script>
 
