@@ -477,6 +477,9 @@ body { background: var(--bg); }
   height: 160px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .prop-map iframe {
   width: 100%;
@@ -1190,27 +1193,26 @@ body { background: var(--bg); }
 .timeline::before {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 20px;
   top: 0; bottom: 0;
   width: 2px;
   background: linear-gradient(180deg, var(--orange), var(--blue), var(--green), #8B5CF6, var(--orange-bright));
-  transform: translateX(-50%);
 }
 .tl-item {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  padding-left: 48px;
+  gap: 0;
   margin-bottom: 32px;
   position: relative;
 }
-.tl-item:nth-child(even) { flex-direction: row-reverse; }
-.tl-item:nth-child(even) .tl-card { text-align: right; }
 .tl-side {
-  flex: 1;
+  display: none;
 }
 .tl-dot {
   position: absolute;
-  left: 50%;
+  left: 20px;
   top: 8px;
   width: 16px; height: 16px;
   border-radius: 50%;
@@ -1332,11 +1334,6 @@ body { background: var(--bg); }
   .calc-slider-row { flex-direction: column; align-items: stretch; }
   .calc-amount { text-align: center; }
   .compare-grid { grid-template-columns: 1fr 1fr; }
-  .timeline::before { left: 20px; }
-  .tl-item, .tl-item:nth-child(even) { flex-direction: column; padding-left: 48px; gap: 0; }
-  .tl-item:nth-child(even) .tl-card { text-align: left; }
-  .tl-dot { left: 20px; }
-  .tl-side { display: none; }
   .track-principles { grid-template-columns: 1fr; }
   .track-kpis { grid-template-columns: 1fr 1fr; }
 }
@@ -1601,7 +1598,6 @@ body { background: var(--bg); }
       <div class="hero-kpi"><div class="hero-kpi-num" data-count="2.1" data-suffix="x" data-decimals="1">0x</div><div class="hero-kpi-label">Equity Multiple</div></div>
       <div class="hero-kpi"><div class="hero-kpi-num" data-count="7" data-suffix="%" data-decimals="0">0%</div><div class="hero-kpi-label">Year 1 Cash Yield</div></div>
       <div class="hero-kpi"><div class="hero-kpi-num" data-count="80" data-suffix="%" data-decimals="0">0%</div><div class="hero-kpi-label">Y1 Depreciation</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-num" data-count="75" data-prefix="$" data-suffix="K" data-decimals="0">$0K</div><div class="hero-kpi-label">Per Lot Basis</div></div>
     </div>
     <div class="hero-cta-row">
       <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank" class="btn-primary">
@@ -1665,22 +1661,35 @@ body { background: var(--bg); }
       <div class="divider-line"></div>
     </div>
 
-    <div class="map-container reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25000!2d-104.6091!3d38.2544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sunset Vista Portfolio Location" allowfullscreen></iframe>
+    <a href="https://www.google.com/maps/place/Pueblo,+CO/@38.2544,-104.6091,13z" target="_blank" class="map-container reveal" style="display:block; text-decoration:none; cursor:pointer; position:relative; overflow:hidden;">
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);">
+        <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3151/1714" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3151/1715" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3151/1716" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3152/1714" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3152/1715" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3152/1716" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div style="position:absolute;inset:0;background:rgba(10,13,18,0.45);"></div>
+      <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="opacity:0.8;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div style="font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:2px; text-transform:uppercase; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,0.6);">View on Google Maps</div>
+      </div>
       <div class="map-overlay"></div>
       <div class="map-badge">
         <div class="map-badge-title">Pueblo, Colorado</div>
         <div class="map-badge-sub">I-25 Corridor &bull; 38.2544, -104.6091</div>
       </div>
-    </div>
+    </a>
 
     <div class="prop-grid">
       <!-- SUNSET COUNTRY -->
       <div class="prop-card reveal reveal-delay-1">
-        <div class="prop-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-104.636!3d38.228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" title="Sunset Country"></iframe>
-          <div class="prop-map-overlay"></div>
-        </div>
+        <a href="https://www.google.com/maps/place/38.228,-104.636/@38.228,-104.636,15z" target="_blank" class="prop-map" style="position:relative; overflow:hidden; text-decoration:none; -webkit-tap-highlight-color:transparent;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6859" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:rgba(10,13,18,0.4);"></div>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="position:relative;z-index:1;opacity:0.9;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
         <div class="prop-info">
           <div class="prop-name">Sunset Country</div>
           <div class="prop-location">Pueblo, CO &bull; Flagship Community</div>
@@ -1701,10 +1710,11 @@ body { background: var(--bg); }
 
       <!-- OASIS -->
       <div class="prop-card reveal reveal-delay-2">
-        <div class="prop-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-104.574!3d38.288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" title="Oasis"></iframe>
-          <div class="prop-map-overlay"></div>
-        </div>
+        <a href="https://www.google.com/maps/place/38.288,-104.574/@38.288,-104.574,15z" target="_blank" class="prop-map" style="position:relative; overflow:hidden; text-decoration:none; -webkit-tap-highlight-color:transparent;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6865" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:rgba(10,13,18,0.4);"></div>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="position:relative;z-index:1;opacity:0.9;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
         <div class="prop-info">
           <div class="prop-name">Oasis</div>
           <div class="prop-location">Pueblo, CO &bull; Cash Flow Anchor</div>
@@ -1725,10 +1735,11 @@ body { background: var(--bg); }
 
       <!-- LA VISTA -->
       <div class="prop-card reveal reveal-delay-3">
-        <div class="prop-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-104.597!3d38.260!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" title="La Vista"></iframe>
-          <div class="prop-map-overlay"></div>
-        </div>
+        <a href="https://www.google.com/maps/place/38.260,-104.597/@38.260,-104.597,15z" target="_blank" class="prop-map" style="position:relative; overflow:hidden; text-decoration:none; -webkit-tap-highlight-color:transparent;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6863" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:rgba(10,13,18,0.4);"></div>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8985E" stroke-width="1.5" style="position:relative;z-index:1;opacity:0.9;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
         <div class="prop-info">
           <div class="prop-name">La Vista</div>
           <div class="prop-location">Pueblo, CO &bull; Boutique Community</div>
@@ -2289,7 +2300,7 @@ body { background: var(--bg); }
       <div class="track-principle">
         <div class="track-principle-icon">&#128202;</div>
         <div class="track-principle-title">Institutional Process</div>
-        <div class="track-principle-text">Rigorous 5-phase due diligence framework. Institutional-grade reporting. Monthly distributions and quarterly investor updates with full financial transparency.</div>
+        <div class="track-principle-text">Rigorous 5-phase due diligence framework. Institutional-grade reporting. Monthly distributions and monthly investor updates with full financial transparency.</div>
       </div>
     </div>
   </div>
