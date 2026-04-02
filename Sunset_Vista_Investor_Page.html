@@ -1348,9 +1348,225 @@ body { background: var(--bg); }
   .compare-grid { grid-template-columns: 1fr; }
   .calc-results { grid-template-columns: 1fr 1fr; }
 }
+
+/* ═══════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════ */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--orange-deep), var(--orange), var(--orange-bright));
+  z-index: 10000;
+  transition: width .1s linear;
+  box-shadow: 0 0 8px rgba(232,152,94,0.5);
+}
+
+/* ═══════════════════════════════════════
+   FLOATING CTA
+   ═══════════════════════════════════════ */
+.floating-cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+  color: #FFF;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(232,152,94,0.35), 0 2px 8px rgba(0,0,0,0.3);
+  transition: all .3s cubic-bezier(.22,1,.36,1);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  letter-spacing: 0.3px;
+}
+.floating-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.floating-cta:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(232,152,94,0.45), 0 4px 12px rgba(0,0,0,0.3);
+}
+.floating-cta .pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #FFF;
+  animation: pulse 2s ease infinite;
+}
+
+/* ═══════════════════════════════════════
+   TAX SHIELD CALCULATOR
+   ═══════════════════════════════════════ */
+.tax-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.tax-slider-group {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.tax-slider-col {
+  flex: 1;
+}
+.tax-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.tax-slider-label span:first-child {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.tax-slider-label .tax-val {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--orange);
+}
+.tax-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-elevated);
+  outline: none;
+  cursor: pointer;
+}
+.tax-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 10px rgba(232,152,94,0.4);
+  cursor: grab;
+}
+.tax-slider::-moz-range-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 3px solid var(--bg);
+  cursor: grab;
+}
+.tax-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.tax-result-card {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all .3s ease;
+}
+.tax-result-card:hover { transform: translateY(-2px); }
+.tax-result-num {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+.tax-result-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tax-result-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.tax-comparison {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(232,152,94,0.06);
+  border: 1px solid rgba(232,152,94,0.15);
+  border-radius: var(--radius-sm);
+}
+.tax-comparison-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.tax-comparison-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.tax-comparison-text strong {
+  color: var(--orange);
+}
+
+/* Count-up animation for hero */
+@keyframes countFadeIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hero-kpi-num.counted {
+  animation: countFadeIn .5s cubic-bezier(.22,1,.36,1) both;
+}
+
+@media (max-width: 768px) {
+  .tax-slider-group { flex-direction: column; gap: 20px; }
+  .tax-results { grid-template-columns: 1fr; }
+  .floating-cta { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 12px; }
+}
+
+/* DECK GALLERY THUMBNAILS */
+.deck-thumb {
+  height: 54px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.5;
+  transition: all .2s ease;
+  flex-shrink: 0;
+}
+.deck-thumb:hover { opacity: 0.8; }
+.deck-thumb.active {
+  border-color: var(--orange);
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(232,152,94,0.3);
+}
+#deckThumbs::-webkit-scrollbar { height: 4px; }
+#deckThumbs::-webkit-scrollbar-track { background: transparent; }
+#deckThumbs::-webkit-scrollbar-thumb { background: rgba(232,152,94,0.3); border-radius: 2px; }
 </style>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scrollProgress"></div>
+
+<!-- FLOATING CTA -->
+<a href="mailto:kkealer@s168p.com?subject=Sunset%20Vista%20Estates%20-%20Investment%20Inquiry" class="floating-cta" id="floatingCta">
+  <div class="pulse-dot"></div>
+  Schedule a Call
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+</a>
 
 <!-- ═══════════════════════════════════════════
      TOP BRAND BAR
@@ -1383,11 +1599,11 @@ body { background: var(--bg); }
       Stabilized cash flow. Institutional basis. Multiple paths to value creation.
     </p>
     <div class="hero-kpis">
-      <div class="hero-kpi"><div class="hero-kpi-num">18%</div><div class="hero-kpi-label">Net IRR</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-num">2.1x</div><div class="hero-kpi-label">Equity Multiple</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-num">7%</div><div class="hero-kpi-label">Year 1 Cash Yield</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-num">80%</div><div class="hero-kpi-label">Y1 Depreciation</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-num">$75K</div><div class="hero-kpi-label">Per Lot Basis</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num" data-count="18" data-suffix="%" data-decimals="0">0%</div><div class="hero-kpi-label">Net IRR</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num" data-count="2.1" data-suffix="x" data-decimals="1">0x</div><div class="hero-kpi-label">Equity Multiple</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num" data-count="7" data-suffix="%" data-decimals="0">0%</div><div class="hero-kpi-label">Year 1 Cash Yield</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num" data-count="80" data-suffix="%" data-decimals="0">0%</div><div class="hero-kpi-label">Y1 Depreciation</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num" data-count="75" data-prefix="$" data-suffix="K" data-decimals="0">$0K</div><div class="hero-kpi-label">Per Lot Basis</div></div>
     </div>
     <div class="hero-cta-row">
       <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank" class="btn-primary">
@@ -1553,11 +1769,11 @@ body { background: var(--bg); }
       <div class="chart-card">
         <div class="chart-card-title">Projected NOI Growth</div>
         <div class="bar-chart">
-          <div class="bar-col"><div class="bar-value">$2.85M</div><div class="bar" style="height:74%;background:linear-gradient(180deg,#4A90D9,#2563EB);"></div><div class="bar-label">Year 1</div></div>
-          <div class="bar-col"><div class="bar-value">$3.09M</div><div class="bar" style="height:80%;background:linear-gradient(180deg,#4A90D9,#2563EB);"></div><div class="bar-label">Year 2</div></div>
-          <div class="bar-col"><div class="bar-value">$3.34M</div><div class="bar" style="height:87%;background:linear-gradient(180deg,#6366F1,#4338CA);"></div><div class="bar-label">Year 3</div></div>
-          <div class="bar-col"><div class="bar-value">$3.58M</div><div class="bar" style="height:93%;background:linear-gradient(180deg,#8B5CF6,#6D28D9);"></div><div class="bar-label">Year 4</div></div>
-          <div class="bar-col"><div class="bar-value">$3.84M</div><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--orange),var(--orange-deep));"></div><div class="bar-label">Year 5</div></div>
+          <div class="bar-col"><div class="bar-value">$2.9M</div><div class="bar" style="height:74%;background:linear-gradient(180deg,#4A90D9,#2563EB);"></div><div class="bar-label">Year 1</div></div>
+          <div class="bar-col"><div class="bar-value">$3.1M</div><div class="bar" style="height:80%;background:linear-gradient(180deg,#4A90D9,#2563EB);"></div><div class="bar-label">Year 2</div></div>
+          <div class="bar-col"><div class="bar-value">$3.3M</div><div class="bar" style="height:87%;background:linear-gradient(180deg,#6366F1,#4338CA);"></div><div class="bar-label">Year 3</div></div>
+          <div class="bar-col"><div class="bar-value">$3.6M</div><div class="bar" style="height:93%;background:linear-gradient(180deg,#8B5CF6,#6D28D9);"></div><div class="bar-label">Year 4</div></div>
+          <div class="bar-col"><div class="bar-value">$3.8M</div><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--orange),var(--orange-deep));"></div><div class="bar-label">Year 5</div></div>
         </div>
         <div class="chart-footer">
           <span style="color:var(--text-muted);">5-Year NOI Growth</span>
@@ -1627,7 +1843,7 @@ body { background: var(--bg); }
             <div class="donut-legend-item">
               <div class="donut-legend-dot" style="background:var(--text-dim);"></div>
               <span class="donut-legend-label">GP Co-Investment (5%+)</span>
-              <span class="donut-legend-value">Included in Equity</span>
+              <span class="donut-legend-value"></span>
             </div>
           </div>
         </div>
@@ -1637,11 +1853,11 @@ body { background: var(--bg); }
       <div class="chart-card">
         <div class="chart-card-title">Value Creation Waterfall</div>
         <div class="waterfall">
-          <div class="wf-col"><div class="wf-val" style="color:var(--text-secondary);">$2.85M</div><div class="wf-bar" style="height:74%;background:linear-gradient(180deg,#475569,#334155);"></div><div class="wf-label">Current<br>NOI</div></div>
+          <div class="wf-col"><div class="wf-val" style="color:var(--text-secondary);">$2.9M</div><div class="wf-bar" style="height:74%;background:linear-gradient(180deg,#475569,#334155);"></div><div class="wf-label">Current<br>NOI</div></div>
           <div class="wf-col"><div class="wf-val" style="color:var(--green);">+$885K</div><div class="wf-bar" style="height:23%;background:linear-gradient(180deg,var(--green),#059669); animation-delay:.2s;"></div><div class="wf-label">Lot<br>Infill</div></div>
           <div class="wf-col"><div class="wf-val" style="color:var(--green-light);">+$282K</div><div class="wf-bar" style="height:7.3%;background:linear-gradient(180deg,#34D399,#059669); animation-delay:.3s;"></div><div class="wf-label">Utility<br>Recapture</div></div>
           <div class="wf-col"><div class="wf-val" style="color:#6EE7B7;">+$125K</div><div class="wf-bar" style="height:3.2%;background:linear-gradient(180deg,#6EE7B7,#10B981); animation-delay:.4s;"></div><div class="wf-label">POH<br>Conversion</div></div>
-          <div class="wf-col"><div class="wf-val" style="color:var(--orange);">$3.84M</div><div class="wf-bar" style="height:100%;background:linear-gradient(180deg,var(--orange),var(--orange-deep)); animation-delay:.5s;"></div><div class="wf-label">Year 5<br>NOI</div></div>
+          <div class="wf-col"><div class="wf-val" style="color:var(--orange);">$3.8M</div><div class="wf-bar" style="height:100%;background:linear-gradient(180deg,var(--orange),var(--orange-deep)); animation-delay:.5s;"></div><div class="wf-label">Year 5<br>NOI</div></div>
         </div>
         <div class="chart-footer">
           <span style="color:var(--text-muted);">Total CapEx Investment</span>
@@ -1870,6 +2086,66 @@ body { background: var(--bg); }
 </section>
 
 <!-- ═══════════════════════════════════════════
+     TAX SHIELD CALCULATOR
+     ═══════════════════════════════════════════ -->
+<section class="section-pad" style="background:linear-gradient(180deg, var(--bg) 0%, #0D1016 50%, var(--bg) 100%);">
+  <div class="container-narrow">
+    <div class="reveal">
+      <div class="section-label">Tax Alpha</div>
+      <h2 class="section-title">Depreciation <span class="serif" style="font-style:italic;">Tax Shield</span></h2>
+      <p class="section-subtitle">80% estimated Year 1 bonus depreciation through cost segregation on 196 park-owned homes, site infrastructure, and land improvements. See your after-tax advantage.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="tax-wrapper reveal">
+      <div class="tax-slider-group">
+        <div class="tax-slider-col">
+          <div class="tax-slider-label">
+            <span>Investment Amount</span>
+            <span class="tax-val" id="taxInvestAmt">$500K</span>
+          </div>
+          <input type="range" id="taxInvestSlider" class="tax-slider" min="150000" max="2000000" step="25000" value="500000">
+        </div>
+        <div class="tax-slider-col">
+          <div class="tax-slider-label">
+            <span>Marginal Tax Rate</span>
+            <span class="tax-val" id="taxRateVal">37%</span>
+          </div>
+          <input type="range" id="taxRateSlider" class="tax-slider" min="22" max="50" step="1" value="37">
+        </div>
+      </div>
+
+      <div class="tax-results">
+        <div class="tax-result-card" style="background:rgba(232,152,94,0.06);">
+          <div class="tax-result-num" style="color:var(--orange);" id="taxDeduction">$400K</div>
+          <div class="tax-result-label">Year 1 Deduction</div>
+          <div class="tax-result-sub">80% bonus depreciation</div>
+        </div>
+        <div class="tax-result-card" style="background:rgba(91,185,140,0.06);">
+          <div class="tax-result-num" style="color:var(--green);" id="taxSavings">$148K</div>
+          <div class="tax-result-label">Tax Savings</div>
+          <div class="tax-result-sub" id="taxSavingsSub">At 37% marginal rate</div>
+        </div>
+        <div class="tax-result-card" style="background:rgba(74,144,217,0.06);">
+          <div class="tax-result-num" style="color:var(--blue);" id="taxEffBasis">$352K</div>
+          <div class="tax-result-label">Effective Basis</div>
+          <div class="tax-result-sub">After tax benefit</div>
+        </div>
+      </div>
+
+      <div class="tax-comparison">
+        <div class="tax-comparison-icon">&#128176;</div>
+        <div class="tax-comparison-text" id="taxSummary">
+          A <strong>$500K</strong> investment generates approximately <strong>$400K</strong> in Year 1 depreciation deductions, saving <strong>$148K</strong> in federal taxes. Your effective cost basis drops to <strong>$352K</strong> — a <strong>30%</strong> day-one return on invested capital from tax benefits alone.
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:16px; font-size:10px; color:var(--text-dim);">Illustrative only. Assumes 80% bonus depreciation allocation in Year 1 via cost segregation study. Consult your tax advisor for personal applicability. Tax benefits depend on individual circumstances.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
      ASSET CLASS COMPARISON
      ═══════════════════════════════════════════ -->
 <section class="section-pad">
@@ -2061,13 +2337,53 @@ body { background: var(--bg); }
       <h2 class="cta-title">Ready to <span class="serif" style="font-style:italic;">Invest?</span></h2>
       <p class="cta-text">Review the full investor deck below for detailed financials, property photography, market analysis, and risk disclosures.</p>
 
-      <!-- EMBEDDED INVESTOR DECK (native PDF) -->
-      <div style="max-width:960px; margin:0 auto 32px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#111418;">
-        <embed src="Sunset_Vista_Investor_Deck.pdf" type="application/pdf" width="100%" height="700" style="display:block;">
+      <!-- INVESTOR DECK SLIDE GALLERY -->
+      <div id="deckGallery" style="max-width:960px; margin:0 auto 32px; position:relative; user-select:none;">
+        <!-- Slide viewer -->
+        <div style="position:relative; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#000;">
+          <img id="deckSlide" src="deck_slides/slide_01.jpg" alt="Investor Deck - Slide 1 of 14"
+               style="width:100%; display:block; cursor:pointer;"
+               onclick="deckNext()">
+
+          <!-- Nav arrows -->
+          <button onclick="deckPrev()" id="deckPrevBtn"
+            style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:rgba(0,0,0,0.6); backdrop-filter:blur(8px); color:#fff; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; opacity:0.7;"
+            onmouseover="this.style.opacity='1';this.style.background='rgba(232,152,94,0.8)'" onmouseout="this.style.opacity='0.7';this.style.background='rgba(0,0,0,0.6)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button onclick="deckNext()" id="deckNextBtn"
+            style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:rgba(0,0,0,0.6); backdrop-filter:blur(8px); color:#fff; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; opacity:0.7;"
+            onmouseover="this.style.opacity='1';this.style.background='rgba(232,152,94,0.8)'" onmouseout="this.style.opacity='0.7';this.style.background='rgba(0,0,0,0.6)'">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <!-- Slide counter -->
+          <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.7); backdrop-filter:blur(8px); padding:6px 16px; border-radius:20px; font-size:12px; font-weight:700; color:#fff; letter-spacing:1px;">
+            <span id="deckCounter">1</span> / 14
+          </div>
+        </div>
+
+        <!-- Thumbnail strip -->
+        <div id="deckThumbs" style="display:flex; gap:6px; margin-top:10px; overflow-x:auto; padding:6px 0; scrollbar-width:thin; scrollbar-color:rgba(232,152,94,0.3) transparent;">
+          <img src="deck_slides/slide_01.jpg" onclick="deckGo(1)" class="deck-thumb active" alt="Slide 1">
+          <img src="deck_slides/slide_02.jpg" onclick="deckGo(2)" class="deck-thumb" alt="Slide 2">
+          <img src="deck_slides/slide_03.jpg" onclick="deckGo(3)" class="deck-thumb" alt="Slide 3">
+          <img src="deck_slides/slide_04.jpg" onclick="deckGo(4)" class="deck-thumb" alt="Slide 4">
+          <img src="deck_slides/slide_05.jpg" onclick="deckGo(5)" class="deck-thumb" alt="Slide 5">
+          <img src="deck_slides/slide_06.jpg" onclick="deckGo(6)" class="deck-thumb" alt="Slide 6">
+          <img src="deck_slides/slide_07.jpg" onclick="deckGo(7)" class="deck-thumb" alt="Slide 7">
+          <img src="deck_slides/slide_08.jpg" onclick="deckGo(8)" class="deck-thumb" alt="Slide 8">
+          <img src="deck_slides/slide_09.jpg" onclick="deckGo(9)" class="deck-thumb" alt="Slide 9">
+          <img src="deck_slides/slide_10.jpg" onclick="deckGo(10)" class="deck-thumb" alt="Slide 10">
+          <img src="deck_slides/slide_11.jpg" onclick="deckGo(11)" class="deck-thumb" alt="Slide 11">
+          <img src="deck_slides/slide_12.jpg" onclick="deckGo(12)" class="deck-thumb" alt="Slide 12">
+          <img src="deck_slides/slide_13.jpg" onclick="deckGo(13)" class="deck-thumb" alt="Slide 13">
+          <img src="deck_slides/slide_14.jpg" onclick="deckGo(14)" class="deck-thumb" alt="Slide 14">
+        </div>
       </div>
 
       <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
-        <a href="Sunset_Vista_Investor_Deck.pdf" target="_blank" class="btn-primary">
+        <a href="Sunset_Vista_Investor_Deck.pdf" download class="btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Full Deck
         </a>
@@ -2115,11 +2431,67 @@ document.addEventListener('DOMContentLoaded', function() {
 
   reveals.forEach(function(el) { observer.observe(el); });
 
-  // Animated number counters
-  var counters = document.querySelectorAll('.hero-kpi-num');
-  counters.forEach(function(el) {
-    el.style.animation = 'countUp .6s ease both';
-    el.style.animationDelay = (0.5 + Math.random() * 0.3) + 's';
+  // ═══ ANIMATED COUNT-UP NUMBERS ═══
+  function animateCountUp(el, delay) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var prefix = el.getAttribute('data-prefix') || '';
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0');
+    var duration = 1800;
+    var start = 0;
+    var startTime = null;
+
+    setTimeout(function() {
+      el.classList.add('counted');
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        // Ease out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = start + (target - start) * eased;
+        el.textContent = prefix + current.toFixed(decimals) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, delay);
+  }
+
+  var heroNums = document.querySelectorAll('.hero-kpi-num[data-count]');
+  var heroObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var nums = entry.target.querySelectorAll ? [entry.target] : [];
+        if (entry.target.getAttribute('data-count')) {
+          var idx = Array.prototype.indexOf.call(heroNums, entry.target);
+          animateCountUp(entry.target, idx * 150 + 300);
+          heroObserver.unobserve(entry.target);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+  heroNums.forEach(function(el) { heroObserver.observe(el); });
+
+  // ═══ SCROLL PROGRESS BAR ═══
+  var progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (progressBar) progressBar.style.width = pct + '%';
+  });
+
+  // ═══ FLOATING CTA ═══
+  var floatingCta = document.getElementById('floatingCta');
+  var ctaShown = false;
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 600 && !ctaShown) {
+      floatingCta.classList.add('visible');
+      ctaShown = true;
+    } else if (scrollTop <= 600 && ctaShown) {
+      floatingCta.classList.remove('visible');
+      ctaShown = false;
+    }
   });
 
   // ═══ ROI CALCULATOR ═══
@@ -2170,7 +2542,102 @@ document.addEventListener('DOMContentLoaded', function() {
     slider.addEventListener('input', updateCalc);
     updateCalc(); // initialize
   }
+
+  // ═══ TAX SHIELD CALCULATOR ═══
+  var taxInvSlider = document.getElementById('taxInvestSlider');
+  var taxRateSlider = document.getElementById('taxRateSlider');
+
+  if (taxInvSlider && taxRateSlider) {
+    function fmtTax(n) {
+      if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+      if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
+      return '$' + Math.round(n).toLocaleString();
+    }
+
+    function updateTax() {
+      var invest = parseInt(taxInvSlider.value);
+      var rate = parseInt(taxRateSlider.value) / 100;
+      var depreciationPct = 0.80; // 80% bonus depreciation
+      var deduction = invest * depreciationPct;
+      var savings = deduction * rate;
+      var effBasis = invest - savings;
+      var basisReturn = Math.round((savings / invest) * 100);
+
+      // Display
+      var investStr = invest >= 1000000 ? '$' + (invest/1000000).toFixed(2) + 'M' : '$' + Math.round(invest/1000) + 'K';
+      document.getElementById('taxInvestAmt').textContent = investStr;
+      document.getElementById('taxRateVal').textContent = Math.round(rate * 100) + '%';
+      document.getElementById('taxDeduction').textContent = fmtTax(deduction);
+      document.getElementById('taxSavings').textContent = fmtTax(savings);
+      document.getElementById('taxSavingsSub').textContent = 'At ' + Math.round(rate * 100) + '% marginal rate';
+      document.getElementById('taxEffBasis').textContent = fmtTax(effBasis);
+
+      document.getElementById('taxSummary').innerHTML =
+        'A <strong>' + investStr + '</strong> investment generates approximately <strong>' + fmtTax(deduction) + '</strong> in Year 1 depreciation deductions, saving <strong>' + fmtTax(savings) + '</strong> in federal taxes. Your effective cost basis drops to <strong>' + fmtTax(effBasis) + '</strong> — a <strong>' + basisReturn + '%</strong> day-one return on invested capital from tax benefits alone.';
+
+      // Slider gradients
+      var pctInv = ((invest - 150000) / (2000000 - 150000)) * 100;
+      taxInvSlider.style.background = 'linear-gradient(90deg, #E8985E ' + pctInv + '%, #1A1E24 ' + pctInv + '%)';
+      var pctRate = ((rate * 100 - 22) / (50 - 22)) * 100;
+      taxRateSlider.style.background = 'linear-gradient(90deg, #E8985E ' + pctRate + '%, #1A1E24 ' + pctRate + '%)';
+    }
+
+    taxInvSlider.addEventListener('input', updateTax);
+    taxRateSlider.addEventListener('input', updateTax);
+    updateTax(); // initialize
+  }
 });
+
+// ═══ DECK SLIDE GALLERY ═══
+var deckCurrent = 1;
+var deckTotal = 14;
+
+function deckGo(n) {
+  deckCurrent = Math.max(1, Math.min(n, deckTotal));
+  var pad = deckCurrent < 10 ? '0' + deckCurrent : '' + deckCurrent;
+  document.getElementById('deckSlide').src = 'deck_slides/slide_' + pad + '.jpg';
+  document.getElementById('deckSlide').alt = 'Investor Deck - Slide ' + deckCurrent + ' of ' + deckTotal;
+  document.getElementById('deckCounter').textContent = deckCurrent;
+
+  // Update thumbnail active state
+  var thumbs = document.querySelectorAll('.deck-thumb');
+  thumbs.forEach(function(t, i) {
+    t.classList.toggle('active', i === deckCurrent - 1);
+  });
+
+  // Scroll active thumbnail into view
+  var activeTh = thumbs[deckCurrent - 1];
+  if (activeTh) {
+    activeTh.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+}
+
+function deckNext() { deckGo(deckCurrent + 1); }
+function deckPrev() { deckGo(deckCurrent - 1); }
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  var gallery = document.getElementById('deckGallery');
+  if (!gallery) return;
+  var rect = gallery.getBoundingClientRect();
+  // Only respond if gallery is in viewport
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); deckNext(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); deckPrev(); }
+  }
+});
+
+// Preload adjacent slides for smooth navigation
+function deckPreload(n) {
+  if (n >= 1 && n <= deckTotal) {
+    var img = new Image();
+    var pad = n < 10 ? '0' + n : '' + n;
+    img.src = 'deck_slides/slide_' + pad + '.jpg';
+  }
+}
+// Preload slides 2 and 3 on page load
+deckPreload(2);
+deckPreload(3);
 </script>
 
 </body>
