@@ -3139,9 +3139,9 @@
              style="display:inline-block; padding:8px 16px; background:#3B82F6; color:#FFF; border-radius:6px; text-decoration:none; font-size:10px; font-weight:600;">
             Model
           </a>
-          <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank"
+          <a href="https://chris168p.github.io/sunset-vista-dd-dashboard/Sunset_Vista_Investor_Page.html" target="_blank"
              style="display:inline-block; padding:8px 16px; background:#00E676; color:#111827; border-radius:6px; text-decoration:none; font-size:10px; font-weight:600;">
-            Investor Deck ✓
+            Investor Page ✓
           </a>
         </div>
       </div>
@@ -11007,21 +11007,21 @@
           <div class="value green">12</div>
           <div class="label">Done / Resolved</div>
         </div>
-        <div class="kpi-card action-toggle active" onclick="toggleActionSection('ai-due-week')" style="cursor:pointer;" title="Click to expand/collapse">
+        <div class="kpi-card">
           <div class="value red">6</div>
-          <div class="label">Due This Week ▾</div>
+          <div class="label">Due This Week</div>
         </div>
-        <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-due-next')" style="cursor:pointer;" title="Click to expand/collapse">
+        <div class="kpi-card">
           <div class="value orange">35</div>
-          <div class="label">Due Next Week ▸</div>
+          <div class="label">Due Next Week</div>
         </div>
-        <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-due-later')" style="cursor:pointer;" title="Click to expand/collapse">
+        <div class="kpi-card">
           <div class="value white">17</div>
-          <div class="label">Due Later ▸</div>
+          <div class="label">Due Later</div>
         </div>
-        <div class="kpi-card action-toggle" onclick="toggleActionSection('ai-rent-survey')" style="cursor:pointer;" title="Click to expand/collapse">
+        <div class="kpi-card">
           <div class="value" style="color:#8B5CF6;">12</div>
-          <div class="label">Rent Roll / Survey ▸</div>
+          <div class="label">Rent Roll / Survey</div>
         </div>
         <div class="kpi-card">
           <div class="value" style="color:#3B82F6;">79</div>
@@ -11121,7 +11121,7 @@
     </div><!-- /ai-due-week -->
 
     <!-- ======= DUE NEXT WEEK (by 4/7) ======= -->
-    <div id="ai-due-next" class="action-section" style="display:none;">
+    <div id="ai-due-next" class="action-section" style="display:block;">
     <div class="group-divider">
       <div class="group-label" style="color:#F59E0B;">Due Next Week — by 4/7</div>
       <div class="group-line"></div>
@@ -11428,7 +11428,7 @@
     </div><!-- /ai-due-next -->
 
     <!-- ======= DUE WEEKS 2-3 (by 4/15) ======= -->
-    <div id="ai-due-later" class="action-section" style="display:none;">
+    <div id="ai-due-later" class="action-section" style="display:block;">
     <div class="group-divider">
       <div class="group-label" style="color:#3B82F6;">Due Weeks 2–3 — by 4/15</div>
       <div class="group-line"></div>
@@ -11676,7 +11676,7 @@
     </div><!-- /ai-due-later -->
 
     <!-- ======= RENT ROLL & SURVEY ACTION ITEMS (NEW) ======= -->
-    <div id="ai-rent-survey" class="action-section" style="display:none;">
+    <div id="ai-rent-survey" class="action-section" style="display:block;">
     <div class="group-divider">
       <div class="group-label" style="color:#8B5CF6;">Rent Roll, Phase 1 &amp; Survey Action Items (NEW)</div>
       <div class="group-line"></div>
@@ -14546,7 +14546,7 @@
       .inv-glass-title { font-size:11px; font-weight:700; color:var(--inv-text-muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
       .inv-glass-title::before { content:''; display:inline-block; width:3px; height:14px; border-radius:2px; background:linear-gradient(180deg,#3B82F6,#6366F1); }
 
-      .inv-bar-chart { display:flex; align-items:flex-end; gap:0; height:140px; padding:0 4px; }
+      .inv-bar-chart { display:flex; align-items:flex-end; gap:0; height:220px; padding:0 4px; }
       .inv-bar-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; }
       .inv-bar { width:100%; max-width:48px; border-radius:6px 6px 2px 2px; transform-origin:bottom; animation:inv-barGrow .8s ease both; position:relative; min-height:4px; }
       .inv-bar-col:nth-child(1) .inv-bar { animation-delay:.1s }
@@ -14562,7 +14562,7 @@
       .inv-ring-num { font-size:24px; font-weight:900; color:var(--inv-text-primary); }
       .inv-ring-sub { font-size:9px; color:var(--inv-text-muted); }
 
-      .inv-waterfall { display:flex; align-items:flex-end; gap:6px; height:120px; position:relative; }
+      .inv-waterfall { display:flex; align-items:flex-end; gap:6px; height:180px; position:relative; }
       .inv-wf-col { flex:1; display:flex; flex-direction:column; align-items:center; }
       .inv-wf-bar { width:100%; border-radius:4px; position:relative; animation:inv-barGrow .6s ease both; transform-origin:bottom; }
       .inv-wf-val { font-size:9px; font-weight:700; margin-bottom:3px; }
@@ -14595,7 +14595,7 @@
         .inv-2col { grid-template-columns:1fr !important; }
         .inv-3col { grid-template-columns:1fr !important; }
         .inv-glass { padding:16px; }
-        .inv-bar-chart { height:110px; }
+        .inv-bar-chart { height:180px; }
         .inv-prop-grid { grid-template-columns:1fr !important; }
         .inv-cta-row { flex-direction:column !important; }
         .inv-cta { width:100%; justify-content:center; }
@@ -14605,7 +14605,7 @@
         .inv-kpi-pill { padding:14px 6px 10px; }
         .inv-kpi-num { font-size:22px; }
         .inv-hero h1 { font-size:22px !important; }
-        .inv-waterfall { height:90px; }
+        .inv-waterfall { height:140px; }
       }
     </style>
 
@@ -14650,73 +14650,103 @@
     <!-- ═══════ 2. NOI GROWTH CHART + CASH YIELD CHART ═══════ -->
     <div class="inv-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
 
-      <!-- NOI GROWTH BAR CHART -->
+      <!-- NOI GROWTH — HORIZONTAL BARS -->
       <div class="inv-glass">
         <div class="inv-glass-title">Projected NOI Growth</div>
-        <div class="inv-bar-chart">
-          <div class="inv-bar-col">
-            <div class="inv-bar-val">$2.85M</div>
-            <div class="inv-bar" style="height:74%; background:linear-gradient(180deg,#3B82F6,#1E40AF);"></div>
-            <div class="inv-bar-yr">Y1</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y1</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:74%; height:100%; border-radius:6px; background:linear-gradient(90deg,#3B82F6,#60A5FA); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">$2.85M</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val">$3.09M</div>
-            <div class="inv-bar" style="height:80%; background:linear-gradient(180deg,#3B82F6,#1E40AF);"></div>
-            <div class="inv-bar-yr">Y2</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y2</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:80%; height:100%; border-radius:6px; background:linear-gradient(90deg,#3B82F6,#818CF8); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">$3.09M</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val">$3.34M</div>
-            <div class="inv-bar" style="height:87%; background:linear-gradient(180deg,#6366F1,#4338CA);"></div>
-            <div class="inv-bar-yr">Y3</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y3</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:87%; height:100%; border-radius:6px; background:linear-gradient(90deg,#6366F1,#A78BFA); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">$3.34M</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val">$3.58M</div>
-            <div class="inv-bar" style="height:93%; background:linear-gradient(180deg,#8B5CF6,#6D28D9);"></div>
-            <div class="inv-bar-yr">Y4</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y4</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:93%; height:100%; border-radius:6px; background:linear-gradient(90deg,#8B5CF6,#C084FC); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">$3.58M</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val">$3.84M</div>
-            <div class="inv-bar" style="height:100%; background:linear-gradient(180deg,#F97316,#EA580C);"></div>
-            <div class="inv-bar-yr">Y5</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y5</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:100%; height:100%; border-radius:6px; background:linear-gradient(90deg,#F97316,#FB923C); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">$3.84M</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px solid var(--inv-border-subtle);">
+        <div style="display:flex; justify-content:space-between; margin-top:14px; padding-top:10px; border-top:1px solid var(--inv-border-subtle);">
           <span style="font-size:10px; color:var(--inv-text-muted);">5-Year Growth</span>
           <span style="font-size:12px; font-weight:800; color:var(--inv-text-green);">+35%</span>
         </div>
       </div>
 
-      <!-- CASH-ON-CASH RETURN CHART -->
+      <!-- CASH-ON-CASH YIELD — HORIZONTAL BARS -->
       <div class="inv-glass">
         <div class="inv-glass-title">Cash-on-Cash Yield</div>
-        <div class="inv-bar-chart">
-          <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:var(--inv-text-accent);">7.0%</div>
-            <div class="inv-bar" style="height:78%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
-            <div class="inv-bar-yr">Y1</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y1</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:78%; height:100%; border-radius:6px; background:linear-gradient(90deg,#EA580C,#F97316); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">7.0%</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:var(--inv-text-accent);">7.6%</div>
-            <div class="inv-bar" style="height:84%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
-            <div class="inv-bar-yr">Y2</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y2</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:84%; height:100%; border-radius:6px; background:linear-gradient(90deg,#EA580C,#F97316); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">7.6%</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:var(--inv-text-accent);">8.1%</div>
-            <div class="inv-bar" style="height:90%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
-            <div class="inv-bar-yr">Y3</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y3</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:90%; height:100%; border-radius:6px; background:linear-gradient(90deg,#F97316,#FB923C); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">8.1%</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:var(--inv-text-accent);">8.6%</div>
-            <div class="inv-bar" style="height:95%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
-            <div class="inv-bar-yr">Y4</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y4</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:95%; height:100%; border-radius:6px; background:linear-gradient(90deg,#F97316,#FB923C); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">8.6%</span>
+              </div>
+            </div>
           </div>
-          <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:var(--inv-text-accent);">9.0%</div>
-            <div class="inv-bar" style="height:100%; background:linear-gradient(180deg,#FB923C,#F97316);"></div>
-            <div class="inv-bar-yr">Y5</div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:700; color:var(--inv-text-muted); width:22px;">Y5</span>
+            <div style="flex:1; height:28px; border-radius:6px; background:var(--inv-bar-bg); overflow:hidden;">
+              <div style="width:100%; height:100%; border-radius:6px; background:linear-gradient(90deg,#FB923C,#FDBA74); display:flex; align-items:center; padding-left:10px;">
+                <span style="font-size:12px; font-weight:800; color:#FFF;">9.0%</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px solid var(--inv-border-subtle);">
+        <div style="display:flex; justify-content:space-between; margin-top:14px; padding-top:10px; border-top:1px solid var(--inv-border-subtle);">
           <span style="font-size:10px; color:var(--inv-text-muted);">8% Preferred Return</span>
           <span style="font-size:12px; font-weight:800; color:var(--inv-text-accent);">Monthly Distributions</span>
         </div>
@@ -14754,15 +14784,15 @@
                 <span style="font-size:11px; color:var(--inv-text-primary); font-weight:600;">LP Equity</span>
               </div>
               <div style="font-size:22px; font-weight:900; color:var(--inv-text-primary);">$26.5M</div>
-              <div style="font-size:10px; color:var(--inv-text-muted);">55% of capital &bull; $150K minimum</div>
+              <div style="font-size:10px; color:var(--inv-text-muted);">$150K minimum</div>
             </div>
             <div>
               <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                 <div style="width:10px; height:10px; border-radius:3px; background:linear-gradient(135deg,#3B82F6,#6366F1);"></div>
                 <span style="font-size:11px; color:var(--inv-text-primary); font-weight:600;">CMBS Assumption</span>
               </div>
-              <div style="font-size:22px; font-weight:900; color:var(--inv-text-primary);">$14.3M</div>
-              <div style="font-size:10px; color:var(--inv-text-muted);">45% LTC &bull; 6.45% fixed</div>
+              <div style="font-size:22px; font-weight:900; color:var(--inv-text-primary);">$21.9M</div>
+              <div style="font-size:10px; color:var(--inv-text-muted);">54% LTV &bull; 6.45% fixed</div>
             </div>
           </div>
         </div>
@@ -15356,6 +15386,11 @@
     <div class="group-divider">
       <div class="group-label">Title Commitment Analysis &mdash; NCSCO05145</div>
       <div class="group-line"></div>
+    </div>
+
+    <div style="margin-bottom:14px; padding:10px 14px; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.12); border-radius:8px; display:inline-flex; align-items:center; gap:8px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <a href="https://drive.google.com/file/d/1T6vycGBqe-t6tOzZmJgzDBeHFhZ02shf/view?usp=drive_link" target="_blank" style="font-size:12px; font-weight:700; color:#3B82F6; text-decoration:none;">View Title Commitment (PDF) &rarr;</a>
     </div>
 
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
@@ -18763,46 +18798,7 @@ setInterval(updateClosingCountdown, 3600000);
 
   /* Feature 4: Font Size Toggle — REMOVED */
 
-  /* Feature 5: Tap-to-Copy on KPI Values */
-  function setupCopyListeners() {
-    var selectors = ['.kpi-card .value', '.hero-val', '.stat-value'];
-    selectors.forEach(function(selector) {
-      document.querySelectorAll(selector).forEach(function(el) {
-        el.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var text = el.textContent.trim();
-          navigator.clipboard.writeText(text).then(function() {
-            showCopyToast('Copied!');
-          }).catch(function() {
-            showCopyToast('Copy failed');
-          });
-        });
-      });
-    });
-  }
-
-  function showCopyToast(message) {
-    var toast = document.getElementById('copyToast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'copyToast';
-      toast.className = 'copy-toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(function() {
-      toast.classList.remove('show');
-    }, 1200);
-  }
-
-  // Setup copy listeners on DOMContentLoaded and after tab changes
-  document.addEventListener('DOMContentLoaded', setupCopyListeners);
-  document.querySelectorAll('.tab-radio').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      setTimeout(setupCopyListeners, 100);
-    });
-  });
+  /* Feature 5: Tap-to-Copy — REMOVED */
 
   /* Feature 6: Relative "Last Updated" Timestamp */
   var pageLoadTime = Date.now();
@@ -19101,32 +19097,7 @@ setInterval(updateClosingCountdown, 3600000);
 })();
 
 // Action Items accordion toggle — auto-expand on click
-function toggleActionSection(id) {
-  var section = document.getElementById(id);
-  if (!section) return;
-  var wasOpen = section.style.display !== 'none';
-  // Update all sections and cards in one pass
-  var all = document.querySelectorAll('.action-section');
-  var cards = document.querySelectorAll('.action-toggle');
-  for (var i = 0; i < all.length; i++) {
-    if (all[i].id === id && !wasOpen) {
-      all[i].style.display = 'block';
-    } else {
-      all[i].style.display = 'none';
-    }
-  }
-  for (var i = 0; i < cards.length; i++) {
-    var lbl = cards[i].querySelector('.label');
-    if (cards[i].getAttribute('onclick').indexOf(id) !== -1 && !wasOpen) {
-      cards[i].classList.add('active');
-      if (lbl) lbl.textContent = lbl.textContent.replace('▸','▾');
-    } else {
-      cards[i].classList.remove('active');
-      if (lbl) lbl.textContent = lbl.textContent.replace('▾','▸');
-    }
-  }
-  if (!wasOpen) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+/* toggleActionSection — REMOVED: all sections now visible by default */
 
 </script>
 </body>
