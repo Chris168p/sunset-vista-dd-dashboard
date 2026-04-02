@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Vista Estates — Studio 168 Capital</title>
+<meta name="description" content="Sunset Vista Estates: 399-lot manufactured housing portfolio in Pueblo, Colorado. 18% Net IRR, 2.1x MOIC, $150K minimum investment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   SUNSET VISTA ESTATES — INVESTOR MARKETING PAGE
+   Studio 168 Capital / Silver Lands Management Group
+   ═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg: #0A0D12;
+  --bg-card: #111418;
+  --bg-card-hover: #161A1F;
+  --bg-elevated: #1A1E24;
+  --orange: #E8985E;
+  --orange-bright: #F4A96A;
+  --orange-deep: #D4803E;
+  --blue: #4A90D9;
+  --blue-light: #6BA8E8;
+  --green: #5BB98C;
+  --green-light: #7DD3A8;
+  --red-soft: #D4726A;
+  --text-white: #FFFFFF;
+  --text-primary: #E5E9ED;
+  --text-secondary: #B0B7C3;
+  --text-muted: #858D99;
+  --text-dim: #5A6270;
+  --text-faint: #3B4250;
+  --border: rgba(255,255,255,0.06);
+  --border-orange: rgba(232,152,94,0.20);
+  --glow-orange: rgba(232,152,94,0.15);
+  --glow-blue: rgba(74,144,217,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --section-gap: 80px;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body { background: var(--bg); }
+
+.serif { font-family: 'Playfair Display', Georgia, serif; }
+
+/* ═══ UTILITY CLASSES ═══ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
+@keyframes scaleIn { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+@keyframes barGrow { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+@keyframes ringDraw { from { stroke-dashoffset:502.4; } to { stroke-dashoffset:var(--target); } }
+@keyframes shimmer { 0% { background-position:-200% center; } 100% { background-position:200% center; } }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.6; } }
+@keyframes countUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes wipe { from { width:0; } to { width:100%; } }
+@keyframes gradientShift { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+
+.fade-section { opacity:0; transform:translateY(40px); transition:all .8s cubic-bezier(.22,1,.36,1); }
+.fade-section.visible { opacity:1; transform:translateY(0); }
+
+/* ═══ SCROLL REVEAL (JS-powered) ═══ */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ═══════════════════════════════════════
+   SECTION 1: HERO
+   ═══════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0A0D12;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(232,152,94,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(74,144,217,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, rgba(15,18,21,0) 40%, #0A0D12 100%);
+  z-index: 1;
+}
+
+/* Satellite map as hero background */
+.hero-map {
+  position: absolute; inset: 0;
+  opacity: 0.18;
+  z-index: 0;
+  background: url('https://maps.googleapis.com/maps/api/staticmap?center=38.2544,-104.6091&zoom=13&size=1600x900&maptype=satellite&key=') center/cover no-repeat;
+  filter: saturate(0.4) brightness(0.7);
+}
+.hero-map::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,13,18,0.3) 0%, rgba(10,13,18,0.95) 100%);
+}
+
+.hero-particles {
+  position: absolute; inset: 0; z-index: 1;
+  overflow: hidden;
+}
+.hero-particles span {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: rgba(232,152,94,0.3);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 40px 24px;
+  animation: fadeInUp 1s ease both;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(232,152,94,0.08);
+  border: 1px solid rgba(232,152,94,0.20);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeIn 1s ease .3s both;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  animation: fadeInUp 1s ease .2s both;
+}
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--orange), var(--orange-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease .4s both;
+  line-height: 1.5;
+}
+
+.hero-kpis {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  animation: fadeInUp 1s ease .5s both;
+}
+
+.hero-kpi {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 20px 24px;
+  min-width: 130px;
+  text-align: center;
+  transition: all .4s ease;
+}
+.hero-kpi:hover {
+  background: rgba(232,152,94,0.06);
+  border-color: rgba(232,152,94,0.20);
+  transform: translateY(-4px);
+}
+.hero-kpi-num {
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--orange), #FFC078);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.hero-kpi-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.hero-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease .6s both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--orange-deep), var(--orange));
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(232,152,94,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+  transition: all .35s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 40px rgba(232,152,94,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: all .35s ease;
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: float 3s ease-in-out infinite, fadeIn 1s ease 1.2s both;
+}
+.hero-scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, var(--orange), transparent);
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 2: DEAL OVERVIEW
+   ═══════════════════════════════════════ */
+.section-pad { padding: 80px 0; }
+.section-pad-lg { padding: 100px 0; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.divider-line {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, var(--orange), transparent);
+  margin: 20px 0 32px;
+}
+
+/* ═══ OVERVIEW METRICS GRID ═══ */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.metric-card:hover {
+  border-color: var(--border-orange);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+.metric-card:hover::before { opacity: 1; }
+
+.metric-num {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--text-white);
+  line-height: 1;
+}
+.metric-num.orange {
+  background: linear-gradient(135deg, var(--orange), var(--orange-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.metric-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-weight: 500;
+}
+.metric-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 3: MAP & PORTFOLIO
+   ═══════════════════════════════════════ */
+.map-section {
+  background: linear-gradient(180deg, var(--bg) 0%, #0D1016 50%, var(--bg) 100%);
+}
+
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+  position: relative;
+  height: 380px;
+  background: var(--bg-card);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: saturate(0.5) brightness(0.85) contrast(1.1);
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(10,13,18,0.5) 0%, transparent 30%, transparent 70%, rgba(10,13,18,0.5) 100%),
+    linear-gradient(90deg, rgba(10,13,18,0.3) 0%, transparent 20%, transparent 80%, rgba(10,13,18,0.3) 100%);
+  z-index: 1;
+}
+
+.map-badge {
+  position: absolute;
+  top: 20px; left: 20px;
+  z-index: 2;
+  background: rgba(10,13,18,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(232,152,94,0.15);
+}
+.map-badge-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+.map-badge-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* PROPERTY CARDS */
+.prop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.prop-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all .4s ease;
+}
+.prop-card:hover {
+  border-color: var(--border-orange);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.prop-map {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+.prop-map iframe {
+  width: 100%;
+  height: 200%;
+  margin-top: -20%;
+  border: none;
+  filter: saturate(0.5) brightness(0.8);
+  pointer-events: none;
+}
+.prop-map-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, var(--bg-card) 100%);
+}
+
+.prop-info {
+  padding: 20px 22px 24px;
+}
+.prop-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 4px;
+}
+.prop-location {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+
+.prop-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.prop-stat {
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius-xs);
+  padding: 10px 12px;
+}
+.prop-stat-num {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text-white);
+}
+.prop-stat-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.occ-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  margin-top: 14px;
+  overflow: hidden;
+}
+.occ-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.5s ease;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 4: CHARTS
+   ═══════════════════════════════════════ */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all .4s ease;
+}
+.chart-card:hover {
+  border-color: rgba(255,255,255,0.10);
+}
+.chart-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chart-card-title::before {
+  content: '';
+  width: 3px; height: 14px;
+  border-radius: 2px;
+  background: var(--orange);
+}
+
+/* BAR CHARTS */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 200px;
+  padding-bottom: 4px;
+}
+.bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  justify-content: flex-end;
+}
+.bar {
+  width: 100%;
+  border-radius: 8px 8px 3px 3px;
+  transform-origin: bottom;
+  animation: barGrow 1s cubic-bezier(.34,1.56,.64,1) both;
+  position: relative;
+  transition: filter .3s ease;
+}
+.bar:hover { filter: brightness(1.2); }
+.bar-col:nth-child(1) .bar { animation-delay:.15s }
+.bar-col:nth-child(2) .bar { animation-delay:.25s }
+.bar-col:nth-child(3) .bar { animation-delay:.35s }
+.bar-col:nth-child(4) .bar { animation-delay:.45s }
+.bar-col:nth-child(5) .bar { animation-delay:.55s }
+.bar-value {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-white);
+}
+.bar-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-weight: 600;
+}
+.chart-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+
+/* DONUT CHART */
+.donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.donut-ring {
+  position: relative;
+  width: 180px; height: 180px;
+  flex-shrink: 0;
+}
+.donut-ring svg { width: 100%; height: 100%; }
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.donut-center-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text-white);
+}
+.donut-center-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.donut-legend { flex: 1; }
+.donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.donut-legend-item:last-child { border-bottom: none; }
+.donut-legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.donut-legend-label { font-size: 13px; color: var(--text-secondary); flex: 1; }
+.donut-legend-value { font-size: 15px; font-weight: 800; color: var(--text-white); }
+
+/* WATERFALL */
+.waterfall {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 200px;
+  position: relative;
+}
+.wf-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+.wf-bar {
+  width: 100%;
+  border-radius: 6px;
+  animation: barGrow .8s ease both;
+  transform-origin: bottom;
+  transition: filter .3s ease;
+}
+.wf-bar:hover { filter: brightness(1.2); }
+.wf-val {
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.wf-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 5: MARKET DATA
+   ═══════════════════════════════════════ */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.market-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all .4s ease;
+}
+.market-card:hover {
+  border-color: var(--border-orange);
+  transform: translateY(-3px);
+}
+.market-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+.market-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+.market-card-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.market-card-stat {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+.market-card-stat-num {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--orange);
+}
+.market-card-stat-label {
+  font-size: 10px;
+  color: var(--text-dim);
+}
+
+/* Employment bar chart in market section */
+.emp-bars { margin-top: 16px; }
+.emp-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.emp-bar-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  width: 110px;
+  flex-shrink: 0;
+  text-align: right;
+  font-weight: 500;
+}
+.emp-bar-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.emp-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.5s cubic-bezier(.22,1,.36,1);
+}
+.emp-bar-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-white);
+  width: 60px;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 6: INVESTMENT THESIS
+   ═══════════════════════════════════════ */
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.thesis-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.thesis-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+.thesis-card:nth-child(1)::before { background: var(--orange); }
+.thesis-card:nth-child(2)::before { background: var(--blue); }
+.thesis-card:nth-child(3)::before { background: var(--green); }
+.thesis-card:nth-child(4)::before { background: #8B5CF6; }
+.thesis-card:hover {
+  border-color: rgba(255,255,255,0.10);
+  transform: translateY(-3px);
+}
+.thesis-num {
+  font-size: 42px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  top: 12px; right: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.thesis-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.thesis-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 7: TERMS
+   ═══════════════════════════════════════ */
+.terms-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+.terms-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+.term-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.term-row:last-child { border-bottom: none; }
+.term-key {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.term-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+.term-val.highlight {
+  font-size: 18px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 8: CTA
+   ═══════════════════════════════════════ */
+.cta-section {
+  text-align: center;
+  padding: 100px 0 60px;
+  position: relative;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(232,152,94,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 14px;
+}
+
+.cta-text {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.contacts-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.contact-item {
+  text-align: center;
+}
+.contact-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+.contact-role {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.contact-email {
+  font-size: 12px;
+  color: var(--orange);
+  text-decoration: none;
+}
+.contact-email:hover { text-decoration: underline; }
+
+/* FOOTER */
+.page-footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .charts-grid { grid-template-columns: 1fr; }
+  .donut-wrap { flex-direction: column; }
+  .donut-ring { width: 160px; height: 160px; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-gap: 56px; }
+  .section-pad { padding: 56px 0; }
+  .hero-kpis { gap: 8px; }
+  .hero-kpi { min-width: 100px; padding: 14px 16px; }
+  .hero-kpi-num { font-size: 28px; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .metric-card { padding: 20px 16px; }
+  .metric-num { font-size: 28px; }
+  .prop-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: 1fr; }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .terms-grid { grid-template-columns: 1fr; }
+  .map-container { height: 280px; }
+  .bar-chart { height: 160px; gap: 8px; }
+  .waterfall { height: 160px; }
+  .donut-ring { width: 140px; height: 140px; }
+}
+
+@media (max-width: 480px) {
+  .hero-kpis { gap: 6px; }
+  .hero-kpi { min-width: 85px; padding: 12px 10px; }
+  .hero-kpi-num { font-size: 22px; }
+  .hero-kpi-label { font-size: 9px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .btn-secondary { width: 100%; justify-content: center; }
+  .terms-card { padding: 24px; }
+  .hero-cta-row { flex-direction: column; align-items: stretch; }
+  .contacts-row { flex-direction: column; gap: 20px; }
+  .prop-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles">
+    <span style="top:15%;left:10%;animation-delay:0s;width:3px;height:3px;"></span>
+    <span style="top:25%;left:80%;animation-delay:1s;"></span>
+    <span style="top:60%;left:20%;animation-delay:2s;width:2px;height:2px;"></span>
+    <span style="top:70%;left:70%;animation-delay:3s;"></span>
+    <span style="top:40%;left:50%;animation-delay:1.5s;width:3px;height:3px;"></span>
+    <span style="top:80%;left:35%;animation-delay:2.5s;"></span>
+    <span style="top:30%;left:60%;animation-delay:0.5s;"></span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Now Accepting Investors</div>
+    <h1 class="hero-title">Sunset Vista <em>Estates</em></h1>
+    <p class="hero-subtitle">
+      A 399-lot manufactured housing portfolio on Colorado's I-25 corridor.<br>
+      Stabilized cash flow. Institutional basis. Multiple paths to value creation.
+    </p>
+    <div class="hero-kpis">
+      <div class="hero-kpi"><div class="hero-kpi-num">18%</div><div class="hero-kpi-label">Net IRR</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num">2.1x</div><div class="hero-kpi-label">Equity Multiple</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num">7%</div><div class="hero-kpi-label">Year 1 Cash Yield</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num">80%</div><div class="hero-kpi-label">Y1 Depreciation</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-num">$75K</div><div class="hero-kpi-label">Per Lot Basis</div></div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View Full Investor Deck
+      </a>
+      <a href="mailto:kkealer@s168p.com?subject=Sunset%20Vista%20Estates%20-%20Investment%20Inquiry" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Schedule a Call
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DEAL OVERVIEW
+     ═══════════════════════════════════════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">The Opportunity</div>
+      <h2 class="section-title">A Stabilized Portfolio at an<br>Institutional Basis</h2>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card reveal reveal-delay-1">
+        <div class="metric-num orange">$40.8M</div>
+        <div class="metric-label">Purchase Price</div>
+        <div class="metric-sub">Land + 196 Park-Owned Homes</div>
+      </div>
+      <div class="metric-card reveal reveal-delay-2">
+        <div class="metric-num">$26.5M</div>
+        <div class="metric-label">Total LP Equity</div>
+        <div class="metric-sub">$150K Minimum Investment</div>
+      </div>
+      <div class="metric-card reveal reveal-delay-3">
+        <div class="metric-num orange">90%</div>
+        <div class="metric-label">Portfolio Occupancy</div>
+        <div class="metric-sub">360 of 399 Lots Occupied</div>
+      </div>
+      <div class="metric-card reveal reveal-delay-4">
+        <div class="metric-num">45%</div>
+        <div class="metric-label">Loan-to-Cost</div>
+        <div class="metric-sub">CMBS Assumption at 6.45% Fixed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MAP & PORTFOLIO
+     ═══════════════════════════════════════════ -->
+<section class="map-section section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Portfolio Overview</div>
+      <h2 class="section-title">Three Communities, One Vision</h2>
+      <p class="section-subtitle">Located along Colorado's I-25 corridor in Pueblo, each community serves a distinct role in the portfolio's risk-adjusted return profile.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="map-container reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25000!2d-104.6091!3d38.2544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sunset Vista Portfolio Location" allowfullscreen></iframe>
+      <div class="map-overlay"></div>
+      <div class="map-badge">
+        <div class="map-badge-title">Pueblo, Colorado</div>
+        <div class="map-badge-sub">I-25 Corridor &bull; 38.2544, -104.6091</div>
+      </div>
+    </div>
+
+    <div class="prop-grid">
+      <!-- SUNSET COUNTRY -->
+      <div class="prop-card reveal reveal-delay-1">
+        <div class="prop-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-104.636!3d38.228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" title="Sunset Country"></iframe>
+          <div class="prop-map-overlay"></div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-name">Sunset Country</div>
+          <div class="prop-location">Pueblo, CO &bull; Flagship Community</div>
+          <div class="prop-stats">
+            <div class="prop-stat">
+              <div class="prop-stat-num">206</div>
+              <div class="prop-stat-label">Total Lots</div>
+            </div>
+            <div class="prop-stat">
+              <div class="prop-stat-num" style="color:var(--orange);">86%</div>
+              <div class="prop-stat-label">Occupancy</div>
+            </div>
+          </div>
+          <div class="occ-bar"><div class="occ-bar-fill" style="width:86%; background:linear-gradient(90deg,var(--blue),#6366F1);"></div></div>
+          <div style="font-size:10px; color:var(--text-dim); margin-top:8px;">28 vacant lots &mdash; primary infill target for near-term NOI growth</div>
+        </div>
+      </div>
+
+      <!-- OASIS -->
+      <div class="prop-card reveal reveal-delay-2">
+        <div class="prop-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-104.574!3d38.288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" title="Oasis"></iframe>
+          <div class="prop-map-overlay"></div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-name">Oasis</div>
+          <div class="prop-location">Pueblo, CO &bull; Cash Flow Anchor</div>
+          <div class="prop-stats">
+            <div class="prop-stat">
+              <div class="prop-stat-num">161</div>
+              <div class="prop-stat-label">Total Lots</div>
+            </div>
+            <div class="prop-stat">
+              <div class="prop-stat-num" style="color:var(--green);">95%</div>
+              <div class="prop-stat-label">Occupancy</div>
+            </div>
+          </div>
+          <div class="occ-bar"><div class="occ-bar-fill" style="width:95%; background:linear-gradient(90deg,var(--green),#34D399);"></div></div>
+          <div style="font-size:10px; color:var(--text-dim); margin-top:8px;">Highest occupancy in portfolio &mdash; stable, predictable income</div>
+        </div>
+      </div>
+
+      <!-- LA VISTA -->
+      <div class="prop-card reveal reveal-delay-3">
+        <div class="prop-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-104.597!3d38.260!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus" loading="lazy" title="La Vista"></iframe>
+          <div class="prop-map-overlay"></div>
+        </div>
+        <div class="prop-info">
+          <div class="prop-name">La Vista</div>
+          <div class="prop-location">Pueblo, CO &bull; Boutique Community</div>
+          <div class="prop-stats">
+            <div class="prop-stat">
+              <div class="prop-stat-num">32</div>
+              <div class="prop-stat-label">Total Lots</div>
+            </div>
+            <div class="prop-stat">
+              <div class="prop-stat-num" style="color:#8B5CF6;">84%</div>
+              <div class="prop-stat-label">Occupancy</div>
+            </div>
+          </div>
+          <div class="occ-bar"><div class="occ-bar-fill" style="width:84%; background:linear-gradient(90deg,#8B5CF6,#A78BFA);"></div></div>
+          <div style="font-size:10px; color:var(--text-dim); margin-top:8px;">Compact community with organic rent growth upside</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FINANCIAL PROJECTIONS
+     ═══════════════════════════════════════════ -->
+<section class="section-pad" style="background:linear-gradient(180deg, #0D1016 0%, var(--bg) 100%);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Financial Projections</div>
+      <h2 class="section-title">A Clear Path to Value</h2>
+      <p class="section-subtitle">Conservative underwriting with multiple upside levers. Year 1 cash flow from day one, with 35% projected NOI growth over the hold period.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="charts-grid reveal">
+      <!-- NOI GROWTH -->
+      <div class="chart-card">
+        <div class="chart-card-title">Projected NOI Growth</div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-value">$2.85M</div><div class="bar" style="height:74%;background:linear-gradient(180deg,#4A90D9,#2563EB);"></div><div class="bar-label">Year 1</div></div>
+          <div class="bar-col"><div class="bar-value">$3.09M</div><div class="bar" style="height:80%;background:linear-gradient(180deg,#4A90D9,#2563EB);"></div><div class="bar-label">Year 2</div></div>
+          <div class="bar-col"><div class="bar-value">$3.34M</div><div class="bar" style="height:87%;background:linear-gradient(180deg,#6366F1,#4338CA);"></div><div class="bar-label">Year 3</div></div>
+          <div class="bar-col"><div class="bar-value">$3.58M</div><div class="bar" style="height:93%;background:linear-gradient(180deg,#8B5CF6,#6D28D9);"></div><div class="bar-label">Year 4</div></div>
+          <div class="bar-col"><div class="bar-value">$3.84M</div><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--orange),var(--orange-deep));"></div><div class="bar-label">Year 5</div></div>
+        </div>
+        <div class="chart-footer">
+          <span style="color:var(--text-muted);">5-Year NOI Growth</span>
+          <span style="color:var(--green); font-weight:800;">+35%</span>
+        </div>
+      </div>
+
+      <!-- CASH YIELD -->
+      <div class="chart-card">
+        <div class="chart-card-title">Cash-on-Cash Return</div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7.0%</div><div class="bar" style="height:78%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 1</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">7.6%</div><div class="bar" style="height:84%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 2</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">8.1%</div><div class="bar" style="height:90%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 3</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">8.6%</div><div class="bar" style="height:95%;background:linear-gradient(180deg,var(--orange),#C2410C);"></div><div class="bar-label">Year 4</div></div>
+          <div class="bar-col"><div class="bar-value" style="color:var(--orange);">9.0%</div><div class="bar" style="height:100%;background:linear-gradient(180deg,var(--orange-bright),var(--orange));"></div><div class="bar-label">Year 5</div></div>
+        </div>
+        <div class="chart-footer">
+          <span style="color:var(--text-muted);">8% Preferred Return</span>
+          <span style="color:var(--orange); font-weight:800;">Monthly Distributions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2: CAPITAL STRUCTURE + WATERFALL -->
+    <div class="charts-grid reveal" style="margin-top:20px;">
+      <!-- CAPITAL STRUCTURE DONUT -->
+      <div class="chart-card">
+        <div class="chart-card-title">Capital Structure</div>
+        <div class="donut-wrap">
+          <div class="donut-ring">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="14"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="url(#grad-equity)" stroke-width="14" stroke-linecap="round"
+                stroke-dasharray="301.6" style="--target:135.7; transform:rotate(-90deg); transform-origin:center;"
+                stroke-dashoffset="301.6">
+                <animate attributeName="stroke-dashoffset" from="301.6" to="135.7" dur="1.5s" fill="freeze" begin="0.5s" calcMode="spline" keySplines="0.22 1 0.36 1"/>
+              </circle>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="url(#grad-debt)" stroke-width="14" stroke-linecap="round"
+                stroke-dasharray="301.6" style="transform:rotate(105deg); transform-origin:center;"
+                stroke-dashoffset="301.6">
+                <animate attributeName="stroke-dashoffset" from="301.6" to="165.9" dur="1.2s" fill="freeze" begin="0.8s" calcMode="spline" keySplines="0.22 1 0.36 1"/>
+              </circle>
+              <defs>
+                <linearGradient id="grad-equity" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8985E"/><stop offset="100%" stop-color="#F4A96A"/></linearGradient>
+                <linearGradient id="grad-debt" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A90D9"/><stop offset="100%" stop-color="#6366F1"/></linearGradient>
+              </defs>
+            </svg>
+            <div class="donut-center">
+              <div class="donut-center-num">$40.8M</div>
+              <div class="donut-center-label">Total Capital</div>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:linear-gradient(135deg,var(--orange),var(--orange-bright));"></div>
+              <span class="donut-legend-label">LP Equity</span>
+              <span class="donut-legend-value">$26.5M</span>
+            </div>
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:linear-gradient(135deg,var(--blue),#6366F1);"></div>
+              <span class="donut-legend-label">CMBS Debt (6.45% Fixed)</span>
+              <span class="donut-legend-value">$14.3M</span>
+            </div>
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:var(--text-dim);"></div>
+              <span class="donut-legend-label">GP Co-Investment (5%+)</span>
+              <span class="donut-legend-value">Included</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VALUE CREATION WATERFALL -->
+      <div class="chart-card">
+        <div class="chart-card-title">Value Creation Waterfall</div>
+        <div class="waterfall">
+          <div class="wf-col"><div class="wf-val" style="color:var(--text-secondary);">$2.85M</div><div class="wf-bar" style="height:74%;background:linear-gradient(180deg,#475569,#334155);"></div><div class="wf-label">Current<br>NOI</div></div>
+          <div class="wf-col"><div class="wf-val" style="color:var(--green);">+$885K</div><div class="wf-bar" style="height:23%;background:linear-gradient(180deg,var(--green),#059669); animation-delay:.2s;"></div><div class="wf-label">Lot<br>Infill</div></div>
+          <div class="wf-col"><div class="wf-val" style="color:var(--green-light);">+$282K</div><div class="wf-bar" style="height:7.3%;background:linear-gradient(180deg,#34D399,#059669); animation-delay:.3s;"></div><div class="wf-label">Utility<br>Recapture</div></div>
+          <div class="wf-col"><div class="wf-val" style="color:#6EE7B7;">+$125K</div><div class="wf-bar" style="height:3.2%;background:linear-gradient(180deg,#6EE7B7,#10B981); animation-delay:.4s;"></div><div class="wf-label">POH<br>Conversion</div></div>
+          <div class="wf-col"><div class="wf-val" style="color:var(--orange);">$3.84M</div><div class="wf-bar" style="height:100%;background:linear-gradient(180deg,var(--orange),var(--orange-deep)); animation-delay:.5s;"></div><div class="wf-label">Year 5<br>NOI</div></div>
+        </div>
+        <div class="chart-footer">
+          <span style="color:var(--text-muted);">Total CapEx Investment</span>
+          <span style="color:var(--text-white); font-weight:800;">$2.2M over 5 years</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MARKET
+     ═══════════════════════════════════════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Market Analysis</div>
+      <h2 class="section-title">Pueblo, Colorado</h2>
+      <p class="section-subtitle">A resilient, diversified economy anchored by healthcare, education, and government — comprising 38% of total MSA employment.</p>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="market-grid">
+      <div class="market-card reveal reveal-delay-1">
+        <div class="market-card-icon" style="background:rgba(232,152,94,0.10);"><span>&#127975;</span></div>
+        <div class="market-card-title">Healthcare Hub</div>
+        <div class="market-card-text">Parkview Medical Center and St. Mary-Corwin Hospital anchor a healthcare sector that runs nearly 2 points above the national average as a share of local employment.</div>
+        <div class="market-card-stat">
+          <div><div class="market-card-stat-num">11,200</div><div class="market-card-stat-label">Healthcare Jobs</div></div>
+          <div style="text-align:right;"><div class="market-card-stat-num">8.1%</div><div class="market-card-stat-label">Share of Employment</div></div>
+        </div>
+      </div>
+
+      <div class="market-card reveal reveal-delay-2">
+        <div class="market-card-icon" style="background:rgba(74,144,217,0.10);"><span>&#127979;</span></div>
+        <div class="market-card-title">Education &amp; Government</div>
+        <div class="market-card-text">Colorado State University-Pueblo, Pueblo Community College, School District 60/70, and county/federal offices provide a stable employment base resilient to economic cycles.</div>
+        <div class="market-card-stat">
+          <div><div class="market-card-stat-num">12,400</div><div class="market-card-stat-label">Government Jobs</div></div>
+          <div style="text-align:right;"><div class="market-card-stat-num">~62,700</div><div class="market-card-stat-label">MSA Nonfarm Total</div></div>
+        </div>
+      </div>
+
+      <div class="market-card reveal reveal-delay-3">
+        <div class="market-card-icon" style="background:rgba(91,185,140,0.10);"><span>&#127968;</span></div>
+        <div class="market-card-title">Housing Affordability</div>
+        <div class="market-card-text">Median home prices in Pueblo remain well below the Colorado state average, creating durable demand for manufactured housing as the most affordable homeownership option.</div>
+        <div class="market-card-stat">
+          <div><div class="market-card-stat-num">$75K</div><div class="market-card-stat-label">Per Lot Basis</div></div>
+          <div style="text-align:right;"><div class="market-card-stat-num">Below</div><div class="market-card-stat-label">State Avg Home Price</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLOYMENT BREAKDOWN CHART -->
+    <div class="chart-card reveal" style="max-width:700px;">
+      <div class="chart-card-title">Pueblo MSA Employment Composition</div>
+      <div class="emp-bars">
+        <div class="emp-bar-row"><div class="emp-bar-label">Government</div><div class="emp-bar-track"><div class="emp-bar-fill" style="width:100%;background:linear-gradient(90deg,var(--orange),var(--orange-bright));"></div></div><div class="emp-bar-num">12,400</div></div>
+        <div class="emp-bar-row"><div class="emp-bar-label">Education/Health</div><div class="emp-bar-track"><div class="emp-bar-fill" style="width:90%;background:linear-gradient(90deg,var(--blue),var(--blue-light));"></div></div><div class="emp-bar-num">11,200</div></div>
+        <div class="emp-bar-row"><div class="emp-bar-label">Trade/Transport</div><div class="emp-bar-track"><div class="emp-bar-fill" style="width:73%;background:linear-gradient(90deg,#6366F1,#818CF8);"></div></div><div class="emp-bar-num">9,100</div></div>
+        <div class="emp-bar-row"><div class="emp-bar-label">Leisure/Hosp.</div><div class="emp-bar-track"><div class="emp-bar-fill" style="width:55%;background:linear-gradient(90deg,var(--green),var(--green-light));"></div></div><div class="emp-bar-num">6,800</div></div>
+        <div class="emp-bar-row"><div class="emp-bar-label">Manufacturing</div><div class="emp-bar-track"><div class="emp-bar-fill" style="width:40%;background:linear-gradient(90deg,#8B5CF6,#A78BFA);"></div></div><div class="emp-bar-num">5,000</div></div>
+        <div class="emp-bar-row"><div class="emp-bar-label">Construction</div><div class="emp-bar-track"><div class="emp-bar-fill" style="width:30%;background:linear-gradient(90deg,#EC4899,#F472B6);"></div></div><div class="emp-bar-num">3,700</div></div>
+      </div>
+      <div style="margin-top:14px; font-size:11px; color:var(--text-dim);">Source: BLS OEWS, May 2024 &bull; Total MSA Nonfarm: ~62,700</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     INVESTMENT THESIS
+     ═══════════════════════════════════════════ -->
+<section class="section-pad" style="background:linear-gradient(180deg, var(--bg) 0%, #0D1016 50%, var(--bg) 100%);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Why This Deal</div>
+      <h2 class="section-title">Four Pillars of Conviction</h2>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="thesis-grid">
+      <div class="thesis-card reveal reveal-delay-1">
+        <div class="thesis-num">01</div>
+        <div class="thesis-title">Below-Market Basis with Built-In Downside Protection</div>
+        <div class="thesis-text">At $75K per lot, the portfolio trades well below replacement cost and recent comparable transactions. Conservative 45% LTC, 54% LTV and 90% in-place occupancy provide a meaningful equity cushion from day one.</div>
+      </div>
+      <div class="thesis-card reveal reveal-delay-2">
+        <div class="thesis-num">02</div>
+        <div class="thesis-title">Multiple Levers for Near-Term Value Creation</div>
+        <div class="thesis-text">15 vacant lots ready for infill (+$885K NOI), 75%+ utility recapture (+$282K), and a structured POH-to-TOH conversion program that simultaneously reduces operating expense and transfers maintenance liability.</div>
+      </div>
+      <div class="thesis-card reveal reveal-delay-3">
+        <div class="thesis-num">03</div>
+        <div class="thesis-title">Recession-Resilient Demand Drivers</div>
+        <div class="thesis-text">Manufactured housing is the most affordable form of homeownership. Pueblo's employment base is anchored by healthcare, education, and government (38% of jobs) — sectors that historically outperform during downturns.</div>
+      </div>
+      <div class="thesis-card reveal reveal-delay-4">
+        <div class="thesis-num">04</div>
+        <div class="thesis-title">Significant Tax Efficiency</div>
+        <div class="thesis-text">80% estimated Year 1 depreciation through cost segregation and bonus depreciation on 196 park-owned homes, site infrastructure, and land improvements. Material after-tax return enhancement for qualifying investors.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TERMS
+     ═══════════════════════════════════════════ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Investment Terms</div>
+      <h2 class="section-title">Aligned Interests, Transparent Structure</h2>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="terms-card reveal">
+      <div class="terms-grid">
+        <div>
+          <div class="term-row"><span class="term-key">Entity</span><span class="term-val">Sunset Vista Estates 168 LLC (UT)</span></div>
+          <div class="term-row"><span class="term-key">Preferred Return</span><span class="term-val highlight">8%</span></div>
+          <div class="term-row"><span class="term-key">GP Promote</span><span class="term-val">20% above pref</span></div>
+          <div class="term-row"><span class="term-key">Asset Mgmt Fee</span><span class="term-val">1.5%</span></div>
+        </div>
+        <div>
+          <div class="term-row"><span class="term-key">GP Co-Investment</span><span class="term-val">5%+ of equity</span></div>
+          <div class="term-row"><span class="term-key">Minimum Investment</span><span class="term-val highlight">$150,000</span></div>
+          <div class="term-row"><span class="term-key">Distributions</span><span class="term-val">Monthly</span></div>
+          <div class="term-row"><span class="term-key">Onboarding</span><span class="term-val">90 Days Post-Close</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Get Started</div>
+      <h2 class="cta-title">Ready to <span class="serif" style="font-style:italic;">Invest?</span></h2>
+      <p class="cta-text">Download the full investor deck for detailed financials, property photography, market analysis, and risk disclosures.</p>
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Investor Deck
+        </a>
+        <a href="mailto:kkealer@s168p.com?subject=Sunset%20Vista%20Estates%20-%20Investment%20Inquiry" class="btn-secondary">Schedule a Call</a>
+      </div>
+      <div class="contacts-row">
+        <div class="contact-item">
+          <div class="contact-name">Kristen Kealer</div>
+          <div class="contact-role">Investor Relations</div>
+          <a href="mailto:kkealer@s168p.com" class="contact-email">kkealer@s168p.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-name">Sage Damiano</div>
+          <div class="contact-role">Investor Relations</div>
+          <a href="mailto:sdamiano@s168p.com" class="contact-email">sdamiano@s168p.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <div class="container">
+    CONFIDENTIAL &mdash; Not for distribution without written consent of Studio 168 Capital.<br>
+    This is not an offer to sell or a solicitation of an offer to buy securities. Any such offer may only be made pursuant to the applicable private placement memorandum.<br>
+    Past performance is not indicative of future results. All projections are forward-looking estimates and subject to change.<br><br>
+    &copy; 2026 Studio 168 Capital. All rights reserved.
+  </div>
+</footer>
+
+<!-- ═══════ SCROLL REVEAL JS ═══════ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+
+  // Animated number counters
+  var counters = document.querySelectorAll('.hero-kpi-num');
+  counters.forEach(function(el) {
+    el.style.animation = 'countUp .6s ease both';
+    el.style.animationDelay = (0.5 + Math.random() * 0.3) + 's';
+  });
+});
+</script>
+
+</body>
+</html>
