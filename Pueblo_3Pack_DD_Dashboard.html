@@ -943,33 +943,64 @@
     margin-bottom: 24px;
   }
   .ov-prop-card {
-    background: #111827; border: 1px solid #1F2937; border-left: 4px solid;
-    border-radius: 10px; overflow: hidden;
+    background: var(--bg-card); border: 1px solid var(--border-light); border-top: none;
+    border-radius: 14px; overflow: hidden; transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
   }
+  .ov-prop-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .ov-prop-map-hero {
+    height: 80px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+  }
+  .ov-prop-map-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.3) brightness(0.55) contrast(1.2) sepia(0.15) hue-rotate(180deg); transition: filter 0.5s ease; }
+  .ov-prop-card:hover .ov-prop-map-hero img { filter: saturate(0.5) brightness(0.65) contrast(1.15) sepia(0.1) hue-rotate(180deg); }
+  .ov-prop-map-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,14,26,0.1) 0%, rgba(10,14,26,0.75) 100%); }
   .ov-prop-header {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 12px; background: rgba(31, 41, 55, 0.5); border-bottom: 1px solid #1F2937;
+    padding: 14px 16px 10px; position: relative;
   }
   .ov-prop-name {
-    font-size: 14px; font-weight: 700; color: #E5E9ED;
+    font-size: 16px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.3px;
   }
   .ov-prop-stats {
-    padding: 14px 12px;
+    padding: 0 16px 14px;
   }
+  .ov-prop-stats .stat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 8px;
+  }
+  .ov-prop-stats .stat-grid > div {
+    padding: 8px 0; border-bottom: 1px solid var(--border-subtle);
+  }
+  .ov-prop-stats .stat-label {
+    font-size: 9px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .ov-prop-stats .stat-val {
+    font-size: 15px; font-weight: 700; color: var(--text-primary); margin-top: 2px;
+  }
+  .ov-prop-stats .stat-val.accent { color: var(--green); }
+  .ov-prop-stats .stat-val.warn { color: var(--orange); }
   .ov-prop-card a, .ov-prop-card span[onclick] {
     display: block; padding: 8px; text-align: center;
-    font-size: 10px; color: #3B82F6; text-decoration: none;
+    font-size: 10px; color: var(--accent); text-decoration: none;
     transition: background 0.2s; cursor: pointer;
   }
   .ov-prop-card a:hover, .ov-prop-card span[onclick]:hover {
-    background: rgba(59, 130, 246, 0.06);
+    background: var(--bg-hover);
   }
-  .light-theme .ov-prop-card { background: #F9FAFB; border-color: #E5E7EB; }
-  .light-theme .ov-prop-header { background: #F3F4F6; border-bottom-color: #E5E7EB; }
+  @media (max-width: 768px) {
+    .ov-prop-cards { grid-template-columns: 1fr; gap: 14px; }
+    .ov-prop-map-hero { height: 100px; }
+    .ov-prop-name { font-size: 18px; }
+    .ov-prop-stats .stat-val { font-size: 16px; }
+    .ov-prop-card:hover { transform: none; }
+  }
+  .light-theme .ov-prop-card { background: #FFFFFF; border-color: #E5E7EB; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .light-theme .ov-prop-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .light-theme .ov-prop-header { background: transparent; }
   .light-theme .ov-prop-name { color: #1F2937; }
   .light-theme .ov-prop-card a, .light-theme .ov-prop-card span[onclick] {
     color: #2563EB;
   }
+  .light-theme .ov-prop-map-hero::after { background:linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 100%); }
   .light-theme .ov-prop-card div[style*="border-top"] {
     border-color: #E5E7EB !important;
   }
@@ -3078,14 +3109,14 @@
               <div class="cmd-item-title">What matters most this week</div>
               <span class="pill orange">Focus</span>
             </div>
-            <div class="cmd-item-meta">1) lock site visit dates, 2) confirm tax assessment classification, 3) finish loan assumption package, 4) close missing title gap, 5) request correct seller CapEx records.</div>
+            <div class="cmd-item-meta">1) lock site visit dates, 2) finish loan assumption package, 3) close missing title gap, 4) request correct seller CapEx records.</div>
           </div>
           <div class="cmd-item">
             <div class="cmd-item-head">
               <div class="cmd-item-title">Decision gates before hardening posture</div>
               <span class="pill green">GP View</span>
             </div>
-            <div class="cmd-item-meta">Need clarity on property tax classification, nonconforming use exposure at SC, title / lien cleanup, and physical condition of vacant lots / abandoned homes before relying on upside case.</div>
+            <div class="cmd-item-meta">Need clarity on nonconforming use exposure at SC, title / lien cleanup, and physical condition of vacant lots / abandoned homes before relying on upside case.</div>
           </div>
         </div>
       </div>
@@ -3093,8 +3124,8 @@
         <div class="cmd-title">Top Risks</div>
         <div class="cmd-list">
           <div class="cmd-item">
-            <div class="cmd-item-head"><div class="cmd-item-title">Tax classification not confirmed</div><span class="pill red">Critical</span></div>
-            <div class="cmd-item-meta">Potential annual tax swing is material. <b style="color:#E5E9ED;">Owner:</b> Keiana &nbsp; <b style="color:#E5E9ED;">Blocker:</b> yes</div>
+            <div class="cmd-item-head"><div class="cmd-item-title"><s style="color:#858D99;">Tax classification not confirmed</s></div><span class="pill green">Resolved</span></div>
+            <div class="cmd-item-meta"><span class="green">Confirmed residential classification (6.7%) per CRS 39-1-102 &mdash; 4/1/2026.</span> <b style="color:#E5E9ED;">Owner:</b> Keiana</div>
           </div>
           <div class="cmd-item">
             <div class="cmd-item-head"><div class="cmd-item-title">SC legal nonconforming status</div><span class="pill red">Critical</span></div>
@@ -3489,169 +3520,181 @@
     <!-- 6. PROPERTY CARDS (3-COLUMN GRID) -->
     <div class="ov-prop-cards">
       <!-- Sunset Vista -->
-      <div class="ov-prop-card" style="border-left-color:#EF4444;">
+      <div class="ov-prop-card" style="border-top:3px solid #EF4444;">
+        <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank" class="ov-prop-map-hero" style="text-decoration:none; -webkit-tap-highlight-color:transparent;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12613/6859" alt="">
+          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:9px;color:#FFF;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);">5000 Red Creek Springs Rd</span>
+          </div>
+        </a>
         <div class="ov-prop-header">
           <div style="flex:1;">
-            <div class="ov-prop-name">Sunset Vista</div>
-            <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank" style="font-size:9px; color:#3B82F6; text-decoration:none;">5000 Red Creek Springs Rd, Pueblo</a>
+            <div class="ov-prop-name">Sunset Country</div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:500; margin-top:2px;">Flagship Community &bull; 29.6 ac &bull; Est. 1973</div>
           </div>
+          <div style="font-size:20px;font-weight:900;color:#EF4444;">$19.5M</div>
         </div>
         <div class="ov-prop-stats">
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px;">
-            <div><div style="font-size:8px; color:#858D99;">Lots</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">206</div></div>
-            <div><div style="font-size:8px; color:#858D99;">POH</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">101</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Lot Rent</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$654</div></div>
-            <div><div style="font-size:8px; color:#858D99;">T12 Revenue</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$1.5M</div></div>
-            <div><div style="font-size:8px; color:#858D99;">T12 NOI</div><div style="font-size:13px; font-weight:700; color:#00E676;">$956K</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Op Margin</div><div style="font-size:13px; font-weight:700; color:#00E676;">65%</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Price</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$19.5M</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Acreage</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">29.6 ac</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Year Built</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">1973</div></div>
+          <div class="stat-grid">
+            <div><div class="stat-label">Lots</div><div class="stat-val">206</div></div>
+            <div><div class="stat-label">POH</div><div class="stat-val">101</div></div>
+            <div><div class="stat-label">Lot Rent</div><div class="stat-val">$654</div></div>
+            <div><div class="stat-label">T12 Revenue</div><div class="stat-val">$1.5M</div></div>
+            <div><div class="stat-label">T12 NOI</div><div class="stat-val accent">$956K</div></div>
+            <div><div class="stat-label">Op Margin</div><div class="stat-val accent">65%</div></div>
           </div>
-          <!-- Condition Row -->
-          <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(0,230,118,0.12); color:#00E676;">Phase 1: Clean</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(251,191,36,0.12); color:#FBBF24;">PCA: $8.9K</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(251,191,36,0.12); color:#FBBF24;">Zoning: Nonconforming</span>
+          <div style="display:flex; gap:6px; margin-top:10px; flex-wrap:wrap;">
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(0,230,118,0.12); color:var(--green);">Phase 1: Clean</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(251,191,36,0.12); color:var(--orange);">PCA: $8.9K</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(251,191,36,0.12); color:var(--orange);">Zoning: Nonconforming</span>
           </div>
         </div>
-        <!-- Pill Links -->
-        <div style="padding:10px 12px; border-top:1px solid rgba(59,130,246,0.06); display:flex; flex-wrap:wrap; gap:5px;">
-          <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; text-decoration:none; transition:all 0.2s;">Maps</a>
-          <a href="https://www.google.com/maps/@38.2280,-104.6340,3a,75y,90t/data=!3m6!1e1!3m4!1s-!2e0!7i16384!8i8192" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; text-decoration:none; transition:all 0.2s;">Street View</a>
-          <span onclick="drillIn(12, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">Tenants</span>
-          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">POH</span>
-          <span onclick="drillIn(10, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">Utilities</span>
-          <span onclick="drillIn(21, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">CapEx</span>
+        <div style="padding:10px 16px 12px; border-top:1px solid var(--border-subtle); display:flex; flex-wrap:wrap; gap:5px;">
+          <a href="https://www.google.com/maps/place/5000+Red+Creek+Springs+Rd,+Pueblo,+CO" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); text-decoration:none; transition:all 0.2s;">Maps</a>
+          <a href="https://www.google.com/maps/@38.2280,-104.6340,3a,75y,90t/data=!3m6!1e1!3m4!1s-!2e0!7i16384!8i8192" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); text-decoration:none; transition:all 0.2s;">Street View</a>
+          <span onclick="drillIn(12, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">Tenants</span>
+          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">POH</span>
+          <span onclick="drillIn(10, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">Utilities</span>
+          <span onclick="drillIn(21, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">CapEx</span>
         </div>
-        <div style="padding:0 12px 10px; display:flex; flex-wrap:wrap; gap:5px;">
-          <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">Phase 1</a>
-          <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">PCA</a>
-          <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">Zoning</a>
-          <span onclick="drillIn(14, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; cursor:pointer; transition:all 0.2s;">Photos</span>
+        <div style="padding:0 16px 12px; display:flex; flex-wrap:wrap; gap:5px;">
+          <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">Phase 1</a>
+          <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">PCA</a>
+          <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">Zoning</a>
+          <span onclick="drillIn(14, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); cursor:pointer; transition:all 0.2s;">Photos</span>
         </div>
       </div>
 
       <!-- Oasis -->
-      <div class="ov-prop-card" style="border-left-color:#00E676;">
+      <div class="ov-prop-card" style="border-top:3px solid #00E676;">
+        <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank" class="ov-prop-map-hero" style="text-decoration:none; -webkit-tap-highlight-color:transparent;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12606/6865" alt="">
+          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:9px;color:#FFF;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);">2221 S Prairie Ave</span>
+          </div>
+        </a>
         <div class="ov-prop-header">
           <div style="flex:1;">
             <div class="ov-prop-name">Oasis</div>
-            <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank" style="font-size:9px; color:#3B82F6; text-decoration:none;">2221 S Prairie Ave, Pueblo</a>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:500; margin-top:2px;">Cash Flow Anchor &bull; 20.5 ac &bull; Est. 1970</div>
           </div>
+          <div style="font-size:20px;font-weight:900;color:#00E676;">$16.2M</div>
         </div>
         <div class="ov-prop-stats">
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px;">
-            <div><div style="font-size:8px; color:#858D99;">Lots</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">161</div></div>
-            <div><div style="font-size:8px; color:#858D99;">POH</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">38</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Lot Rent</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$615</div></div>
-            <div><div style="font-size:8px; color:#858D99;">T12 Revenue</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$1.1M</div></div>
-            <div><div style="font-size:8px; color:#858D99;">T12 NOI</div><div style="font-size:13px; font-weight:700; color:#00E676;">$867K</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Op Margin</div><div style="font-size:13px; font-weight:700; color:#00E676;">77%</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Price</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$16.2M</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Acreage</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">20.5 ac</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Year Built</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">1970</div></div>
+          <div class="stat-grid">
+            <div><div class="stat-label">Lots</div><div class="stat-val">161</div></div>
+            <div><div class="stat-label">POH</div><div class="stat-val">38</div></div>
+            <div><div class="stat-label">Lot Rent</div><div class="stat-val">$615</div></div>
+            <div><div class="stat-label">T12 Revenue</div><div class="stat-val">$1.1M</div></div>
+            <div><div class="stat-label">T12 NOI</div><div class="stat-val accent">$867K</div></div>
+            <div><div class="stat-label">Op Margin</div><div class="stat-val accent">77%</div></div>
           </div>
-          <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(0,230,118,0.12); color:#00E676;">Phase 1: Clean</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(239,68,68,0.12); color:#EF4444;">PCA: $43.6K</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(0,230,118,0.12); color:#00E676;">Zoning: R7 Permitted</span>
+          <div style="display:flex; gap:6px; margin-top:10px; flex-wrap:wrap;">
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(0,230,118,0.12); color:var(--green);">Phase 1: Clean</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(239,68,68,0.12); color:var(--red);">PCA: $43.6K</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(0,230,118,0.12); color:var(--green);">Zoning: R7 Permitted</span>
           </div>
         </div>
-        <!-- Pill Links -->
-        <div style="padding:10px 12px; border-top:1px solid rgba(59,130,246,0.06); display:flex; flex-wrap:wrap; gap:5px;">
-          <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; text-decoration:none; transition:all 0.2s;">Maps</a>
-          <a href="https://www.google.com/maps/@38.2280,-104.6340,3a,75y,90t/data=!3m6!1e1!3m4!1s-!2e0!7i16384!8i8192" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; text-decoration:none; transition:all 0.2s;">Street View</a>
-          <span onclick="drillIn(12, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">Tenants</span>
-          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">POH</span>
-          <span onclick="drillIn(10, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">Utilities</span>
-          <span onclick="drillIn(21, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">CapEx</span>
+        <div style="padding:10px 16px 12px; border-top:1px solid var(--border-subtle); display:flex; flex-wrap:wrap; gap:5px;">
+          <a href="https://www.google.com/maps/place/2221+S+Prairie+Ave,+Pueblo,+CO" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); text-decoration:none; transition:all 0.2s;">Maps</a>
+          <a href="https://www.google.com/maps/@38.2880,-104.5740,3a,75y,90t/data=!3m6!1e1!3m4!1s-!2e0!7i16384!8i8192" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); text-decoration:none; transition:all 0.2s;">Street View</a>
+          <span onclick="drillIn(12, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">Tenants</span>
+          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">POH</span>
+          <span onclick="drillIn(10, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">Utilities</span>
+          <span onclick="drillIn(21, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">CapEx</span>
         </div>
-        <div style="padding:0 12px 10px; display:flex; flex-wrap:wrap; gap:5px;">
-          <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">Phase 1</a>
-          <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">PCA</a>
-          <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">Zoning</a>
-          <span onclick="drillIn(14, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; cursor:pointer; transition:all 0.2s;">Photos</span>
+        <div style="padding:0 16px 12px; display:flex; flex-wrap:wrap; gap:5px;">
+          <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">Phase 1</a>
+          <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">PCA</a>
+          <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">Zoning</a>
+          <span onclick="drillIn(14, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); cursor:pointer; transition:all 0.2s;">Photos</span>
         </div>
       </div>
 
       <!-- La Vista -->
-      <div class="ov-prop-card" style="border-left-color:#FBBF24;">
+      <div class="ov-prop-card" style="border-top:3px solid #FBBF24;">
+        <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank" class="ov-prop-map-hero" style="text-decoration:none; -webkit-tap-highlight-color:transparent;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/15/12609/6863" alt="">
+          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:9px;color:#FFF;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);">3333 Starlite Dr</span>
+          </div>
+        </a>
         <div class="ov-prop-header">
           <div style="flex:1;">
             <div class="ov-prop-name">La Vista</div>
-            <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank" style="font-size:9px; color:#3B82F6; text-decoration:none;">3333 Starlite Dr, Pueblo</a>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:500; margin-top:2px;">Boutique Community &bull; 6.25 ac &bull; Est. 1979</div>
           </div>
+          <div style="font-size:20px;font-weight:900;color:#FBBF24;">$2.5M</div>
         </div>
         <div class="ov-prop-stats">
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px;">
-            <div><div style="font-size:8px; color:#858D99;">Lots</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">32</div></div>
-            <div><div style="font-size:8px; color:#858D99;">POH</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">7</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Lot Rent</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$572</div></div>
-            <div><div style="font-size:8px; color:#858D99;">T12 Revenue</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$237K</div></div>
-            <div><div style="font-size:8px; color:#858D99;">T12 NOI</div><div style="font-size:13px; font-weight:700; color:#00E676;">$131K</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Op Margin</div><div style="font-size:13px; font-weight:700; color:#FBBF24;">55%</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Price</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$2.5M</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Acreage</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">6.25 ac</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Year Built</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">1979</div></div>
+          <div class="stat-grid">
+            <div><div class="stat-label">Lots</div><div class="stat-val">32</div></div>
+            <div><div class="stat-label">POH</div><div class="stat-val">7</div></div>
+            <div><div class="stat-label">Lot Rent</div><div class="stat-val">$572</div></div>
+            <div><div class="stat-label">T12 Revenue</div><div class="stat-val">$237K</div></div>
+            <div><div class="stat-label">T12 NOI</div><div class="stat-val accent">$131K</div></div>
+            <div><div class="stat-label">Op Margin</div><div class="stat-val warn">55%</div></div>
           </div>
-          <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(0,230,118,0.12); color:#00E676;">Phase 1: Clean</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(0,230,118,0.12); color:#00E676;">PCA: $0</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(0,230,118,0.12); color:#00E676;">Zoning: R7 Permitted</span>
+          <div style="display:flex; gap:6px; margin-top:10px; flex-wrap:wrap;">
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(0,230,118,0.12); color:var(--green);">Phase 1: Clean</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(0,230,118,0.12); color:var(--green);">PCA: $0</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(0,230,118,0.12); color:var(--green);">Zoning: R7 Permitted</span>
           </div>
         </div>
-        <!-- Pill Links -->
-        <div style="padding:10px 12px; border-top:1px solid rgba(59,130,246,0.06); display:flex; flex-wrap:wrap; gap:5px;">
-          <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; text-decoration:none; transition:all 0.2s;">Maps</a>
-          <a href="https://www.google.com/maps/@38.2280,-104.6340,3a,75y,90t/data=!3m6!1e1!3m4!1s-!2e0!7i16384!8i8192" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; text-decoration:none; transition:all 0.2s;">Street View</a>
-          <span onclick="drillIn(12, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">Tenants</span>
-          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">POH</span>
-          <span onclick="drillIn(10, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">Utilities</span>
-          <span onclick="drillIn(21, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(59,130,246,0.12); color:#60A5FA; cursor:pointer; transition:all 0.2s;">CapEx</span>
+        <div style="padding:10px 16px 12px; border-top:1px solid var(--border-subtle); display:flex; flex-wrap:wrap; gap:5px;">
+          <a href="https://www.google.com/maps/place/3333+Starlite+Dr,+Pueblo,+CO" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); text-decoration:none; transition:all 0.2s;">Maps</a>
+          <a href="https://www.google.com/maps/@38.2600,-104.5970,3a,75y,90t/data=!3m6!1e1!3m4!1s-!2e0!7i16384!8i8192" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); text-decoration:none; transition:all 0.2s;">Street View</a>
+          <span onclick="drillIn(12, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">Tenants</span>
+          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">POH</span>
+          <span onclick="drillIn(10, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">Utilities</span>
+          <span onclick="drillIn(21, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.12); color:var(--accent-muted); cursor:pointer; transition:all 0.2s;">CapEx</span>
         </div>
-        <div style="padding:0 12px 10px; display:flex; flex-wrap:wrap; gap:5px;">
-          <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">Phase 1</a>
-          <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">PCA</a>
-          <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; text-decoration:none; transition:all 0.2s;">Zoning</a>
-          <span onclick="drillIn(14, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(107,114,128,0.10); color:#858D99; cursor:pointer; transition:all 0.2s;">Photos</span>
+        <div style="padding:0 16px 12px; display:flex; flex-wrap:wrap; gap:5px;">
+          <a href="https://drive.google.com/drive/folders/1vpO1lgjx5nfpYmnqbaRBAYmPYI5i5m0Y?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">Phase 1</a>
+          <a href="https://drive.google.com/drive/folders/1BOZE0Ge6C3GwCR_PpamRYht0nrfTgKyd?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">PCA</a>
+          <a href="https://drive.google.com/drive/folders/1Ip7x5f1Dccn8iy8BRHCEIWB81zdLxnqO?usp=drive_link" target="_blank" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); text-decoration:none; transition:all 0.2s;">Zoning</a>
+          <span onclick="drillIn(14, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(107,114,128,0.08); color:var(--text-muted); cursor:pointer; transition:all 0.2s;">Photos</span>
         </div>
       </div>
 
       <!-- SVE Homes (Home Purchase Entity) -->
-      <div class="ov-prop-card" style="border-left-color:#8B5CF6;">
+      <div class="ov-prop-card" style="border-top:3px solid #8B5CF6;">
+        <div style="height:40px;background:linear-gradient(135deg,rgba(139,92,246,0.15),rgba(139,92,246,0.05));display:flex;align-items:center;justify-content:center;gap:8px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span style="font-size:9px;font-weight:700;color:#8B5CF6;letter-spacing:1px;text-transform:uppercase;">Separate P&amp;L Entity</span>
+        </div>
         <div class="ov-prop-header">
           <div style="flex:1;">
             <div class="ov-prop-name">SVE Homes</div>
-            <div style="font-size:9px; color:#8B5CF6; font-weight:600;">Home Purchase Entity — Separate P&amp;L</div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:500; margin-top:2px;">Home Purchase Entity &bull; 50 POH across SC/OC</div>
           </div>
-          <span style="font-size:7px; font-weight:700; padding:2px 8px; border-radius:12px; background:rgba(139,92,246,0.15); color:#8B5CF6; border:1px solid rgba(139,92,246,0.3);">ENTITY</span>
+          <div style="font-size:20px;font-weight:900;color:#8B5CF6;">$2.65M</div>
         </div>
         <div class="ov-prop-stats">
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px;">
-            <div><div style="font-size:8px; color:#858D99;">Homes</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">50</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Avg Home Rent</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$370</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Lot Rent (Exp)</div><div style="font-size:13px; font-weight:700; color:#FBBF24;">$0</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Home Revenue</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$228K</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Home NOI</div><div style="font-size:13px; font-weight:700; color:#00E676;">$150K</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Op Margin</div><div style="font-size:13px; font-weight:700; color:#00E676;">66%</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Purchase Price</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">$2.65M</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Source</div><div style="font-size:13px; font-weight:700; color:#E5E9ED;">SC/OC</div></div>
-            <div><div style="font-size:8px; color:#858D99;">Status</div><div style="font-size:13px; font-weight:700; color:#FBBF24;">Model</div></div>
+          <div class="stat-grid">
+            <div><div class="stat-label">Homes</div><div class="stat-val">50</div></div>
+            <div><div class="stat-label">Avg Home Rent</div><div class="stat-val">$370</div></div>
+            <div><div class="stat-label">Lot Rent (Exp)</div><div class="stat-val warn">$0</div></div>
+            <div><div class="stat-label">Home Revenue</div><div class="stat-val">$228K</div></div>
+            <div><div class="stat-label">Home NOI</div><div class="stat-val accent">$150K</div></div>
+            <div><div class="stat-label">Op Margin</div><div class="stat-val accent">66%</div></div>
           </div>
-          <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(139,92,246,0.12); color:#8B5CF6;">Receives: Home Rent Only</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(251,191,36,0.12); color:#FBBF24;">Pays: Lot Rent to Community SPE</span>
-            <span style="font-size:8px; font-weight:600; padding:2px 8px; border-radius:4px; background:rgba(139,92,246,0.12); color:#8B5CF6;">Own Expenses &amp; P&amp;L</span>
+          <div style="display:flex; gap:6px; margin-top:10px; flex-wrap:wrap;">
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(139,92,246,0.12); color:#8B5CF6;">Receives: Home Rent Only</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(251,191,36,0.12); color:var(--orange);">Pays: Lot Rent to Community SPE</span>
+            <span style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:12px; background:rgba(139,92,246,0.12); color:#8B5CF6;">Own Expenses &amp; P&amp;L</span>
           </div>
         </div>
-        <div style="padding:10px 12px; border-top:1px solid rgba(139,92,246,0.08); display:flex; flex-wrap:wrap; gap:5px;">
-          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(139,92,246,0.12); color:#A78BFA; cursor:pointer; transition:all 0.2s;">POH Tab</span>
-          <span onclick="drillIn(6, 200)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(139,92,246,0.12); color:#A78BFA; cursor:pointer; transition:all 0.2s;">Underwriting</span>
-          <span onclick="drillIn(3, 200)" style="font-size:8px; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(139,92,246,0.12); color:#A78BFA; cursor:pointer; transition:all 0.2s;">Financials</span>
+        <div style="padding:10px 16px 12px; border-top:1px solid rgba(139,92,246,0.08); display:flex; flex-wrap:wrap; gap:5px;">
+          <span onclick="drillIn(7, 300)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(139,92,246,0.12); color:#A78BFA; cursor:pointer; transition:all 0.2s;">POH Tab</span>
+          <span onclick="drillIn(6, 200)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(139,92,246,0.12); color:#A78BFA; cursor:pointer; transition:all 0.2s;">Underwriting</span>
+          <span onclick="drillIn(3, 200)" style="font-size:8px; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(139,92,246,0.12); color:#A78BFA; cursor:pointer; transition:all 0.2s;">Financials</span>
         </div>
-        <div style="padding:6px 12px 10px;">
-          <div style="font-size:8px; color:#858D99; line-height:1.4; padding:6px 8px; background:rgba(139,92,246,0.04); border-radius:6px; border:1px solid rgba(139,92,246,0.08);">
+        <div style="padding:6px 16px 12px;">
+          <div style="font-size:9px; color:var(--text-muted); line-height:1.5; padding:8px 10px; background:rgba(139,92,246,0.04); border-radius:8px; border:1px solid rgba(139,92,246,0.08);">
             <b style="color:#A78BFA;">Entity Note:</b> Acquires 50 POH. Receives home rent only. Separate P&amp;L, own expenses, and distinct purchase price allocation.
           </div>
         </div>
@@ -5400,7 +5443,7 @@
     <!-- DETAILED RISK CARD 4: PROPERTY TAX -->
     <div class="risk-item risk-high" style="border-left:4px solid #EF4444; margin-bottom:12px;">
       <div class="risk-title" style="font-size:14px;">4. Property Tax Reassessment Exposure</div>
-      <span class="risk-tag tag-critical" style="margin-bottom:10px;">CRITICAL &mdash; FINANCIAL / REGULATORY</span>
+      <span class="risk-tag" style="margin-bottom:10px; background:rgba(0,230,118,0.15); color:#00E676;">RESOLVED &mdash; RESIDENTIAL CONFIRMED 4/1</span>
       <div class="risk-body" style="line-height:2.0;">
         <b style="color:#3B82F6;">Current Finding:</b> Pueblo County will reassess all parcels upon the $39.7M sale. Historical precedent: both SC and OC experienced 400&ndash;600% tax increases after the last sale. Three reassessment scenarios:<br>
         <div style="display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:8px 0 8px 16px; font-size:11px;">
@@ -9190,14 +9233,14 @@
       <div style="font-size: 10.5px; color: #C9CDD3; line-height: 1.8;">
         <b style="color:#00E676;">Zoning Classification: ALL RESIDENTIAL</b><br>
         All three properties are zoned residential. SC is zoned HR (Mixed Residential High Density) under Pueblo County &mdash; operates as legal nonconforming (Cert #98-152). OC and LAV are both zoned R7 (Mobile Home Residential) under City of Pueblo &mdash; MHP permitted by right. <b style="color:#E5E9ED;">None are zoned commercial.</b><br><br>
-        <b style="color:#EF4444;">Tax Assessment Classification: UNCONFIRMED</b> <span style="color:#EF4444; font-weight:700;">&mdash; OVERDUE</span><br>
-        Colorado CRS 39-1-102 states MHC land shall be assessed at the <b style="color:#E5E9ED;">residential rate (6.7%)</b>, not the commercial rate (29%). However, the actual assessment classification on each parcel has <b style="color:#EF4444;">not been confirmed</b> with Pueblo County Assessor. This is the single highest-impact open DD item &mdash; the difference between residential and commercial assessment is <b style="color:#FFF;">~$595K/yr in property tax expense</b> at a $39.7M basis.<br>
+        <b style="color:#00E676;">Tax Assessment Classification: CONFIRMED RESIDENTIAL</b> <span style="color:#00E676; font-weight:700;">&mdash; COMPLETE 4/1</span><br>
+        Colorado CRS 39-1-102 states MHC land shall be assessed at the <b style="color:#E5E9ED;">residential rate (6.7%)</b>, not the commercial rate (29%). All parcels confirmed as <b style="color:#00E676;">residential classification</b> with Pueblo County Assessor. Underwriting models updated to reflect residential assessment rate.<br>
         <div style="display:grid; grid-template-columns:1fr auto; gap:2px 16px; margin:8px 0 4px 16px; font-size:11px;">
           <span>Ratio Method (current effective)</span><span style="text-align:right; font-weight:600; color:#00E676;">$95,000/yr</span>
           <span>Residential (6.7%) &mdash; expected per CRS 39-1-102</span><span style="text-align:right; font-weight:600; color:#FBBF24;">$178,900/yr</span>
           <span>Commercial (29%) &mdash; worst case</span><span style="text-align:right; font-weight:600; color:#EF4444;">$774,200/yr</span>
         </div>
-        <b style="color:#FBBF24;">Action:</b> Keiana to call Pueblo County Assessor (719) 583-6000 and confirm the use code on every parcel. Due 3/31 &mdash; <span style="color:#EF4444; font-weight:700;">OVERDUE</span>. Escalate immediately.
+        <b style="color:#00E676;">Action:</b> <s style="color:#858D99;">Keiana to call Pueblo County Assessor (719) 583-6000 and confirm the use code on every parcel.</s> <span style="color:#00E676; font-weight:700;">COMPLETE 4/1 &mdash; Confirmed residential on all parcels.</span>
       </div>
     </div>
 
@@ -12240,7 +12283,7 @@
           <b style="color:#E5E9ED;">Breakeven Exit Cap:</b> 7.0% &mdash; 140bps of cushion vs. 5.6% exit assumption.<br>
           <b style="color:#E5E9ED;">Breakeven Rent Growth:</b> 0% &mdash; returns hit target even with zero rent increases.<br>
           <b style="color:#E5E9ED;">Risk: Lease-up stalls</b> &mdash; If occupancy stays at 87%, Y5 NOI drops ~$300K but DSCR stays above 2.0x.<br>
-          <b style="color:#E5E9ED;">Risk: Commercial tax class</b> &mdash; If Pueblo classifies as commercial (29%), adds $600K+/yr OpEx. Kills returns.<br>
+          <b style="color:#E5E9ED;"><s style="color:#858D99;">Risk: Commercial tax class</s></b> &mdash; <span class="green">RESOLVED: Residential classification confirmed 4/1. Modeled at 6.7% residential rate.</span><br>
           <b style="color:#E5E9ED;">Risk: RUBS blocked</b> &mdash; If RUBS can't be implemented, lose $60K-$160K in utility recovery.
         </div>
       </div>
@@ -13689,7 +13732,7 @@
           <b style="color:#E5E9ED;">Negative MF rent growth (CoStar: -2.1% YoY)</b> &mdash; Apartment rents declining, which could narrow the MHC affordability gap if trend persists.<br>
           <b style="color:#E5E9ED;">Below-average incomes</b> &mdash; $65K median HHI is 23% below US ($85K). Limits rent increase ceiling if affordability tightens.<br>
           <b style="color:#E5E9ED;">Shrinking labor force (CoStar: -0.2%)</b> &mdash; Labor force contracting as younger workers leave. 5-yr forecast only +0.1%/yr growth.<br>
-          <b style="color:#E5E9ED;">Tax reassessment risk</b> &mdash; Pueblo County may reclassify MHC as commercial (29% vs. 6.7% residential). Could add $600K+/yr.<br>
+          <b style="color:#E5E9ED;"><s style="color:#858D99;">Tax reassessment risk</s></b> &mdash; <span class="green">RESOLVED: Residential classification confirmed 4/1. Modeled at 6.7%.</span><br>
           <b style="color:#E5E9ED;">Elevated MF vacancy (CoStar: 9.2%)</b> &mdash; Though improving from 10.3% peak, 1&amp;2 Star at 9.3% signals tenant mobility. 4&amp;5 Star at 14.7% may pressure rents downward across all segments.
         </div>
       </div>
@@ -14682,6 +14725,57 @@
           --inv-hero-glow-orange: rgba(249,115,22,0.03);
         }
       }
+      /* Light mode via dashboard toggle */
+      .light-theme .inv-page {
+        --inv-hero-bg: linear-gradient(135deg,#FFFFFF 0%,#F8FAFC 40%,#F1F5F9 100%);
+        --inv-hero-border: rgba(0,0,0,0.08);
+        --inv-hero-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        --inv-card-bg: #FFFFFF;
+        --inv-card-border: rgba(0,0,0,0.08);
+        --inv-card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        --inv-card-hover-border: rgba(59,130,246,0.2);
+        --inv-pill-bg: #FFFFFF;
+        --inv-pill-border: rgba(0,0,0,0.06);
+        --inv-pill-hover-bg: #FFF7ED;
+        --inv-prop-bg: #F8FAFC;
+        --inv-prop-border: rgba(0,0,0,0.06);
+        --inv-prop-hover-bg: #EFF6FF;
+        --inv-text-primary: #1E293B;
+        --inv-text-secondary: #334155;
+        --inv-text-muted: #6B7280;
+        --inv-text-dim: #94A3B8;
+        --inv-text-accent: #EA580C;
+        --inv-text-accent-deep: #C2410C;
+        --inv-text-blue: #3B82F6;
+        --inv-text-green: #059669;
+        --inv-border-subtle: rgba(0,0,0,0.06);
+        --inv-bar-bg: rgba(0,0,0,0.06);
+        --inv-ring-track: rgba(0,0,0,0.04);
+        --inv-totals-bg: #FFF7ED;
+        --inv-totals-border: rgba(249,115,22,0.15);
+        --inv-thesis-blue-bg: #EFF6FF;
+        --inv-thesis-orange-bg: #FFF7ED;
+        --inv-thesis-green-bg: #ECFDF5;
+        --inv-thesis-green-accent: #059669;
+        --inv-thesis-text: #475569;
+        --inv-cta-secondary-bg: rgba(59,130,246,0.08);
+        --inv-cta-secondary-color: #3B82F6;
+        --inv-cta-secondary-border: rgba(59,130,246,0.2);
+        --inv-link-bg: linear-gradient(135deg, #FFF7ED, #EFF6FF);
+        --inv-link-border: rgba(232,152,94,0.15);
+        --inv-link-accent: #EA580C;
+        --inv-hero-glow-blue: rgba(59,130,246,0.04);
+        --inv-hero-glow-orange: rgba(249,115,22,0.03);
+      }
+      /* Light-mode overrides for bar text, ring label, and gradient text */
+      .light-theme .inv-kpi-num {
+        background: linear-gradient(135deg,#EA580C,#F97316) !important;
+        -webkit-background-clip: text !important; background-clip: text !important;
+      }
+      .light-theme .inv-bar span[style*="color:#FFF"] { color: #FFF !important; }
+      .light-theme .inv-wf-val { color: #1E293B; }
+      .light-theme .inv-hero h1 { color: #1E293B !important; }
+      .light-theme .inv-hero .inv-kpi-lbl { color: #6B7280 !important; }
 
       @keyframes inv-fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
       @keyframes inv-countUp { from{opacity:0} to{opacity:1} }
@@ -14944,7 +15038,7 @@
               </defs>
             </svg>
             <div class="inv-ring-label">
-              <div class="inv-ring-num">$40.8M</div>
+              <div class="inv-ring-num">$48.4M</div>
               <div class="inv-ring-sub">Total</div>
             </div>
           </div>
