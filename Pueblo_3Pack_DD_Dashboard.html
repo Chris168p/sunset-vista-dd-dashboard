@@ -14424,8 +14424,94 @@
   <!-- ============================= PAGE 5: INVESTOR DECK ============================= -->
   <div class="tab-content" id="tab-page5">
     <style>
-      /* ═══════ INVESTOR PAGE STYLES ═══════ */
-      .inv-page { font-family:'Inter',system-ui,sans-serif; }
+      /* ═══════ INVESTOR PAGE STYLES — DUAL MODE ═══════ */
+      /* Dark mode is default (matches dashboard), light mode via prefers-color-scheme */
+      .inv-page {
+        font-family:'Inter',system-ui,sans-serif;
+        --inv-hero-bg: linear-gradient(135deg,#0D1B2A 0%,#1B2838 40%,#162032 100%);
+        --inv-hero-border: rgba(59,130,246,0.12);
+        --inv-hero-shadow: none;
+        --inv-card-bg: rgba(17,24,39,0.65);
+        --inv-card-border: rgba(255,255,255,0.06);
+        --inv-card-shadow: none;
+        --inv-card-hover-border: rgba(59,130,246,0.18);
+        --inv-pill-bg: rgba(255,255,255,0.03);
+        --inv-pill-border: rgba(255,255,255,0.06);
+        --inv-pill-hover-bg: rgba(249,115,22,0.08);
+        --inv-prop-bg: rgba(255,255,255,0.02);
+        --inv-prop-border: rgba(255,255,255,0.05);
+        --inv-prop-hover-bg: rgba(59,130,246,0.05);
+        --inv-text-primary: #E5E9ED;
+        --inv-text-secondary: #C9CDD3;
+        --inv-text-muted: #858D99;
+        --inv-text-dim: #5A6270;
+        --inv-text-accent: #F97316;
+        --inv-text-accent-deep: #F97316;
+        --inv-text-blue: #93B4F8;
+        --inv-text-green: #00E676;
+        --inv-border-subtle: rgba(255,255,255,0.04);
+        --inv-bar-bg: rgba(255,255,255,0.06);
+        --inv-ring-track: rgba(255,255,255,0.04);
+        --inv-totals-bg: rgba(249,115,22,0.04);
+        --inv-totals-border: rgba(249,115,22,0.12);
+        --inv-thesis-blue-bg: rgba(59,130,246,0.04);
+        --inv-thesis-orange-bg: rgba(249,115,22,0.04);
+        --inv-thesis-green-bg: rgba(0,230,118,0.04);
+        --inv-thesis-green-accent: #00E676;
+        --inv-thesis-text: #858D99;
+        --inv-cta-secondary-bg: rgba(59,130,246,0.10);
+        --inv-cta-secondary-color: #93B4F8;
+        --inv-cta-secondary-border: rgba(59,130,246,0.25);
+        --inv-link-bg: linear-gradient(135deg, rgba(232,152,94,0.06), rgba(74,144,217,0.04));
+        --inv-link-border: rgba(232,152,94,0.12);
+        --inv-link-accent: #E8985E;
+        --inv-hero-glow-blue: rgba(59,130,246,0.06);
+        --inv-hero-glow-orange: rgba(249,115,22,0.04);
+      }
+      @media (prefers-color-scheme: light) {
+        .inv-page {
+          --inv-hero-bg: linear-gradient(135deg,#FFFFFF 0%,#F8FAFC 40%,#F1F5F9 100%);
+          --inv-hero-border: rgba(0,0,0,0.08);
+          --inv-hero-shadow: 0 1px 3px rgba(0,0,0,0.06);
+          --inv-card-bg: #FFFFFF;
+          --inv-card-border: rgba(0,0,0,0.08);
+          --inv-card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+          --inv-card-hover-border: rgba(59,130,246,0.2);
+          --inv-pill-bg: #FFFFFF;
+          --inv-pill-border: rgba(0,0,0,0.06);
+          --inv-pill-hover-bg: #FFF7ED;
+          --inv-prop-bg: #F8FAFC;
+          --inv-prop-border: rgba(0,0,0,0.06);
+          --inv-prop-hover-bg: #EFF6FF;
+          --inv-text-primary: #1E293B;
+          --inv-text-secondary: #334155;
+          --inv-text-muted: #6B7280;
+          --inv-text-dim: #94A3B8;
+          --inv-text-accent: #EA580C;
+          --inv-text-accent-deep: #C2410C;
+          --inv-text-blue: #3B82F6;
+          --inv-text-green: #059669;
+          --inv-border-subtle: rgba(0,0,0,0.06);
+          --inv-bar-bg: rgba(0,0,0,0.06);
+          --inv-ring-track: rgba(0,0,0,0.04);
+          --inv-totals-bg: #FFF7ED;
+          --inv-totals-border: rgba(249,115,22,0.15);
+          --inv-thesis-blue-bg: #EFF6FF;
+          --inv-thesis-orange-bg: #FFF7ED;
+          --inv-thesis-green-bg: #ECFDF5;
+          --inv-thesis-green-accent: #059669;
+          --inv-thesis-text: #475569;
+          --inv-cta-secondary-bg: rgba(59,130,246,0.08);
+          --inv-cta-secondary-color: #3B82F6;
+          --inv-cta-secondary-border: rgba(59,130,246,0.2);
+          --inv-link-bg: linear-gradient(135deg, #FFF7ED, #EFF6FF);
+          --inv-link-border: rgba(232,152,94,0.15);
+          --inv-link-accent: #EA580C;
+          --inv-hero-glow-blue: rgba(59,130,246,0.04);
+          --inv-hero-glow-orange: rgba(249,115,22,0.03);
+        }
+      }
+
       @keyframes inv-fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
       @keyframes inv-countUp { from{opacity:0} to{opacity:1} }
       @keyframes inv-shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
@@ -14445,19 +14531,19 @@
       .inv-page > div:nth-child(9) { animation-delay:.4s }
       .inv-page > div:nth-child(10) { animation-delay:.45s }
 
-      .inv-hero { position:relative; border-radius:16px; padding:32px 28px 28px; margin-bottom:20px; overflow:hidden; background:linear-gradient(135deg,#FFFFFF 0%,#F8FAFC 40%,#F1F5F9 100%); border:1px solid rgba(0,0,0,0.08); box-shadow:0 1px 3px rgba(0,0,0,0.06); }
-      .inv-hero::before { content:''; position:absolute; top:-60%; right:-20%; width:70%; height:160%; background:radial-gradient(ellipse,rgba(59,130,246,0.04) 0%,transparent 70%); pointer-events:none; }
-      .inv-hero::after { content:''; position:absolute; bottom:-40%; left:-10%; width:50%; height:120%; background:radial-gradient(ellipse,rgba(249,115,22,0.03) 0%,transparent 70%); pointer-events:none; }
+      .inv-hero { position:relative; border-radius:16px; padding:32px 28px 28px; margin-bottom:20px; overflow:hidden; background:var(--inv-hero-bg); border:1px solid var(--inv-hero-border); box-shadow:var(--inv-hero-shadow); }
+      .inv-hero::before { content:''; position:absolute; top:-60%; right:-20%; width:70%; height:160%; background:radial-gradient(ellipse,var(--inv-hero-glow-blue) 0%,transparent 70%); pointer-events:none; }
+      .inv-hero::after { content:''; position:absolute; bottom:-40%; left:-10%; width:50%; height:120%; background:radial-gradient(ellipse,var(--inv-hero-glow-orange) 0%,transparent 70%); pointer-events:none; }
 
       .inv-kpi-hero { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:24px; }
-      .inv-kpi-pill { position:relative; text-align:center; padding:18px 8px 14px; border-radius:14px; background:#FFFFFF; border:1px solid rgba(0,0,0,0.06); box-shadow:0 1px 3px rgba(0,0,0,0.04); transition:all .3s ease; }
-      .inv-kpi-pill:hover { background:#FFF7ED; border-color:rgba(249,115,22,0.3); transform:translateY(-2px); box-shadow:0 4px 12px rgba(249,115,22,0.1); }
-      .inv-kpi-num { font-size:32px; font-weight:900; line-height:1; background:linear-gradient(135deg,#EA580C,#F97316); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-      .inv-kpi-lbl { font-size:10px; font-weight:600; color:#6B7280; margin-top:6px; letter-spacing:.5px; }
+      .inv-kpi-pill { position:relative; text-align:center; padding:18px 8px 14px; border-radius:14px; background:var(--inv-pill-bg); border:1px solid var(--inv-pill-border); box-shadow:var(--inv-card-shadow); transition:all .3s ease; }
+      .inv-kpi-pill:hover { background:var(--inv-pill-hover-bg); border-color:rgba(249,115,22,0.3); transform:translateY(-2px); }
+      .inv-kpi-num { font-size:32px; font-weight:900; line-height:1; background:linear-gradient(135deg,#F97316,#FB923C); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+      .inv-kpi-lbl { font-size:10px; font-weight:600; color:var(--inv-text-muted); margin-top:6px; letter-spacing:.5px; }
 
-      .inv-glass { background:#FFFFFF; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:22px 24px; transition:all .3s ease; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
-      .inv-glass:hover { border-color:rgba(59,130,246,0.2); box-shadow:0 4px 12px rgba(0,0,0,0.06); }
-      .inv-glass-title { font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+      .inv-glass { background:var(--inv-card-bg); border:1px solid var(--inv-card-border); border-radius:14px; padding:22px 24px; transition:all .3s ease; box-shadow:var(--inv-card-shadow); }
+      .inv-glass:hover { border-color:var(--inv-card-hover-border); }
+      .inv-glass-title { font-size:11px; font-weight:700; color:var(--inv-text-muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
       .inv-glass-title::before { content:''; display:inline-block; width:3px; height:14px; border-radius:2px; background:linear-gradient(180deg,#3B82F6,#6366F1); }
 
       .inv-bar-chart { display:flex; align-items:flex-end; gap:0; height:140px; padding:0 4px; }
@@ -14468,37 +14554,37 @@
       .inv-bar-col:nth-child(3) .inv-bar { animation-delay:.3s }
       .inv-bar-col:nth-child(4) .inv-bar { animation-delay:.4s }
       .inv-bar-col:nth-child(5) .inv-bar { animation-delay:.5s }
-      .inv-bar-val { font-size:11px; font-weight:800; color:#1E293B; }
-      .inv-bar-yr { font-size:9px; color:#6B7280; margin-top:6px; font-weight:600; }
+      .inv-bar-val { font-size:11px; font-weight:800; color:var(--inv-text-primary); }
+      .inv-bar-yr { font-size:9px; color:var(--inv-text-muted); margin-top:6px; font-weight:600; }
 
       .inv-ring-wrap { display:flex; align-items:center; justify-content:center; position:relative; }
       .inv-ring-label { position:absolute; text-align:center; }
-      .inv-ring-num { font-size:24px; font-weight:900; color:#1E293B; }
-      .inv-ring-sub { font-size:9px; color:#6B7280; }
+      .inv-ring-num { font-size:24px; font-weight:900; color:var(--inv-text-primary); }
+      .inv-ring-sub { font-size:9px; color:var(--inv-text-muted); }
 
       .inv-waterfall { display:flex; align-items:flex-end; gap:6px; height:120px; position:relative; }
       .inv-wf-col { flex:1; display:flex; flex-direction:column; align-items:center; }
       .inv-wf-bar { width:100%; border-radius:4px; position:relative; animation:inv-barGrow .6s ease both; transform-origin:bottom; }
       .inv-wf-val { font-size:9px; font-weight:700; margin-bottom:3px; }
-      .inv-wf-lbl { font-size:8px; color:#6B7280; margin-top:5px; text-align:center; line-height:1.2; font-weight:600; }
+      .inv-wf-lbl { font-size:8px; color:var(--inv-text-muted); margin-top:5px; text-align:center; line-height:1.2; font-weight:600; }
 
-      .inv-terms-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid rgba(0,0,0,0.06); }
+      .inv-terms-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--inv-border-subtle); }
       .inv-terms-row:last-child { border-bottom:none; }
-      .inv-terms-key { font-size:12px; color:#6B7280; }
-      .inv-terms-val { font-size:12px; font-weight:700; color:#1E293B; }
+      .inv-terms-key { font-size:12px; color:var(--inv-text-muted); }
+      .inv-terms-val { font-size:12px; font-weight:700; color:var(--inv-text-primary); }
 
       .inv-cta { display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:12px; font-size:14px; font-weight:700; text-decoration:none; transition:all .3s ease; border:none; cursor:pointer; }
       .inv-cta-primary { background:linear-gradient(135deg,#F97316,#FB923C); color:#FFF; box-shadow:0 4px 20px rgba(249,115,22,0.3); }
       .inv-cta-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(249,115,22,0.4); }
-      .inv-cta-secondary { background:rgba(59,130,246,0.10); color:#93B4F8; border:1px solid rgba(59,130,246,0.25); }
+      .inv-cta-secondary { background:var(--inv-cta-secondary-bg); color:var(--inv-cta-secondary-color); border:1px solid var(--inv-cta-secondary-border); }
       .inv-cta-secondary:hover { background:rgba(59,130,246,0.18); transform:translateY(-1px); }
 
-      .inv-prop-card { background:#F8FAFC; border:1px solid rgba(0,0,0,0.06); border-radius:12px; padding:16px; transition:all .3s ease; }
-      .inv-prop-card:hover { background:#EFF6FF; border-color:rgba(59,130,246,0.2); }
+      .inv-prop-card { background:var(--inv-prop-bg); border:1px solid var(--inv-prop-border); border-radius:12px; padding:16px; transition:all .3s ease; }
+      .inv-prop-card:hover { background:var(--inv-prop-hover-bg); border-color:rgba(59,130,246,0.15); }
 
       .inv-stat-line { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
       .inv-stat-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-      .inv-stat-bar-bg { flex:1; height:6px; background:rgba(0,0,0,0.06); border-radius:3px; overflow:hidden; }
+      .inv-stat-bar-bg { flex:1; height:6px; background:var(--inv-bar-bg); border-radius:3px; overflow:hidden; }
       .inv-stat-bar-fill { height:100%; border-radius:3px; transition:width 1s ease; }
 
       /* Mobile responsive */
@@ -14529,12 +14615,12 @@
     <div class="inv-hero">
       <div style="position:relative; z-index:1;">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
-          <div style="font-size:10px; font-weight:700; color:#EA580C; text-transform:uppercase; letter-spacing:3px;">Studio 168 Productions</div>
-          <div style="width:40px; height:1px; background:linear-gradient(90deg,#EA580C,transparent);"></div>
+          <div style="font-size:10px; font-weight:700; color:var(--inv-text-accent); text-transform:uppercase; letter-spacing:3px;">Studio 168 Productions</div>
+          <div style="width:40px; height:1px; background:linear-gradient(90deg,var(--inv-text-accent),transparent);"></div>
         </div>
-        <h1 style="font-size:28px; font-weight:900; color:#0F172A; line-height:1.2; margin-bottom:6px; letter-spacing:-.5px;">Sunset Vista Estates</h1>
-        <div style="font-size:13px; color:#3B82F6; font-weight:500;">399-Lot Manufactured Housing Portfolio &nbsp;&bull;&nbsp; Pueblo, Colorado</div>
-        <div style="font-size:11px; color:#94A3B8; margin-top:4px;">3-Community Acquisition &nbsp;&bull;&nbsp; 5-Year Hold &nbsp;&bull;&nbsp; I-25 Corridor</div>
+        <h1 style="font-size:28px; font-weight:900; color:var(--inv-text-primary); line-height:1.2; margin-bottom:6px; letter-spacing:-.5px;">Sunset Vista Estates</h1>
+        <div style="font-size:13px; color:var(--inv-text-blue); font-weight:500;">399-Lot Manufactured Housing Portfolio &nbsp;&bull;&nbsp; Pueblo, Colorado</div>
+        <div style="font-size:11px; color:var(--inv-text-dim); margin-top:4px;">3-Community Acquisition &nbsp;&bull;&nbsp; 5-Year Hold &nbsp;&bull;&nbsp; I-25 Corridor</div>
 
         <div class="inv-kpi-hero">
           <div class="inv-kpi-pill">
@@ -14554,7 +14640,7 @@
             <div class="inv-kpi-lbl">Y1 Depreciation</div>
           </div>
           <div class="inv-kpi-pill">
-            <div style="font-size:32px; font-weight:900; line-height:1; color:#1E293B;">$75K</div>
+            <div style="font-size:32px; font-weight:900; line-height:1; color:var(--inv-text-primary);">$75K</div>
             <div class="inv-kpi-lbl">Per Lot Basis</div>
           </div>
         </div>
@@ -14594,9 +14680,9 @@
             <div class="inv-bar-yr">Y5</div>
           </div>
         </div>
-        <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.06);">
-          <span style="font-size:10px; color:#6B7280;">5-Year Growth</span>
-          <span style="font-size:12px; font-weight:800; color:#059669;">+35%</span>
+        <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px solid var(--inv-border-subtle);">
+          <span style="font-size:10px; color:var(--inv-text-muted);">5-Year Growth</span>
+          <span style="font-size:12px; font-weight:800; color:var(--inv-text-green);">+35%</span>
         </div>
       </div>
 
@@ -14605,34 +14691,34 @@
         <div class="inv-glass-title">Cash-on-Cash Yield</div>
         <div class="inv-bar-chart">
           <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:#EA580C;">7.0%</div>
+            <div class="inv-bar-val" style="color:var(--inv-text-accent);">7.0%</div>
             <div class="inv-bar" style="height:78%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
             <div class="inv-bar-yr">Y1</div>
           </div>
           <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:#EA580C;">7.6%</div>
+            <div class="inv-bar-val" style="color:var(--inv-text-accent);">7.6%</div>
             <div class="inv-bar" style="height:84%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
             <div class="inv-bar-yr">Y2</div>
           </div>
           <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:#EA580C;">8.1%</div>
+            <div class="inv-bar-val" style="color:var(--inv-text-accent);">8.1%</div>
             <div class="inv-bar" style="height:90%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
             <div class="inv-bar-yr">Y3</div>
           </div>
           <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:#EA580C;">8.6%</div>
+            <div class="inv-bar-val" style="color:var(--inv-text-accent);">8.6%</div>
             <div class="inv-bar" style="height:95%; background:linear-gradient(180deg,#F97316,#C2410C);"></div>
             <div class="inv-bar-yr">Y4</div>
           </div>
           <div class="inv-bar-col">
-            <div class="inv-bar-val" style="color:#EA580C;">9.0%</div>
+            <div class="inv-bar-val" style="color:var(--inv-text-accent);">9.0%</div>
             <div class="inv-bar" style="height:100%; background:linear-gradient(180deg,#FB923C,#F97316);"></div>
             <div class="inv-bar-yr">Y5</div>
           </div>
         </div>
-        <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.06);">
-          <span style="font-size:10px; color:#6B7280;">8% Preferred Return</span>
-          <span style="font-size:12px; font-weight:800; color:#EA580C;">Monthly Distributions</span>
+        <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:10px; border-top:1px solid var(--inv-border-subtle);">
+          <span style="font-size:10px; color:var(--inv-text-muted);">8% Preferred Return</span>
+          <span style="font-size:12px; font-weight:800; color:var(--inv-text-accent);">Monthly Distributions</span>
         </div>
       </div>
     </div>
@@ -14646,7 +14732,7 @@
         <div style="display:flex; align-items:center; gap:20px;">
           <div class="inv-ring-wrap" style="width:130px; height:130px; flex-shrink:0;">
             <svg viewBox="0 0 100 100" style="width:130px; height:130px; transform:rotate(-90deg);">
-              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,0.04)" stroke-width="10"></circle>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="var(--inv-ring-track)" stroke-width="10"></circle>
               <circle cx="50" cy="50" r="40" fill="none" stroke="url(#inv-grad-equity)" stroke-width="10" stroke-linecap="round" stroke-dasharray="251.2" style="--ring-target:113; stroke-dashoffset:113; animation:inv-ringDraw 1.2s ease .3s both;">
               </circle>
               <circle cx="50" cy="50" r="40" fill="none" stroke="url(#inv-grad-debt)" stroke-width="10" stroke-dasharray="251.2" style="--ring-target:251.2; stroke-dashoffset:251.2; animation:inv-ringDraw 1.2s ease .5s both;" stroke-dashoffset="113">
@@ -14665,18 +14751,18 @@
             <div style="margin-bottom:14px;">
               <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                 <div style="width:10px; height:10px; border-radius:3px; background:linear-gradient(135deg,#F97316,#FB923C);"></div>
-                <span style="font-size:11px; color:#1E293B; font-weight:600;">LP Equity</span>
+                <span style="font-size:11px; color:var(--inv-text-primary); font-weight:600;">LP Equity</span>
               </div>
-              <div style="font-size:22px; font-weight:900; color:#1E293B;">$26.5M</div>
-              <div style="font-size:10px; color:#6B7280;">55% of capital &bull; $150K minimum</div>
+              <div style="font-size:22px; font-weight:900; color:var(--inv-text-primary);">$26.5M</div>
+              <div style="font-size:10px; color:var(--inv-text-muted);">55% of capital &bull; $150K minimum</div>
             </div>
             <div>
               <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                 <div style="width:10px; height:10px; border-radius:3px; background:linear-gradient(135deg,#3B82F6,#6366F1);"></div>
-                <span style="font-size:11px; color:#1E293B; font-weight:600;">CMBS Assumption</span>
+                <span style="font-size:11px; color:var(--inv-text-primary); font-weight:600;">CMBS Assumption</span>
               </div>
-              <div style="font-size:22px; font-weight:900; color:#1E293B;">$14.3M</div>
-              <div style="font-size:10px; color:#6B7280;">45% LTC &bull; 6.45% fixed</div>
+              <div style="font-size:22px; font-weight:900; color:var(--inv-text-primary);">$14.3M</div>
+              <div style="font-size:10px; color:var(--inv-text-muted);">45% LTC &bull; 6.45% fixed</div>
             </div>
           </div>
         </div>
@@ -14687,7 +14773,7 @@
         <div class="inv-glass-title">Value Creation Waterfall</div>
         <div class="inv-waterfall">
           <div class="inv-wf-col">
-            <div class="inv-wf-val" style="color:#1E293B;">$2.85M</div>
+            <div class="inv-wf-val" style="color:var(--inv-text-primary);">$2.85M</div>
             <div class="inv-wf-bar" style="height:74%; background:linear-gradient(180deg,#475569,#334155); animation-delay:.1s;"></div>
             <div class="inv-wf-lbl">Current NOI</div>
           </div>
@@ -14707,14 +14793,14 @@
             <div class="inv-wf-lbl">POH Conv</div>
           </div>
           <div class="inv-wf-col">
-            <div class="inv-wf-val" style="color:#EA580C;">$3.84M</div>
+            <div class="inv-wf-val" style="color:var(--inv-text-accent);">$3.84M</div>
             <div class="inv-wf-bar" style="height:100%; background:linear-gradient(180deg,#F97316,#EA580C); animation-delay:.5s;"></div>
             <div class="inv-wf-lbl">Y5 NOI</div>
           </div>
         </div>
-        <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(0,0,0,0.06); display:flex; justify-content:space-between;">
-          <span style="font-size:10px; color:#6B7280;">CapEx Investment</span>
-          <span style="font-size:11px; font-weight:700; color:#1E293B;">$2.2M over 5 years</span>
+        <div style="margin-top:10px; padding-top:8px; border-top:1px solid var(--inv-border-subtle); display:flex; justify-content:space-between;">
+          <span style="font-size:10px; color:var(--inv-text-muted);">CapEx Investment</span>
+          <span style="font-size:11px; font-weight:700; color:var(--inv-text-primary);">$2.2M over 5 years</span>
         </div>
       </div>
     </div>
@@ -14727,57 +14813,57 @@
         <!-- SUNSET COUNTRY -->
         <div class="inv-prop-card">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
-            <div style="font-size:14px; font-weight:800; color:#1E293B;">Sunset Country</div>
+            <div style="font-size:14px; font-weight:800; color:var(--inv-text-primary);">Sunset Country</div>
             <div style="font-size:10px; font-weight:700; color:#3B82F6;">206 lots</div>
           </div>
           <div class="inv-stat-line">
             <div class="inv-stat-dot" style="background:#3B82F6;"></div>
             <div class="inv-stat-bar-bg"><div class="inv-stat-bar-fill" style="width:86.4%; background:linear-gradient(90deg,#3B82F6,#6366F1);"></div></div>
-            <span style="font-size:11px; font-weight:800; color:#1E293B;">86%</span>
+            <span style="font-size:11px; font-weight:800; color:var(--inv-text-primary);">86%</span>
           </div>
-          <div style="font-size:9px; color:#6B7280; margin-top:4px;">178 occupied &bull; 28 vacant lots &bull; Primary infill target</div>
+          <div style="font-size:9px; color:var(--inv-text-muted); margin-top:4px;">178 occupied &bull; 28 vacant lots &bull; Primary infill target</div>
         </div>
 
         <!-- OASIS -->
         <div class="inv-prop-card">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
-            <div style="font-size:14px; font-weight:800; color:#1E293B;">Oasis</div>
+            <div style="font-size:14px; font-weight:800; color:var(--inv-text-primary);">Oasis</div>
             <div style="font-size:10px; font-weight:700; color:#00E676;">161 lots</div>
           </div>
           <div class="inv-stat-line">
             <div class="inv-stat-dot" style="background:#00E676;"></div>
             <div class="inv-stat-bar-bg"><div class="inv-stat-bar-fill" style="width:95%; background:linear-gradient(90deg,#00E676,#059669);"></div></div>
-            <span style="font-size:11px; font-weight:800; color:#1E293B;">95%</span>
+            <span style="font-size:11px; font-weight:800; color:var(--inv-text-primary);">95%</span>
           </div>
-          <div style="font-size:9px; color:#6B7280; margin-top:4px;">153 occupied &bull; Highest occupancy &bull; Stable cash flow anchor</div>
+          <div style="font-size:9px; color:var(--inv-text-muted); margin-top:4px;">153 occupied &bull; Highest occupancy &bull; Stable cash flow anchor</div>
         </div>
 
         <!-- LA VISTA -->
         <div class="inv-prop-card">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
-            <div style="font-size:14px; font-weight:800; color:#1E293B;">La Vista</div>
+            <div style="font-size:14px; font-weight:800; color:var(--inv-text-primary);">La Vista</div>
             <div style="font-size:10px; font-weight:700; color:#8B5CF6;">32 lots</div>
           </div>
           <div class="inv-stat-line">
             <div class="inv-stat-dot" style="background:#8B5CF6;"></div>
             <div class="inv-stat-bar-bg"><div class="inv-stat-bar-fill" style="width:84.4%; background:linear-gradient(90deg,#8B5CF6,#6D28D9);"></div></div>
-            <span style="font-size:11px; font-weight:800; color:#1E293B;">84%</span>
+            <span style="font-size:11px; font-weight:800; color:var(--inv-text-primary);">84%</span>
           </div>
-          <div style="font-size:9px; color:#6B7280; margin-top:4px;">27 occupied &bull; Boutique community &bull; Rent growth upside</div>
+          <div style="font-size:9px; color:var(--inv-text-muted); margin-top:4px;">27 occupied &bull; Boutique community &bull; Rent growth upside</div>
         </div>
       </div>
 
       <!-- PORTFOLIO TOTALS BAR -->
-      <div style="margin-top:16px; padding:14px 16px; background:#FFF7ED; border:1px solid rgba(249,115,22,0.15); border-radius:10px;">
+      <div style="margin-top:16px; padding:14px 16px; background:var(--inv-totals-bg); border:1px solid var(--inv-totals-border); border-radius:10px;">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
           <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;">
-            <div><span style="font-size:10px; color:#6B7280;">Total Lots </span><span style="font-size:16px; font-weight:900; color:#1E293B;">399</span></div>
-            <div><span style="font-size:10px; color:#6B7280;">Occupied </span><span style="font-size:16px; font-weight:900; color:#059669;">360</span></div>
-            <div><span style="font-size:10px; color:#6B7280;">POH Units </span><span style="font-size:16px; font-weight:900; color:#1E293B;">196</span></div>
-            <div><span style="font-size:10px; color:#6B7280;">POH Occ </span><span style="font-size:16px; font-weight:900; color:#1E293B;">88%</span></div>
+            <div><span style="font-size:10px; color:var(--inv-text-muted);">Total Lots </span><span style="font-size:16px; font-weight:900; color:var(--inv-text-primary);">399</span></div>
+            <div><span style="font-size:10px; color:var(--inv-text-muted);">Occupied </span><span style="font-size:16px; font-weight:900; color:var(--inv-text-green);">360</span></div>
+            <div><span style="font-size:10px; color:var(--inv-text-muted);">POH Units </span><span style="font-size:16px; font-weight:900; color:var(--inv-text-primary);">196</span></div>
+            <div><span style="font-size:10px; color:var(--inv-text-muted);">POH Occ </span><span style="font-size:16px; font-weight:900; color:var(--inv-text-primary);">88%</span></div>
           </div>
           <div style="text-align:right;">
-            <span style="font-size:10px; color:#6B7280;">Blended Occupancy </span><span style="font-size:20px; font-weight:900; color:#EA580C;">90%</span>
+            <span style="font-size:10px; color:var(--inv-text-muted);">Blended Occupancy </span><span style="font-size:20px; font-weight:900; color:var(--inv-text-accent);">90%</span>
           </div>
         </div>
       </div>
@@ -14789,13 +14875,13 @@
       <div class="inv-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
         <div>
           <div class="inv-terms-row"><span class="inv-terms-key">Entity</span><span class="inv-terms-val">Sunset Vista Estates 168 LLC</span></div>
-          <div class="inv-terms-row"><span class="inv-terms-key">Preferred Return</span><span class="inv-terms-val" style="color:#EA580C; font-size:14px;">8%</span></div>
+          <div class="inv-terms-row"><span class="inv-terms-key">Preferred Return</span><span class="inv-terms-val" style="color:var(--inv-text-accent); font-size:14px;">8%</span></div>
           <div class="inv-terms-row"><span class="inv-terms-key">GP Promote</span><span class="inv-terms-val">20% above pref</span></div>
           <div class="inv-terms-row"><span class="inv-terms-key">Asset Mgmt Fee</span><span class="inv-terms-val">1.5%</span></div>
         </div>
         <div>
           <div class="inv-terms-row"><span class="inv-terms-key">GP Co-Investment</span><span class="inv-terms-val">5%+ of equity</span></div>
-          <div class="inv-terms-row"><span class="inv-terms-key">Minimum Investment</span><span class="inv-terms-val" style="color:#EA580C; font-size:14px;">$150,000</span></div>
+          <div class="inv-terms-row"><span class="inv-terms-key">Minimum Investment</span><span class="inv-terms-val" style="color:var(--inv-text-accent); font-size:14px;">$150,000</span></div>
           <div class="inv-terms-row"><span class="inv-terms-key">Distributions</span><span class="inv-terms-val">Monthly</span></div>
           <div class="inv-terms-row"><span class="inv-terms-key">Onboarding Period</span><span class="inv-terms-val">90 days</span></div>
         </div>
@@ -14806,25 +14892,25 @@
     <div class="inv-glass" style="margin-bottom:16px;">
       <div class="inv-glass-title">Investment Thesis</div>
       <div class="inv-3col" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
-        <div style="padding:14px; background:#EFF6FF; border-radius:10px; border-left:3px solid #3B82F6;">
-          <div style="font-size:13px; font-weight:800; color:#1E293B; margin-bottom:6px;">Below-Market Basis</div>
-          <div style="font-size:11px; color:#475569; line-height:1.6;">$75K per lot vs $95K+ market comps. Immediate equity cushion with downside protection at 54% LTV.</div>
+        <div style="padding:14px; background:var(--inv-thesis-blue-bg); border-radius:10px; border-left:3px solid #3B82F6;">
+          <div style="font-size:13px; font-weight:800; color:var(--inv-text-primary); margin-bottom:6px;">Below-Market Basis</div>
+          <div style="font-size:11px; color:var(--inv-thesis-text); line-height:1.6;">$75K per lot vs $95K+ market comps. Immediate equity cushion with downside protection at 54% LTV.</div>
         </div>
-        <div style="padding:14px; background:#FFF7ED; border-radius:10px; border-left:3px solid #F97316;">
-          <div style="font-size:13px; font-weight:800; color:#1E293B; margin-bottom:6px;">Multiple Value Levers</div>
-          <div style="font-size:11px; color:#475569; line-height:1.6;">15-lot infill, 75%+ utility recapture, POH-to-TOH conversion, and organic rent growth across all 3 communities.</div>
+        <div style="padding:14px; background:var(--inv-thesis-orange-bg); border-radius:10px; border-left:3px solid #F97316;">
+          <div style="font-size:13px; font-weight:800; color:var(--inv-text-primary); margin-bottom:6px;">Multiple Value Levers</div>
+          <div style="font-size:11px; color:var(--inv-thesis-text); line-height:1.6;">15-lot infill, 75%+ utility recapture, POH-to-TOH conversion, and organic rent growth across all 3 communities.</div>
         </div>
-        <div style="padding:14px; background:#ECFDF5; border-radius:10px; border-left:3px solid #059669;">
-          <div style="font-size:13px; font-weight:800; color:#1E293B; margin-bottom:6px;">Recession-Resilient</div>
-          <div style="font-size:11px; color:#475569; line-height:1.6;">Affordable housing with 90% occupancy, heavy TOH mix, and I-25 corridor demand drivers in healthcare, education, and government.</div>
+        <div style="padding:14px; background:var(--inv-thesis-green-bg); border-radius:10px; border-left:3px solid var(--inv-thesis-green-accent);">
+          <div style="font-size:13px; font-weight:800; color:var(--inv-text-primary); margin-bottom:6px;">Recession-Resilient</div>
+          <div style="font-size:11px; color:var(--inv-thesis-text); line-height:1.6;">Affordable housing with 90% occupancy, heavy TOH mix, and I-25 corridor demand drivers in healthcare, education, and government.</div>
         </div>
       </div>
     </div>
 
     <!-- ═══════ 7. CTA SECTION ═══════ -->
     <div style="text-align:center; padding:28px 20px; margin-bottom:8px;">
-      <div style="font-size:20px; font-weight:900; color:#1E293B; margin-bottom:6px;">Ready to Invest?</div>
-      <div style="font-size:12px; color:#6B7280; margin-bottom:20px; max-width:480px; margin-left:auto; margin-right:auto;">Review the full investor deck for detailed financials, property photos, market analysis, and risk disclosures.</div>
+      <div style="font-size:20px; font-weight:900; color:var(--inv-text-primary); margin-bottom:6px;">Ready to Invest?</div>
+      <div style="font-size:12px; color:var(--inv-text-muted); margin-bottom:20px; max-width:480px; margin-left:auto; margin-right:auto;">Review the full investor deck for detailed financials, property photos, market analysis, and risk disclosures.</div>
       <div class="inv-cta-row" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
         <a href="https://drive.google.com/file/d/1AXGnm5MAywQnGA591Z8zTwDWAOxvcmOP/view?usp=drive_link" target="_blank" class="inv-cta inv-cta-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
@@ -14835,20 +14921,20 @@
           Contact Investor Relations
         </a>
       </div>
-      <div style="margin-top:16px; font-size:10px; color:#94A3B8;">
-        Kristen Kealer &nbsp;&bull;&nbsp; <a href="mailto:kkealer@s168p.com" style="color:#3B82F6; text-decoration:none;">kkealer@s168p.com</a>
+      <div style="margin-top:16px; font-size:10px; color:var(--inv-text-dim);">
+        Kristen Kealer &nbsp;&bull;&nbsp; <a href="mailto:kkealer@s168p.com" style="color:var(--inv-text-blue); text-decoration:none;">kkealer@s168p.com</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        Sage Damiano &nbsp;&bull;&nbsp; <a href="mailto:sdamiano@s168p.com" style="color:#3B82F6; text-decoration:none;">sdamiano@s168p.com</a>
+        Sage Damiano &nbsp;&bull;&nbsp; <a href="mailto:sdamiano@s168p.com" style="color:var(--inv-text-blue); text-decoration:none;">sdamiano@s168p.com</a>
       </div>
     </div>
 
     </div><!-- /inv-page -->
 
     <!-- ═══════ STANDALONE MARKETING PAGE LINK ═══════ -->
-    <div style="margin-top:20px; text-align:center; padding:28px; background:linear-gradient(135deg, #FFF7ED, #EFF6FF); border:1px solid rgba(232,152,94,0.15); border-radius:14px;">
-      <div style="font-size:10px; font-weight:700; color:#EA580C; text-transform:uppercase; letter-spacing:3px; margin-bottom:8px;">Investor-Facing Marketing Page</div>
-      <div style="font-size:14px; font-weight:700; color:#1E293B; margin-bottom:4px;">Full Interactive Experience Available</div>
-      <div style="font-size:11px; color:#6B7280; margin-bottom:16px;">Maps, animated charts, market data, portfolio details, and investment terms — designed for LP distribution.</div>
+    <div style="margin-top:20px; text-align:center; padding:28px; background:var(--inv-link-bg); border:1px solid var(--inv-link-border); border-radius:14px;">
+      <div style="font-size:10px; font-weight:700; color:var(--inv-link-accent); text-transform:uppercase; letter-spacing:3px; margin-bottom:8px;">Investor-Facing Marketing Page</div>
+      <div style="font-size:14px; font-weight:700; color:var(--inv-text-primary); margin-bottom:4px;">Full Interactive Experience Available</div>
+      <div style="font-size:11px; color:var(--inv-text-muted); margin-bottom:16px;">Maps, animated charts, market data, portfolio details, and investment terms — designed for LP distribution.</div>
       <a href="Sunset_Vista_Investor_Page.html" target="_blank"
          style="display:inline-flex; align-items:center; gap:10px; padding:14px 32px; background:linear-gradient(135deg,#D4803E,#E8985E); color:#FFF; font-size:14px; font-weight:700; border-radius:12px; text-decoration:none; box-shadow:0 4px 20px rgba(232,152,94,0.3); transition:all .3s ease;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
