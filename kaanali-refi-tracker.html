@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ka'anali Apartments — Refinance Performance Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Dark mode (default) */
+            --bg-primary: #0F1215;
+            --bg-secondary: #181D23;
+            --bg-tertiary: #242C36;
+            --text-primary: #FFFFFF;
+            --text-secondary: #E5E9ED;
+            --text-muted: #858D99;
+            --accent-primary: #E8985E;
+            --accent-positive: #5BB98C;
+            --accent-negative: #D4726A;
+            --border-color: #2A3139;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --footer-bg: #5A6270;
+        }
+
+        html[data-theme="light"] {
+            --bg-primary: #FAFBFC;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #F5F7FA;
+            --text-primary: #0F1215;
+            --text-secondary: #2A3139;
+            --text-muted: #5A6270;
+            --accent-primary: #E8985E;
+            --accent-positive: #5BB98C;
+            --accent-negative: #D4726A;
+            --border-color: #DDE2E8;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --footer-bg: #242C36;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                color-scheme: light;
+                --bg-primary: #FAFBFC;
+                --bg-secondary: #FFFFFF;
+                --bg-tertiary: #F5F7FA;
+                --text-primary: #0F1215;
+                --text-secondary: #2A3139;
+                --text-muted: #5A6270;
+                --border-color: #DDE2E8;
+                --shadow-color: rgba(0, 0, 0, 0.08);
+                --footer-bg: #242C36;
+            }
+            html[data-theme="dark"] {
+                --bg-primary: #0F1215;
+                --bg-secondary: #181D23;
+                --bg-tertiary: #242C36;
+                --text-primary: #FFFFFF;
+                --text-secondary: #E5E9ED;
+                --text-muted: #858D99;
+                --border-color: #2A3139;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+                --footer-bg: #5A6270;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .header-branding {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .brand-lines {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .brand-line {
+            color: var(--text-muted);
+        }
+
+        .brand-line.primary {
+            color: var(--accent-primary);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .header-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent-primary);
+        }
+
+        .last-updated {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px var(--shadow-color);
+            border-color: var(--accent-primary);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* ===== STATE OF THE UNION ===== */
+        .sotu-banner {
+            border: 2px solid var(--accent-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .sotu-header {
+            background: var(--accent-primary);
+            padding: 1rem 1.5rem;
+        }
+
+        .sotu-header h2 {
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+        }
+
+        .sotu-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+            border: 1px solid var(--border-color);
+            margin: 1px;
+        }
+
+        .sotu-item {
+            padding: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sotu-item:last-child {
+            border-right: none;
+        }
+
+        .sotu-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .sotu-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .sotu-progress {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-positive));
+            height: 100%;
+            width: 68.9%;
+        }
+
+        .progress-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .sotu-delta { font-size: 0.85rem; font-weight: 600; }
+        .sotu-delta.neg { color: var(--accent-negative); }
+        .sotu-delta.pos { color: var(--accent-positive); }
+
+        /* ===== TABLES ===== */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th {
+            background: var(--bg-tertiary);
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        tr:hover {
+            background: var(--bg-tertiary);
+        }
+
+        td.number {
+            text-align: right;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+        }
+
+        td.label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        td.positive {
+            color: var(--accent-positive);
+            font-weight: 600;
+        }
+
+        td.negative {
+            color: var(--accent-negative);
+            font-weight: 600;
+        }
+
+        /* ===== CHARTS ===== */
+        .chart-container {
+            position: relative;
+            height: 350px;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* ===== KPI GRID ===== */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px var(--shadow-color);
+        }
+
+        .kpi-card.warning {
+            border-left: 4px solid var(--accent-negative);
+        }
+
+        .kpi-card.success {
+            border-left: 4px solid var(--accent-positive);
+        }
+
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .kpi-card.warning .kpi-value {
+            color: var(--accent-negative);
+        }
+
+        .kpi-card.success .kpi-value {
+            color: var(--accent-positive);
+        }
+
+        .kpi-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* ===== BADGES ===== */
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge.pass {
+            background: rgba(91, 185, 140, 0.15);
+            color: var(--accent-positive);
+        }
+
+        .badge.fail {
+            background: rgba(212, 114, 106, 0.15);
+            color: var(--accent-negative);
+        }
+
+        .badge.watch {
+            background: rgba(232, 152, 94, 0.15);
+            color: var(--accent-primary);
+        }
+
+        /* ===== CALLOUT ===== */
+        .callout {
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .callout.warning {
+            border-left-color: var(--accent-negative);
+            background: rgba(212, 114, 106, 0.05);
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout.warning .callout-title {
+            color: var(--accent-negative);
+        }
+
+        /* ===== EXPANDABLE ===== */
+        .expandable-header {
+            background: var(--bg-tertiary);
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .expandable-header:hover {
+            background: var(--border-color);
+        }
+
+        .expandable-header.active {
+            background: rgba(232, 152, 94, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+        .expandable-content {
+            display: none;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .expandable-content.active {
+            display: block;
+        }
+
+        .expand-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable-header.active .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* ===== ROADMAP ===== */
+        .roadmap-milestone {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-milestone.reached {
+            border-left-color: var(--accent-positive);
+            background: rgba(91, 185, 140, 0.05);
+        }
+
+        .roadmap-milestone.current {
+            border-left-color: var(--accent-primary);
+            background: rgba(232, 152, 94, 0.1);
+            font-weight: 600;
+        }
+
+        .roadmap-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .roadmap-milestone.reached .roadmap-dot {
+            background: var(--accent-positive);
+            color: white;
+        }
+
+        .roadmap-milestone.current .roadmap-dot {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .roadmap-milestone.future .roadmap-dot {
+            background: var(--border-color);
+            color: var(--text-muted);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .roadmap-content {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .roadmap-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .roadmap-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .roadmap-stat-value {
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .roadmap-stat-label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--footer-bg);
+            color: var(--text-secondary);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 16px var(--shadow-color);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--shadow-color);
+        }
+
+        .scroll-to-top.visible {
+            display: flex;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .sotu-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sotu-item {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .sotu-item:last-child {
+                border-bottom: none;
+            }
+
+            .roadmap-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-branding">
+                <div class="brand-lines">
+                    <span class="brand-line primary">STUDIO 168 PRODUCTIONS</span>
+                    <span class="brand-line">SILVER LANDS MANAGEMENT</span>
+                </div>
+                <h1>Ka'anali Apartments</h1>
+                <p class="header-subtitle">Refinance Performance Tracker — 61-Unit Multifamily, McAllen TX</p>
+            </div>
+            <div class="header-controls">
+                <div class="last-updated">
+                    <div style="font-weight: 600;">Data as of</div>
+                    <div>April 2, 2026</div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- STATE OF THE UNION -->
+        <div class="sotu-banner">
+            <div class="sotu-header">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <h2>State of the Union</h2>
+                    <span style="font-size:0.85rem;color:var(--text-muted);">Apr 2, 2026</span>
+                </div>
+            </div>
+
+            <!-- Row 1: NOI Metrics -->
+            <div class="sotu-content">
+                <div class="sotu-item">
+                    <div class="sotu-label">Target NOI</div>
+                    <div class="sotu-value">$34,525</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">$414,300/yr &bull; 7% cap &bull; 70% LTV</p>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Last Month NOI (Feb)</div>
+                    <div class="sotu-value" style="color:var(--accent-negative);">$21,827</div>
+                    <p style="font-size:0.8rem;color:var(--accent-negative);margin-top:0.25rem;">&minus;$12,698 (&minus;36.8%)</p>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">T3 Avg NOI</div>
+                    <div class="sotu-value" style="color:var(--accent-negative);">$26,246</div>
+                    <p style="font-size:0.8rem;color:var(--accent-negative);margin-top:0.25rem;">&minus;$8,279 (&minus;24.0%)</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Income Metrics -->
+            <div class="sotu-content" style="margin-top:0;">
+                <div class="sotu-item">
+                    <div class="sotu-label">Target Income</div>
+                    <div class="sotu-value">$56,215</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Rent $51,253 + Other $4,962</p>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Current Income (T3 Avg)</div>
+                    <div class="sotu-value" style="color:var(--accent-negative);">$47,936</div>
+                    <p style="font-size:0.8rem;color:var(--accent-negative);margin-top:0.25rem;">&minus;$8,279 (&minus;14.7%)</p>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Live Income <span class="badge watch" style="font-size:0.6rem;vertical-align:middle;margin:0;">WEEKLY</span></div>
+                    <div style="margin-top:0.5rem;">
+                        <span style="font-size:1.4rem;color:var(--text-muted);vertical-align:middle;">$</span>
+                        <input type="text" id="liveIncomeInput" value="47,936" style="background:var(--bg-tertiary);border:1px solid var(--border-color);border-radius:6px;color:var(--text-primary);font-size:2rem;font-weight:700;width:160px;padding:4px 8px;font-family:inherit;">
+                    </div>
+                    <p style="font-size:0.8rem;margin-top:0.25rem;" id="liveIncomeVariance" class="sotu-delta neg">&minus;$8,279 (&minus;14.7%)</p>
+                </div>
+            </div>
+
+            <!-- Row 3: Occupancy Metrics -->
+            <div class="sotu-content" style="margin-top:0;">
+                <div class="sotu-item">
+                    <div class="sotu-label">Target Occupancy</div>
+                    <div class="sotu-value" style="color:var(--accent-primary);">61 units</div>
+                    <p style="font-size:0.8rem;color:var(--accent-primary);margin-top:0.25rem;">100% (physical max)</p>
+                    <p style="font-size:0.8rem;color:var(--text-muted);">Target rent: $840/unit to hit income goal</p>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Current Occupancy</div>
+                    <div class="sotu-value">42 <span style="font-size:1.2rem;color:var(--text-muted);">/ 61</span></div>
+                    <p style="font-size:0.8rem;color:var(--accent-negative);margin-top:0.25rem;">68.9% &bull; 19 vacant</p>
+                    <div class="sotu-progress" style="margin-top:0.5rem;">
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                        <div class="progress-text">68.9% &mdash; Refi gate: 90%+</div>
+                    </div>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Avg In-Place Rent</div>
+                    <div class="sotu-value">$747</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">42 occupied &bull; rent roll</p>
+                    <p style="font-size:0.8rem;color:var(--text-muted);">Range: $600 – $788</p>
+                </div>
+            </div>
+
+            <!-- Row 4: All-In Revenue Per Unit (Feb 2026) -->
+            <div class="sotu-content" style="margin-top:0;">
+                <div class="sotu-item">
+                    <div class="sotu-label">All-In Revenue Per Unit <span class="badge watch" style="font-size:0.6rem;vertical-align:middle;margin:0;">FEB 2026</span></div>
+                    <div class="sotu-value">$814</div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Feb Total Income &divide; 54 occupied</p>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Breakdown Per Unit</div>
+                    <div style="margin-top:0.5rem;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.25rem;"><span style="color:var(--text-muted);">Rent</span><span style="font-weight:600;">$750</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.25rem;"><span style="color:var(--text-muted);">Utility RUBS</span><span style="font-weight:600;">$76</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.25rem;"><span style="color:var(--text-muted);">Fees &amp; Adjustments</span><span style="font-weight:600;">-$12</span></div>
+                    </div>
+                </div>
+                <div class="sotu-item">
+                    <div class="sotu-label">Feb Other Income (Non-Rent)</div>
+                    <div class="sotu-value">$3,473<span style="font-size:1rem;color:var(--text-muted);">/mo</span></div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">RUBS $4,114 + Fees $619 – Adj $1,274 + Other $14</p>
+                    <p style="font-size:0.8rem;color:var(--text-muted);">$64/unit &bull; income statement</p>
+                </div>
+            </div>
+
+            <!-- Bottom Strip: Gap Analysis -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:2px solid var(--border-color);margin-top:0.5rem;">
+                <div style="padding:1rem;text-align:center;border-right:1px solid var(--border-color);">
+                    <div class="sotu-label">Income Gap</div>
+                    <div style="font-size:1.5rem;font-weight:700;color:var(--accent-negative);margin-top:0.25rem;" id="incomeGapDisplay">+$8,279/mo</div>
+                </div>
+                <div style="padding:1rem;text-align:center;border-right:1px solid var(--border-color);">
+                    <div class="sotu-label">Units to Fill</div>
+                    <div style="font-size:1.5rem;font-weight:700;color:var(--accent-negative);margin-top:0.25rem;">+19</div>
+                </div>
+                <div style="padding:1rem;text-align:center;">
+                    <div class="sotu-label">Rent Needed at 100% Occ</div>
+                    <div style="font-size:1.5rem;font-weight:700;color:var(--accent-primary);margin-top:0.25rem;">$840 <span style="font-size:0.85rem;color:var(--accent-negative);">+$93/unit</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INCOME PROJECTION AT 100% -->
+        <div class="card">
+            <h2 class="card-title">Income Projection at 100% Occupancy</h2>
+            <div class="kpi-grid">
+                <div class="kpi-card success">
+                    <div class="kpi-value">61</div>
+                    <div class="kpi-label">Units Occupied @ 100%</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">$45,553</div>
+                    <div class="kpi-label">Monthly Rental Income</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">$3,923</div>
+                    <div class="kpi-label">Monthly Other Income ($64/unit)</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value" style="color:var(--accent-positive);">$49,476</div>
+                    <div class="kpi-label">Total Monthly Income</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">$593,716</div>
+                    <div class="kpi-label">Annualized Total Income</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value" style="color: var(--accent-primary);">+19</div>
+                    <div class="kpi-label">Additional Units Needed</div>
+                </div>
+            </div>
+
+            <!-- Refi Proceeds Summary at 100% -->
+            <div style="background:var(--bg-tertiary);border-radius:8px;padding:1.25rem;margin-top:1rem;">
+                <h3 style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent-primary);margin-bottom:0.75rem;">Estimated Refi Proceeds at Current Rents (6.5% Cap)</h3>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;">
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Stabilized NOI</div><div style="font-weight:700;font-size:1.1rem;" id="refiStabNOI">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Property Value</div><div style="font-weight:700;font-size:1.1rem;" id="refiPropValue">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Max Loan</div><div style="font-weight:700;font-size:1.1rem;" id="refiMaxLoan">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Current Payoff</div><div style="font-weight:700;font-size:1.1rem;">$1,635,193</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Net Proceeds</div><div style="font-weight:700;font-size:1.1rem;color:var(--accent-positive);" id="refiNetProceeds">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Equity Return</div><div style="font-weight:700;font-size:1.1rem;color:var(--accent-positive);" id="refiEquityReturn">—</div></div>
+                </div>
+            </div>
+
+            <!-- 100% Equity Return Scenario -->
+            <div style="background:var(--bg-tertiary);border:2px solid var(--accent-primary);border-radius:8px;padding:1.25rem;margin-top:1rem;">
+                <h3 style="font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent-primary);margin-bottom:0.75rem;">Solve for 100% Equity Return ($2,505,000) — 6.5% Cap</h3>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;">
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Required Rent/Unit</div><div style="font-weight:700;font-size:1.4rem;color:var(--accent-primary);" id="eqRetRent">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Increase from Current</div><div style="font-weight:700;font-size:1.1rem;color:var(--accent-primary);" id="eqRetIncrease">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Required Monthly Income</div><div style="font-weight:700;font-size:1.1rem;" id="eqRetIncome">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Required Annual NOI</div><div style="font-weight:700;font-size:1.1rem;" id="eqRetNOI">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Required Max Loan</div><div style="font-weight:700;font-size:1.1rem;" id="eqRetLoan">—</div></div>
+                    <div><div style="font-size:0.75rem;color:var(--text-muted);">Binding Constraint</div><div style="font-weight:700;font-size:1.1rem;" id="eqRetConstraint">—</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORICAL OCCUPANCY -->
+        <div class="card">
+            <h2 class="card-title">Historical Occupancy (T12)</h2>
+            <div class="kpi-grid" style="margin-bottom:1.5rem;">
+                <div class="kpi-card warning">
+                    <div class="kpi-value">42 <span style="font-size:1rem;color:var(--text-muted);">/ 61</span></div>
+                    <div class="kpi-label">Current (Apr 2, 2026)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value" style="color:var(--accent-primary);">57</div>
+                    <div class="kpi-label">T12 Average Occupied</div>
+                </div>
+                <div class="kpi-card warning">
+                    <div class="kpi-value">-19</div>
+                    <div class="kpi-label">Units Lost (Peak to Current)</div>
+                </div>
+                <div class="kpi-card warning">
+                    <div class="kpi-value">68.9%</div>
+                    <div class="kpi-label">Current Occupancy Rate</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="occupancyChart"></canvas>
+            </div>
+            <div class="callout warning" style="margin-top:1.5rem;">
+                <div class="callout-title">Occupancy Trend Alert</div>
+                <p>Occupancy has declined from 61 units (100%) in Apr–May 2025 to 42 units (68.9%) by April 2026 — a loss of 19 units in 11 months. The sharpest drop occurred Jan–Apr 2026 (61 → 42). This is the primary risk to refi eligibility and NOI stabilization. Turn time on vacant units is the critical bottleneck — only 2 of 19 vacant units are currently rent-ready.</p>
+            </div>
+        </div>
+
+        <!-- HISTORICAL PERFORMANCE CHARTS -->
+        <div class="card">
+            <h2 class="card-title">Historical Performance (Apr 2023 – Feb 2026)</h2>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-secondary);">Revenue & NOI Trend</h3>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-secondary);">Operating Expenses Trend</h3>
+            <div class="chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-secondary);">Net Income Trend</h3>
+            <div class="chart-container">
+                <canvas id="netIncomeChart"></canvas>
+            </div>
+
+            <div class="callout" style="margin-top: 2rem;">
+                <div class="callout-title">Data Notes</div>
+                <p>December 2023 and January 2024 reflect year-end journal entries and expense adjustments. Charts display normalized data. T12 average used for underwriting assumptions.</p>
+            </div>
+        </div>
+
+        <!-- REFI SCENARIO ANALYSIS -->
+        <div class="card">
+            <h2 class="card-title">Refinance Scenario Analysis</h2>
+
+            <div style="margin-bottom: 2rem;">
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Assumptions: 100% occupancy (61 units, $747 avg rent + $64/unit other income per Feb 2026), T12 avg operating expenses ($21,400/mo), 70% max LTV, 1.25x min DSCR, 6.5% refi rate on 30-year amortization. Value = Annual NOI / Cap Rate.</p>
+                <div class="table-wrapper">
+                    <table id="refiScenarioTable">
+                        <thead>
+                            <tr>
+                                <th>Cap Rate</th>
+                                <th>Property Value</th>
+                                <th>T12 Avg OpEx</th>
+                                <th>Stabilized NOI</th>
+                                <th>70% LTV Loan</th>
+                                <th>Max DSCR Loan</th>
+                                <th>Max Loan Amount</th>
+                                <th>Current Balance</th>
+                                <th>Gross Proceeds</th>
+                                <th>Closing Costs (2%)</th>
+                                <th>Net Proceeds</th>
+                            </tr>
+                        </thead>
+                        <tbody id="refiTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Refi Metrics Summary</div>
+                <p>Maximum loan amount is constrained by the lower of: (A) 70% of property value, or (B) NOI ÷ 1.25 ÷ 7.585% (6.5% rate on 30yr amort). Closing costs estimated at 2% of new loan. Net proceeds represent available capital after paying off current $1,635,193 balance. Current loan matures Jan 2041 (178 months remaining) — no maturity pressure, refi is opportunistic. Income includes rental + other income (utilities, fees) at $64/unit per Feb 2026 income statement.</p>
+            </div>
+        </div>
+
+        <!-- CRITICAL BLOCKERS -->
+        <div class="card">
+            <h2 class="card-title">Critical Blockers & Gates</h2>
+            <div class="kpi-grid">
+                <div class="kpi-card warning">
+                    <div class="kpi-value">19</div>
+                    <div class="kpi-label">Vacant Units</div>
+                </div>
+                <div class="kpi-card warning">
+                    <div class="kpi-value">68.9%</div>
+                    <div class="kpi-label">Current Occupancy</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">Jan 2041</div>
+                    <div class="kpi-label">Loan Maturity (178mo)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value" style="color: var(--accent-primary);">4.95%</div>
+                    <div class="kpi-label">Current Rate (Adjustable)</div>
+                </div>
+            </div>
+
+            <div class="callout warning" style="margin-top: 2rem;">
+                <div class="callout-title">Primary Gate: Occupancy</div>
+                <p>Property must reach <strong>90%+ occupancy for 3 consecutive months</strong> to qualify for agency refinance. Current 68.9% is 21.1 percentage points below gate. Need 55+ units occupied. No maturity pressure (178 months remaining) — refi is purely opportunistic for equity recapture and rate improvement.</p>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Rate Risk: Adjustable Rate Note</div>
+                <p>Current rate is <strong>4.95% adjustable</strong>. Variable Rate Details should be reviewed in the Arbor servicing portal to understand adjustment frequency, index, margin, caps, and next reset date. If rate adjusts upward, debt service increases and refi urgency may increase.</p>
+            </div>
+        </div>
+
+        <!-- OCCUPANCY ROADMAP -->
+        <div class="card">
+            <h2 class="card-title">Occupancy Roadmap to Refi Gate</h2>
+
+            <div class="roadmap-milestone reached">
+                <div class="roadmap-dot">✓</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-label">Acquisition & Stabilization (Mar 2023)</div>
+                    <div class="roadmap-stat">
+                        <div class="roadmap-stat-value">42 / 61</div>
+                        <div class="roadmap-stat-label">Units Occupied</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-milestone current">
+                <div class="roadmap-dot">●</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-label">Lease-Up Phase (Current)</div>
+                    <div class="roadmap-stat">
+                        <div class="roadmap-stat-value">68.9%</div>
+                        <div class="roadmap-stat-label">Occupancy</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-milestone future">
+                <div class="roadmap-dot">2</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-label">Target for Refi Preparation (75%+)</div>
+                    <div class="roadmap-stat">
+                        <div class="roadmap-stat-value">46+ Units</div>
+                        <div class="roadmap-stat-label">Est. 12–15 mo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-milestone future">
+                <div class="roadmap-dot">3</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-label">Refi Gate (95%+)</div>
+                    <div class="roadmap-stat">
+                        <div class="roadmap-stat-value">58+ Units</div>
+                        <div class="roadmap-stat-label">Est. 18–24 mo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VACANT UNIT STATUS TRACKER -->
+        <div class="card">
+            <h2 class="card-title">Vacant Unit Status Tracker</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Type</th>
+                            <th>SqFt</th>
+                            <th>Scheduled Rent</th>
+                            <th>Days Vacant</th>
+                            <th>Rent Ready</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vacantTable">
+                    </tbody>
+                </table>
+            </div>
+            <div class="callout" style="margin-top: 1.5rem;">
+                <div class="callout-title">Lease-Up Velocity</div>
+                <p>19 vacant units as of 04/02/2026 (Rent Manager export). Only 2 units are rent-ready (Units 27 &amp; 43). Average days vacant: 19. Scheduled rent $788 for most units. Turn time is the primary bottleneck — 17 of 19 units are not rent-ready.</p>
+            </div>
+        </div>
+
+        <!-- LOAN DETAIL -->
+        <div class="card">
+            <h2 class="card-title">Loan Detail (Consolidated)</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Loan Terms <span class="badge pass">CONFIRMED</span></h3>
+                    <table style="width: 100%; border: none;">
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Loan Number</td><td style="border:none;font-weight:600;text-align:right;">Freddie Mac SBL #508155231 / Arbor #308277</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Note Date</td><td style="border:none;font-weight:600;text-align:right;">January 29, 2021</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Original Principal</td><td style="border:none;font-weight:600;text-align:right;">$1,807,000</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Current UPB (3/19/2026)</td><td style="border:none;font-weight:600;text-align:right;">$1,635,193</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Interest Rate</td><td style="border:none;font-weight:600;text-align:right;color:var(--accent-primary);">4.950% (Adjustable)</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Loan Term</td><td style="border:none;font-weight:600;text-align:right;">240 months (20 years)</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Amortization</td><td style="border:none;font-weight:600;text-align:right;">360 months (30 years)</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Maturity</td><td style="border:none;font-weight:600;text-align:right;color:var(--accent-positive);">~January 2041</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Months Remaining</td><td style="border:none;font-weight:600;text-align:right;">178</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Remaining Amortization</td><td style="border:none;font-weight:600;text-align:right;">298 months</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Payment Type</td><td style="border:none;font-weight:600;text-align:right;">Amortizing (Actual/360)</td></tr>
+                        <tr style="border: none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">First Payment</td><td style="border:none;font-weight:600;text-align:right;">March 1, 2021</td></tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Monthly Payment (Apr 2026)</h3>
+                    <table style="width: 100%; border: none;">
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Principal</td><td style="border:none;font-weight:600;text-align:right;">$2,560</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Interest</td><td style="border:none;font-weight:600;text-align:right;">$6,970</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Tax Escrow</td><td style="border:none;font-weight:600;text-align:right;">$6,414</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Insurance Escrow</td><td style="border:none;font-weight:600;text-align:right;">$3,645</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Replacement Reserve</td><td style="border:none;font-weight:600;text-align:right;">$1,271</td></tr>
+                        <tr style="border:none;background:var(--bg-tertiary);"><td style="border:none;color:var(--text-primary);font-size:0.85rem;font-weight:700;">Total Payment</td><td style="border:none;font-weight:700;text-align:right;font-size:1.1rem;color:var(--accent-primary);">$20,860</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Late Fee (after 10th)</td><td style="border:none;font-weight:600;text-align:right;color:var(--accent-negative);">$477</td></tr>
+                    </table>
+
+                    <h3 style="margin:1.5rem 0 1rem;font-size:1rem;color:var(--text-secondary);">Escrow & Reserve Balances</h3>
+                    <table style="width: 100%; border: none;">
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Tax Escrow</td><td style="border:none;font-weight:600;text-align:right;">$23,923</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Insurance Escrow</td><td style="border:none;font-weight:600;text-align:right;">$0</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Replacement Reserve</td><td style="border:none;font-weight:600;text-align:right;color:var(--accent-positive);">$79,480</td></tr>
+                    </table>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Loan Administration</h3>
+                    <table style="width: 100%; border: none;">
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Originating Lender</td><td style="border:none;font-weight:600;text-align:right;">Arbor Agency Lending, LLC</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Servicer</td><td style="border:none;font-weight:600;text-align:right;">Arbor Multifamily Lending, LLC</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Securitization</td><td style="border:none;font-weight:600;text-align:right;">J.P. Morgan Chase 2021-SB87</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Trustee</td><td style="border:none;font-weight:600;text-align:right;">U.S. Bank National Association</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Assumed</td><td style="border:none;font-weight:600;text-align:right;">Mar 21, 2023</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">From</td><td style="border:none;font-weight:600;text-align:right;">Crapse Building One LLC</td></tr>
+                    </table>
+
+                    <h3 style="margin:1.5rem 0 1rem;font-size:1rem;color:var(--text-secondary);">Insurance &amp; Tax</h3>
+                    <table style="width: 100%; border: none;">
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Building Coverage</td><td style="border:none;font-weight:600;text-align:right;">$5,167,050</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">W&H + Property Premium</td><td style="border:none;font-weight:600;text-align:right;">$45,137/yr</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Policy Expiration</td><td style="border:none;font-weight:600;text-align:right;">3/21/2027</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Annual Taxes (2025)</td><td style="border:none;font-weight:600;text-align:right;">$77,613</td></tr>
+                        <tr style="border:none;"><td style="border:none;color:var(--text-muted);font-size:0.8rem;">Parcels</td><td style="border:none;font-weight:600;text-align:right;">3 (Hidalgo County)</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY DOCUMENTS -->
+        <div class="card">
+            <h2 class="card-title">Key Documents & Dropbox Index</h2>
+
+            <h3 style="margin: 1.5rem 0 1rem; font-size: 1rem; color: var(--text-secondary);">Closing Docs (Assumption, Mar 2023)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Assumption Agreement & Assignment</li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Title Insurance Commitment</li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Loan Assumption Settlement Statement (HUD-1)</li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Loan Terms Confirmed via Arbor Servicing Portal (Apr 2026)</li>
+            </ul>
+
+            <h3 style="margin: 1.5rem 0 1rem; font-size: 1rem; color: var(--text-secondary);">Property & Due Diligence</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Offering Memorandum & Pro Forma</li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Phase I Environmental Site Assessment</li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Engineering Report / Property Condition Assessment</li>
+                <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">✓ Rent Roll & Tenant Leases</li>
+            </ul>
+
+            <div class="callout" style="margin-top: 1.5rem;">
+                <div class="callout-title">Loan Terms Resolved</div>
+                <p>All critical loan terms confirmed via Arbor Multifamily servicing portal (Apr 2026): 240-month term, 4.95% adjustable rate, ~Jan 2041 maturity, $1,635,193 UPB, $20,860/mo total payment. Still recommended: download Variable Rate Details page to understand adjustment schedule and caps. Servicer contact: (877) 952-7267 / servicingcustomerservice@arbor.com</p>
+            </div>
+        </div>
+
+        <!-- ASSET DATABASE (COLLAPSIBLE) -->
+        <div>
+            <div class="expandable-header" id="assetDatabaseHeader">
+                <span>Asset Database & Contact Information</span>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="expandable-content" id="assetDatabaseContent">
+                <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Entity & Ownership</h3>
+                <table style="width: 100%; border: none; margin-bottom: 2rem;">
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Owner Entity</td>
+                        <td style="border: none; font-weight: 600;">Ka'anali 168 LLC</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">GP / Manager</td>
+                        <td style="border: none; font-weight: 600;">Studio 168 Productions</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Property Manager</td>
+                        <td style="border: none; font-weight: 600;">Silver Lands Management Group</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Acquisition Price</td>
+                        <td style="border: none; font-weight: 600;">$3,000,000</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Total Equity Invested</td>
+                        <td style="border: none; font-weight: 600;">$2,505,000</td>
+                    </tr>
+                </table>
+
+                <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Property Profile</h3>
+                <table style="width: 100%; border: none; margin-bottom: 2rem;">
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Property Name</td>
+                        <td style="border: none; font-weight: 600;">Ka'anali Apartments</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Location</td>
+                        <td style="border: none; font-weight: 600;">McAllen, TX (Hidalgo County)</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Unit Count</td>
+                        <td style="border: none; font-weight: 600;">61 (60×2BR/1BA + 1×1BR/1BA)</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Unit Size</td>
+                        <td style="border: none; font-weight: 600;">700 sqft each</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Total Build-Out</td>
+                        <td style="border: none; font-weight: 600;">~42,700 sqft</td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; color: var(--text-muted); font-size: 0.8rem;">Year Built</td>
+                        <td style="border: none; font-weight: 600;">~2015</td>
+                    </tr>
+                </table>
+
+                <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Contacts</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Contact information maintained in Dropbox and Monday.com. Update here as needed.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Disclaimer:</strong> This dashboard is for internal use only. All data subject to verification. Historical financial performance is not indicative of future results.</p>
+        <p>Last updated: April 2, 2026 | Dashboard version 2.0 (Refi-focused rebuild)</p>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop" title="Scroll to top">↑</button>
+
+    <script>
+        // ===== THEME TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeToggleIcon();
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggleIcon();
+        });
+
+        function updateThemeToggleIcon() {
+            const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+            themeToggle.textContent = isDark ? '🌙' : '☀️';
+        }
+
+        // ===== SCROLL TO TOP =====
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== EXPANDABLE SECTIONS =====
+        const expandableHeaders = document.querySelectorAll('.expandable-header');
+        expandableHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                header.classList.toggle('active');
+                content.classList.toggle('active');
+            });
+        });
+
+        // ===== HISTORICAL FINANCIAL DATA =====
+        const MONTHLY_DATA = {
+            labels: ['Apr 23','May 23','Jun 23','Jul 23','Aug 23','Sep 23','Oct 23','Nov 23','Dec 23',
+                     'Jan 24','Feb 24','Mar 24','Apr 24','May 24','Jun 24','Jul 24','Aug 24','Sep 24','Oct 24','Nov 24','Dec 24',
+                     'Jan 25','Feb 25','Mar 25','Apr 25','May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25',
+                     'Jan 26','Feb 26'],
+            rentalIncome: [35649,35835,37597,39240,38984,40278,38928,40476,39911,
+                           40172,42718,44729,44009,41152,41726,38240,37275,36600,36915,39194,38937,
+                           45019,40244,43328,41190,42386,45651,42548,44843,44616,43573,43369,43915,
+                           44509,40498],
+            noi: [15516,12390,16798,15352,15064,17393,17058,20702,15144,
+                  11863,22122,22606,21112,21336,22186,16767,18185,13790,26852,18403,18524,
+                  19919,18474,26971,26613,26575,22963,26655,29873,28014,28149,28201,28028,
+                  28882,21827],
+            totalExpense: [35086,30406,37367,36746,35802,36132,36227,36293,353653,
+                           50180,38406,38388,35663,37048,36491,31914,30136,31667,34289,33484,31415,
+                           36663,34015,35770,35360,37260,31949,36318,41309,38509,37980,35432,37137,
+                           37692,41240],
+            netIncome: [969,2022,6225,4834,4383,6423,5961,8821,-313423,
+                       -3886,11616,12071,12500,10663,11140,9996,12295,8054,15745,8708,9998,
+                       9250,8359,13367,12706,10796,12357,12062,8477,10567,11852,13667,12099,
+                       12910,2731]
+        };
+
+        // Get CSS variables for chart colors
+        function getCSSVar(varName) {
+            return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+        }
+
+        const accentPrimary = getCSSVar('--accent-primary');
+        const accentPositive = getCSSVar('--accent-positive');
+        const accentNegative = getCSSVar('--accent-negative');
+        const bgTertiary = getCSSVar('--bg-tertiary');
+        const textSecondary = getCSSVar('--text-secondary');
+
+        // Chart.js defaults
+        Chart.defaults.color = textSecondary;
+        Chart.defaults.borderColor = bgTertiary;
+
+        // Revenue & NOI Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: MONTHLY_DATA.labels,
+                datasets: [
+                    {
+                        label: 'Rental Income',
+                        data: MONTHLY_DATA.rentalIncome,
+                        borderColor: accentPrimary,
+                        backgroundColor: `rgba(232, 152, 94, 0.1)`,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointBackgroundColor: accentPrimary,
+                        yAxisID: 'y',
+                    },
+                    {
+                        label: 'NOI',
+                        data: MONTHLY_DATA.noi,
+                        borderColor: accentPositive,
+                        backgroundColor: `rgba(91, 185, 140, 0.1)`,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointBackgroundColor: accentPositive,
+                        yAxisID: 'y1',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true } },
+                    filler: { propagate: true }
+                },
+                scales: {
+                    y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Rental Income ($)' } },
+                    y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'NOI ($)' }, grid: { drawOnChartArea: false } }
+                }
+            }
+        });
+
+        // Expense Chart
+        const expenseCtx = document.getElementById('expenseChart').getContext('2d');
+        new Chart(expenseCtx, {
+            type: 'line',
+            data: {
+                labels: MONTHLY_DATA.labels,
+                datasets: [
+                    {
+                        label: 'Operating Expenses (Normalized)',
+                        data: MONTHLY_DATA.totalExpense.map((val, idx) => {
+                            // Normalize Dec 2023 (index 8) and Jan 2024 (index 9)
+                            if (idx === 8) return 36227; // Use prior month avg
+                            if (idx === 9) return 38406; // Use next month avg
+                            return val;
+                        }),
+                        borderColor: accentNegative,
+                        backgroundColor: `rgba(212, 114, 106, 0.1)`,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointBackgroundColor: accentNegative,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'top', labels: { usePointStyle: true } } },
+                scales: { y: { beginAtZero: true, title: { display: true, text: 'Monthly Expenses ($)' } } }
+            }
+        });
+
+        // Net Income Chart
+        const netIncomeCtx = document.getElementById('netIncomeChart').getContext('2d');
+        new Chart(netIncomeCtx, {
+            type: 'bar',
+            data: {
+                labels: MONTHLY_DATA.labels,
+                datasets: [
+                    {
+                        label: 'Net Income (Normalized)',
+                        data: MONTHLY_DATA.netIncome.map((val, idx) => {
+                            // Normalize Dec 2023 (index 8) and Jan 2024 (index 9)
+                            if (idx === 8) return 0;
+                            if (idx === 9) return 0;
+                            return val;
+                        }),
+                        backgroundColor: MONTHLY_DATA.netIncome.map((val, idx) => {
+                            if (idx === 8 || idx === 9) return `rgba(232, 152, 94, 0.3)`;
+                            return val >= 0 ? accentPositive : accentNegative;
+                        }),
+                        borderColor: MONTHLY_DATA.netIncome.map((val, idx) => {
+                            if (idx === 8 || idx === 9) return accentPrimary;
+                            return val >= 0 ? accentPositive : accentNegative;
+                        }),
+                        borderWidth: 1,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { title: { display: true, text: 'Monthly Net Income ($)' } } }
+            }
+        });
+
+        // ===== HISTORICAL OCCUPANCY CHART =====
+        const occupancyData = {
+            labels: ['Apr 25','May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26'],
+            occupied: [61, 61, 58, 53, 56, 60, 60, 61, 60, 55, 54, 50, 42],
+            total: 61
+        };
+
+        const occupancyCtx = document.getElementById('occupancyChart').getContext('2d');
+        new Chart(occupancyCtx, {
+            type: 'line',
+            data: {
+                labels: occupancyData.labels,
+                datasets: [
+                    {
+                        label: 'Occupied Units',
+                        data: occupancyData.occupied,
+                        borderColor: accentPrimary,
+                        backgroundColor: 'rgba(232, 152, 94, 0.15)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        pointRadius: 5,
+                        pointBackgroundColor: occupancyData.occupied.map(v => v >= 55 ? accentPositive : v >= 46 ? accentPrimary : accentNegative),
+                        pointBorderColor: occupancyData.occupied.map(v => v >= 55 ? accentPositive : v >= 46 ? accentPrimary : accentNegative),
+                        pointBorderWidth: 2,
+                        fill: true,
+                    },
+                    {
+                        label: '90% Refi Gate (55 units)',
+                        data: Array(occupancyData.labels.length).fill(55),
+                        borderColor: accentNegative,
+                        borderWidth: 2,
+                        borderDash: [8, 4],
+                        pointRadius: 0,
+                        fill: false,
+                    },
+                    {
+                        label: 'Total Units (61)',
+                        data: Array(occupancyData.labels.length).fill(61),
+                        borderColor: accentPositive,
+                        borderWidth: 1,
+                        borderDash: [4, 4],
+                        pointRadius: 0,
+                        fill: false,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true } },
+                    tooltip: {
+                        callbacks: {
+                            afterLabel: function(ctx) {
+                                if (ctx.datasetIndex === 0) {
+                                    const occ = ctx.raw;
+                                    const pct = ((occ / 61) * 100).toFixed(1);
+                                    return pct + '% occupancy | ' + (61 - occ) + ' vacant';
+                                }
+                                return '';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        min: 30,
+                        max: 65,
+                        title: { display: true, text: 'Units Occupied' },
+                        ticks: { stepSize: 5 }
+                    }
+                }
+            }
+        });
+
+        // ===== VACANT UNIT TRACKER (from Rent Manager export 04/02/2026) =====
+        const vacantUnitsData = [
+            { unit: '03', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '04/11/2026' },
+            { unit: '05', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 31, rentReady: false, lastMoveOut: '03/02/2026', availableOn: '03/12/2026' },
+            { unit: '07', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 20, rentReady: false, lastMoveOut: '03/13/2026', availableOn: '03/23/2026' },
+            { unit: '08', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 31, rentReady: false, lastMoveOut: '03/02/2026', availableOn: '03/20/2026' },
+            { unit: '09', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 20, rentReady: false, lastMoveOut: '03/13/2026', availableOn: '03/23/2026' },
+            { unit: '18', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '04/11/2026' },
+            { unit: '21', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '04/11/2026' },
+            { unit: '23', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '04/11/2026' },
+            { unit: '25', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 34, rentReady: false, lastMoveOut: '02/27/2026', availableOn: '03/09/2026' },
+            { unit: '27', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 61, rentReady: true,  lastMoveOut: '01/31/2026', availableOn: '02/10/2026' },
+            { unit: '35', type: '2BR / 2BA', sqft: 700, schedRent: 788, daysVacant: 24, rentReady: false, lastMoveOut: '03/09/2026', availableOn: '04/19/2026' },
+            { unit: '40', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '04/11/2026' },
+            { unit: '43', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 44, rentReady: true,  lastMoveOut: '02/17/2026', availableOn: '02/27/2026' },
+            { unit: '44', type: '2BR / 2BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '—' },
+            { unit: '48', type: '2BR / 2BA', sqft: 700, schedRent: 788, daysVacant: 24, rentReady: false, lastMoveOut: '03/09/2026', availableOn: '03/19/2026' },
+            { unit: '52', type: '2BR / 1BA', sqft: 700, schedRent: 780, daysVacant: 28, rentReady: false, lastMoveOut: '03/05/2026', availableOn: '03/15/2026' },
+            { unit: '53', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 24, rentReady: false, lastMoveOut: '03/09/2026', availableOn: '04/01/2026' },
+            { unit: '55', type: '2BR / 1BA', sqft: 700, schedRent: 788, daysVacant: 24, rentReady: false, lastMoveOut: '03/09/2026', availableOn: '04/19/2026' },
+            { unit: '58', type: '2BR / 2BA', sqft: 700, schedRent: 788, daysVacant: 1,  rentReady: false, lastMoveOut: '04/01/2026', availableOn: '—' }
+        ];
+        const vacantTable = document.getElementById('vacantTable');
+
+        vacantUnitsData.forEach(u => {
+            const readyBadge = u.rentReady
+                ? '<span class="badge pass">READY</span>'
+                : '<span class="badge fail">NOT READY</span>';
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${u.unit}</td>
+                <td>${u.type}</td>
+                <td>${u.sqft}</td>
+                <td>$${u.schedRent}</td>
+                <td>${u.daysVacant}</td>
+                <td>${readyBadge}</td>
+            `;
+            vacantTable.appendChild(row);
+        });
+
+        // ===== REFI SCENARIO ANALYSIS =====
+        function formatCurrency(val) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(val);
+        }
+
+        // T12 OPERATING expenses (= Total Income - NOI), NOT total expenses (which include debt service)
+        // Mar 2025 - Feb 2026
+        const t12OpEx = [22166, 21453, 21481, 21343, 21725, 19913, 21063, 21682, 20897, 21207, 21720, 22144];
+        const avgExpense = t12OpEx.reduce((a, b) => a + b, 0) / t12OpEx.length; // ~$21,400/mo
+
+        // Stabilized income @ 100% = 61 units × $746.77 rent + scaled other income
+        const stabilizedRentalIncome = 61 * 746.77;
+        const otherIncomePerUnit = 64; // Feb 2026 other income / 54 occupied units
+        const stabilizedOtherIncome = 61 * otherIncomePerUnit;
+        const stabilizedIncome = stabilizedRentalIncome + stabilizedOtherIncome;
+        const stabilizedNOI = stabilizedIncome - avgExpense;
+
+        // Refi scenarios at different cap rates
+        const capRates = [0.055, 0.060, 0.065, 0.070];
+        const currentBalance = 1635193;
+        const debtConstant = 0.07585; // 6.5% on 30yr
+        const maxLTV = 0.70;
+
+        const refiTableBody = document.getElementById('refiTableBody');
+
+        capRates.forEach(capRate => {
+            const annualNOI = stabilizedNOI * 12;
+            const propertyValue = annualNOI / capRate;
+            const maxLoanLTV = propertyValue * maxLTV;
+            const maxLoanDSCR = annualNOI / 1.25 / debtConstant;
+            const maxLoan = Math.min(maxLoanLTV, maxLoanDSCR);
+            const grossProceeds = maxLoan - currentBalance;
+            const closingCosts = maxLoan * 0.02;
+            const netProceeds = grossProceeds - closingCosts;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${(capRate * 100).toFixed(1)}%</td>
+                <td class="number">${formatCurrency(propertyValue)}</td>
+                <td class="number">${formatCurrency(avgExpense)}</td>
+                <td class="number">${formatCurrency(stabilizedNOI)}</td>
+                <td class="number">${formatCurrency(maxLoanLTV)}</td>
+                <td class="number">${formatCurrency(maxLoanDSCR)}</td>
+                <td class="number" style="font-weight: 600; color: var(--accent-primary);">${formatCurrency(maxLoan)}</td>
+                <td class="number">${formatCurrency(currentBalance)}</td>
+                <td class="number">${formatCurrency(grossProceeds)}</td>
+                <td class="number">${formatCurrency(closingCosts)}</td>
+                <td class="number" style="font-weight: 600; color: var(--accent-positive);">${formatCurrency(netProceeds)}</td>
+            `;
+            refiTableBody.appendChild(row);
+        });
+        // ===== LIVE INCOME CALCULATOR =====
+        (function() {
+            const TARGET = 56215;
+            const liveInput = document.getElementById('liveIncomeInput');
+            const liveVar = document.getElementById('liveIncomeVariance');
+            const gapEl = document.getElementById('incomeGapDisplay');
+
+            function num(s) { return parseFloat(String(s).replace(/[^0-9.\-]/g, '')) || 0; }
+            function fmt(n) { return n.toLocaleString('en-US', {maximumFractionDigits:0}); }
+
+            function update() {
+                const v = num(liveInput.value), d = v - TARGET, p = ((d / TARGET) * 100).toFixed(1);
+                if (d < 0) {
+                    liveVar.textContent = '\u2212$' + fmt(Math.abs(d)) + ' (' + p + '%)';
+                    liveVar.style.color = 'var(--accent-negative)';
+                } else if (d > 0) {
+                    liveVar.textContent = '+$' + fmt(d) + ' (+' + p + '%)';
+                    liveVar.style.color = 'var(--accent-positive)';
+                } else {
+                    liveVar.textContent = 'On target';
+                    liveVar.style.color = 'var(--accent-positive)';
+                }
+                const gap = TARGET - v;
+                gapEl.textContent = gap > 0 ? '+$' + fmt(gap) + '/mo' : '$0/mo';
+                gapEl.style.color = gap > 0 ? 'var(--accent-negative)' : 'var(--accent-positive)';
+            }
+
+            liveInput.addEventListener('input', update);
+            liveInput.addEventListener('blur', function() {
+                const v = num(this.value);
+                this.value = v > 0 ? fmt(v) : '0';
+            });
+        })();
+
+        // ===== REFI PROCEEDS SUMMARY (100% @ 6.5% cap) =====
+        (function() {
+            const annualNOI = stabilizedNOI * 12;
+            const propValue = annualNOI / 0.065;
+            const maxLoanLTV = propValue * 0.70;
+            const maxLoanDSCR = annualNOI / 1.25 / 0.07585;
+            const maxLoan = Math.min(maxLoanLTV, maxLoanDSCR);
+            const closingCosts = maxLoan * 0.02;
+            const netProceeds = maxLoan - currentBalance - closingCosts;
+            const equityReturn = (netProceeds / 2505000 * 100).toFixed(1);
+
+            document.getElementById('refiStabNOI').textContent = formatCurrency(annualNOI) + '/yr';
+            document.getElementById('refiPropValue').textContent = formatCurrency(propValue);
+            document.getElementById('refiMaxLoan').textContent = formatCurrency(maxLoan);
+            document.getElementById('refiNetProceeds').textContent = formatCurrency(netProceeds);
+            document.getElementById('refiEquityReturn').textContent = equityReturn + '%';
+        })();
+
+        // ===== 100% EQUITY RETURN SCENARIO =====
+        (function() {
+            const totalEquity = 2505000;
+            const capRate = 0.065;
+            // Solve: Net Proceeds = totalEquity
+            // 0.98 * MaxLoan - currentBalance = totalEquity
+            const requiredMaxLoan = (totalEquity + currentBalance) / 0.98;
+
+            // Check which constraint binds
+            const noiForDSCR = requiredMaxLoan * 1.25 * debtConstant;
+            const noiForLTV = requiredMaxLoan * capRate / maxLTV;
+            const requiredAnnualNOI = Math.max(noiForDSCR, noiForLTV);
+            const constraint = noiForDSCR > noiForLTV ? 'DSCR' : 'LTV';
+
+            const requiredMonthlyNOI = requiredAnnualNOI / 12;
+            const requiredMonthlyIncome = requiredMonthlyNOI + avgExpense;
+            const projectedOtherIncome = otherIncomePerUnit * 61;
+            const requiredRentalIncome = requiredMonthlyIncome - projectedOtherIncome;
+            const requiredRentPerUnit = requiredRentalIncome / 61;
+            const currentAvgRent = 747;
+            const increase = requiredRentPerUnit - currentAvgRent;
+            const increasePct = ((increase / currentAvgRent) * 100).toFixed(1);
+
+            document.getElementById('eqRetRent').textContent = formatCurrency(requiredRentPerUnit);
+            document.getElementById('eqRetIncrease').textContent = '+' + formatCurrency(increase) + '/unit (+' + increasePct + '%)';
+            document.getElementById('eqRetIncome').textContent = formatCurrency(requiredMonthlyIncome) + '/mo';
+            document.getElementById('eqRetNOI').textContent = formatCurrency(requiredAnnualNOI) + '/yr';
+            document.getElementById('eqRetLoan').textContent = formatCurrency(requiredMaxLoan);
+            document.getElementById('eqRetConstraint').textContent = constraint;
+        })();
+    </script>
+</body>
+</html>
