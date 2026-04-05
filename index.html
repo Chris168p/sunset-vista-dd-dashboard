@@ -1401,6 +1401,25 @@ body { background: var(--bg); }
   background: #FFF;
   animation: pulse 2s ease infinite;
 }
+.floating-logo {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity .3s ease;
+}
+.floating-logo.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.floating-logo img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
 
 /* ═══════════════════════════════════════
    TAX SHIELD CALCULATOR
@@ -1530,6 +1549,8 @@ body { background: var(--bg); }
   .tax-slider-group { flex-direction: column; gap: 20px; }
   .tax-results { grid-template-columns: 1fr; }
   .floating-cta { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 12px; }
+  .floating-logo { bottom: 16px; left: 16px; }
+  .floating-logo img { height: 40px; }
   /* Reduce animation overhead on mobile */
   .fade-section, .reveal { transition-duration: .4s !important; }
   .bar, .wf-bar { animation-duration: .5s !important; }
@@ -1570,6 +1591,11 @@ body { background: var(--bg); }
   Schedule a Call
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
 </a>
+
+<!-- FLOATING LOGO -->
+<div class="floating-logo" id="floatingLogo">
+  <img src="studio168_final-04.png" alt="Studio 168 Logo">
+</div>
 
 <!-- ═══════════════════════════════════════════
      TOP BRAND BAR
@@ -2437,6 +2463,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ═══ SCROLL PROGRESS BAR + FLOATING CTA (throttled, passive) ═══
   var progressBar = document.getElementById('scrollProgress');
   var floatingCta = document.getElementById('floatingCta');
+  var floatingLogo = document.getElementById('floatingLogo');
   var ctaShown = false;
   var scrollTicking = false;
 
@@ -2447,8 +2474,8 @@ document.addEventListener('DOMContentLoaded', function() {
       progressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
     }
     if (floatingCta) {
-      if (scrollTop > 600 && !ctaShown) { floatingCta.classList.add('visible'); ctaShown = true; }
-      else if (scrollTop <= 600 && ctaShown) { floatingCta.classList.remove('visible'); ctaShown = false; }
+      if (scrollTop > 50 && !ctaShown) { floatingCta.classList.add('visible'); if (floatingLogo) floatingLogo.classList.add('visible'); ctaShown = true; }
+      else if (scrollTop <= 50 && ctaShown) { floatingCta.classList.remove('visible'); if (floatingLogo) floatingLogo.classList.remove('visible'); ctaShown = false; }
     }
     scrollTicking = false;
   }
